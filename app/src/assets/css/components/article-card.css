@@ -1,0 +1,21 @@
+@layer components {
+  .card-category {
+    @apply text-sm font-semibold text-brand-accent;
+  }
+
+  .card-title {
+    @apply font-bold;
+  }
+
+  .card-footer {
+    @apply border-t border-brand-light dark:border-brand-dark/50 flex justify-between items-center;
+  }
+
+  .card-date {
+    @apply text-sm text-secondary-light dark:text-secondary-dark;
+  }
+
+  .card-link {
+    @apply text-brand-accent font-semibold group-hover:underline;
+  }
+}
