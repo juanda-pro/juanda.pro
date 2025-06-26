@@ -7,22 +7,22 @@
       <div class="flex items-center justify-between">
         <label for="essential-cookies" class="font-semibold text-primary-light dark:text-primary-dark">Cookies Esenciales</label>
         <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-          <input type="checkbox" name="essential-cookies" id="essential-cookies" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-not-allowed" checked disabled>
-          <label for="essential-cookies" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-not-allowed"></label>
+          <input type="checkbox" name="essential-cookies" id="essential-cookies" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-surface-light border-4 appearance-none cursor-not-allowed" checked disabled>
+          <label for="essential-cookies" class="toggle-label block overflow-hidden h-6 rounded-full bg-border-light cursor-not-allowed"></label>
         </div>
       </div>
-      <p class="text-sm text-tertiary-light dark:text-tertiary-dark">Estas cookies son estrictamente necesarias para proporcionar los servicios disponibles a través de nuestro sitio web y para usar algunas de sus funciones. No se pueden desactivar.</p>
+      <p class="text-sm text-secondary-light dark:text-secondary-dark">Estas cookies son estrictamente necesarias para proporcionar los servicios disponibles a través de nuestro sitio web y para usar algunas de sus funciones. No se pueden desactivar.</p>
 
       <div class="border-t border-border-light dark:border-border-dark my-4"></div>
 
       <div class="flex items-center justify-between">
         <label for="analytics-cookies" class="font-semibold text-primary-light dark:text-primary-dark">Cookies de Análisis</label>
         <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-          <input type="checkbox" name="analytics-cookies" id="analytics-cookies" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" v-model="analyticsEnabled">
-          <label for="analytics-cookies" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 dark:bg-gray-600 cursor-pointer"></label>
+          <input type="checkbox" name="analytics-cookies" id="analytics-cookies" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-surface-light border-4 appearance-none cursor-pointer" v-model="analyticsEnabled">
+          <label for="analytics-cookies" class="toggle-label block overflow-hidden h-6 rounded-full bg-border-light dark:bg-border-dark cursor-pointer"></label>
         </div>
       </div>
-      <p class="text-sm text-tertiary-light dark:text-tertiary-dark">Estas cookies nos ayudan a entender cómo se está utilizando nuestro sitio web o qué tan efectivas son nuestras campañas de marketing.</p>
+      <p class="text-sm text-secondary-light dark:text-secondary-dark">Estas cookies nos ayudan a entender cómo se está utilizando nuestro sitio web o qué tan efectivas son nuestras campañas de marketing.</p>
     </div>
 
     <div class="mt-6">
@@ -58,12 +58,10 @@ const savePreferences = () => {
 
 <style scoped>
 .toggle-checkbox:checked {
-  @apply: right-0 border-green-400;
-  right: 0;
-  border-color: #48bb78;
+  @apply right-0;
+  border-color: theme('colors.accent-success');
 }
 .toggle-checkbox:checked + .toggle-label {
-  @apply: bg-green-400;
-  background-color: #48bb78;
+  background-color: theme('colors.accent-success');
 }
 </style>

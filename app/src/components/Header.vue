@@ -23,7 +23,7 @@ const mobileMenuOpen = ref(false)
 </script>
 
 <template>
-  <header class="bg-white dark:bg-surface-deeper-dark sticky top-0 z-40 border-b border-border-light dark:border-border-dark transition-colors duration-300">
+  <header class="bg-surface-light dark:bg-surface-deeper-dark sticky top-0 z-40 border-b border-border-light dark:border-border-dark transition-colors duration-300">
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between h-20">
         <RouterLink to="/" class="text-2xl font-bold text-primary-light dark:text-primary-dark">
@@ -48,7 +48,7 @@ const mobileMenuOpen = ref(false)
           <ThemeToggle />
           <button
             type="button"
-            class="-m-2.5 ml-4 inline-flex items-center justify-center rounded-md p-2.5 text-tertiary-light dark:text-tertiary-dark"
+            class="-m-2.5 ml-4 inline-flex items-center justify-center rounded-md p-2.5 text-secondary-light dark:text-secondary-dark"
             @click="mobileMenuOpen = true"
           >
             <span class="sr-only">Abrir menú principal</span>
@@ -62,19 +62,19 @@ const mobileMenuOpen = ref(false)
     <TransitionRoot as="template" :show="mobileMenuOpen">
       <Dialog as="div" class="md:hidden" @close="mobileMenuOpen = false">
         <TransitionChild as="template" enter="transition-opacity ease-linear duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="transition-opacity ease-linear duration-300" leave-from="opacity-100" leave-to="opacity-0">
-          <div class="fixed inset-0 bg-black/25 dark:bg-black/50" />
+          <div class="fixed inset-0 bg-brand-dark/25 dark:bg-brand-dark/50" />
         </TransitionChild>
 
         <div class="fixed inset-0 z-40 flex justify-end">
           <TransitionChild as="template" enter="transition ease-in-out duration-300 transform" enter-from="translate-x-full" enter-to="translate-x-0" leave="transition ease-in-out duration-300 transform" leave-from="translate-x-0" leave-to="translate-x-full">
-            <DialogPanel class="relative ml-auto h-full w-full max-w-xs overflow-y-auto bg-white dark:bg-surface-deeper-dark py-6 px-6 shadow-xl">
+            <DialogPanel class="relative ml-auto h-full w-full max-w-xs overflow-y-auto bg-surface-light dark:bg-surface-deeper-dark py-6 px-6 shadow-xl">
               <div class="flex items-center justify-between">
                 <RouterLink to="/" class="text-2xl font-bold text-primary-light dark:text-primary-dark" @click="mobileMenuOpen = false">
                   juanda.pro
                 </RouterLink>
                 <button
                   type="button"
-                  class="-m-2.5 rounded-md p-2.5 text-tertiary-light dark:text-tertiary-dark"
+                  class="-m-2.5 rounded-md p-2.5 text-secondary-light dark:text-secondary-dark"
                   @click="mobileMenuOpen = false"
                 >
                   <span class="sr-only">Cerrar menú</span>

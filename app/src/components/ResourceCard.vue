@@ -12,26 +12,26 @@ const emit = defineEmits(['open']);
 
 const categoryStyles = computed(() => {
   const styles = {
-    'Plantillas Web': { // Brand color
-      bg: 'bg-brand-accent-light/10 dark:bg-brand-accent-dark/10',
-      text: 'text-brand-accent-light dark:text-brand-accent-dark',
-      ring: 'ring-brand-accent-light/20 dark:ring-brand-accent-dark/20',
-      iconBg: 'bg-brand-accent-light/20 dark:bg-brand-accent-dark/20',
-      iconText: 'text-brand-accent-light dark:text-brand-accent-dark',
+    'Plantillas Web': {
+      bg: 'bg-brand-accent/10 dark:bg-brand-accent/20',
+      text: 'text-brand-accent-darker dark:text-brand-accent',
+      ring: 'ring-brand-accent/20 dark:ring-brand-accent/30',
+      iconBg: 'bg-brand-accent/20 dark:bg-brand-accent/30',
+      iconText: 'text-brand-accent-darker dark:text-brand-accent',
     },
-    'N8N': { // Secondary, elegant color
-      bg: 'bg-sky-100 dark:bg-sky-900/50',
-      text: 'text-sky-800 dark:text-sky-300',
-      ring: 'ring-sky-500/30 dark:ring-sky-500/30',
-      iconBg: 'bg-sky-100 dark:bg-sky-800/50',
-      iconText: 'text-sky-600 dark:text-sky-400',
+    'N8N': {
+      bg: 'bg-accent-info/10 dark:bg-accent-info/20',
+      text: 'text-accent-info-darker dark:text-accent-info',
+      ring: 'ring-accent-info/20 dark:ring-accent-info/30',
+      iconBg: 'bg-accent-info/20 dark:bg-accent-info/30',
+      iconText: 'text-accent-info-darker dark:text-accent-info',
     },
-    'Make': { // Neutral, clean color
-      bg: 'bg-gray-100 dark:bg-gray-800',
-      text: 'text-gray-600 dark:text-gray-300',
-      ring: 'ring-gray-200 dark:ring-gray-700',
-      iconBg: 'bg-gray-200 dark:bg-gray-700/50',
-      iconText: 'text-gray-500 dark:text-gray-400',
+    'Make': {
+      bg: 'bg-surface-accent-light dark:bg-surface-accent-dark',
+      text: 'text-secondary-light dark:text-secondary-dark',
+      ring: 'ring-border-light dark:ring-border-dark',
+      iconBg: 'bg-surface-accent-light dark:bg-surface-accent-dark',
+      iconText: 'text-secondary-light dark:text-secondary-dark',
     },
   };
   return styles[props.resource.category] || {};
@@ -41,7 +41,7 @@ const categoryStyles = computed(() => {
 <template>
   <div 
     @click="emit('open', resource)"
-    class="cursor-pointer bg-white dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-950/50 hover:border-gray-300 dark:hover:border-gray-700 hover:-translate-y-1"
+    class="cursor-pointer bg-surface-light dark:bg-surface-dark p-6 rounded-xl border border-border-light dark:border-border-dark flex flex-col h-full transition-all duration-300 hover:shadow-xl dark:hover:shadow-surface-dark/50 hover:border-brand-accent/50 dark:hover:border-brand-accent/50 hover:-translate-y-1"
   >
     <div class="flex-grow">
       <div class="flex justify-between items-start mb-4">

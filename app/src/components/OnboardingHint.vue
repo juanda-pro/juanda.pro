@@ -33,7 +33,7 @@ function dismissHint() {
         leave-from-class="opacity-100"
         leave-to-class="opacity-0"
       >
-        <div v-if="showHint" class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-2xl ring-1 ring-black ring-opacity-5 border border-slate-200 dark:border-slate-700">
+        <div v-if="showHint" class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-surface-light dark:bg-surface-dark shadow-2xl border border-border-light dark:border-border-dark">
           <div class="p-4">
             <div class="flex items-start">
               <div class="flex-shrink-0">
@@ -44,7 +44,7 @@ function dismissHint() {
                 <p class="mt-1 text-sm text-secondary-light dark:text-secondary-dark">Toca el botón del menú en el borde para navegar por el contenido.</p>
               </div>
               <div class="ml-4 flex flex-shrink-0">
-                <button type="button" @click="dismissHint" class="inline-flex rounded-md bg-white dark:bg-slate-800 text-secondary-light dark:text-secondary-dark hover:text-primary-light dark:hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 dark:focus:ring-offset-slate-800">
+                <button type="button" @click="dismissHint" class="inline-flex rounded-md bg-surface-light dark:bg-surface-dark text-secondary-light dark:text-secondary-dark hover:text-primary-light dark:hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 focus:ring-offset-surface-light dark:focus:ring-offset-surface-dark">
                   <span class="sr-only">Cerrar</span>
                   <XMarkIcon class="h-5 w-5" aria-hidden="true" />
                 </button>

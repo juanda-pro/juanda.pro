@@ -52,14 +52,14 @@ const articulos = [
 <template>
   <div>
   <!-- Hero Section -->
-  <div class="min-h-screen flex items-center justify-center">
+  <div class="flex items-center justify-center">
     <Transition
       appear
       enter-from-class="opacity-0 translate-y-3"
       enter-active-class="transition-all duration-1000 ease-out"
       enter-to-class="opacity-100 translate-y-0"
     >
-      <div class="text-center max-w-3xl mx-auto px-4 py-20 md:py-32">
+      <div class="text-center max-w-3xl mx-auto px-4 pt-24 pb-16 sm:pt-32 sm:pb-20">
         <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-primary-light dark:text-primary-dark">
           ¡Despierta, que te come la IA!
         </h1>
@@ -99,8 +99,8 @@ const articulos = [
 
   <!-- Call to Action: Diagnóstico Personalizado -->
   <SectionWrapper>
-    <div class="relative max-w-4xl mx-auto overflow-hidden rounded-2xl bg-gradient-to-r from-brand-accent via-brand-secondary to-purple-500 p-1 shadow-2xl shadow-brand-accent/20">
-      <div class="relative z-10 text-center bg-surface-light dark:bg-surface-dark p-8 md:p-12 rounded-xl">
+          <div class="relative max-w-4xl mx-auto overflow-hidden rounded-2xl bg-gradient-to-r from-brand-accent via-accent-info to-purple-500 p-1 shadow-2xl shadow-brand-accent/20">
+      <div class="relative text-center pt-16 pb-12 px-4 bg-surface-light dark:bg-surface-dark rounded-xl">
         <div class="flex justify-center mb-6">
           <div class="flex items-center justify-center h-16 w-16 rounded-full bg-surface-light dark:bg-surface-dark shadow-lg">
             <SparklesIcon class="h-8 w-8 text-brand-accent" />
@@ -140,7 +140,7 @@ const articulos = [
   <!-- Sección de Contenido Destacado -->
   <SectionWrapper class="bg-surface-light dark:bg-surface-dark">
     <div class="text-center">
-      <h2 class="text-3xl font-extrabold text-gray-900 dark:text-gray-100 sm:text-4xl">
+      <h2 class="text-3xl font-extrabold text-primary-light dark:text-primary-dark sm:text-4xl">
         Un lugar al que volver
       </h2>
       <p class="mt-4 text-lg text-secondary-light dark:text-secondary-dark">

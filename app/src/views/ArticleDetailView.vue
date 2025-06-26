@@ -116,7 +116,7 @@ watch(() => route.params.slug, () => {
     <div v-else class="text-center py-48">
       <h2 class="text-2xl font-bold">Artículo no encontrado</h2>
       <p class="text-secondary-light mt-4">Parece que el artículo que buscas no existe o fue movido.</p>
-            <router-link to="/blog" class="mt-8 inline-block px-6 py-3 bg-brand-accent text-gray-900 font-semibold rounded-lg hover:bg-yellow-400 transition-colors">Volver al Blog</router-link>
+            <router-link to="/blog" class="mt-8 inline-block px-6 py-3 bg-brand-accent text-brand-dark font-semibold rounded-lg hover:bg-yellow-400 transition-colors">Volver al Blog</router-link>
     </div>
   </div>
 </template>
@@ -161,14 +161,14 @@ watch(() => route.params.slug, () => {
 .underline-blue {
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-  color: theme('colors.accent-info');
+    text-decoration-color: theme('colors.accent-info');
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
   text-decoration-skip-ink: none;
 }
 
 .underline-pink {
-  background-image: linear-gradient(to right, theme('colors.accent-pink'), theme('colors.accent-pink'));
+    background-image: linear-gradient(to right, theme('colors.brand-accent'), theme('colors.brand-accent'));
   background-repeat: no-repeat;
   background-position: 0 100%;
   background-size: 100% 3px;

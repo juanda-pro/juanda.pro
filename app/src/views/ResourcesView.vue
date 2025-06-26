@@ -120,7 +120,7 @@ function isSelected(category) {
                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
               </svg>
             </div>
-            <input v-model="searchQuery" type="text" placeholder="Buscar un recurso..." class="block w-full bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-full py-3 pl-10 pr-4 text-primary-light dark:text-primary-dark placeholder-gray-400 dark:placeholder-gray-500 focus:ring-brand-accent focus:border-brand-accent transition">
+            <input v-model="searchQuery" type="text" placeholder="Buscar un recurso..." class="block w-full bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-full py-3 pl-10 pr-4 text-primary-light dark:text-primary-dark placeholder-secondary-light dark:placeholder-secondary-dark focus:ring-brand-accent focus:border-brand-accent transition">
           </div>
         </div>
       </div>

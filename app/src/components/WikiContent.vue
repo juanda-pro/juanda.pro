@@ -13,10 +13,10 @@ function handleSelect(fileId) {
 </script>
 
 <template>
-  <div class="w-full h-full bg-white dark:bg-slate-800/30 rounded-xl shadow-sm border border-slate-200/80 dark:border-slate-700/60 p-8 lg:p-12">
+  <div class="w-full h-full bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-border-light dark:border-border-dark p-8 lg:p-12">
     <div v-if="file" class="w-full h-full">
       <MetadataRenderer :metadata="file.metadata" @select-relation="handleSelect" />
-      <article class="prose dark:prose-invert max-w-none prose-headings:font-serif prose-headings:text-primary-light dark:prose-headings:text-primary-dark prose-p:text-secondary-light dark:prose-p:text-secondary-dark prose-a:text-brand-accent hover:prose-a:text-brand-accent-dark">
+      <article class="prose dark:prose-invert max-w-none prose-headings:font-serif prose-headings:text-primary-light dark:prose-headings:text-primary-dark prose-p:text-secondary-light dark:prose-p:text-secondary-dark prose-a:text-brand-accent hover:prose-a:text-brand-accent-darker">
         <div v-html="file.content"></div>
       </article>
     </div>

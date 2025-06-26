@@ -61,11 +61,11 @@ onUnmounted(() => {
       leave-to-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
     >
       <div v-if="show" class="fixed inset-0 z-50 flex items-center justify-center" @click.self="close">
-        <div class="relative bg-white dark:bg-gray-900 w-full max-w-2xl max-h-[90vh] rounded-2xl shadow-xl flex flex-col overflow-hidden mx-4">
+        <div class="relative bg-surface-light dark:bg-surface-dark w-full max-w-2xl max-h-[90vh] rounded-2xl shadow-xl flex flex-col overflow-hidden mx-4">
           <!-- Header -->
-          <div class="flex-shrink-0 px-6 py-4 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between">
+          <div class="flex-shrink-0 px-6 py-4 border-b border-border-light dark:border-border-dark flex items-center justify-between">
             <h3 class="text-lg font-semibold font-serif text-primary-light dark:text-primary-dark">{{ resource.title }}</h3>
-            <button @click="close" class="p-1 rounded-full text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+            <button @click="close" class="p-1 rounded-full text-secondary-light dark:text-secondary-dark hover:bg-surface-accent-light dark:hover:bg-surface-accent-dark">
               <XMarkIcon class="h-6 w-6" />
             </button>
           </div>
@@ -82,7 +82,7 @@ onUnmounted(() => {
           </div>
 
           <!-- Footer -->
-          <div class="flex-shrink-0 px-6 py-4 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
+          <div class="flex-shrink-0 px-6 py-4 border-t border-border-light dark:border-border-dark bg-surface-accent-light dark:bg-surface-deeper-dark">
             <BaseButton :to="resource.url" target="_blank" rel="noopener noreferrer" class="w-full">
               {{ resource.buttonText }}
             </BaseButton>

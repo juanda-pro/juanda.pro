@@ -45,7 +45,7 @@ function selectFile(file) {
             <a href="#" @click.prevent="selectFile(child)" 
               :class="['flex items-center py-2 px-3 rounded-lg text-sm transition-colors duration-150 truncate', 
                        activeFileId === child.id 
-                         ? 'bg-slate-800 text-white dark:bg-slate-200 dark:text-slate-900 font-medium' 
+                         ? 'bg-brand-accent text-brand-dark dark:bg-brand-accent dark:text-primary-light font-medium' 
                          : 'hover:bg-surface-light dark:hover:bg-surface-dark text-secondary-light dark:text-secondary-dark']">
               <DocumentTextIcon class="w-4 h-4 mr-2 flex-shrink-0" />
               <span class="truncate">{{ child.name }}</span>
@@ -59,7 +59,7 @@ function selectFile(file) {
         <a href="#" @click.prevent="selectFile(node)" 
            :class="['flex items-center py-2 px-3 rounded-lg text-sm transition-colors duration-150 truncate', 
                     activeFileId === node.id 
-                      ? 'bg-slate-800 text-white dark:bg-slate-200 dark:text-slate-900 font-medium' 
+                      ? 'bg-brand-accent text-brand-dark dark:bg-brand-accent dark:text-primary-light font-medium' 
                       : 'hover:bg-surface-light dark:hover:bg-surface-dark text-secondary-light dark:text-secondary-dark']">
           <DocumentTextIcon class="w-4 h-4 mr-2 flex-shrink-0" />
           <span class="truncate">{{ node.name }}</span>

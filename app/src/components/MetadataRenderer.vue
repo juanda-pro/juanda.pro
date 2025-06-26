@@ -35,7 +35,7 @@ const formatDate = (dateString) => {
           <SparklesIcon class="h-5 w-5 text-secondary-light dark:text-secondary-dark mr-2" />
           <span class="sr-only">Formato</span>
         </dt>
-        <dd class="inline-flex items-center rounded-md bg-yellow-50 dark:bg-yellow-900/50 px-2 py-1 font-medium text-yellow-800 dark:text-yellow-300 ring-1 ring-inset ring-yellow-600/20 dark:ring-yellow-500/30">
+                  <dd class="inline-flex items-center rounded-md bg-brand-accent/10 dark:bg-brand-accent/20 px-2 py-1 font-medium text-brand-accent-darker dark:text-brand-accent ring-1 ring-inset ring-brand-accent/20 dark:ring-brand-accent/30">
           {{ metadata.format }}
         </dd>
       </div>
@@ -56,7 +56,7 @@ const formatDate = (dateString) => {
           <span class="sr-only">Notas relacionadas</span>
         </dt>
         <dd class="flex flex-wrap gap-2">
-          <a v-for="relation in metadata.relations" :key="relation.id" href="#" @click.prevent="emit('select-relation', relation.id)" class="inline-flex items-center rounded-md bg-surface-light dark:bg-surface-dark px-2 py-1 font-medium text-secondary-light dark:text-secondary-dark ring-1 ring-inset ring-border-light dark:ring-border-dark hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <a v-for="relation in metadata.relations" :key="relation.id" href="#" @click.prevent="emit('select-relation', relation.id)" class="inline-flex items-center rounded-md bg-surface-light dark:bg-surface-dark px-2 py-1 font-medium text-secondary-light dark:text-secondary-dark ring-1 ring-inset ring-border-light dark:ring-border-dark hover:bg-surface-accent-light dark:hover:bg-surface-accent-dark transition-colors">
             {{ relation.name }}
           </a>
         </dd>
