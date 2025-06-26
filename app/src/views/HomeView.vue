@@ -91,7 +91,7 @@ const articulos = [
       </h2>
     </div>
     <div class="mt-12 grid gap-8 sm:grid-cols-1 md:grid-cols-3">
-      <FeatureCard v-for="pilar in pilares" :key="pilar.title" :icon="pilar.icon" :title="pilar.title">
+            <FeatureCard v-for="pilar in pilares" :key="pilar.title" :icon="pilar.icon" :title="pilar.title" :colorClass="pilar.colorClass">
         {{ pilar.text }}
       </FeatureCard>
     </div>
