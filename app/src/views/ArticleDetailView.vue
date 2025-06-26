@@ -81,7 +81,7 @@ watch(() => route.params.slug, () => {
       <header class="pt-24 pb-12 sm:pt-32 sm:pb-16 text-center">
         <SectionWrapper>
           <p class="text-base font-semibold text-brand-accent mb-2">{{ article.category }}</p>
-          <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-carbon-black dark:text-white">{{ article.title }}</h1>
+                    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-primary-light dark:text-primary-dark">{{ article.title }}</h1>
           <div class="mt-6 text-sm text-secondary-light dark:text-secondary-dark flex items-center justify-center space-x-4">
             <span>{{ article.date }}</span>
             <span class="text-divider-light dark:text-divider-dark">•</span>
@@ -116,18 +116,18 @@ watch(() => route.params.slug, () => {
     <div v-else class="text-center py-48">
       <h2 class="text-2xl font-bold">Artículo no encontrado</h2>
       <p class="text-secondary-light mt-4">Parece que el artículo que buscas no existe o fue movido.</p>
-      <router-link to="/blog" class="mt-8 inline-block px-6 py-3 bg-brand-accent text-carbon-black font-semibold rounded-lg hover:bg-yellow-400 transition-colors">Volver al Blog</router-link>
+            <router-link to="/blog" class="mt-8 inline-block px-6 py-3 bg-brand-accent text-gray-900 font-semibold rounded-lg hover:bg-yellow-400 transition-colors">Volver al Blog</router-link>
     </div>
   </div>
 </template>
 
 <style scoped>
 .prose :where(h2):not(:where([class~="not-prose"] *)) {
-  @apply text-2xl sm:text-3xl font-bold mt-12 mb-6 text-carbon-black dark:text-white border-l-4 border-brand-accent pl-4;
+    @apply text-2xl sm:text-3xl font-bold mt-12 mb-6 text-primary-light dark:text-primary-dark border-l-4 border-brand-accent pl-4;
 }
 
 .prose :where(h3):not(:where([class~="not-prose"] *)) {
-  @apply text-xl sm:text-2xl font-bold mt-8 mb-4 text-carbon-black dark:text-white;
+    @apply text-xl sm:text-2xl font-bold mt-8 mb-4 text-primary-light dark:text-primary-dark;
 }
 
 .prose :where(p.lead):not(:where([class~="not-prose"] *)) {
