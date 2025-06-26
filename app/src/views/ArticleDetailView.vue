@@ -161,7 +161,7 @@ watch(() => route.params.slug, () => {
 .underline-blue {
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-color: theme('colors.accent-blue');
+  text-decoration-  color: theme('colors.accent-info');
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
   text-decoration-skip-ink: none;
