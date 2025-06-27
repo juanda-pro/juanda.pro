@@ -17,7 +17,7 @@ defineProps({
         <div v-html="note.icon" class="w-16 h-16"></div>
       </div>
       <div class="flex-grow p-6 pt-0 sm:pt-6 border-t sm:border-t-0 sm:border-l border-border-light dark:border-border-dark">
-        <span class="font-mono text-sm text-secondary-light dark:text-secondary-dark">#{{ note.category }}</span>
+        <span class="font-mono text-base text-secondary-light dark:text-secondary-dark">#{{ note.category }}</span>
         <h3 class="text-xl font-bold text-primary-light dark:text-primary-dark font-serif mt-1 mb-2">{{ note.title }}</h3>
         <div class="prose prose-sm dark:prose-invert max-w-none text-secondary-light dark:text-secondary-dark font-serif" v-html="note.content"></div>
       </div>

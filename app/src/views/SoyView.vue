@@ -11,7 +11,7 @@ import BaseButton from '@/components/BaseButton.vue';
           <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-primary-light dark:text-primary-dark mb-4">
             No soy un gurú. Soy un explorador.
           </h1>
-          <p class="text-lg md:text-xl text-secondary-light dark:text-secondary-dark">
+          <p class="text-xl md:text-2xl text-secondary-light dark:text-secondary-dark">
             Y este es el mapa de mi viaje.
           </p>
         </div>
@@ -60,6 +60,6 @@ import BaseButton from '@/components/BaseButton.vue';
 
 <style scoped>
 .prose.lead {
-  @apply text-xl md:text-2xl font-semibold text-primary-light dark:text-primary-dark;
+  @apply text-2xl md:text-3xl font-semibold text-primary-light dark:text-primary-dark;
 }
 </style>

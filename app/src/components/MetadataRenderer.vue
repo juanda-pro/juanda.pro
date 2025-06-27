@@ -18,7 +18,7 @@ const formatDate = (dateString) => {
 
 <template>
   <div v-if="metadata" class="mb-8 border-b border-border-light dark:border-border-dark pb-6">
-    <dl class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 text-sm">
+    <dl class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 text-base">
       
       <!-- Fecha de Creación -->
       <div v-if="metadata.createdAt" class="flex items-start" title="Fecha de creación">

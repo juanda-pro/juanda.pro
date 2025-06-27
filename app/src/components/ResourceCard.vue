@@ -1,40 +1,41 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
+
+interface CategoryStyle {
+  bg: string;
+  text: string;
+  ring: string;
+  iconBg: string;
+  iconText: string;
+}
 
 const props = defineProps({
   resource: {
-    type: Object,
+    type: Object as () => any,
     required: true
   }
 });
 
 const emit = defineEmits(['open']);
 
-const categoryStyles = computed(() => {
-  const styles = {
-    'Plantillas Web': {
-      bg: 'bg-brand-accent/10 dark:bg-brand-accent/20',
-      text: 'text-brand-accent-darker dark:text-brand-accent',
-      ring: 'ring-brand-accent/20 dark:ring-brand-accent/30',
-      iconBg: 'bg-brand-accent/20 dark:bg-brand-accent/30',
-      iconText: 'text-brand-accent-darker dark:text-brand-accent',
-    },
-    'N8N': {
-      bg: 'bg-accent-info/10 dark:bg-accent-info/20',
-      text: 'text-accent-info-darker dark:text-accent-info',
-      ring: 'ring-accent-info/20 dark:ring-accent-info/30',
-      iconBg: 'bg-accent-info/20 dark:bg-accent-info/30',
-      iconText: 'text-accent-info-darker dark:text-accent-info',
-    },
-    'Make': {
-      bg: 'bg-surface-accent-light dark:bg-surface-accent-dark',
-      text: 'text-secondary-light dark:text-secondary-dark',
-      ring: 'ring-border-light dark:ring-border-dark',
-      iconBg: 'bg-surface-accent-light dark:bg-surface-accent-dark',
-      iconText: 'text-secondary-light dark:text-secondary-dark',
-    },
+const categoryColorMap: Record<string, Omit<CategoryStyle, 'iconBg' | 'iconText'>> = {
+  'N8N': { bg: 'bg-purple-500/10', text: 'text-purple-400', ring: 'ring-purple-500/30' },
+  'Make': { bg: 'bg-red-500/10', text: 'text-red-400', ring: 'ring-red-500/30' },
+  'Plantillas Web': { bg: 'bg-yellow-500/10', text: 'text-yellow-400', ring: 'ring-yellow-500/30' },
+  'Default': { bg: 'bg-gray-500/10', text: 'text-gray-400', ring: 'ring-gray-500/30' },
+};
+
+const categoryStyles = computed<CategoryStyle>(() => {
+  const baseColors = categoryColorMap[props.resource.category] || categoryColorMap['Default'];
+  const iconColorMap: Record<string, { iconBg: string; iconText: string }> = {
+    'N8N': { iconBg: 'bg-purple-500/20', iconText: 'text-purple-400' },
+    'Make': { iconBg: 'bg-red-500/20', iconText: 'text-red-400' },
+    'Plantillas Web': { iconBg: 'bg-yellow-500/20', iconText: 'text-yellow-400' },
+    'Default': { iconBg: 'bg-gray-500/20', iconText: 'text-gray-400' },
   };
-  return styles[props.resource.category] || {};
+  const iconColors = iconColorMap[props.resource.category] || iconColorMap['Default'];
+
+  return { ...baseColors, ...iconColors };
 });
 </script>
 
@@ -52,14 +53,14 @@ const categoryStyles = computed(() => {
         >
         </div>
         <span 
-          class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset transition-colors duration-300"
+          class="inline-flex items-center rounded-md px-2 py-1 text-sm font-medium ring-1 ring-inset transition-colors duration-300"
           :class="[categoryStyles.bg, categoryStyles.text, categoryStyles.ring]"
         >
           {{ resource.category }}
         </span>
       </div>
       <h3 class="text-md font-semibold font-serif text-primary-light dark:text-primary-dark mb-2">{{ resource.title }}</h3>
-      <p class="text-sm text-secondary-light dark:text-secondary-dark">{{ resource.description }}</p>
+      <p class="text-base text-secondary-light dark:text-secondary-dark">{{ resource.description }}</p>
     </div>
   </div>
 </template>

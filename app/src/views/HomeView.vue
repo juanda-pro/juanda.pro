@@ -63,7 +63,7 @@ const articulos = [
         <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-primary-light dark:text-primary-dark">
           ¡Despierta, que te come la IA!
         </h1>
-        <p class="text-lg md:text-xl text-secondary-light dark:text-secondary-dark mb-10">
+        <p class="text-xl md:text-2xl text-secondary-light dark:text-secondary-dark mb-10">
           😂 Es broma, pero sí es importante empezar a usar estas "máquinas inteligentes" para no quedarnos atrás.
         </p>
 
@@ -74,10 +74,10 @@ const articulos = [
   <!-- Texto Puente -->
   <SectionWrapper class="text-center">
     <div class="max-w-3xl mx-auto">
-      <p class="text-lg sm:text-xl text-secondary-light dark:text-secondary-dark mb-6">
+      <p class="text-lg text-secondary-light dark:text-secondary-dark mb-6">
         Este proyecto nace de la convicción de que la tecnología bien entendida y usada puede ayudarnos a ser mejores humanos, más creativos, más conscientes y más libres.
       </p>
-      <p class="text-lg sm:text-xl text-secondary-light dark:text-secondary-dark">
+      <p class="text-lg text-secondary-light dark:text-secondary-dark">
         Muchas cosas están cambiando cada vez más rápido. Cuanto antes empecemos a adaptarnos mejor. Mi estrategia para hacerlo se basa en tres pilares que quiero compartir contigo:
       </p>
     </div>
@@ -126,7 +126,7 @@ const articulos = [
         <h2 class="text-3xl font-extrabold text-primary-light dark:text-primary-dark sm:text-4xl">
           ¡Hola! Soy Juanda.
         </h2>
-        <p class="mt-4 max-w-xl mx-auto md:mx-0 text-lg md:text-xl text-secondary-light dark:text-secondary-dark">
+        <p class="mt-4 max-w-xl mx-auto md:mx-0 text-lg text-secondary-light dark:text-secondary-dark">
           No soy un gurú, sino un explorador que, como tú, está navegando esta nueva era. Este espacio es mi bitácora de aprendizaje: un lugar donde documento mis experimentos, comparto herramientas que funcionan y reflexiono sobre cómo la tecnología puede, de verdad, hacernos mejores. Lo que encuentres aquí es fruto de la curiosidad y la práctica.
         </p>
       </div>

@@ -81,8 +81,8 @@ watch(() => route.params.slug, () => {
       <header class="pt-24 pb-12 sm:pt-32 sm:pb-16 text-center">
         <SectionWrapper>
           <p class="text-base font-semibold text-brand-accent mb-2">{{ article.category }}</p>
-                    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-primary-light dark:text-primary-dark">{{ article.title }}</h1>
-          <div class="mt-6 text-sm text-secondary-light dark:text-secondary-dark flex items-center justify-center space-x-4">
+                    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-primary-light dark:text-primary-dark">{{ article.title }}</h1>
+          <div class="mt-6 text-base text-secondary-light dark:text-secondary-dark flex items-center justify-center space-x-4">
             <span>{{ article.date }}</span>
             <span class="text-divider-light dark:text-divider-dark">•</span>
             <span>{{ article.readingTime }}</span>
@@ -131,7 +131,7 @@ watch(() => route.params.slug, () => {
 }
 
 .prose :where(p.lead):not(:where([class~="not-prose"] *)) {
-  @apply text-xl sm:text-2xl text-secondary-light dark:text-secondary-dark font-serif;
+  @apply text-xl text-secondary-light dark:text-secondary-dark font-serif;
 }
 
 .prose :where(blockquote):not(:where([class~="not-prose"] *)) {

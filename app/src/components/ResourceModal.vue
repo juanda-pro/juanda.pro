@@ -64,7 +64,7 @@ onUnmounted(() => {
         <div class="relative bg-surface-light dark:bg-surface-dark w-full max-w-2xl max-h-[90vh] rounded-2xl shadow-xl flex flex-col overflow-hidden mx-4">
           <!-- Header -->
           <div class="flex-shrink-0 px-6 py-4 border-b border-border-light dark:border-border-dark flex items-center justify-between">
-            <h3 class="text-lg font-semibold font-serif text-primary-light dark:text-primary-dark">{{ resource.title }}</h3>
+            <h3 class="text-xl font-semibold font-serif text-primary-light dark:text-primary-dark">{{ resource.title }}</h3>
             <button @click="close" class="p-1 rounded-full text-secondary-light dark:text-secondary-dark hover:bg-surface-accent-light dark:hover:bg-surface-accent-dark">
               <XMarkIcon class="h-6 w-6" />
             </button>

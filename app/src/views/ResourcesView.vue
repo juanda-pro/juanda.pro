@@ -51,8 +51,6 @@ const resources = ref([
 
 const allCategories = ['N8N', 'Make', 'Plantillas Web'];
 const selectedCategories = ref([]);
-const searchQuery = ref('');
-
 const isModalOpen = ref(false);
 const selectedResource = ref(null);
 
@@ -66,25 +64,12 @@ function closeResourceModal() {
 }
 
 const filteredResources = computed(() => {
-  let result = resources.value;
-
-  // Filtrar por categoría
-  if (selectedCategories.value.length > 0) {
-    result = result.filter(resource => 
-      selectedCategories.value.includes(resource.category)
-    );
+  if (selectedCategories.value.length === 0) {
+    return resources.value;
   }
-
-  // Filtrar por búsqueda
-  if (searchQuery.value.trim() !== '') {
-    const lowerCaseQuery = searchQuery.value.toLowerCase();
-    result = result.filter(resource => 
-      resource.title.toLowerCase().includes(lowerCaseQuery) ||
-      resource.description.toLowerCase().includes(lowerCaseQuery)
-    );
-  }
-
-  return result;
+  return resources.value.filter(resource => 
+    selectedCategories.value.includes(resource.category)
+  );
 });
 
 function toggleCategory(category) {
@@ -108,21 +93,9 @@ function isSelected(category) {
         <PageHeader>
           Recursos
         </PageHeader>
-        <p class="-mt-8 max-w-3xl mx-auto text-center text-lg sm:text-xl text-secondary-light dark:text-secondary-dark">
+        <p class="-mt-8 max-w-3xl mx-auto text-center text-xl sm:text-2xl text-secondary-light dark:text-secondary-dark">
           Una colección curada de herramientas, plantillas y recursos que uso en mi día a día. Directo al grano, sin rodeos.
         </p>
-
-        <!-- Barra de Búsqueda -->
-        <div class="mt-12 max-w-xl mx-auto">
-          <div class="relative">
-            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-secondary-light dark:text-secondary-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-              </svg>
-            </div>
-            <input v-model="searchQuery" type="text" placeholder="Buscar un recurso..." class="block w-full bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-full py-3 pl-10 pr-4 text-primary-light dark:text-primary-dark placeholder-secondary-light dark:placeholder-secondary-dark focus:ring-brand-accent focus:border-brand-accent transition">
-          </div>
-        </div>
       </div>
     </SectionWrapper>
 

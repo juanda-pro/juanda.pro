@@ -40,8 +40,8 @@ function dismissHint() {
                 <ArrowUturnLeftIcon class="h-6 w-6 text-brand-accent" aria-hidden="true" />
               </div>
               <div class="ml-3 w-0 flex-1 pt-0.5">
-                <p class="text-sm font-medium text-primary-light dark:text-primary-dark">¡Explora las notas!</p>
-                <p class="mt-1 text-sm text-secondary-light dark:text-secondary-dark">Toca el botón del menú en el borde para navegar por el contenido.</p>
+                <p class="text-base font-medium text-primary-light dark:text-primary-dark">¡Explora las notas!</p>
+                <p class="mt-1 text-base text-secondary-light dark:text-secondary-dark">Toca el botón del menú en el borde para navegar por el contenido.</p>
               </div>
               <div class="ml-4 flex flex-shrink-0">
                 <button type="button" @click="dismissHint" class="inline-flex rounded-md bg-surface-light dark:bg-surface-dark text-secondary-light dark:text-secondary-dark hover:text-primary-light dark:hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 focus:ring-offset-surface-light dark:focus:ring-offset-surface-dark">

@@ -127,7 +127,7 @@ function handleSelectFile(fileId) {
           <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-primary-light dark:text-primary-dark mb-4">
             Cuaderno Digital
           </h1>
-          <p class="text-lg md:text-xl text-secondary-light dark:text-secondary-dark">
+          <p class="text-xl md:text-2xl text-secondary-light dark:text-secondary-dark">
             Un espacio de aprendizaje abierto. Conceptos, proyectos, sistemas y procedimientos.
           </p>
         </div>

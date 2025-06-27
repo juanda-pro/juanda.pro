@@ -13,7 +13,7 @@ import BaseButton from '@/components/BaseButton.vue';
           <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-primary-light dark:text-primary-dark mb-4">
             ¿Tienes algo en mente?
           </h1>
-          <p class="text-lg md:text-xl text-secondary-light dark:text-secondary-dark">
+          <p class="text-xl md:text-2xl text-secondary-light dark:text-secondary-dark">
             Me encantaría escucharte. Ya sea una idea, un proyecto o simplemente para saludar, este es el lugar.
           </p>
         </div>

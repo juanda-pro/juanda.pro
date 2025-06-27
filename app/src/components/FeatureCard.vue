@@ -1,10 +1,11 @@
 <template>
   <div class="
     group relative rounded-2xl p-8 h-full
-    bg-surface-light dark:bg-surface-dark group-hover:bg-brand-dark dark:group-hover:bg-brand-accent
+    bg-surface-light dark:bg-surface-dark
     border border-border-light dark:border-border-dark
-    transition-all duration-300 ease-in-out
-    hover:border-brand-accent
+    transition-all duration-300
+    hover:shadow-xl dark:hover:shadow-surface-dark/50 
+    hover:border-brand-accent/50 dark:hover:border-brand-accent/50 
     hover:-translate-y-2
   ">
     
