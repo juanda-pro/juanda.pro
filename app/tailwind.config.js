@@ -14,22 +14,7 @@ module.exports = {
         // Fuentes base del proyecto
         sans: ['"Figtree"', 'sans-serif'],
         heading: ['"Plus Jakarta Sans"', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
-
-        // Clases específicas del laboratorio (se mantienen por referencia)
-        'heading-1': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'body-1': ['"Figtree"', 'sans-serif'],
-        'heading-2': ['"Playfair Display"', 'serif'],
-        'body-2': ['"Lora"', 'serif'],
-        'heading-3': ['"Manrope"', 'sans-serif'],
-        'body-3': ['"Source Serif Pro"', 'serif'],
-        'mono-1': ['"JetBrains Mono"', 'monospace'],
-        'heading-4': ['"Montserrat"', 'sans-serif'],
-        'body-4': ['"Lato"', 'sans-serif'],
-        'heading-5': ['"Nunito"', 'sans-serif'],
-        'body-5': ['"Figtree"', 'sans-serif'],
-        'heading-6': ['"Lato"', 'sans-serif'],
-        'body-6': ['"Lora"', 'serif'],
+        mono: ['"JetBrains Mono"', 'monospace']
       },
       colors: {
         'brand-dark': '#121214',
@@ -68,9 +53,7 @@ module.exports = {
         'dot-light': 'rgba(0, 0, 0, 0.18)',
         'dot-dark': 'rgba(255, 255, 255, 0.11)',
       },
-      fontFamily: {
-        serif: ['Lora', 'serif'],
-      }
+
     },
   },
   plugins: [
