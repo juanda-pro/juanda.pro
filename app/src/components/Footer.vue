@@ -2,7 +2,7 @@
   <footer class="bg-surface-light dark:bg-surface-deeper-dark transition-colors duration-300">
     <div class="container mx-auto px-4 py-16 md:py-24 text-center">
       
-      <h2 class="text-4xl md:text-5xl font-bold text-primary-light dark:text-primary-dark mb-4">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold text-primary-light dark:text-primary-dark mb-4">
         Hablemos.
       </h2>
       

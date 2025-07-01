@@ -26,7 +26,7 @@ const mobileMenuOpen = ref(false)
   <header class="bg-surface-light dark:bg-surface-deeper-dark sticky top-0 z-40 border-b border-border-light dark:border-border-dark transition-colors duration-300">
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between h-20">
-        <RouterLink to="/" class="text-2xl font-bold text-primary-light dark:text-primary-dark">
+        <RouterLink to="/" class="font-heading text-2xl font-bold text-primary-light dark:text-primary-dark">
           juanda.pro
         </RouterLink>
         
@@ -69,7 +69,7 @@ const mobileMenuOpen = ref(false)
           <TransitionChild as="template" enter="transition ease-in-out duration-300 transform" enter-from="translate-x-full" enter-to="translate-x-0" leave="transition ease-in-out duration-300 transform" leave-from="translate-x-0" leave-to="translate-x-full">
             <DialogPanel class="relative ml-auto h-full w-full max-w-xs overflow-y-auto bg-surface-light dark:bg-surface-deeper-dark py-6 px-6 shadow-xl">
               <div class="flex items-center justify-between">
-                <RouterLink to="/" class="text-2xl font-bold text-primary-light dark:text-primary-dark" @click="mobileMenuOpen = false">
+                <RouterLink to="/" class="font-heading text-2xl font-bold text-primary-light dark:text-primary-dark" @click="mobileMenuOpen = false">
                   juanda.pro
                 </RouterLink>
                 <button
