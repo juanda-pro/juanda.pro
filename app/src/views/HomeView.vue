@@ -57,14 +57,14 @@ const articulos = [
 <template>
   <div>
   <!-- Hero Section -->
-  <div class="flex items-center justify-center">
+  <SectionWrapper>
     <Transition
       appear
       enter-from-class="opacity-0 translate-y-3"
       enter-active-class="transition-all duration-1000 ease-out"
       enter-to-class="opacity-100 translate-y-0"
     >
-      <div class="text-center max-w-3xl mx-auto px-4 pt-24 pb-16 sm:pt-32 sm:pb-20">
+      <div class="text-center max-w-3xl mx-auto">
         <h1 class="text-5xl md:text-7xl font-extrabold font-heading tracking-tight mb-6 text-primary-light dark:text-primary-dark">
           ¡Despierta, que te come la IA!
         </h1>
@@ -74,7 +74,7 @@ const articulos = [
 
       </div>
     </Transition>
-  </div>
+  </SectionWrapper>
 
   <!-- Sección Quién Soy -->
   <SectionWrapper class="overflow-hidden">

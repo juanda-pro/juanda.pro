@@ -25,8 +25,8 @@ const mobileMenuOpen = ref(false)
 <template>
   <header class="bg-surface-light dark:bg-surface-deeper-dark sticky top-0 z-40 border-b border-border-light dark:border-border-dark transition-colors duration-300">
     <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between h-20">
-        <RouterLink to="/" class="font-heading text-2xl font-bold text-primary-light dark:text-primary-dark">
+      <div class="flex items-center justify-between h-16">
+        <RouterLink to="/" class="font-heading text-2xl font-bold text-primary-light dark:text-primary-dark rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent focus-visible:ring-offset-surface-light dark:focus-visible:ring-offset-surface-deeper-dark">
           juanda.pro
         </RouterLink>
         
@@ -36,7 +36,7 @@ const mobileMenuOpen = ref(false)
             v-for="link in navLinks"
             :key="link.name"
             :to="link.path"
-            class="text-secondary-light dark:text-secondary-dark hover:text-brand-accent dark:hover:text-brand-accent font-medium transition-colors"
+            class="text-secondary-light dark:text-secondary-dark hover:text-brand-accent dark:hover:text-brand-accent font-medium transition-colors rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent [&.router-link-exact-active]:text-brand-accent"
           >
             {{ link.name }}
           </RouterLink>
@@ -48,7 +48,7 @@ const mobileMenuOpen = ref(false)
           <ThemeToggle />
           <button
             type="button"
-            class="-m-2.5 ml-4 inline-flex items-center justify-center rounded-md p-2.5 text-secondary-light dark:text-secondary-dark"
+            class="-m-2.5 ml-4 inline-flex items-center justify-center rounded-md p-2.5 text-secondary-light dark:text-secondary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
             @click="mobileMenuOpen = true"
           >
             <span class="sr-only">Abrir menú principal</span>
@@ -69,12 +69,12 @@ const mobileMenuOpen = ref(false)
           <TransitionChild as="template" enter="transition ease-in-out duration-300 transform" enter-from="translate-x-full" enter-to="translate-x-0" leave="transition ease-in-out duration-300 transform" leave-from="translate-x-0" leave-to="translate-x-full">
             <DialogPanel class="relative ml-auto h-full w-full max-w-xs overflow-y-auto bg-surface-light dark:bg-surface-deeper-dark py-6 px-6 shadow-xl">
               <div class="flex items-center justify-between">
-                <RouterLink to="/" class="font-heading text-2xl font-bold text-primary-light dark:text-primary-dark" @click="mobileMenuOpen = false">
+                <RouterLink to="/" class="font-heading text-2xl font-bold text-primary-light dark:text-primary-dark rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent focus-visible:ring-offset-surface-light dark:focus-visible:ring-offset-surface-deeper-dark" @click="mobileMenuOpen = false">
                   juanda.pro
                 </RouterLink>
                 <button
                   type="button"
-                  class="-m-2.5 rounded-md p-2.5 text-secondary-light dark:text-secondary-dark"
+                  class="-m-2.5 rounded-md p-2.5 text-secondary-light dark:text-secondary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
                   @click="mobileMenuOpen = false"
                 >
                   <span class="sr-only">Cerrar menú</span>
@@ -89,7 +89,7 @@ const mobileMenuOpen = ref(false)
                       :key="link.name"
                       :to="link.path"
                       @click="mobileMenuOpen = false"
-                      class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-primary-light dark:text-primary-dark hover:bg-surface-accent-light dark:hover:bg-surface-accent-dark"
+                      class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-primary-light dark:text-primary-dark hover:bg-surface-accent-light dark:hover:bg-surface-accent-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent [&.router-link-exact-active]:bg-surface-accent-light dark:[&.router-link-exact-active]:bg-surface-accent-dark [&.router-link-exact-active]:text-brand-accent"
                     >
                       {{ link.name }}
                     </RouterLink>

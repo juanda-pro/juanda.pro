@@ -1,6 +1,5 @@
 <script setup>
 import SectionWrapper from '@/components/SectionWrapper.vue';
-import BaseButton from '@/components/BaseButton.vue';
 </script>
 
 <template>
@@ -22,7 +21,7 @@ import BaseButton from '@/components/BaseButton.vue';
       <div class="relative flex justify-center mb-16">
         <div class="absolute w-full max-w-5xl h-4/5 bg-brand-accent/10 dark:bg-brand-accent/20 rounded-3xl transform -rotate-2"></div>
         <img 
-          src="https://via.placeholder.com/1200x800.png/1F2937/FFFFFF?text=Foto+de+Juanda"
+          src="https://placehold.co/1280x720/1f2937/ffffff?text=Imagen+de+Juanda+explorando"
           alt="Foto de Juanda explorando"
           class="relative w-full max-w-4xl rounded-3xl shadow-2xl object-cover"
         />
@@ -32,7 +31,7 @@ import BaseButton from '@/components/BaseButton.vue';
     <SectionWrapper>
       <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto prose prose-lg lg:prose-xl dark:prose-invert text-secondary-light dark:text-secondary-dark">
-          <p class="lead">
+          <p class="text-2xl md:text-3xl font-semibold text-primary-light dark:text-primary-dark">
             Como tú, navego el acelerado cambio tecnológico de nuestro tiempo. Observo con curiosidad y asombro cómo la IA redefine las reglas del juego, y también he sentido ese vértigo al preguntarme: ¿qué lugar tendremos los humanos en este nuevo mundo?
           </p>
           <p>
@@ -58,8 +57,4 @@ import BaseButton from '@/components/BaseButton.vue';
   </div>
 </template>
 
-<style scoped>
-.prose.lead {
-  @apply text-2xl md:text-3xl font-semibold text-primary-light dark:text-primary-dark;
-}
-</style>
+

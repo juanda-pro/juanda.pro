@@ -34,12 +34,7 @@ onMounted(() => {
         gsap.set(icons.slice(1), { autoAlpha: 0 });
 
         // Anclamos el contenedor de los iconos
-        ScrollTrigger.create({
-          trigger: main.value,
-          start: 'top top',
-          end: 'bottom bottom',
-          pin: '.sticky-container',
-        });
+
 
         // Creamos una animación para cada panel de texto
         panels.forEach((panel, i) => {
@@ -73,26 +68,31 @@ onUnmounted(() => {
 <template>
   <div ref="main">
     <!-- Layout para Escritorio (md y superior) -->
-    <div class="hidden md:grid grid-cols-2 gap-16 items-start">
+    <div class="hidden md:flex gap-12">
       <!-- Columna de Texto -->
-      <div class="space-y-48 py-24">
-        <div v-for="feature in features" :key="feature.title" class="feature-text-panel min-h-[80vh] flex flex-col justify-center">
-          <h3 class="text-4xl font-bold font-heading text-primary mb-6">{{ feature.title }}</h3>
-          <p class="text-lg text-secondary leading-relaxed">
+      <div class="w-1/2">
+        <div v-for="feature in features" :key="feature.title" class="feature-text-panel flex flex-col justify-center" style="min-height: calc(100vh - 4rem);">
+          <h3 class="text-4xl font-bold font-heading text-primary-light dark:text-primary-dark mb-8">{{ feature.title }}</h3>
+          <p class="text-xl text-secondary-light dark:text-secondary-dark leading-loose">
             {{ feature.text }}
           </p>
         </div>
       </div>
 
-      <!-- Columna de Icono Fija -->
-      <div class="sticky-container h-screen flex items-center justify-center">
-        <div class="relative w-full max-w-md aspect-square flex items-center justify-center">
-          <component
-            v-for="(feature) in features"
-            :key="feature.title + '-icon'"
-            :is="feature.icon"
-            :class="['feature-icon absolute h-3/5 w-3/5', feature.colorClass]"
-          />
+      <!-- Columna de Imagen Fija -->
+      <div class="w-1/2">
+        <div class="sticky top-[4rem] h-[calc(100vh-4rem)]">
+          <div class="flex h-full items-center justify-center">
+            <div class="relative w-full max-w-md aspect-square flex items-center justify-center bg-surface-light dark:bg-surface-dark rounded-2xl shadow-lg border border-border-light dark:border-border-dark p-8">
+              <img
+                v-for="(feature) in features"
+                :key="feature.title + '-image'"
+                :src="feature.image_url"
+                :alt="feature.title"
+                class="feature-icon absolute w-full h-full object-contain"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -100,11 +100,11 @@ onUnmounted(() => {
     <!-- Layout para Móvil (por defecto) -->
     <div class="md:hidden space-y-16 py-12">
       <div v-for="feature in features" :key="feature.title + '-mobile'" class="text-center">
-        <div class="relative w-full max-w-xs mx-auto aspect-square flex items-center justify-center mb-6">
-          <component :is="feature.icon" :class="['h-3/5 w-3/5', feature.colorClass]" />
+        <div class="mb-6">
+          <img :src="feature.image_url" :alt="feature.title" class="w-full rounded-2xl shadow-lg aspect-video object-cover" />
         </div>
-        <h3 class="text-3xl font-bold font-heading text-primary mb-2">{{ feature.title }}</h3>
-        <p class="text-lg text-secondary leading-relaxed max-w-2xl mx-auto px-4">
+        <h3 class="text-3xl font-bold font-heading text-primary-light dark:text-primary-dark mb-2 px-4">{{ feature.title }}</h3>
+        <p class="text-lg text-secondary-light dark:text-secondary-dark leading-relaxed max-w-2xl mx-auto px-4">
           {{ feature.text }}
         </p>
       </div>

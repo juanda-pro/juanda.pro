@@ -1,8 +1,17 @@
 <script setup>
+import { computed } from 'vue';
+import { marked } from 'marked';
 import MetadataRenderer from '@/components/MetadataRenderer.vue';
 
-defineProps({
+const props = defineProps({
   file: Object,
+});
+
+const parsedContent = computed(() => {
+  if (props.file && props.file.content) {
+    return marked(props.file.content);
+  }
+  return '';
 });
 
 const emit = defineEmits(['select-file']);
@@ -24,7 +33,7 @@ function handleSelect(fileId) {
       <div class="bg-surface-light dark:bg-surface-dark">
         <div class="px-8 lg:px-12 py-8">
           <article class="prose dark:prose-invert max-w-none prose-headings:font-serif prose-headings:text-primary-light dark:prose-headings:text-primary-dark prose-p:text-secondary-light dark:prose-p:text-secondary-dark prose-a:text-brand-accent hover:prose-a:text-brand-accent-darker">
-            <div v-html="file.content"></div>
+            <div v-html="parsedContent"></div>
           </article>
         </div>
       </div>

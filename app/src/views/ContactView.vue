@@ -1,8 +1,54 @@
 <script setup>
+import { ref } from 'vue';
+import { supabase } from '@/lib/supabase.js';
 import SectionWrapper from '@/components/SectionWrapper.vue';
 import BaseInput from '@/components/BaseInput.vue';
 import BaseTextarea from '@/components/BaseTextarea.vue';
 import BaseButton from '@/components/BaseButton.vue';
+
+const form = ref({
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
+});
+
+const isLoading = ref(false);
+const isSuccess = ref(false);
+const errorMessage = ref('');
+
+const handleSubmit = async () => {
+  isLoading.value = true;
+  errorMessage.value = '';
+  isSuccess.value = false;
+
+  try {
+    const { data, error } = await supabase.functions.invoke('contact-form', {
+      body: form.value,
+    });
+
+    if (error) {
+      throw new Error(`Error al invocar la función: ${error.message}`);
+    }
+
+    if (data.error) {
+      throw new Error(`Error en la función del servidor: ${data.error}`);
+    }
+
+    isLoading.value = false;
+    isSuccess.value = true;
+    form.value = { name: '', email: '', subject: '', message: '' };
+
+    setTimeout(() => isSuccess.value = false, 5000);
+
+  } catch (error) {
+    console.error('Error al enviar el formulario:', error);
+    isLoading.value = false;
+    errorMessage.value = 'Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.';
+    
+    setTimeout(() => errorMessage.value = '', 5000);
+  }
+};
 </script>
 
 <template>
@@ -20,19 +66,28 @@ import BaseButton from '@/components/BaseButton.vue';
 
         <div class="mt-12 max-w-2xl mx-auto">
           <div class="bg-surface-light dark:bg-surface-dark p-8 sm:p-12 rounded-2xl border border-border-light dark:border-border-dark shadow-lg">
-            <form action="#" method="POST">
+            <form @submit.prevent="handleSubmit">
               <div class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <BaseInput id="name" label="Nombre" placeholder="Tu nombre" />
-                  <BaseInput id="email" type="email" label="Email" placeholder="tu@email.com" />
+                  <BaseInput id="name" label="Nombre" placeholder="Tu nombre" v-model="form.name" required />
+                  <BaseInput id="email" type="email" label="Email" placeholder="tu@email.com" v-model="form.email" required />
                 </div>
-                <BaseInput id="subject" label="Asunto" placeholder="Asunto del mensaje" />
-                <BaseTextarea id="message" label="Mensaje" placeholder="Tu mensaje..." :rows="6" />
+                <BaseInput id="subject" label="Asunto" placeholder="Asunto del mensaje" v-model="form.subject" required />
+                <BaseTextarea id="message" label="Mensaje" placeholder="Tu mensaje..." :rows="6" v-model="form.message" required />
               </div>
               <div class="mt-8">
-                <BaseButton type="submit" class="w-full" size="lg">Enviar Mensaje</BaseButton>
+                <BaseButton type="submit" class="w-full" size="lg" :disabled="isLoading">
+                  <span v-if="isLoading">Enviando...</span>
+                  <span v-else>Enviar Mensaje</span>
+                </BaseButton>
               </div>
             </form>
+            <div v-if="isSuccess" class="mt-6 p-4 bg-green-100 dark:bg-green-900 border border-green-200 dark:border-green-700 text-green-800 dark:text-green-100 rounded-lg text-center">
+              <p>¡Gracias por tu mensaje! Te responderé lo antes posible.</p>
+            </div>
+            <div v-if="errorMessage" class="mt-6 p-4 bg-red-100 dark:bg-red-900 border border-red-200 dark:border-red-700 text-red-800 dark:text-red-100 rounded-lg text-center">
+              <p>{{ errorMessage }}</p>
+            </div>
           </div>
         </div>
         

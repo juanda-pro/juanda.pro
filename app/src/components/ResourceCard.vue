@@ -49,8 +49,8 @@ const categoryStyles = computed<CategoryStyle>(() => {
         <div 
           class="w-12 h-12 rounded-lg flex items-center justify-center transition-colors duration-300"
           :class="[categoryStyles.iconBg, categoryStyles.iconText]"
-          v-html="resource.icon"
         >
+          <component :is="resource.icon" class="w-6 h-6" />
         </div>
         <span 
           class="inline-flex items-center rounded-md px-2 py-1 text-sm font-medium ring-1 ring-inset transition-colors duration-300"
@@ -59,7 +59,7 @@ const categoryStyles = computed<CategoryStyle>(() => {
           {{ resource.category }}
         </span>
       </div>
-      <h3 class="text-md font-semibold font-serif text-primary-light dark:text-primary-dark mb-2">{{ resource.title }}</h3>
+      <h3 class="text-lg font-semibold text-primary-light dark:text-primary-dark mb-2">{{ resource.title }}</h3>
       <p class="text-base text-secondary-light dark:text-secondary-dark">{{ resource.description }}</p>
     </div>
   </div>

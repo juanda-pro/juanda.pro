@@ -17,16 +17,18 @@ const wikiTree = ref([
       abstract: 'Un punto de partida para entender la estructura y propósito de este cuaderno digital.',
     },
     content: `
-      <h1>Bienvenido al Cuaderno Digital</h1>
-      <p>Esta sección es una <strong>wiki abierta</strong>, un espacio donde documento y comparto el conocimiento que voy adquiriendo en mi viaje como explorador de la tecnología y el desarrollo.</p>
-      <p>Piensa en ello como un segundo cerebro público. Aquí encontrarás:</p>
-      <ul>
-        <li><strong>Conceptos:</strong> Ideas, modelos mentales y principios que guían mi forma de pensar.</li>
-        <li><strong>Proyectos:</strong> El día a día de las cosas que construyo, con aciertos y errores.</li>
-        <li><strong>Sistemas:</strong> Frameworks y procesos que uso para ser más efectivo.</li>
-        <li><strong>Procedimientos:</strong> Guías prácticas y tutoriales destilados para aplicar directamente.</li>
-      </ul>
-      <p>Utiliza el menú para explorar. Este espacio está en constante evolución, como el aprendizaje mismo.</p>
+# Bienvenido al Cuaderno Digital
+
+Esta sección es una **wiki abierta**, un espacio donde documento y comparto el conocimiento que voy adquiriendo en mi viaje como explorador de la tecnología y el desarrollo.
+
+Piensa en ello como un segundo cerebro público. Aquí encontrarás:
+
+- **Conceptos:** Ideas, modelos mentales y principios que guían mi forma de pensar.
+- **Proyectos:** El día a día de las cosas que construyo, con aciertos y errores.
+- **Sistemas:** Frameworks y procesos que uso para ser más efectivo.
+- **Procedimientos:** Guías prácticas y tutoriales destilados para aplicar directamente.
+
+Utiliza el menú para explorar. Este espacio está en constante evolución, como el aprendizaje mismo.
     `
   },
   {
@@ -45,7 +47,7 @@ const wikiTree = ref([
               { id: 'atomic-design', name: 'Atomic Design' },
             ]
         },
-        content: '<h2>Orígenes de juanda.pro</h2><p>La idea inicial, la elección del stack (Vue, Vite, Tailwind) y los principios de diseño minimalista...</p>'
+        content: '## Orígenes de juanda.pro\n\nLa idea inicial, la elección del stack (Vue, Vite, Tailwind) y los principios de diseño minimalista...'
       },
     ]
   },
@@ -65,7 +67,7 @@ const wikiTree = ref([
                   { id: 'juandapro-log-1', name: 'juanda.pro - Orígenes' },
                 ]
             },
-            content: '<h2>Atomic Design</h2><p>Explicación detallada del modelo de Atomic Design de Brad Frost y cómo se aplica en la práctica para construir componentes reutilizables.</p>'
+            content: '## Atomic Design\n\nExplicación detallada del modelo de Atomic Design de Brad Frost y cómo se aplica en la práctica para construir componentes reutilizables.'
         }
     ]
   },
@@ -85,7 +87,7 @@ const wikiTree = ref([
                   { id: 'atomic-design', name: 'Atomic Design' },
                 ]
             },
-            content: '<h2>Gestión de Estado en Vue 3</h2><p>Comparativa entre `reactive`, `ref`, `provide/inject` y Pinia para manejar el estado de la aplicación de forma eficiente.</p>'
+            content: '## Gestión de Estado en Vue 3\n\nComparativa entre `reactive`, `ref`, `provide/inject` y Pinia para manejar el estado de la aplicación de forma eficiente.'
         }
     ]
   },

@@ -64,7 +64,7 @@ onUnmounted(() => {
         <div class="relative bg-surface-light dark:bg-surface-dark w-full max-w-2xl max-h-[90vh] rounded-2xl shadow-xl flex flex-col overflow-hidden mx-4">
           <!-- Header -->
           <div class="flex-shrink-0 px-6 py-4 border-b border-border-light dark:border-border-dark flex items-center justify-between">
-            <h3 class="text-xl font-semibold font-serif text-primary-light dark:text-primary-dark">{{ resource.title }}</h3>
+            <h3 class="text-xl font-semibold text-primary-light dark:text-primary-dark">{{ resource.title }}</h3>
             <button @click="close" class="p-1 rounded-full text-secondary-light dark:text-secondary-dark hover:bg-surface-accent-light dark:hover:bg-surface-accent-dark">
               <XMarkIcon class="h-6 w-6" />
             </button>
@@ -73,11 +73,10 @@ onUnmounted(() => {
           <!-- Content -->
           <div class="flex-grow p-6 overflow-y-auto">
             <p class="text-secondary-light dark:text-secondary-dark mb-6">{{ resource.description }}</p>
-            <h4 class="font-semibold text-primary-light dark:text-primary-dark mb-4">Detalles del Recurso</h4>
+            <h4 class="text-lg font-semibold text-primary-light dark:text-primary-dark mb-4">Detalles del Recurso</h4>
             <div class="prose dark:prose-invert max-w-none prose-p:text-secondary-light dark:prose-p:text-secondary-dark">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</p>
-              <p>Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam. Sorbi et per conubia nostra, per inceptos hymenaeos. Cras ut magna. Vivamus aliquet elit ac nisl. Fusce mollis tristique sem. Sed eu eros. Nam consequat dolor vitae enim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed quis ante. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
-              <p>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc. Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit. Pellentesque egestas sem. Suspendisse commodo ullamcorper magna. Ut aliquam sollicitudin leo. Cras faucibus, purus vitae vestibulum aliquet, magna lorem consequat enim, sit amet viverra justo diam ac lorem. Curabitur pulvinar, lorem id consectetuer feugiat, enim est Graduation, turpis risus egestas quam, ut porttitor sapien quam quis dui. Cras vitae felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent eu turpis. In hac habitasse platea dictumst. Maecenas ut magna. Cras vulputate, felis quis varius laoreet, turpis est commodo enim, vitae sollicitudin turpis est sit amet turpis.</p>
+              <p>Aquí se mostraría una descripción más detallada del recurso, incluyendo casos de uso, guías de implementación o cualquier otra información relevante que aporte valor al usuario.</p>
+              <p>El objetivo es proporcionar contexto suficiente para que el usuario entienda cómo y por qué este recurso puede serle útil en sus propios proyectos.</p>
             </div>
           </div>
 

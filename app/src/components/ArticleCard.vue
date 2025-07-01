@@ -1,5 +1,6 @@
 <template>
-  <article class="group grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center cursor-pointer">
+  <router-link :to="{ name: 'article-detail', params: { slug: article.slug } }" class="block">
+    <article class="group grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
     <!-- Imagen -->
     <div class="md:col-span-1 overflow-hidden rounded-lg aspect-video">
       <img 
@@ -19,7 +20,8 @@
       </p>
       <p class="text-sm text-secondary-light dark:text-secondary-dark mt-4">{{ formattedDate }}</p>
     </div>
-  </article>
+    </article>
+  </router-link>
 </template>
 
 <script setup>
