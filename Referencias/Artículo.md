@@ -1,47 +1,40 @@
-# Especificaciones de Diseño y UX: Página de Artículo
+# Especificaciones: Detalle de Artículo
 
-Este documento detalla el comportamiento y la maquetación de la vista de un artículo individual (`/blog/:slug`), implementada en `ArticleDetailView.vue`.
-
----
-
-## 1. Estructura General
-
-La página se compone de cuatro bloques principales dispuestos verticalmente:
-
-1.  **Cabecera:** Contiene los metadatos del artículo.
-2.  **Imagen Destacada:** Una imagen estática que sirve como portada.
-3.  **Cuerpo del Artículo:** El contenido principal del post.
-4.  **Artículo Sugerido:** Una sección para fomentar la navegación a otro artículo.
+**Versión:** 1.2
+**Componente Asociado:** `src/views/ArticleDetailView.vue`
 
 ---
 
-## 2. Desglose de Secciones
+## 1. Propósito y Funcionalidad
 
-### 2.1. Cabecera
+Esta vista renderiza un artículo de blog completo a partir de un `slug` dinámico en la URL. Su objetivo es ofrecer una experiencia de lectura inmersiva con tipografía cuidada y una estructura clara.
 
-- Se sitúa en la parte superior de la página.
-- Muestra la **categoría** con el color de acento de la marca.
-- El **título (H1)** es el elemento más prominente.
-- Debajo del título, se muestran la **fecha de publicación** y el **tiempo de lectura** estimado.
+## 2. Fuente de Datos y Estado Actual (¡CRÍTICO!)
 
-### 2.2. Imagen Destacada
+**ALERTA:** Existe una grave inconsistencia en la obtención de datos que debe ser resuelta.
 
-- Es una imagen estática, no interactiva.
-- Se muestra a todo lo ancho del contenedor principal (`max-w-5xl`).
-- Mantiene una relación de aspecto de vídeo (`aspect-video`) y tiene esquinas redondeadas y una sombra sutil.
+- **Implementación Actual:** Los datos de los artículos están **hardcodeados** en un array estático dentro del componente. El componente busca el artículo en este array usando el `slug` de la URL.
+- **El Problema:** La vista `BlogView.vue` (la lista de artículos) **SÍ** carga los datos desde Supabase. Esto provoca que cualquier artículo nuevo o actualizado en la base de datos aparezca en la lista, pero al hacer clic, esta vista (`ArticleDetailView.vue`) mostrará una página de "Artículo no encontrado" porque no existe en su array estático local. **Esto rompe la funcionalidad principal del blog.**
 
-### 2.3. Cuerpo del Artículo
+## 3. Plan de Corrección (Conexión a Supabase)
 
-- El contenido se renderiza directamente desde un campo HTML (`v-html="article.content"`).
-- La maquetación y el estilo del texto (tipografía, espaciado, colores) se gestionan globalmente a través del plugin `@tailwindcss/typography` (clase `prose`).
-- Se han definido estilos personalizados para elementos como:
-  - **Capitular:** La primera letra del primer párrafo es grande y usa el color de acento.
-  - **Títulos (H2, H3):** Tienen un borde lateral con el color de acento.
-  - **Citas en bloque (`blockquote`):** Tienen un fondo y borde distintivos.
-  - **Imágenes insertadas (`figure`):** Pueden ocupar un ancho mayor que el texto para un efecto visual impactante.
-  - **Subrayados personalizados:** Se usan clases de utilidad (`underline-yellow`, `underline-blue`) para aplicar estilos de subrayado específicos.
+Para solucionar la inconsistencia, se deben seguir los siguientes pasos:
 
-### 2.4. Artículo Sugerido
+1.  **Eliminar el Array Estático:** Borrar por completo la variable `articles` que contiene los datos hardcodeados.
+2.  **Implementar `fetchArticleBySlug`:** Crear una función asíncrona que reciba el `slug` de la ruta como parámetro.
+3.  **Consulta a Supabase:** Dentro de la función, realizar una consulta a la tabla `articles` para obtener un único resultado donde la columna `slug` coincida con el `slug` proporcionado.
+    ```javascript
+    const { data, error } = await supabase
+      .from('articles')
+      .select('*')
+      .eq('slug', route.params.slug)
+      .single(); // .single() es crucial para obtener un solo objeto
+    ```
+4.  **Gestión de Estado:** Implementar variables reactivas para `isLoading` y `errorMessage`, tal como se hace en `BlogView.vue`, para dar feedback al usuario durante la carga o si ocurre un error.
+5.  **Llamada a la Función:** Usar `onMounted` y `watch` sobre `route.params.slug` para llamar a `fetchArticleBySlug` cuando el componente se carga o cuando la ruta cambia (por ejemplo, al navegar a un artículo sugerido).
 
-- Al final de la página, se muestra una sección `<aside>`.
-- Contiene un título y una única tarjeta de artículo (el componente `ArticleCard.vue`) para sugerir la siguiente lectura.
+## 4. Estructura y Estilizado
+
+- **Bloques:** La página se compone de cabecera, imagen destacada, cuerpo del contenido y una sección de artículo sugerido.
+- **Renderizado de Contenido:** El cuerpo del artículo (`article.content`) se renderiza usando `v-html`.
+- **Estilo de Prosa:** Se utiliza `@tailwindcss/typography` (clase `prose`) con múltiples personalizaciones para elementos como la letra capital, títulos `h2`/`h3`, citas `blockquote` y subrayados decorativos, creando una experiencia de lectura rica y de marca.

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import TypographyShowcase from '../views/TypographyShowcase.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,6 +9,11 @@ const router = createRouter({
     return { top: 0 }
   },
   routes: [
+    {
+      path: '/typography-showcase',
+      name: 'typography-showcase',
+      component: TypographyShowcase
+    },
     {
       path: '/',
       name: 'home',

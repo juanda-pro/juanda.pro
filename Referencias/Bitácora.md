@@ -87,3 +87,43 @@ Este documento sirve como un registro histórico de las decisiones, problemas re
 - [x] **Refinamiento de Paleta de Colores:** Se ha ajustado la paleta de colores en `ResourceCard.vue`, utilizando el amarillo de la marca (`brand-accent`) como color principal y tonos coherentes para las demás categorías.
 - [x] **Menú de Notas por Defecto:** Se ha modificado el estado inicial en `WikiLayout.vue` para que el menú lateral aparezca desplegado por defecto.
 - [x] **Sincronización de Documentación:** Se ha actualizado `Recursos.md` para reflejar todos los cambios de diseño y funcionalidad implementados.
+
+---
+
+### Bloque de Sesión: Auditoría Final, Refactorización y Sincronización Documental (Fecha estimada: Junio 2025)
+
+**Problemas y Peticiones Registradas:**
+- **Agente:** Detecta múltiples clases de color inválidas en Tailwind (`accent-blue`, `accent-pink`, `brand-secondary`, etc.) que causan errores de build.
+- **Usuario:** Solicita eliminar efectos de UI no deseados (gradientes, iluminaciones) en varias tarjetas.
+- **Usuario:** Pide unificar el tamaño de la tipografía base a `text-lg` (18px) para mejorar la legibilidad.
+- **Usuario:** Solicita eliminar la barra de búsqueda de la página de Recursos.
+- **Agente:** Identifica que la documentación en la carpeta `/Referencias` está severamente desactualizada con respecto al código fuente, especialmente en las secciones de Notas, Recursos y Blog/Artículo.
+- **Agente:** Descubre una inconsistencia crítica: la lista de artículos del blog se carga desde Supabase, pero la vista de detalle del artículo usa datos hardcodeados, rompiendo la funcionalidad.
+
+---
+**Tareas Resueltas:**
+- [x] **Corrección Masiva de Colores:** Auditados y reemplazados todos los colores inválidos de Tailwind por tokens del sistema de diseño en toda la aplicación.
+- [x] **Refactorización de UI:** Eliminados los efectos de gradiente e iluminación en `FeatureCard.vue` y otros componentes para un diseño más limpio.
+- [x] **Unificación Tipográfica:** Ajustada la tipografía base a `text-lg` y reajustada la jerarquía de tamaños en toda la web.
+- [x] **Limpieza de `ResourcesView.vue`:** Eliminada por completo la barra de búsqueda y su lógica asociada.
+- [x] **Sincronización Documental (Notas):** Actualizado `Notas.md` para reflejar que los datos son estáticos y hardcodeados en `NotesView.vue`.
+- [x] **Sincronización Documental (Recursos):** Actualizado `Recursos.md` para reflejar que los datos son estáticos, la búsqueda fue eliminada y se usa un modal.
+- [x] **Sincronización Documental (Artículo):** Reescrito `Artículo.md` para marcar como **crítica** la inconsistencia de datos y proveer un plan de acción para conectar la vista a Supabase.
+
+---
+
+### Bloque de Sesión: Auditoría y Sincronización Total de la Documentación (2025-06-27 21:11)
+
+**Problemas y Peticiones Registradas:**
+- **Agente:** Detecta que la documentación de contenido en `Referencias/Textos actuales del website.md` está completamente desactualizada y no refleja el estado real de ninguna de las vistas principales (`Home`, `Soy`, `Blog`, `Contacto`, `Notas`, `Recursos`).
+- **Usuario:** Solicita una auditoría exhaustiva y la corrección de toda la documentación para establecer una fuente de verdad fiable antes de proceder con nuevas funcionalidades.
+
+---
+**Tareas Resueltas:**
+- [x] **Auditoría y Corrección de `HomeView.vue`:** Sincronizada la documentación para incluir la sección "Diagnóstico Personalizado" y los textos correctos de los pilares.
+- [x] **Auditoría y Corrección de `SoyView.vue`:** Reemplazado el contenido obsoleto por la narrativa actual del componente.
+- [x] **Auditoría y Corrección de `BlogView.vue`:** Actualizada la documentación para reflejar la carga dinámica de artículos desde Supabase en lugar de datos estáticos.
+- [x] **Auditoría y Corrección de `ContactView.vue`:** Corregida la descripción para ajustarse al layout de columna única y textos actuales.
+- [x] **Auditoría y Corrección de `NotesView.vue`:** Documentada la transición de una simple lista de notas a un sistema de "Cuaderno Digital" (wiki) con contenido estructurado.
+- [x] **Auditoría y Corrección de `ResourcesView.vue`:** Sincronizada la documentación para listar las plantillas y flujos de trabajo de automatización reales.
+- [x] **Generación de Informe Estratégico:** Creado el documento `Informe_Estrategico_Auditoria.md` que resume los hallazgos, acciones y decisiones clave de la auditoría.

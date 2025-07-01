@@ -6,60 +6,51 @@ Este documento es la fuente única de la verdad para la estructura de la base de
 
 ## Tabla: `articles`
 
-Almacena todos los artículos del blog.
+Almacena todos los artículos del blog. **(Versión 1.1 - Sincronizada con el código)**
 
-1.  `id`
-    -   **Tipo:** `bigint` (PK)
+1.  `id` (PK)
+    -   **Tipo:** `bigint`
     -   **Descripción:** Identificador único autoincremental.
-    -   **Notas:** Generado por Supabase.
 
 2.  `created_at`
     -   **Tipo:** `timestampz`
     -   **Descripción:** Fecha y hora de creación del registro.
-    -   **Notas:** Generado por Supabase.
 
-3.  `updated_at`
+3.  `published_at`
     -   **Tipo:** `timestampz`
-    -   **Descripción:** Fecha y hora de la última actualización.
-    -   **Notas:** Actualizado automáticamente.
+    -   **Descripción:** Fecha y hora de publicación. Usado para filtrar y mostrar solo los artículos cuya fecha es pasada.
 
-4.  `publish_date`
-    -   **Tipo:** `date`
-    -   **Descripción:** La fecha de publicación del artículo que se muestra al usuario.
-
-5.  `title`
+4.  `title`
     -   **Tipo:** `text`
     -   **Descripción:** El título principal del artículo.
-    -   **Notas:** No puede ser nulo.
 
-6.  `slug`
-    -   **Tipo:** `text`
+5.  `slug`
+    -   **Tipo:** `text` (unique)
     -   **Descripción:** Versión del título para la URL (ej: `como-crear-un-blog`).
-    -   **Notas:** Debe ser único.
 
-7.  `summary`
+6.  `description`
     -   **Tipo:** `text`
-    -   **Descripción:** Un resumen corto o entradilla del artículo para las tarjetas de vista previa.
+    -   **Descripción:** Un resumen corto o entradilla para las tarjetas de vista previa.
+    -   **Nota:** El componente `ArticleCard` espera este campo.
 
-8.  `body`
+7.  `content`
     -   **Tipo:** `text`
-    -   **Descripción:** El contenido completo del artículo en formato Markdown.
-    -   **Notas:** Puede contener "shortcodes" para componentes complejos.
+    -   **Descripción:** El contenido completo del artículo, usualmente en HTML o Markdown.
+    -   **Nota:** El componente `ArticleDetailView` espera este campo.
 
-9.  `image_url`
+8.  `image_url`
     -   **Tipo:** `text`
     -   **Descripción:** URL de la imagen principal/de cabecera del artículo.
 
-10. `category`
+9.  `category`
     -   **Tipo:** `text`
     -   **Descripción:** La categoría principal del artículo (ej: `Productividad`, `IA`).
 
-11. `tags`
-    -   **Tipo:** `array` de `text`
-    -   **Descripción:** Una lista de etiquetas o palabras clave secundarias.
-    -   **Notas:** Ejemplo: `['api', 'automation']`
-
-12. `article_type`
+10. `relevance`
     -   **Tipo:** `integer`
-    -   **Descripción:** Tipo de artículo para la maquetación (1: Destacado, 2: Importante, 3: Normal).
-    -   **Notas:** Usado para el grid del blog.
+    -   **Descripción:** Un número para ordenar los artículos. Un valor más bajo indica mayor relevancia (aparece primero).
+    -   **Nota:** Usado como criterio principal de ordenación en `BlogView.vue`.
+
+11. `reading_time`
+    -   **Tipo:** `text`
+    -   **Descripción:** Texto que indica el tiempo de lectura (ej: "7 min de lectura").

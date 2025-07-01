@@ -1,68 +1,66 @@
-# Guía de Estilo y Sistema de Diseño
+# Guía de Estilo y Sistema de Diseño (v1.1)
 
-Este documento es la fuente de la verdad para todas las decisiones de diseño visual, incluyendo colores, tipografía, espaciado y componentes base.
+Este documento es la fuente de la verdad para el sistema de diseño visual, sincronizado con `tailwind.config.js`.
 
 ---
 
 ## 1. Paleta de Colores
 
-La paleta de colores está definida en `tailwind.config.js` y se organiza de forma semántica para garantizar la consistencia y facilitar el mantenimiento.
+La paleta es semántica y está preparada para los modos claro y oscuro.
 
 ### Colores de Marca (Brand)
-Son los colores que definen la identidad visual del proyecto.
-
-| Nombre (Token) | Valor Hex | Uso Principal |
+| Token | Valor | Uso |
 |---|---|---|
-| `brand-dark` | `#121214` | El "negro" de la marca. Se usa para fondos principales en modo oscuro y textos primarios en modo claro. |
-| `brand-accent` | `#F6C90E` | El "amarillo" de la marca. Se usa para llamadas a la acción (botones, enlaces importantes) y elementos que requieren atención. |
+| `brand-dark` | `#121214` | El "negro" de la marca. |
+| `brand-accent` | `#F6C90E` | El "amarillo" principal para CTAs y acentos. |
+| `brand-accent-darker` | `#D9B40C` | Variante más oscura del acento para estados hover/focus. |
 
 ### Fondos y Superficies (Backgrounds & Surfaces)
-Colores base para los contenedores principales y elementos de la interfaz.
-
-| Nombre (Token) | Valor Hex | Uso Principal |
+| Token | Valor | Uso |
 |---|---|---|
-| `bg-light` | `#FFFFFF` | Fondo principal de la página en modo claro. |
-| `bg-dark` | `#121214` | Fondo principal de la página en modo oscuro. |
-| `surface-light` | `#F5F5F5` | Color para superficies "elevadas" (tarjetas, paneles) en modo claro. |
-| `surface-dark` | `#1C1C1F` | Color para superficies secundarias (footer, nav, tarjetas) en modo oscuro. |
+| `bg-light` | `#FFFFFF` | Fondo principal en modo claro. |
+| `bg-dark` | `#121214` | Fondo principal en modo oscuro. |
+| `surface-light` | `#F5F5F5` | Superficies elevadas (tarjetas) en modo claro. |
+| `surface-dark` | `#28282D` | Superficies elevadas en modo oscuro. |
+| `surface-deeper-dark` | `#202023` | Superficies aún más profundas en modo oscuro. |
+| `surface-accent-light` | `#F3F4F6` | Fondos de acento sutil (citas) en modo claro. |
+| `surface-accent-dark` | `#374151` | Fondos de acento sutil en modo oscuro. |
 
 ### Textos (Text)
-Colores para todo el contenido textual, garantizando legibilidad.
-
-| Nombre (Token) | Valor Hex | Uso Principal |
+| Token | Valor | Uso |
 |---|---|---|
-| `text-primary-light` | `#121214` | Texto principal y títulos en modo claro. |
-| `text-tertiary-light` | `#5A5A5F` | Texto terciario o de apoyo (ej. fechas) en modo claro. |
-| `text-primary-dark` | `#FFFFFF` | Texto principal y títulos en modo oscuro. |
-| `text-secondary-dark` | `#A0A0A5` | Texto secundario en modo oscuro. |
-| `text-tertiary-dark` | `#71717A` | Texto terciario o de apoyo en modo oscuro. |
+| `primary-light` | `#121214` | Texto principal en modo claro. |
+| `secondary-light` | `#374151` | Texto secundario en modo claro (contraste aumentado). |
+| `primary-dark` | `#FFFFFF` | Texto principal en modo oscuro. |
+| `secondary-dark` | `#E5E7EB` | Texto secundario en modo oscuro (contraste aumentado). |
+| `text-on-accent` | `#FFFFFF` | Texto para ser usado sobre fondos `brand-accent`. |
+
+### Bordes y Divisores (Borders & Dividers)
+| Token | Valor | Uso |
+|---|---|---|
+| `border-light` | `#E5E7EB` | Bordes de componentes en modo claro. |
+| `border-dark` | `#374151` | Bordes de componentes en modo oscuro. |
+| `divider-light` | `#E5E7EB` | Separadores visuales en modo claro. |
+| `divider-dark` | `#374151` | Separadores visuales en modo oscuro. |
 
 ### Acentos Semánticos (Semantic Accents)
-Colores usados con moderación para comunicar estados específicos (éxito, error, información).
-
-| Nombre (Token) | Valor Hex | Uso |
+| Token | Valor | Uso |
 |---|---|---|
-| `accent-info` | `#4338CA` | Para mensajes informativos o elementos decorativos sutiles. |
-| `accent-success` | `#10B981` | Para indicar éxito en una operación (ej. formulario enviado). |
-| `accent-error` | `#EF4444` | Para indicar un error o una acción destructiva. |
+| `accent-info` | `#4338CA` | Acentos informativos (modo claro). |
+| `accent-info-dark` | `#A78BFA` | Acentos informativos (modo oscuro). |
+| `accent-success` | `#059669` | Para indicar éxito (contraste mejorado). |
+| `accent-error` | `#DC2626` | Para indicar error (contraste mejorado). |
+
+### Misceláneos
+| Token | Valor | Uso |
+|---|---|---|
+| `dot-light` | `rgba(0,0,0,0.18)` | Color de la malla de puntos en modo claro. |
+| `dot-dark` | `rgba(255,255,255,0.11)` | Color de la malla de puntos en modo oscuro. |
 
 ---
 
 ## 2. Tipografía
 
-- **Familia Principal:** `BeVietnamPro` (sans-serif).
-- **Fallback:** `sans-serif`.
-- **Escala de Tamaño:** La escala de tamaños se gestiona a través de las clases de utilidad de Tailwind (ej. `text-lg`, `text-xl`, `text-4xl`). Se debe mantener la consistencia en el uso de las jerarquías (H1, H2, H3, párrafo, etc.).
-- **Pesos:** Se utilizarán principalmente los pesos `regular`, `medium`, `semibold` y `bold`.
-
----
-
-## 3. Espaciado
-
-El sistema de espaciado se basa en la escala por defecto de Tailwind (múltiplos de 4px). Se debe usar de forma consistente para márgenes, paddings y gaps para mantener un ritmo visual coherente.
-
----
-
-## 4. Bordes y Sombras
-
-- **Bordes y Sombras:** Se utilizarán bordes y sombras para crear jerarquía y profundidad, siguiendo las mejores prácticas de diseño moderno. Todas las clases (`border-*`, `shadow-*`, `ring-*`) deben utilizar los colores de la paleta semántica para garantizar la coherencia visual en ambos modos (claro/oscuro).
+- **Familia Principal (Sans-serif):** La fuente por defecto es `Be Vietnam Pro`, cargada globalmente en `index.html`. No necesita ser declarada en Tailwind.
+- **Familia Secundaria (Serif):** Se ha extendido la configuración para incluir una fuente serif (`Lora`) para uso específico en el cuerpo de textos largos (como artículos). Se aplica con la clase `font-serif`.
+- **Escala y Pesos:** Se utiliza la escala de tamaño (`text-lg`, `text-xl`) y pesos (`font-semibold`, `font-bold`) por defecto de Tailwind.

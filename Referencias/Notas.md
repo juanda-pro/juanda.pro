@@ -1,52 +1,50 @@
-# Especificaciones de Diseño y UX: Notas (Diseño Wiki v2)
+# Especificaciones: Cuaderno Digital (Notas)
 
-Este documento detalla el comportamiento y la maquetación de la página de Notas (`/notas`), implementada bajo el **Plan C: "Arquitectura Component-Driven"**.
-
----
-
-## 1. Visión General y Estructura
-
-La página utiliza un layout de dos columnas para emular una aplicación de documentación moderna.
-
-- **Layout General:**
-  1.  **Cabecera:** Título y descripción de la sección.
-  2.  **Columna Izquierda (Sidebar):** Un menú de navegación colapsable.
-  3.  **Columna Derecha (Content):** Un área de contenido con estética de "papel".
+**Versión:** 1.1
+**Componente Asociado:** `src/views/NotesView.vue`
 
 ---
 
-## 2. Desglose de Componentes y Comportamiento
+## 1. Propósito y Funcionalidad
 
-### 2.1. Vista Principal (`NotesView.vue`)
+Esta vista funciona como una aplicación de wiki o "segundo cerebro" público. Presenta una interfaz de dos columnas con una barra de navegación lateral (archivos y carpetas) y un panel de contenido principal. Su objetivo es organizar y mostrar conocimiento de forma estructurada.
 
-- **Gestión de Estado:** Orquesta el estado de la interfaz, incluyendo si el menú está colapsado (`isSidebarCollapsed`) y cuál es el archivo activo (`activeFileId`).
-- **Responsive:** Utiliza la librería `@vueuse/core` para detectar el tamaño de la pantalla. En dispositivos móviles (`<768px`), el menú se carga colapsado por defecto.
-- **Estructura de Contenido:** Define la estructura de carpetas y archivos en el `wikiTree`. Las carpetas principales son: `Conceptos`, `Proyectos`, `Sistemas` y `Procedimientos`.
-- **Nota de Bienvenida:** El archivo por defecto es "🗄️ Empieza aquí".
+## 2. Fuente de Datos
 
-### 2.2. Barra Lateral (`WikiSidebar.vue`)
+Esta página es **completamente estática**. Toda la estructura de archivos, carpetas y el contenido de cada nota están **hardcodeados** en un array de objetos dentro del componente `NotesView.vue`.
 
-- **Funcionalidad Colapsable:**
-  - El menú puede colapsarse a una barra de 48px o expandirse a 256px.
-  - La animación es de tipo `ease-in-out` para una sensación fluida y "eléctrica".
-  - Un botón de control (`<Bars3Icon>`) permite al usuario alternar el estado.
-- **Contraste del Elemento Activo:**
-  - Para garantizar máxima legibilidad (Contraste AAA), el archivo seleccionado utiliza una combinación de colores invertida:
-    - **Modo Claro:** Fondo `slate-800` con texto `white`.
-    - **Modo Oscuro:** Fondo `slate-200` con texto `slate-900`.
-- **Interacción:** Al seleccionar un archivo en móvil, el menú se colapsa automáticamente para dar protagonismo al contenido.
+- **Variable Clave:** `wikiTree`.
+- **No hay conexión a Supabase:** Los datos no se obtienen de una base de datos. Esto asegura que la sección sea extremadamente rápida y no dependa de una conexión de red para mostrar su contenido.
+- **Contenido HTML:** El contenido de cada "archivo" se almacena como una cadena de texto con formato HTML directamente en la propiedad `content` de cada objeto.
 
-### 2.3. Área de Contenido (`WikiContent.vue`)
+## 3. Estructura y Componentes
 
-- **Estética de "Papel":**
-  - El contenedor principal tiene un fondo (`bg-white` / `dark:bg-slate-800/30`), esquinas redondeadas, un borde sutil y una sombra suave.
-  - Este conjunto de estilos lo diferencia del fondo de la página, dándole la apariencia de una hoja de papel o un documento físico.
-- **Legibilidad:** Mantiene el uso de las clases `prose` de Tailwind para un formato de texto limpio y estético.
+La vista `NotesView.vue` actúa como un orquestador para varios componentes especializados que construyen la interfaz de la wiki.
 
-### 2.4. Guía de Onboarding (`OnboardingHint.vue`)
+1.  **`OnboardingHint.vue`:**
+    - Un mensaje de ayuda que aparece en la primera visita (controlado por `localStorage`) para guiar a los usuarios, especialmente en dispositivos móviles.
 
-- **Propósito:** Mejorar la experiencia de usuario en la primera visita desde un móvil.
-- **Comportamiento:**
-  - Es un componente de notificación (callout) que aparece solo en pantallas pequeñas.
-  - Utiliza `localStorage` para mostrarse una única vez por usuario.
-  - Invita al usuario a interactuar con el botón del menú para descubrir la navegación.
+2.  **Cabecera:**
+    - Un título (`<h1>`) y un subtítulo que presentan la sección.
+
+3.  **`WikiLayout.vue`:**
+    - Componente estructural que define el layout de dos columnas (sidebar y content) y gestiona la comunicación entre ellas mediante eventos.
+
+4.  **`WikiSidebar.vue` (slot `sidebar`):**
+    - Renderiza la estructura de archivos y carpetas a partir del `wikiTree`.
+    - Muestra visualmente cuál es el archivo activo.
+    - Emite un evento (`@select-file`) cuando el usuario hace clic en un archivo.
+
+5.  **`WikiContent.vue` (slot `content`):**
+    - Recibe el objeto del archivo activo (`activeFile`).
+    - Muestra el título, los metadatos y el contenido (usando `v-html`).
+    - Gestiona la visualización de relaciones entre notas, permitiendo la navegación cruzada.
+
+## 4. Lógica Reactiva (`NotesView.vue`)
+
+La lógica de la vista se centra en gestionar qué archivo se está mostrando actualmente.
+
+- **`wikiTree` (ref):** Almacena la estructura completa de la wiki.
+- **`activeFileId` (ref):** Guarda el `id` del archivo que está seleccionado. Se inicializa en `'onboarding'` para mostrar la bienvenida.
+- **`activeFile` (computed):** Una propiedad computada que busca y devuelve el objeto completo del archivo activo dentro del `wikiTree` cada vez que `activeFileId` cambia.
+- **`handleSelectFile(fileId)` (método):** Función que se ejecuta cuando el usuario selecciona un archivo en el `WikiSidebar`. Su única responsabilidad es actualizar el valor de `activeFileId`.

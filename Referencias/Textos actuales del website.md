@@ -12,7 +12,11 @@
 
 **Subtítulo:** 😂 Es broma, pero sí es importante empezar a usar estas "máquinas inteligentes" para no quedarnos atrás.
 
-**Botón:** Empieza a explorar
+### Sección Quién Soy
+
+**Título:** ¡Hola! Soy Juanda.
+
+**Texto:** No soy un gurú, sino un explorador que, como tú, está navegando esta nueva era. Este espacio es mi bitácora de aprendizaje: un lugar donde documento mis experimentos, comparto herramientas que funcionan y reflexiono sobre cómo la tecnología puede, de verdad, hacernos mejores. Lo que encuentres aquí es fruto de la curiosidad y la práctica.
 
 ### Texto Puente
 
@@ -25,19 +29,21 @@
 **Título:** Una estrategia para navegar el presente
 
 **Pilar 1 - Título:** Conócete y gobiérnate
-**Pilar 1 - Texto:** Define tus objetivos reales para que los algoritmos no decidan por ti. Un sistema de notas es tu mejor aliado para conocerte, gobernarte y no perder el foco en lo que de verdad importa.
+**Pilar 1 - Texto:** El primer paso es construir una brújula interna. Un sistema de notas bien estructurado te permite transformar tus pensamientos en un cuerpo de conocimiento personal, definir tus propios objetivos y tomar decisiones alineadas con tus valores. Se trata de gobernarte a ti mismo antes de que los algoritmos lo hagan por ti.
 
 **Pilar 2 - Título:** Descubre el mapa
-**Pilar 2 - Texto:** Explora el mapa de herramientas tecnológicas disponibles, pero cuidado con el síndrome del objeto brillante. Elige con intención solo aquellas que te ayudan a cubrir tus verdaderas necesidades.
+**Pilar 2 - Texto:** Con una dirección clara, necesitas las herramientas adecuadas. Consiste en explorar el ecosistema tecnológico con mentalidad de cartógrafo, no de coleccionista. Elige con intención solo las herramientas que resuelven un problema real, combate el 'síndrome del objeto brillante' y toma el control de tu stack tecnológico.
 
 **Pilar 3 - Título:** Toma acción
-**Pilar 3 - Texto:** Pasa a la acción y usa la tecnología a tu favor. Automatiza tareas y crea flujos de trabajo que te liberen tiempo para generar valor, siguiendo el camino que marcan tus propios objetivos.
+**Pilar 3 - Texto:** El conocimiento y las herramientas solo generan valor cuando se ponen en movimiento. Este pilar es el motor: pasa de la planificación a la ejecución y usa la tecnología como un multiplicador. Construye flujos de trabajo inteligentes y automatiza tareas repetitivas para liberar tu tiempo y enfocarte en lo que solo un humano puede hacer: crear, innovar y aportar valor.
 
-### Sección Quién Soy
+### Call to Action
 
-**Título:** ¡Hola! Soy Juanda.
+**Título (secundario):** Recibe tu mapa tecnológico y plan de acción con nuestro diagnóstico de IA.
 
-**Texto:** No soy un gurú, sino un explorador que, como tú, está navegando esta nueva era. Este espacio es mi bitácora de aprendizaje: un lugar donde documento mis experimentos, comparto herramientas que funcionan y reflexiono sobre cómo la tecnología puede, de verdad, hacernos mejores. Lo que encuentres aquí es fruto de la curiosidad y la práctica.
+**Descripción (principal):** Auditoría Gratuita
+
+**Botón:** Comenzar ahora
 
 ### Sección de Contenido Destacado
 
@@ -45,171 +51,129 @@
 
 **Descripción:** Aprendizajes, reflexiones y herramientas prácticas para inspirarte a experimentar.
 
-**Artículo 1 - Categoría:** Sistemas
-**Artículo 1 - Título:** Construye tu segundo cerebro: más allá de un simple diario.
-**Artículo 1 - Descripción:** Una reflexión sobre cómo los sistemas de notas se convierten en una extensión de nuestra mente y nos ayudan a gobernarnos.
+**Artículo 1 - Título:** Construye tu Segundo Cerebro con Obsidian y Zettelkasten
 
-**Artículo 2 - Categoría:** Inteligencia Artificial
-**Artículo 2 - Título:** El antídoto al síndrome del objeto brillante.
-**Artículo 2 - Descripción:** Estrategias para identificar y elegir las herramientas tecnológicas que de verdad necesitas, sin caer en la trampa de la novedad.
+**Artículo 2 - Título:** El Antídoto Definitivo al Síndrome del Objeto Brillante
 
-**Artículo 3 - Categoría:** Código
-**Artículo 3 - Título:** Tu primera automatización: un caso práctico.
-**Artículo 3 - Descripción:** Un tutorial paso a paso para crear una automatización sencilla que te ahorrará tiempo desde el primer día.
+**Artículo 3 - Título:** Automatiza tu Vida con Make y Notion: Guía de Inicio
 
 ---
 
 ## PÁGINA: SOY (`SoyView.vue`)
 
-### Sección de Presentación
+### Cabecera Principal
 
-**Título:** Hola, soy Juanda.
+**Título:** No soy un gurú. Soy un explorador.
 
-**Texto:** Detrás de este proyecto hay una persona que, como tú, navega el acelerado cambio tecnológico de nuestro tiempo. Observo con curiosidad y asombro cómo la IA redefine las reglas del juego, y también he sentido ese vértigo al preguntarme: ¿qué lugar tendremos los humanos en este nuevo mundo?
+**Subtítulo:** Y este es el mapa de mi viaje.
 
-### Sección Momento de Inflexión
+### Manifiesto / Texto Narrativo
 
-**Título:** El momento de inflexión
+**Párrafo Principal (lead):** Como tú, navego el acelerado cambio tecnológico de nuestro tiempo. Observo con curiosidad y asombro cómo la IA redefine las reglas del juego, y también he sentido ese vértigo al preguntarme: ¿qué lugar tendremos los humanos en este nuevo mundo?
 
-**Texto:** El shock de ver cómo la tecnología exponencial superaba tareas especializadas pudo ser paralizante. En su lugar, elegí transformarlo en combustible para la acción: replantear mis hábitos, cuestionar mis herramientas y rediseñar mi forma de aprender. Así nació **juanda.pro**, como una respuesta a esa llamada urgente al cambio.
+**Párrafo 2:** El shock de ver cómo la tecnología exponencial superaba tareas especializadas pudo ser paralizante. En su lugar, elegí transformarlo en combustible para la acción: replantear mis hábitos, cuestionar mis herramientas y rediseñar mi forma de aprender. Así nació **juanda.pro**, como una respuesta a esa llamada urgente al cambio.
 
-### Sección Lo que me mueve
+**Párrafo 3:** Este espacio no es un pedestal, sino una bitácora de aprendizaje. Un lugar donde documento mis experimentos, comparto herramientas que funcionan y reflexiono sobre cómo la tecnología puede, de verdad, hacernos mejores. Lo que encuentres aquí es fruto de la curiosidad, la práctica y una convicción profunda: la mejor forma de predecir el futuro es construirlo.
 
-**Título:** Lo que me mueve
+**Título de Compromisos:** Mi compromiso es simple:
 
-**Valor 1 - Título:** Dignificación
-**Valor 1 - Texto:** La tecnología debe liberar tiempo para lo que de verdad importa: crear, conectar y cuidar nuestra salud física y mental. Ser competitivo no es hacer más, es generar valor real y preservar el equilibrio.
+**Compromiso 1:** **Honestidad radical:** Comparto tanto los aciertos como los fracasos.
 
-**Valor 2 - Título:** Humildad Pragmática
-**Valor 2 - Texto:** Nadie tiene la verdad absoluta. Construyo modelos mentales propios, los contrasto con la realidad y ajusto el rumbo sin ego. Es el único camino sostenible en un mundo de cambio permanente.
+**Compromiso 2:** **Curiosidad sin límites:** Exploro, pregunto y conecto ideas sin miedo a equivocarme.
 
-**Valor 3 - Título:** Pensamiento Crítico
-**Valor 3 - Texto:** Rechazo el conocimiento «precocinado». Promuevo el arte de hacer preguntas incómodas, contrastar fuentes y sintetizar ideas propias. La claridad mental es una necesidad, no un lujo.
+**Compromiso 3:** **Utilidad práctica:** Busco conocimiento que se pueda aplicar hoy para construir un mañana mejor.
 
-**Valor 4 - Título:** Colaboración Abierta
-**Valor 4 - Texto:** El mayor potencial surge cuando compartimos conocimiento. Este proyecto es abierto por diseño: usa, adapta y mejora lo que encuentres. La abundancia de conocimiento nos beneficia a todos.
-
-### Sección Compromisos
-
-**Título:** Mis compromisos contigo
-
-**Compromiso 1 - Título:** Transparencia radical
-**Compromiso 1 - Texto:** Cuento lo que sé y lo que no. Cito fuentes y reconozco influencias. El objetivo es el crecimiento compartido, sin ego.
-
-**Compromiso 2 - Título:** Ética y privacidad
-**Compromiso 2 - Texto:** Promuevo el uso responsable y consciente de la IA, respetando siempre la dignidad de las personas. La tecnología debe servir a la humanidad, no al revés.
-
-**Compromiso 3 - Título:** Mejora continua
-**Compromiso 3 - Texto:** Todo lo que lees aquí está vivo. Cada artículo y recurso se refina con nuevas lecciones y feedback. No hay versiones finales, solo mejores iteraciones.
-
-### Sección Final
-
-**Título:** Una invitación personal
-
-**Texto:** Gracias por llegar hasta aquí. Si algo de esto resuena contigo o si simplemente compartes esta curiosidad por crecer y adaptarse, siéntete en casa. El futuro se construye en comunidad. Bienvenid@ a esta conversación.
-
----
-
-## PÁGINA: CONTACTO (`ContactView.vue`)
-
-### Columna Izquierda
-
-**Título:** ¿Hablamos?
-
-**Párrafo 1:** Este espacio es una invitación abierta. Valoro las conversaciones honestas y las conexiones que surgen de ellas. Si algo de lo que comparto te mueve a pensar o a crear, me encantará saberlo.
-
-**Párrafo 2:** Aquí tienes algunas excusas perfectas para romper el hielo:
-
-**Razón 1:** Has leído algo que ha resonado contigo y quieres compartir tu perspectiva.
-**Razón 2:** Tienes un proyecto en mente, una idea loca o una colaboración que proponerme.
-**Razón 3:** Quieres discutir sobre alguna herramienta, recurso o concepto que menciono.
-**Razón 4:** Simplemente te apetece saludar. Siempre hay tiempo para un buen café virtual.
-
-**Subtítulo:** Otras formas de contacto
-
-**Texto:** Para conversaciones importantes, el email es mi canal preferido. También puedes encontrarme en estas redes:
-
-### Columna Derecha (Formulario)
-
-**Título:** Envíame un mensaje directo
-
-**Campos:** Nombre, Email, Asunto, Mensaje
-
-**Botón:** Enviar mensaje
+**Párrafo Final:** Gracias por llegar hasta aquí. Si algo de esto resuena contigo, siéntete en casa. El futuro se construye en comunidad.
 
 ---
 
 ## PÁGINA: BLOG (`BlogView.vue`)
 
-**Título:** Mi Blog
+### Cabecera
 
-### Post Simulado 1
-**Título:** Explorando el Futuro de la Web con Vue 3 y Vite
-**Fecha:** Publicado el 15 de junio de 2025
-**Texto:** En este artículo, nos sumergimos en las profundidades de Vue 3 y cómo Vite ha revolucionado la experiencia de desarrollo. Descubre las nuevas características, mejoras de rendimiento y por qué esta combinación es ideal para construir aplicaciones web modernas y rápidas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-**Enlace:** Leer más...
+**Título:** Blog
 
-### Post Simulado 2
-**Título:** Minimalismo Digital: Menos es Más en la Era de la Información
-**Fecha:** Publicado el 5 de junio de 2025
-**Texto:** El minimalismo no es solo una estética, es una filosofía que puede transformar nuestra relación con la tecnología. Analizamos cómo aplicar principios minimalistas a nuestra vida digital para reducir el ruido, aumentar el enfoque y mejorar nuestro bienestar general. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-**Enlace:** Leer más...
+**Subtítulo:** Ideas, reflexiones y recursos sobre tecnología, IA y desarrollo humano. Un espacio para explorar el futuro, sin prisa pero sin pausa.
 
-### Post Simulado 3
-**Título:** Desarrollo Humano en la Era Tecnológica: Un Viaje Personal
-**Fecha:** Publicado el 28 de mayo de 2025
-**Texto:** La tecnología avanza a pasos agigantados, pero ¿cómo impacta esto en nuestro crecimiento personal? Comparto reflexiones y estrategias para alinear el desarrollo tecnológico con nuestro desarrollo humano, buscando un equilibrio sostenible y enriquecedor. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-**Enlace:** Leer más...
+### Contenido de Artículos
+
+**Nota sobre el contenido:** El contenido de esta sección es **100% dinámico**, obtenido desde una base de datos en Supabase.
+
+**Mensaje de carga:** Cargando artículos...
+
+**Mensaje de error:** Error al cargar artículos: [mensaje de error]. Asegúrate de que la tabla 'articles' y sus columnas son correctas.
+
+**Mensaje sin artículos:** No hay artículos que coincidan con tu búsqueda o aún no se han publicado.
 
 ---
 
-## PÁGINA: NOTAS (`NotesView.vue`)
+## PÁGINA: NOTAS / CUADERNO DIGITAL (`NotesView.vue`)
 
-**Título:** Mis Notas
+### Cabecera
 
-**Nota 1 - Título:** Atajos de Teclado Esenciales en VS Code
-**Nota 1 - Texto:** Una colección rápida de los atajos que más uso para agilizar el desarrollo: `Ctrl+P`, `Ctrl+Shift+L`, `Alt+Up/Down`...
+**Título:** Cuaderno Digital
 
-**Nota 2 - Título:** Recordatorio: Patrón Composable en Vue 3
-**Nota 2 - Texto:** Revisar la implementación de funciones composables para lógica reutilizable. Clave para mantener el código limpio y modular. Ejemplo: `useMousePosition()`.
+**Subtítulo:** Un espacio de aprendizaje abierto. Conceptos, proyectos, sistemas y procedimientos.
 
-**Nota 3 - Título:** Idea: Pequeña App de Tareas Pendientes
-**Nota 3 - Texto:** Concepto simple para una app de tareas usando LocalStorage. Funcionalidades: añadir, eliminar, marcar como completada. UI minimalista.
+### Contenido Estático (Wiki Tree)
 
-**Nota 4 - Título:** Configuración de Tailwind JIT
-**Nota 4 - Texto:** Asegurarse de que el modo JIT (Just-In-Time) esté correctamente configurado en `tailwind.config.js` para optimizar el tamaño del CSS final y mejorar la velocidad de compilación.
+#### Archivo Raíz: Empieza aquí
+**Título en la UI:** 🗄️ Empieza aquí
+**Contenido - Título:** Bienvenido al Cuaderno Digital
+**Contenido - Párrafo 1:** Esta sección es una **wiki abierta**, un espacio donde documento y comparto el conocimiento que voy adquiriendo en mi viaje como explorador de la tecnología y el desarrollo.
+**Contenido - Párrafo 2:** Piensa en ello como un segundo cerebro público. Aquí encontrarás:
+**Contenido - Lista:**
+- **Conceptos:** Ideas, modelos mentales y principios que guían mi forma de pensar.
+- **Proyectos:** El día a día de las cosas que construyo, con aciertos y errores.
+- **Sistemas:** Frameworks y procesos que uso para ser más efectivo.
+- **Procedimientos:** Guías prácticas y tutoriales destilados para aplicar directamente.
+**Contenido - Párrafo 3:** Utiliza el menú para explorar. Este espacio está en constante evolución, como el aprendizaje mismo.
 
-**Nota 5 - Título:** Cita Inspiradora
-**Nota 5 - Texto:** "La simplicidad es la máxima sofisticación." - Leonardo da Vinci. Aplicable tanto al diseño como al código.
+#### Carpeta: Proyectos
+- **Archivo:** juanda.pro - Orígenes
+  - **Título en Contenido:** Orígenes de juanda.pro
+  - **Texto:** La idea inicial, la elección del stack (Vue, Vite, Tailwind) y los principios de diseño minimalista...
+
+#### Carpeta: Conceptos
+- **Archivo:** Atomic Design
+  - **Título en Contenido:** Atomic Design
+  - **Texto:** Explicación detallada del modelo de Atomic Design de Brad Frost y cómo se aplica en la práctica para construir componentes reutilizables.
+
+#### Carpeta: Sistemas
+- **Archivo:** Gestión de Estado en Vue
+  - **Título en Contenido:** Gestión de Estado en Vue 3
+  - **Texto:** Comparativa entre `reactive`, `ref`, `provide/inject` y Pinia para manejar el estado de la aplicación de forma eficiente.
 
 ---
 
 ## PÁGINA: RECURSOS (`ResourcesView.vue`)
 
-**Título:** Recursos Útiles
+### Cabecera
 
-### Categoría: Herramientas de Desarrollo
+**Título:** Recursos
+**Subtítulo:** Una colección curada de herramientas, plantillas y recursos que uso en mi día a día. Directo al grano, sin rodeos.
 
-**Recurso 1 - Título:** Visual Studio Code
-**Recurso 1 - Descripción:** Editor de código fuente ligero pero potente que se ejecuta en su escritorio y está disponible para Windows, macOS y Linux.
-**Recurso 1 - Enlace:** Visitar sitio →
+### Recursos Estáticos
 
-**Recurso 2 - Título:** Figma
-**Recurso 2 - Descripción:** Herramienta de diseño de interfaces colaborativa basada en navegador. Ideal para prototipado y diseño de UI/UX.
-**Recurso 2 - Enlace:** Visitar sitio →
+#### Categoría: N8N
+- **Recurso:** Onboarding Automatizado de Clientes
+  - **Descripción:** Workflow para automatizar la bienvenida a nuevos clientes, desde el email inicial a la creación de tareas.
+  - **Botón:** Ver Workflow
+- **Recurso:** Dashboard de Métricas para Slack
+  - **Descripción:** Recopila métricas clave de varias fuentes y las envía a un canal de Slack o Discord diariamente.
+  - **Botón:** Ver Workflow
 
-### Categoría: Libros Recomendados
+#### Categoría: Make
+- **Recurso:** Sincronización Trello-Calendar
+  - **Descripción:** Escenario para mantener tus tableros de Trello y tu Google Calendar perfectamente sincronizados en tiempo real.
+  - **Botón:** Ver Escenario
 
-**Recurso 3 - Título:** "Clean Code" de Robert C. Martin
-**Recurso 3 - Descripción:** Un manual esencial sobre cómo escribir código legible, mantenible y robusto.
-**Recurso 3 - Enlace:** Más información →
+#### Categoría: Plantillas Web
+- **Recurso:** Landing Page Minimalista para Proyectos
+  - **Descripción:** Plantilla HTML y Tailwind CSS lista para usar. Lanza una página de presentación para tus proyectos de forma rápida y elegante.
+  - **Botón:** Obtener Plantilla
+- **Recurso:** Portfolio Personal de una Página
+  - **Descripción:** Una plantilla elegante y responsiva para mostrar tu trabajo y habilidades. Fácil de personalizar y desplegar.
+  - **Botón:** Obtener Plantilla
 
-**Recurso 4 - Título:** "Atomic Habits" de James Clear
-**Recurso 4 - Descripción:** Un marco probado para mejorar día a día, construyendo pequeños hábitos que llevan a resultados notables.
-**Recurso 4 - Enlace:** Más información →
-
-### Categoría: Comunidades y Blogs
-
-**Recurso 5 - Título:** Dev.to
-**Recurso 5 - Descripción:** Una comunidad de desarrolladores de software que comparten ideas y ayudan a crecer unos a otros.
-**Recurso 5 - Enlace:** Visitar sitio →
+---

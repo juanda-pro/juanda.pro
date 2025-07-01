@@ -1,7 +1,7 @@
 # Especificaciones Generales y Técnicas: juanda.pro
 
-**Versión:** 1.0 (Fase de Maquetación)
-**Última actualización:** {{DATE}}
+**Versión:** 1.2 (Fase de Auditoría y Refactorización)
+**Última actualización:** Junio 2025
 
 ---
 
@@ -42,7 +42,7 @@ Este proyecto se rige por una serie de documentos clave que actúan como la úni
 | **Frontend** | Vue 3 + Vite + TailwindCSS | Prototipado rápido, rendimiento y un ecosistema moderno para crear componentes. |
 | **Backend & DB** | Supabase | Solución todo-en-uno que proporciona base de datos, autenticación y APIs, simplificando la infraestructura. |
 | **Hosting** | Vercel | Despliegue continuo (CI/CD) de primer nivel, optimizado para frameworks de JavaScript como Vue. |
-| **Automatización** | n8n (webhook) | Para gestionar la lógica de backend de los formularios (contacto, newsletter) de forma desacoplada. |
+| **Automatización** | n8n (webhook) | **(Planificado)** Para gestionar la lógica de backend de los formularios. Actualmente, los formularios son maquetas visuales sin funcionalidad de envío. |
 
 ---
 
@@ -85,7 +85,7 @@ Estos protocolos deben seguirse para garantizar la coherencia y la calidad del t
   - Este protocolo se ejecuta para concluir una sesión de trabajo, dejando un entorno limpio y preparado para la siguiente sesión o para un agente de relevo.
   - **Pasos:**
     1. **Análisis:** El agente revisa el estado actual del proyecto y la documentación de referencia.
-    2. **Migración a Bitácora:** Todos los bloques de `Problema/Tareas` que hayan sido completados en la sección `Sesión de trabajo` del plan se mueven al archivo `Bitácora.md`.
+    2. **Migración a Bitácora:** Todos los bloques de `Problema/Tareas` que hayan sido completados en la sección `Sesión de trabajo` del plan se mueven al archivo `Bitácora.md`. No debe haber información que cause confusión al siguiente agente.
     3. **Consulta de Relevo:** El agente pregunta al usuario cuáles son las próximas prioridades o tareas a abordar en la siguiente sesión.
-    4. **Actualización del Plan:** Se limpia la sección `Sesión de trabajo` del plan y se añaden los nuevos bloques de `Problema/Tareas` según las prioridades indicadas por el usuario.
-    5. **Generación de Prompt de Relevo:** El agente genera un prompt conciso que el usuario puede utilizar para poner en situación al siguiente agente, resumiendo el último estado y las tareas pendientes.
+    4. **Actualización del Plan:** Se limpia la sección `Sesión de trabajo` del plan y se añaden los nuevos bloques de `Problema/Tareas` según las prioridades indicadas por el usuario. No debe haber información que cause confusión al siguiente agente.
+    5. **Generación de Prompt de Relevo:** El agente genera un prompt conciso que el usuario usará para poner en situación al siguiente agente, resumiendo el último estado y las tareas pendientes. En este prompt, te presentarás, le darás un nombre de la mitología nórdica al azar al nuevo agente, le dirás que seguirá hablando con juanda a partir de ahora y le dirás cuales son las próximas prioridades o tareas a abordar en la siguiente sesión. Muy importante es que le indiques al nuevo agente cuales son los archivos de referencia que debe consultar para ponerse al día con el proyecto, indicando su ubicación y nombre. La primera tarea del nuevo agente consiste en estudiarse toda la documentación, presentarse a juanda dispuesto a empezar, escribir un texto a juanda comentando lo que ha entendido acerca del proyecto y su propósito y finalmente lanzar el servidor de desarrollo local con el comando `npm run dev`.

@@ -1,45 +1,47 @@
-# Especificaciones de Diseño y UX: Recursos
+# Especificaciones: Recursos
 
-Este documento detalla el comportamiento y la maquetación de la página de Recursos (`/recursos`), implementada en `ResourcesView.vue`.
-
----
-
-## 1. Estructura General
-
-La página se organiza en tres áreas funcionales principales:
-
-1.  **Cabecera:** Presenta el título, una descripción y una barra de búsqueda.
-2.  **Controles de Filtro:** Permite al usuario filtrar los recursos por categoría.
-3.  **Grid de Recursos:** Muestra los recursos filtrados en una cuadrícula responsive.
+**Versión:** 1.2
+**Componente Asociado:** `src/views/ResourcesView.vue`
 
 ---
 
-## 2. Desglose de Componentes y Comportamiento
+## 1. Propósito y Funcionalidad
 
-### 2.1. Cabecera y Búsqueda
+Esta vista presenta una galería curada de recursos digitales, como plantillas de código, flujos de trabajo de automatización y otros activos. Permite a los usuarios explorar y filtrar estos recursos de manera visual e interactiva.
 
-- **Cabecera (`PageHeader.vue`):** Un componente reutilizable que muestra el título "Recursos" y un párrafo descriptivo.
-- **Barra de Búsqueda:** Debajo de la descripción, se muestra un campo de búsqueda. **Nota:** Actualmente, la funcionalidad de búsqueda no está implementada; es un elemento visual preparatorio.
+## 2. Fuente de Datos
 
-### 2.2. Filtros (`FilterButton.vue`)
+La página es **completamente estática**. Todos los recursos, incluyendo su título, descripción, categoría e incluso el código SVG del icono, están **hardcodeados** en un array de objetos dentro del componente `ResourcesView.vue`.
 
-- Se muestra un conjunto de botones, uno por cada categoría disponible (`N8N`, `Make`, `Plantillas Web`).
-- **Interacción:**
-  - Al hacer clic en un botón, se activa o desactiva el filtro para esa categoría.
-  - Se pueden seleccionar múltiples categorías a la vez.
-  - Un botón activo tiene un estilo visual distintivo.
-- **Lógica:** El grid de recursos se actualiza dinámicamente para mostrar solo aquellos que pertenecen a las categorías seleccionadas. Si no hay ninguna categoría seleccionada, se muestran todos.
+- **Variable Clave:** `resources`.
+- **No hay conexión a Supabase:** Los datos no se obtienen de una base de datos, lo que garantiza tiempos de carga mínimos y funcionamiento offline.
 
-### 2.3. Grid y Tarjeta de Recurso (`ResourceCard.vue`)
+## 3. Estructura y Componentes
 
-- **Layout del Grid:** Los recursos se muestran en una cuadrícula (`grid`) que se adapta al tamaño de la pantalla:
-  - **Móvil:** Una columna.
-  - **Tablet (`md`):** Dos columnas.
-  - **Escritorio (`lg`):** Tres columnas.
-- **Tarjeta de Recurso (`ResourceCard.vue`):
-  - **Estructura:** Es una tarjeta vertical (`flex-col`) que ocupa toda la altura de su celda en el grid.
-  - **Contenido:**
-    - **Icono y Categoría:** En la parte superior, se muestra un icono representativo y el nombre de la categoría.
-    - **Título y Descripción:** El cuerpo de la tarjeta contiene el título del recurso y una breve descripción.
-    - **Botón de Acción:** En la parte inferior, un botón prominente con un texto de llamada a la acción (ej. "Obtener Plantilla", "Ver Workflow") enlaza a la URL del recurso.
-  - **Interacción:** La tarjeta completa tiene un sutil efecto de `hover` que eleva su sombra, y el botón de acción cambia de brillo al pasar el cursor.
+La vista `ResourcesView.vue` orquesta varios componentes para construir la página:
+
+1.  **`PageHeader.vue`:**
+    - Muestra el título "Recursos" y un párrafo descriptivo que introduce la sección.
+
+2.  **`FilterButton.vue`:**
+    - Se genera un botón de filtro por cada categoría única definida en `allCategories`.
+    - Permiten al usuario alternar la visibilidad de las categorías de recursos.
+
+3.  **Grid de `ResourceCard.vue`:**
+    - Muestra los recursos en una cuadrícula responsive.
+    - Cada tarjeta (`ResourceCard.vue`) visualiza un recurso individual, mostrando su icono, categoría, título y descripción.
+    - Al hacer clic en una tarjeta, se emite un evento (`@open`) que activa el modal de detalles.
+
+4.  **`ResourceModal.vue`:**
+    - Un componente modal que permanece oculto hasta que se selecciona un recurso.
+    - Muestra una vista detallada del recurso, incluyendo su descripción completa y el botón de acción principal (ej. "Obtener Plantilla").
+    - Se puede cerrar haciendo clic fuera del modal o en un botón de cierre específico.
+
+## 4. Lógica Reactiva (`ResourcesView.vue`)
+
+La interactividad de la página se gestiona con el sistema de reactividad de Vue:
+
+- **`resources` (ref):** Almacena el array estático de todos los objetos de recursos.
+- **`selectedCategories` (ref):** Un array que guarda las categorías que el usuario ha seleccionado para filtrar.
+- **`filteredResources` (computed):** Propiedad computada que devuelve una lista de recursos filtrada según las `selectedCategories`. Si no hay ninguna categoría seleccionada, devuelve todos los recursos.
+- **`isModalOpen` y `selectedResource` (refs):** Gestionan el estado del modal. `isModalOpen` controla su visibilidad y `selectedResource` almacena los datos del recurso que se debe mostrar en él.

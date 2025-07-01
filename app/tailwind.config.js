@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   darkMode: 'class',
   content: [
     "./index.html",
@@ -7,10 +7,35 @@ export default {
   ],
   theme: {
     extend: {
+      fontSize: {
+        'lg': '1.15rem', // Aumentado desde 1.125rem por defecto
+      },
+      fontFamily: {
+        // Fuentes base del proyecto
+        sans: ['"Figtree"', 'sans-serif'],
+        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+
+        // Clases específicas del laboratorio (se mantienen por referencia)
+        'heading-1': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'body-1': ['"Figtree"', 'sans-serif'],
+        'heading-2': ['"Playfair Display"', 'serif'],
+        'body-2': ['"Lora"', 'serif'],
+        'heading-3': ['"Manrope"', 'sans-serif'],
+        'body-3': ['"Source Serif Pro"', 'serif'],
+        'mono-1': ['"JetBrains Mono"', 'monospace'],
+        'heading-4': ['"Montserrat"', 'sans-serif'],
+        'body-4': ['"Lato"', 'sans-serif'],
+        'heading-5': ['"Nunito"', 'sans-serif'],
+        'body-5': ['"Figtree"', 'sans-serif'],
+        'heading-6': ['"Lato"', 'sans-serif'],
+        'body-6': ['"Lora"', 'serif'],
+      },
       colors: {
         'brand-dark': '#121214',
         'brand-accent': '#F6C90E',
-        'brand-accent-darker': '#D9B40C', // Variante para texto y elementos funcionales
+        'brand-accent-darker': '#D9B40C',
+        'brand-accent-light': '#FEF3C7',
         
         'bg-light': '#FFFFFF',
         'bg-dark': '#121214',

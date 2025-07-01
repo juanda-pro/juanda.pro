@@ -1,51 +1,45 @@
-# Especificaciones de Diseño y UX: Blog
+# Especificaciones: Página de Blog
 
-Este documento detalla el comportamiento y la maquetación de la página principal del Blog (`/blog`), que muestra el listado de artículos.
-
----
-
-## 1. Lógica de Datos y Estados
-
-La página del Blog es dinámica y obtiene su contenido directamente desde la base de datos de Supabase.
-
-- **Fuente de Datos:** Los artículos se cargan desde la tabla `articles` de Supabase.
-- **Consulta:** Se seleccionan todos los artículos cuya `published_at` sea anterior o igual a la fecha actual. Los resultados se ordenan por `relevance` (ascendente, para destacar los `featured`) y luego por `published_at` (descendente).
-- **Gestión de Estados de la Interfaz:** El componente gestiona varios estados para ofrecer una experiencia de usuario robusta:
-  - **Estado de Carga (`isLoading`):** Muestra un mensaje "Cargando artículos..." mientras se espera la respuesta de Supabase.
-  - **Estado de Error (`errorMessage`):** Si la consulta a la base de datos falla, se muestra un mensaje de error claro.
-  - **Estado Vacío:** Si no se encuentran artículos (ya sea inicialmente o después de aplicar filtros), se muestra el mensaje "No hay artículos que coincidan con tu búsqueda o aún no se han publicado."
+**Versión:** 1.1
+**Componente Asociado:** `src/views/BlogView.vue`
 
 ---
 
-## 2. Estructura de la Página (`BlogView.vue`)
+## 1. Propósito y Funcionalidad
 
-- **Cabecera:** La página utiliza el componente `PageHeader` para mostrar el título "Blog", seguido de un párrafo introductorio que define el propósito de la sección.
-- **Layout General:** La página presenta una lista de artículos en una única columna vertical.
-- **Contenedor:** Los artículos se muestran dentro de un contenedor de ancho máximo (`max-w-4xl`) centrado, con un espaciado vertical consistente (`space-y-12` o `space-y-16`) entre cada tarjeta.
-- **Filtros:** Debajo de la cabecera, se encuentran los botones de filtro por categorías, que permiten al usuario refinar la lista de artículos mostrados.
+Esta vista actúa como la página principal del blog, mostrando un listado filtrable de todos los artículos publicados. Su objetivo es permitir a los usuarios descubrir y acceder fácilmente al contenido.
 
----
+## 2. Fuente de Datos
 
-## 3. Comportamiento de la Tarjeta de Artículo (`ArticleCard.vue`)
+Esta página está **conectada a Supabase** y obtiene los datos en tiempo real.
 
-El diseño de la tarjeta está inspirado en la simplicidad y claridad.
+- **Tabla:** `articles`.
+- **Consulta:** Se obtienen los artículos que cumplen las siguientes condiciones:
+    1.  Su fecha `published_at` es anterior o igual a la fecha actual.
+    2.  Se ordenan por `relevance` (ascendente) para mostrar primero los destacados, y luego por `published_at` (descendente) para mostrar los más recientes primero.
+    3.  Se limita la consulta a 10 resultados.
+- **Manejo de Estados:** La interfaz gestiona de forma explícita los siguientes estados:
+    - `isLoading`: Muestra un mensaje de "Cargando..." mientras se realiza la petición.
+    - `errorMessage`: Muestra un mensaje de error detallado si la petición a Supabase falla.
+    - Estado Vacío: Muestra un mensaje si no hay artículos que coincidan con los filtros seleccionados.
 
-### 3.1. Diseño y Layout
+## 3. Estructura y Componentes
 
-- **Estructura:** La tarjeta es un componente `flex` que adapta su dirección según el tamaño de la pantalla.
-  - **Escritorio (`md:` y superior):** Se muestra como una fila (`flex-row`), con la imagen a la izquierda y el contenido de texto a la derecha.
-  - **Móvil:** Se apila verticalmente (`flex-col`), con la imagen en la parte superior y el texto debajo.
+1.  **Cabecera:**
+    - **Componentes:** `SectionWrapper.vue`, `PageHeader.vue`.
+    - **Contenido:** Título de la página y un párrafo introductorio.
 
-- **Contenido:**
-  - **Imagen:** Mantiene una relación de aspecto de vídeo (`aspect-video`) y tiene un efecto de zoom sutil al pasar el cursor (`group-hover:scale-105`).
-  - **Categoría:** Se muestra encima del título.
-  - **Título:** Es el elemento principal. Cambia al color de acento de la marca al pasar el cursor.
-  - **Descripción/Resumen:** Visible en escritorio, oculto en móvil para simplificar la interfaz.
-  - **Fecha:** Se muestra en la parte inferior con un color de texto terciario.
+2.  **Filtros de Categoría:**
+    - **Componentes:** `FilterButton.vue`.
+    - **Lógica:** Los botones se generan dinámicamente a partir de las categorías únicas de los artículos cargados. Permiten al usuario seleccionar una o varias categorías para filtrar la lista.
 
-### 3.2. Interacción
+3.  **Grid de Artículos:**
+    - **Componentes:** `ArticleCard.vue`.
+    - **Lógica:** Muestra la lista de artículos filtrados. Cada tarjeta es un enlace a la vista de detalle del artículo (`ArticleDetailView.vue`).
 
-- **Cursor:** Toda la tarjeta es un área clicable que lleva al detalle del artículo.
-- **Hover:** La interacción principal se centra en el `group-hover` de Tailwind:
-  - La imagen se escala ligeramente.
-  - El título cambia de color.
+## 4. Lógica Reactiva
+
+- **`onMounted`:** Dispara la función `fetchArticles` para cargar los datos tan pronto como el componente se monta en el DOM.
+- **`allCategories` (Computed):** Extrae una lista de categorías únicas del array de artículos para generar los botones de filtro, evitando duplicados.
+- **`filteredArticles` (Computed):** Devuelve la lista de artículos que coincide con las `selectedCategories`. Si no hay ninguna categoría seleccionada, devuelve todos los artículos.
+- **`toggleCategory(category)` (Método):** Añade o elimina una categoría del array `selectedCategories` cada vez que el usuario hace clic en un `FilterButton`.

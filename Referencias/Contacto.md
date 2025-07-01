@@ -1,43 +1,41 @@
-# Especificaciones de Diseño y UX: Contacto
+# Especificaciones: Página de Contacto
 
-Este documento detalla la estructura y los componentes de la página de Contacto (`/contacto`), implementada en `ContactView.vue`.
-
----
-
-## 1. Visión General
-
-La página de Contacto está diseñada para ser un punto de comunicación directo y sin fricciones. Se centra en un único formulario claro y accesible para que los usuarios puedan enviar sus consultas fácilmente.
+**Versión:** 1.1
+**Componente Asociado:** `src/views/ContactView.vue`
 
 ---
 
-## 2. Estructura de la Página (`ContactView.vue`)
+## 1. Propósito y Funcionalidad
 
-La vista se compone de una única sección principal contenida dentro de un `SectionWrapper`.
+Esta vista proporciona un formulario de contacto para que los usuarios puedan enviar mensajes directamente desde el sitio web. El diseño se centra en la simplicidad y la claridad para facilitar la comunicación.
 
-- **Layout General:** La página utiliza un diseño de una sola columna, centrado vertical y horizontalmente para enfocar la atención del usuario en el formulario.
+## 2. Fuente de Datos
 
-### 2.1. Cabecera
+Esta página es **completamente estática** y no está conectada a ninguna fuente de datos externa como Supabase.
 
-- **Contenido:** La cabecera está integrada directamente en la vista y no utiliza un componente `PageHeader` separado.
-  - **Título:** Un `<h1>` con el texto "¿Tienes algo en mente?".
-  - **Subtítulo:** Un párrafo introductorio que invita a la conversación: "Me encantaría escucharte. Ya sea una idea, un proyecto o simplemente para saludar, este es el lugar."
+- **Lógica del Formulario:** El formulario es una implementación puramente visual. Los atributos `action="#"` y `method="POST"` son placeholders. **No hay lógica de envío implementada**; al hacer clic en "Enviar Mensaje", la página simplemente se recargará sin enviar datos a ningún servidor.
 
-### 2.2. Formulario de Contacto
+## 3. Estructura y Componentes
 
-- **Contenedor:** El formulario se presenta dentro de un contenedor estilizado con un fondo (`bg-surface-light`/`dark:bg-surface-dark`), bordes redondeados, un borde sutil y una sombra (`shadow-lg`) para darle profundidad y destacarlo del fondo de la página.
+La vista se organiza en una única sección principal que contiene el título y el formulario.
 
-- **Componentes Utilizados:**
-  - `BaseInput`: Para los campos de texto estándar (Nombre, Email, Asunto).
-  - `BaseTextarea`: Para el campo de mensaje de múltiples líneas.
-  - `BaseButton`: Para el botón de envío.
+1.  **Cabecera:**
+    - **Componentes:** No utiliza `PageHeader.vue`. El título y el subtítulo están definidos directamente en la plantilla.
+    - **Contenido:** Un `<h1>` principal y un párrafo introductorio.
 
-- **Campos del Formulario:**
-  - **Nombre:** Campo de texto.
-  - **Email:** Campo de tipo `email` para validación básica.
-  - **Asunto:** Campo de texto.
-  - **Mensaje:** Área de texto con 6 filas de altura.
+2.  **Formulario:**
+    - **Contenedor:** El formulario se presenta dentro de una "tarjeta" visualmente diferenciada con fondo, borde y sombra para destacarlo.
+    - **Componentes Base Utilizados:**
+        - `SectionWrapper.vue`: Envuelve toda la vista.
+        - `BaseInput.vue`: Para los campos de nombre, email y asunto.
+        - `BaseTextarea.vue`: Para el campo del mensaje.
+        - `BaseButton.vue`: Para el botón de envío.
+    - **Campos:**
+        - Nombre (texto)
+        - Email (email)
+        - Asunto (texto)
+        - Mensaje (textarea)
 
-- **Botón de Envío:**
-  - Un `BaseButton` con el texto "Enviar Mensaje" que ocupa todo el ancho (`w-full`) del contenedor del formulario.
+## 4. Lógica Reactiva
 
-- **Funcionalidad:** El formulario es actualmente una implementación visual (`action="#" method="POST"`). La lógica para procesar y enviar los datos no está conectada a ningún servicio de backend.
+- **Ninguna.** Este componente no utiliza `script setup` para lógica reactiva (estado, métodos, etc.), solo para la importación de componentes. Es una vista de presentación.
