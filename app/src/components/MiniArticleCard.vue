@@ -3,7 +3,7 @@
     <div class="overflow-hidden">
       <img :src="article.image_url" :alt="`Imagen de portada para ${article.title}`" class="w-full h-full object-cover aspect-[16/9] group-hover:scale-105 transition-transform duration-300" />
     </div>
-    <div class="p-4 flex-grow grid transition-colors duration-300 group-hover:bg-surface-dark dark:group-hover:bg-brand-accent">
+        <div class="p-4 flex-grow grid transition-colors duration-300 group-hover:bg-white dark:group-hover:bg-gray-800">
       <!-- Ambos elementos ocupan la misma celda del grid para superponerse -->
 
       <!-- Estado por defecto: Título y Fecha -->
@@ -18,7 +18,7 @@
       
       <!-- Estado Hover: Descripción -->
       <div class="[grid-area:1/1] flex items-center justify-start transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100">
-        <p class="text-base leading-relaxed text-white dark:text-brand-dark text-left">
+                <p class="text-base leading-relaxed text-secondary-light dark:text-secondary-dark text-left">
           {{ article.description }}
         </p>
       </div>

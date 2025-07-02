@@ -93,7 +93,7 @@ function isSelected(category) {
   <div>
     <SectionWrapper>
       <div class="relative z-10">
-        <PageHeader subtitle="Una colección curada de herramientas, plantillas y recursos que uso en mi día a día. Directo al grano, sin rodeos.">
+        <PageHeader subtitle="Herramientas que uso a diario, plantillas que me ahorran horas y automatizaciones que funcionan. Todo probado en las trincheras.">
           Recursos
         </PageHeader>
       </div>

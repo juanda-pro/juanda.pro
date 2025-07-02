@@ -6,8 +6,8 @@
         <PageHeader>
           Blog
         </PageHeader>
-        <p class="-mt-8 max-w-3xl mx-auto text-center text-lg sm:text-xl text-secondary-light dark:text-secondary-dark">
-          Ideas, reflexiones y recursos sobre tecnología, IA y desarrollo humano. Un espacio para explorar el futuro, sin prisa pero sin pausa.
+                <p class="-mt-8 max-w-3xl mx-auto text-center text-xl md:text-2xl text-secondary-light dark:text-secondary-dark">
+          Noticias, experimentos documentados y reflexiones sobre la intersección entre tecnología y desarrollo humano.
         </p>
       </div>
     </SectionWrapper>

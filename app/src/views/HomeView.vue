@@ -12,21 +12,21 @@ const pilares = [
   {
     icon: ScaleIcon,
     title: 'Conócete y gobiérnate',
-    text: 'El primer paso es construir una brújula interna. Un sistema de notas bien estructurado te permite transformar tus pensamientos en un cuerpo de conocimiento personal, definir tus propios objetivos y tomar decisiones alineadas con tus valores. Se trata de gobernarte a ti mismo antes de que los algoritmos lo hagan por ti.',
+    text: 'Obtén claridad sobre aquellas cosas en tu día a día en las que la tecnología te puede apoyar. Construye tu brújula interna por ti mismo y no dejes que los algoritmos de las redes sociales te creen necesidades ficticias. Un Simple diario o mejor aún, un sistema de notas bien estructurado, transforma el ruido en conocimiento y te ayuda a mantenerte en línea con tus objetivos.',
     colorClass: 'text-accent-info-dark',
     image_url: 'https://placehold.co/600x600/a78bfa/ffffff?text=Pilar+1'
   },
   {
     icon: MapIcon,
     title: 'Descubre el mapa',
-    text: 'Con una dirección clara, necesitas las herramientas adecuadas. Consiste en explorar el ecosistema tecnológico con mentalidad de cartógrafo, no de coleccionista. Elige con intención solo las herramientas que resuelven un problema real, combate el \'síndrome del objeto brillante\' y toma el control de tu stack tecnológico.',
+    text: 'Necesitas las herramientas adecuadas. Mantenerse informado es importante. Saber que tecnologías sirven para que cosas. Pero cuidado con el síndrome del objeto brillante, elegir con intención a que le dedicas tu tiempo es crucial. Identifica qué herramientas resuelven tus problemas, descarta lo que es solo ruido y va a distraerte de tus objetivos.',
     colorClass: 'text-brand-accent',
     image_url: 'https://placehold.co/600x600/f6c90e/121214?text=Pilar+2'
   },
   {
     icon: BoltIcon,
-    title: 'Toma acción',
-    text: 'El conocimiento y las herramientas solo generan valor cuando se ponen en movimiento. Este pilar es el motor: pasa de la planificación a la ejecución y usa la tecnología como un multiplicador. Construye flujos de trabajo inteligentes y automatiza tareas repetitivas para liberar tu tiempo y enfocarte en lo que solo un humano puede hacer: crear, innovar y aportar valor.',
+    title: 'Toma acción inteligente',
+    text: 'El conocimiento sin ejecución es entretenimiento disfrazado. Este pilar transforma teoría en resultados: automatiza lo repetitivo, diseña flujos de trabajo te liberen tiempo, incrementen tus ingresos o liberen espacio mental. La iA no es tu competencia cuando la conviertes en tu herramienta.',
     colorClass: 'text-accent-error',
     image_url: 'https://placehold.co/600x600/dc2626/ffffff?text=Pilar+3'
   }
@@ -34,25 +34,25 @@ const pilares = [
 
 const articulos = [
   {
-    slug: 'ia-generativa-futuro-contenido',
-    title: 'IA Generativa: El Futuro de la Creación de Contenido',
-    published_at: '2024-05-20T10:00:00Z',
-    image_url: 'https://images.unsplash.com/photo-1680783954745-3249be59e527?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    description: 'Descubre cómo la IA generativa está revolucionando la forma en que creamos y consumimos contenido digital.'
+    slug: 'ia-redefine-seo-marketing-contenidos',
+    title: 'Cómo la IA está redefiniendo el SEO y el marketing de contenidos',
+    published_at: '2024-07-15T10:00:00Z',
+    image_url: 'https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    description: 'La IA no es solo una herramienta, es un cambio de paradigma. Analizamos cómo adaptar tu estrategia de contenidos para no quedarte atrás.'
   },
   {
-    slug: 'notion-como-sistema-operativo-personal',
-    title: 'Notion: Tu Segundo Cerebro para una Vida Organizada',
-    published_at: '2024-04-15T09:00:00Z',
-    image_url: 'https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    description: 'Aprende a configurar Notion para que funcione como tu sistema operativo personal y centraliza toda tu vida digital.'
+    slug: 'herramientas-ia-mas-alla-chatgpt',
+    title: 'Más allá de ChatGPT: herramientas de IA que deberías conocer',
+    published_at: '2024-07-01T09:00:00Z',
+    image_url: 'https://images.unsplash.com/photo-1696204521373-3240b0356421?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    description: 'Exploramos un arsenal de aplicaciones de IA menos conocidas pero increíblemente potentes para productividad, creatividad y análisis.'
   },
   {
-    slug: 'automatizacion-make-empresa-individual',
-    title: 'Automatiza tu Negocio con Make (antes Integromat)',
-    published_at: '2024-03-10T11:30:00Z',
-    image_url: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    description: 'Una guía práctica para empezar a automatizar tareas y optimizar procesos en tu empresa individual con Make.'
+    slug: 'framework-mental-decisiones-ia',
+    title: 'El framework mental para tomar decisiones en la era de la IA',
+    published_at: '2024-06-20T11:30:00Z',
+    image_url: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    description: 'Te presento un modelo simple pero robusto para evaluar cuándo, cómo y por qué integrar la inteligencia artificial en tus proyectos y vida.'
   }
 ];
 </script>
@@ -69,10 +69,10 @@ const articulos = [
     >
       <div class="text-center max-w-3xl mx-auto">
         <h1 class="text-5xl md:text-7xl font-extrabold font-heading tracking-tight mb-6 text-primary-light dark:text-primary-dark">
-          ¡Despierta, que te come la IA!
+          ¡Despierta, que te come la iA!
         </h1>
         <p class="text-xl md:text-2xl text-secondary-light dark:text-secondary-dark mb-10">
-          😂 Es broma, pero sí es importante empezar a usar estas "máquinas inteligentes" para no quedarnos atrás.
+          Vale, es broma... pero solo a medias. Las máquinas aprenden ridículamente rápido mientras nosotros seguimos haciendo scroll. ¿Y si empezamos a usar estas herramientas para <em>amplificar</em> lo mejor de nosotros, en lugar de dejar que nos sustituyan?
         </p>
 
       </div>
@@ -91,7 +91,7 @@ const articulos = [
           ¡Hola! Soy Juanda.
         </h2>
         <p class="mt-4 max-w-xl mx-auto md:mx-0 text-lg leading-relaxed text-secondary-light dark:text-secondary-dark">
-          No soy un gurú, sino un explorador que, como tú, está navegando esta nueva era. Este espacio es mi bitácora de aprendizaje: un lugar donde documento mis experimentos, comparto herramientas que funcionan y reflexiono sobre cómo la tecnología puede, de verdad, hacernos mejores. Lo que encuentres aquí es fruto de la curiosidad y la práctica.
+          Para empezar te dire que no soy un "experto". Si soy un explorador que, como tú, sintió mucho vértigo al ver cómo la iA empezaba a redefinir muchas cosas. Como resultado decidí replantear mis hábitos, herramientas y rediseñar mi forma de aprender. Este espacio es mi bitácora abierta, aquí documento parte de experimentos, comparto mis errores, aciertos, aprendizajes y reflexiones.
         </p>
       </div>
     </div>
@@ -100,11 +100,8 @@ const articulos = [
   <!-- Texto Puente -->
   <SectionWrapper class="text-center">
     <div class="max-w-3xl mx-auto">
-      <p class="text-lg leading-relaxed text-secondary-light dark:text-secondary-dark mb-6">
-        Este proyecto nace de la convicción de que la tecnología bien entendida y usada puede ayudarnos a ser mejores humanos, más creativos, más conscientes y más libres.
-      </p>
       <p class="text-lg leading-relaxed text-secondary-light dark:text-secondary-dark">
-        Muchas cosas están cambiando cada vez más rápido. Cuanto antes empecemos a adaptarnos mejor. Mi estrategia para hacerlo se basa en tres pilares que quiero compartir contigo:
+        El cambio se acelera cada día. Pero tengo buenas noticias: adaptarse no requiere convertirse en máquina. Mi estrategia se basa en tres pilares prácticos que cualquiera puede implementar:
       </p>
     </div>
   </SectionWrapper>
@@ -122,7 +119,7 @@ const articulos = [
   <!-- Call to Action -->
   <SectionWrapper>
     <CtaCard 
-      title="Recibe tu mapa tecnológico y plan de acción con nuestro diagnóstico de IA."
+      title="Te ayudo a analizar tu situación actual y a crear una hoja de ruta personalizada y clara."
       description="Auditoría Gratuita"
       buttonText="Comenzar ahora"
       buttonLink="#"
@@ -136,7 +133,7 @@ const articulos = [
         Un lugar al que volver
       </h2>
       <p class="mt-4 text-lg leading-relaxed text-secondary-light dark:text-secondary-dark">
-        Aprendizajes, reflexiones y herramientas prácticas para inspirarte a experimentar.
+        Aprendizajes, herramientas y reflexiones honestas. Todo documentado para que experimentes por tu cuenta.
       </p>
     </div>
     <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">

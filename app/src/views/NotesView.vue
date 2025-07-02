@@ -127,10 +127,10 @@ function handleSelectFile(fileId) {
       <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto text-center">
           <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-primary-light dark:text-primary-dark mb-4">
-            Cuaderno Digital
+            Notas de juanda.pro
           </h1>
           <p class="text-xl md:text-2xl text-secondary-light dark:text-secondary-dark">
-            Un espacio de aprendizaje abierto. Conceptos, proyectos, sistemas y procedimientos.
+            Aquí encontrarás notas valiosas que uso en el desarrollo de mis proyectos, sistemas y procedimientos.
           </p>
         </div>
       </div>
