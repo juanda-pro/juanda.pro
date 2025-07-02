@@ -113,7 +113,7 @@ const articulos = [
         Una estrategia para navegar el presente
       </h2>
     </div>
-    <ScrollingFeatures :features="pilares" />
+    <ScrollingFeatures :features="pilares" class="md:mt-16" />
   </SectionWrapper>
 
   <!-- Call to Action -->
