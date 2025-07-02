@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { supabase } from '@/lib/supabase.js';
+// import { supabase } from '@/lib/supabase.js';
 import SectionWrapper from '@/components/SectionWrapper.vue';
 import BaseInput from '@/components/BaseInput.vue';
 import BaseTextarea from '@/components/BaseTextarea.vue';
@@ -22,32 +22,25 @@ const handleSubmit = async () => {
   errorMessage.value = '';
   isSuccess.value = false;
 
-  try {
-    const { data, error } = await supabase.functions.invoke('contact-form', {
-      body: form.value,
-    });
-
-    if (error) {
-      throw new Error(`Error al invocar la función: ${error.message}`);
-    }
-
-    if (data.error) {
-      throw new Error(`Error en la función del servidor: ${data.error}`);
-    }
-
+  // Lógica de Supabase comentada para desarrollo sin backend
+  console.log('Formulario enviado (simulación):', form.value);
+  
+  // Simular una respuesta exitosa
+  setTimeout(() => {
     isLoading.value = false;
     isSuccess.value = true;
     form.value = { name: '', email: '', subject: '', message: '' };
-
     setTimeout(() => isSuccess.value = false, 5000);
+  }, 1000);
 
-  } catch (error) {
-    console.error('Error al enviar el formulario:', error);
+  // Simular un error (descomentar para probar)
+  /*
+  setTimeout(() => {
     isLoading.value = false;
-    errorMessage.value = 'Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.';
-    
+    errorMessage.value = 'Hubo un problema simulado al enviar tu mensaje.';
     setTimeout(() => errorMessage.value = '', 5000);
-  }
+  }, 1000);
+  */
 };
 </script>
 
