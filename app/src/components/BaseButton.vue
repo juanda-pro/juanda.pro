@@ -19,7 +19,7 @@ const props = defineProps({
 });
 
 const buttonClasses = computed(() => {
-    const base = 'inline-block font-bold rounded-lg transition-all duration-300 transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-light dark:focus-visible:ring-offset-bg-dark';
+    const base = 'inline-block text-center font-bold rounded-lg transition-all duration-300 transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-light dark:focus-visible:ring-offset-bg-dark';
 
   const sizeStyles = {
     lg: 'py-4 px-8 text-lg',
