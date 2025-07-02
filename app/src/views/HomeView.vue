@@ -34,22 +34,25 @@ const pilares = [
 
 const articulos = [
   {
-    slug: 'construye-tu-segundo-cerebro-con-obsidian-y-zettelkasten',
-    title: 'Construye tu Segundo Cerebro con Obsidian y Zettelkasten',
-    date: '25 de Julio, 2024',
-    image_url: 'https://placehold.co/600x400/f6c90e/121214?text=Sistemas',
+    slug: 'ia-generativa-futuro-contenido',
+    title: 'IA Generativa: El Futuro de la Creación de Contenido',
+    published_at: '2024-05-20T10:00:00Z',
+    image_url: 'https://images.unsplash.com/photo-1680783954745-3249be59e527?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    description: 'Descubre cómo la IA generativa está revolucionando la forma en que creamos y consumimos contenido digital.'
   },
   {
-    slug: 'el-antidoto-definitivo-al-sindrome-del-objeto-brillante',
-    title: 'El Antídoto Definitivo al Síndrome del Objeto Brillante',
-    date: '18 de Julio, 2024',
-    image_url: 'https://placehold.co/600x400/a78bfa/121214?text=Mentalidad',
+    slug: 'notion-como-sistema-operativo-personal',
+    title: 'Notion: Tu Segundo Cerebro para una Vida Organizada',
+    published_at: '2024-04-15T09:00:00Z',
+    image_url: 'https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    description: 'Aprende a configurar Notion para que funcione como tu sistema operativo personal y centraliza toda tu vida digital.'
   },
   {
-    slug: 'automatiza-tu-vida-con-make-y-notion-guia-de-inicio',
-    title: 'Automatiza tu Vida con Make y Notion: Guía de Inicio',
-    date: '12 de Julio, 2024',
-    image_url: 'https://placehold.co/600x400/4338ca/ffffff?text=Automatización',
+    slug: 'automatizacion-make-empresa-individual',
+    title: 'Automatiza tu Negocio con Make (antes Integromat)',
+    published_at: '2024-03-10T11:30:00Z',
+    image_url: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    description: 'Una guía práctica para empezar a automatizar tareas y optimizar procesos en tu empresa individual con Make.'
   }
 ];
 </script>

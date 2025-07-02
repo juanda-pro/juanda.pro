@@ -3,22 +3,45 @@
     <div class="overflow-hidden">
       <img :src="article.image_url" :alt="`Imagen de portada para ${article.title}`" class="w-full h-full object-cover aspect-[16/9] group-hover:scale-105 transition-transform duration-300" />
     </div>
-    <div class="p-4 flex flex-col flex-grow">
-      <h3 class="font-heading text-xl font-bold text-primary-light dark:text-primary-dark leading-tight flex-grow group-hover:text-accent-info dark:group-hover:text-accent-info-dark transition-colors duration-300">
-        {{ article.title }}
-      </h3>
-      <time class="mt-3 text-sm text-secondary-light dark:text-secondary-dark">{{ article.date }}</time>
+    <div class="p-4 flex-grow grid transition-colors duration-300 group-hover:bg-surface-dark dark:group-hover:bg-brand-accent">
+      <!-- Ambos elementos ocupan la misma celda del grid para superponerse -->
+
+      <!-- Estado por defecto: Título y Fecha -->
+      <div class="[grid-area:1/1] flex flex-col transition-opacity duration-300 ease-in-out group-hover:opacity-0">
+        <h3 class="font-heading text-xl font-bold text-primary-light dark:text-primary-dark leading-tight flex-grow">
+          {{ article.title }}
+        </h3>
+        <time class="mt-auto text-sm text-secondary-light dark:text-secondary-dark">
+          {{ formattedDate }}
+        </time>
+      </div>
+      
+      <!-- Estado Hover: Descripción -->
+      <div class="[grid-area:1/1] flex items-center justify-start transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100">
+        <p class="text-base leading-relaxed text-white dark:text-brand-dark text-left">
+          {{ article.description }}
+        </p>
+      </div>
     </div>
   </router-link>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+import { computed } from 'vue';
+
+const props = defineProps<{
   article: {
     slug: string;
     title: string;
-    date: string;
+    published_at: string;
     image_url: string;
+    description?: string;
   };
 }>();
+
+const formattedDate = computed(() => {
+  if (!props.article.published_at) return '';
+  const date = new Date(props.article.published_at);
+  return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+});
 </script>
