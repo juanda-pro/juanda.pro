@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "app/package.json",
@@ -7,9 +8,6 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/:path*",
-      "destination": "/index.html"
-    }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
