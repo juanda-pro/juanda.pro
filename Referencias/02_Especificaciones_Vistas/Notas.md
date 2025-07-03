@@ -1,7 +1,7 @@
 # Especificaciones: Cuaderno Digital (Notas)
 
-**Versión:** 1.1
-**Componente Asociado:** `src/views/NotesView.vue`
+**Versión:** 1.2
+**Componente Asociado:** `app/src/views/NotesView.vue`
 
 ---
 
@@ -14,8 +14,8 @@ Esta vista funciona como una aplicación de wiki o "segundo cerebro" público. P
 Esta página es **completamente estática**. Toda la estructura de archivos, carpetas y el contenido de cada nota están **hardcodeados** en un array de objetos dentro del componente `NotesView.vue`.
 
 - **Variable Clave:** `wikiTree`.
-- **No hay conexión a Supabase:** Los datos no se obtienen de una base de datos. Esto asegura que la sección sea extremadamente rápida y no dependa de una conexión de red para mostrar su contenido.
-- **Contenido HTML:** El contenido de cada "archivo" se almacena como una cadena de texto con formato HTML directamente en la propiedad `content` de cada objeto.
+- **No hay conexión a Supabase:** Los datos no se obtienen de una base de datos. Esto asegura que la sección sea extremadamente rápida y no dependa de una conexión de red.
+- **Contenido Markdown:** El contenido de cada "archivo" se almacena como una cadena de texto con formato **Markdown** en la propiedad `content` de cada objeto.
 
 ## 3. Estructura y Componentes
 
@@ -37,7 +37,8 @@ La vista `NotesView.vue` actúa como un orquestador para varios componentes espe
 
 5.  **`WikiContent.vue` (slot `content`):**
     - Recibe el objeto del archivo activo (`activeFile`).
-    - Muestra el título, los metadatos y el contenido (usando `v-html`).
+    - **Procesa el contenido Markdown:** Utiliza la librería `marked` para convertir la cadena de Markdown del archivo a HTML.
+    - Muestra el título, los metadatos y el contenido renderizado (usando `v-html`).
     - Gestiona la visualización de relaciones entre notas, permitiendo la navegación cruzada.
 
 ## 4. Lógica Reactiva (`NotesView.vue`)

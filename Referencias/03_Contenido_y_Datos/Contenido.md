@@ -1,9 +1,6 @@
+# Contenido Maestro del Website
 
----
-
-# Textos Actuales del Website
-
-> **Fuente de la Verdad:** Este documento contiene los textos exactos que están implementados en el sitio web en este momento. Se actualiza automáticamente cada vez que se realiza un cambio en el contenido de las vistas.
+> **Única Fuente de la Verdad:** Este documento centraliza todos los textos del sitio web. Su propósito es servir como referencia principal para el contenido, asegurando consistencia y facilitando futuras actualizaciones. No se actualiza automáticamente.
 
 ---
 

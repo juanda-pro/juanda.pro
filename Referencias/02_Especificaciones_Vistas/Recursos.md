@@ -1,7 +1,7 @@
 # Especificaciones: Recursos
 
-**Versión:** 1.2
-**Componente Asociado:** `src/views/ResourcesView.vue`
+**Versión:** 1.3
+**Componente Asociado:** `app/src/views/ResourcesView.vue`
 
 ---
 
@@ -11,9 +11,10 @@ Esta vista presenta una galería curada de recursos digitales, como plantillas d
 
 ## 2. Fuente de Datos
 
-La página es **completamente estática**. Todos los recursos, incluyendo su título, descripción, categoría e incluso el código SVG del icono, están **hardcodeados** en un array de objetos dentro del componente `ResourcesView.vue`.
+La página es **completamente estática**. Todos los recursos están **hardcodeados** en un array de objetos dentro del componente `ResourcesView.vue`.
 
 - **Variable Clave:** `resources`.
+- **Iconos como Componentes:** A diferencia de versiones anteriores, los iconos SVG no están hardcodeados como texto. Se importan como componentes de Vue (`@/components/icons/*.vue`) y se asignan dinámicamente a cada recurso. Esto mejora la reutilización y el mantenimiento del código.
 - **No hay conexión a Supabase:** Los datos no se obtienen de una base de datos, lo que garantiza tiempos de carga mínimos y funcionamiento offline.
 
 ## 3. Estructura y Componentes
