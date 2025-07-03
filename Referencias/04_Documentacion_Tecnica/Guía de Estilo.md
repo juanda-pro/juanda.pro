@@ -61,6 +61,10 @@ La paleta es semántica y está preparada para los modos claro y oscuro.
 
 ## 2. Tipografía
 
-- **Familia Principal (Sans-serif):** La fuente por defecto es `Be Vietnam Pro`, cargada globalmente en `index.html`. No necesita ser declarada en Tailwind.
-- **Familia Secundaria (Serif):** Se ha extendido la configuración para incluir una fuente serif (`Lora`) para uso específico en el cuerpo de textos largos (como artículos). Se aplica con la clase `font-serif`.
+La configuración de fuentes está centralizada en `tailwind.config.js` y se cargan desde Google Fonts en `index.html`.
+
+- **Fuente Principal (Sans-serif):** `Figtree`. Se aplica por defecto a todo el cuerpo del texto. Utilidad: `font-sans`.
+- **Fuente para Encabezados:** `Plus Jakarta Sans`. Usada para títulos y encabezados importantes para un mayor impacto visual. Utilidad: `font-heading`.
+- **Fuente Secundaria (Serif):** `Lora`. Usada para el cuerpo de textos largos, como artículos, para mejorar la legibilidad. Utilidad: `font-serif`.
+- **Fuente Monoespaciada:** `JetBrains Mono`. Para cualquier texto que represente código. Utilidad: `font-mono`.
 - **Escala y Pesos:** Se utiliza la escala de tamaño (`text-lg`, `text-xl`) y pesos (`font-semibold`, `font-bold`) por defecto de Tailwind.

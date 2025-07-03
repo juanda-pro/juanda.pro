@@ -29,16 +29,16 @@ const router = createRouter({
       name: 'article-detail',
       component: () => import('../views/ArticleDetailView.vue')
     },
-    {
-      path: '/recursos',
-      name: 'recursos',
-      component: () => import('../views/ResourcesView.vue')
-    },
-    {
-      path: '/notas',
-      name: 'notas',
-      component: () => import('../views/NotesView.vue')
-    },
+    // {
+    //   path: '/recursos',
+    //   name: 'recursos',
+    //   component: () => import('../views/ResourcesView.vue')
+    // },
+    // {
+    //   path: '/notas',
+    //   name: 'notas',
+    //   component: () => import('../views/NotesView.vue')
+    // },
     {
       path: '/soy',
       name: 'soy',

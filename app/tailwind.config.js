@@ -13,6 +13,7 @@ module.exports = {
       fontFamily: {
         // Fuentes base del proyecto
         sans: ['"Figtree"', 'sans-serif'],
+        serif: ['"Lora"', 'serif'],
         heading: ['"Plus Jakarta Sans"', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace']
       },

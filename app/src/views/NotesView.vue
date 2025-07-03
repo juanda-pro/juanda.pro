@@ -1,5 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue';
+import PageLayout from '@/components/PageLayout.vue';
+import PageHeader from '@/components/PageHeader.vue';
 import SectionWrapper from '@/components/SectionWrapper.vue';
 import WikiLayout from '@/components/WikiLayout.vue';
 import WikiSidebar from '@/components/WikiSidebar.vue';
@@ -121,36 +123,27 @@ function handleSelectFile(fileId) {
 </script>
 
 <template>
-  <div>
+  <PageLayout>
     <OnboardingHint />
-    <SectionWrapper class="pt-24 pb-12 md:pt-32 md:pb-16">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center">
-          <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-primary-light dark:text-primary-dark mb-4">
-            Notas de juanda.pro
-          </h1>
-          <p class="text-xl md:text-2xl text-secondary-light dark:text-secondary-dark">
-            Aquí encontrarás notas valiosas que uso en el desarrollo de mis proyectos, sistemas y procedimientos.
-          </p>
-        </div>
-      </div>
+    <SectionWrapper>
+      <PageHeader subtitle="Aquí encontrarás notas valiosas que uso en el desarrollo de mis proyectos, sistemas y procedimientos.">
+        Notas de juanda.pro
+      </PageHeader>
     </SectionWrapper>
 
     <SectionWrapper>
-      <div class="container mx-auto px-4">
-        <WikiLayout @select-file="handleSelectFile">
-          <template #sidebar>
-            <WikiSidebar 
-              :nodes="wikiTree"
-              :active-file-id="activeFileId"
-              @select-file="handleSelectFile"
-            />
-          </template>
-          <template #content>
-            <WikiContent :file="activeFile" @select-file="handleSelectFile" />
-          </template>
-        </WikiLayout>
-      </div>
+      <WikiLayout @select-file="handleSelectFile">
+        <template #sidebar>
+          <WikiSidebar 
+            :nodes="wikiTree"
+            :active-file-id="activeFileId"
+            @select-file="handleSelectFile"
+          />
+        </template>
+        <template #content>
+          <WikiContent :file="activeFile" @select-file="handleSelectFile" />
+        </template>
+      </WikiLayout>
     </SectionWrapper>
-  </div>
+  </PageLayout>
 </template>

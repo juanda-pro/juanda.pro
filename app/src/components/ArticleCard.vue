@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'article-detail', params: { slug: article.slug } }" class="block">
+  <router-link :to="{ name: 'article-detail', params: { slug: article.slug } }" class="block rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent focus-visible:ring-offset-light dark:focus-visible:ring-offset-dark">
     <article class="group grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
     <!-- Imagen -->
     <div class="md:col-span-1 overflow-hidden rounded-lg aspect-video">

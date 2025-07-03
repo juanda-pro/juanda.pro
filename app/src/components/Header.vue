@@ -13,8 +13,6 @@ import ThemeToggle from './ThemeToggle.vue'
 const navLinks = [
   { name: 'Inicio', path: '/' },
   { name: 'Blog', path: '/blog' },
-  { name: 'Recursos', path: '/recursos' },
-  { name: 'Notas', path: '/notas' },
   { name: 'Soy', path: '/soy' },
   { name: 'Contacto', path: '/contacto' },
 ]

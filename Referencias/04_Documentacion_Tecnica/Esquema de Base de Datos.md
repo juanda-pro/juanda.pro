@@ -45,12 +45,3 @@ Almacena todos los artículos del blog. **(Versión 1.1 - Sincronizada con el c�
 9.  `category`
     -   **Tipo:** `text`
     -   **Descripción:** La categoría principal del artículo (ej: `Productividad`, `IA`).
-
-10. `relevance`
-    -   **Tipo:** `integer`
-    -   **Descripción:** Un número para ordenar los artículos. Un valor más bajo indica mayor relevancia (aparece primero).
-    -   **Nota:** Usado como criterio principal de ordenación en `BlogView.vue`.
-
-11. `reading_time`
-    -   **Tipo:** `text`
-    -   **Descripción:** Texto que indica el tiempo de lectura (ej: "7 min de lectura").

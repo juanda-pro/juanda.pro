@@ -1,15 +1,10 @@
 <template>
-  <div>
+  <PageLayout>
     <!-- Hero Section -->
     <SectionWrapper>
-      <div>
-        <PageHeader>
+      <PageHeader subtitle="Noticias, experimentos documentados y reflexiones sobre la intersección entre tecnología y desarrollo humano.">
           Blog
         </PageHeader>
-                <p class="-mt-8 max-w-3xl mx-auto text-center text-xl md:text-2xl text-secondary-light dark:text-secondary-dark">
-          Noticias, experimentos documentados y reflexiones sobre la intersección entre tecnología y desarrollo humano.
-        </p>
-      </div>
     </SectionWrapper>
 
     <!-- Filtros y Grid de Artículos -->
@@ -50,7 +45,7 @@
         <p class="text-lg text-secondary-light dark:text-secondary-dark">No hay artículos que coincidan con tu búsqueda o aún no se han publicado.</p>
       </div>
     </SectionWrapper>
-  </div>
+  </PageLayout>
 </template>
 
 <script setup>
@@ -59,6 +54,7 @@ import SectionWrapper from '@/components/SectionWrapper.vue';
 import PageHeader from '@/components/PageHeader.vue';
 import ArticleCard from '@/components/ArticleCard.vue';
 import FilterButton from '@/components/FilterButton.vue';
+import PageLayout from '@/components/PageLayout.vue';
 
 // --- State ---
 const allArticles = ref([]);
@@ -76,7 +72,7 @@ const loadMockData = () => {
         title: 'IA Generativa: El Futuro de la Creación de Contenido',
         category: 'IA',
         published_at: '2024-05-20 10:00:00+00',
-        readingTime: '7 min de lectura',
+
         image_url: 'https://images.unsplash.com/photo-1680783954745-3249be59e527?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         description: 'Exploramos cómo la IA generativa está cambiando el panorama del marketing, el arte y la programación.'
       },
@@ -85,7 +81,7 @@ const loadMockData = () => {
         title: 'Guía Completa de Vue 3 y Composition API',
         category: 'Desarrollo',
         published_at: '2024-05-15 09:00:00+00',
-        readingTime: '12 min de lectura',
+
         image_url: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2070&auto=format&fit=crop',
         description: 'Una guía detallada para dominar la Composition API de Vue 3, con ejemplos prácticos y consejos.'
       },
@@ -94,7 +90,7 @@ const loadMockData = () => {
         title: 'Minimalismo Digital: Cómo Enfocarse en lo que Importa',
         category: 'Productividad',
         published_at: '2024-05-10 11:00:00+00',
-        readingTime: '6 min de lectura',
+
         image_url: 'https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         description: 'Estrategias para reducir el ruido digital y aumentar la productividad y el bienestar en tu vida.'
       },
@@ -103,7 +99,7 @@ const loadMockData = () => {
         title: 'El Auge de Supabase como Alternativa a Firebase',
         category: 'Tecnología',
         published_at: '2024-05-05 14:00:00+00',
-        readingTime: '5 min de lectura',
+
         image_url: 'https://images.unsplash.com/photo-1655393001768-d946c97d6fd1?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         description: 'Analizamos las ventajas de Supabase, el backend open-source que está ganando terreno rápidamente.'
       },
@@ -112,7 +108,7 @@ const loadMockData = () => {
         title: 'Meditación y Código: La Conexión Inesperada',
         category: 'Bienestar',
         published_at: '2024-05-01 08:00:00+00',
-        readingTime: '8 min de lectura',
+
         image_url: 'https://images.unsplash.com/photo-1680783954745-3249be59e527?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         description: 'Descubre cómo prácticas de mindfulness pueden mejorar tu concentración y calidad como desarrollador.'
       }
