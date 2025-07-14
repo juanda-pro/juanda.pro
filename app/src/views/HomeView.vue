@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
+// import { supabase } from '@/supabaseClient'; // Comentado para usar datos locales
+import { getPublishedArticles } from '@/data/articlesData';
 import SectionWrapper from '@/components/SectionWrapper.vue';
 import BaseButton from '@/components/BaseButton.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
@@ -9,7 +12,38 @@ import PageHeader from '@/components/PageHeader.vue';
 import PageLayout from '@/components/PageLayout.vue';
 
 import { ScaleIcon, MapIcon, BoltIcon, SparklesIcon } from '@heroicons/vue/24/outline';
-import { articulos } from '@/data/homeViewData';
+
+interface Article {
+  slug: string;
+  title: string;
+  category: string;
+  image_url: string;
+  published_at: string;
+  description?: string;
+}
+
+const recentArticles = ref<Article[]>([]);
+
+const fetchRecentArticles = () => {
+  try {
+    // Usar datos locales en lugar de Supabase
+    const articles = getPublishedArticles();
+    
+    // Ordenar por fecha de publicación (más reciente primero)
+    articles.sort((a, b) => {
+      return new Date(b.published_at).getTime() - new Date(a.published_at).getTime();
+    });
+    
+    // Limitar a 3 artículos
+    recentArticles.value = articles.slice(0, 3);
+  } catch (error) {
+    console.error('Error fetching recent articles:', error);
+  }
+};
+
+onMounted(() => {
+  fetchRecentArticles();
+});
 
 const pilares = [
   {
@@ -105,7 +139,7 @@ const pilares = [
       </p>
     </div>
     <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-      <MiniArticleCard v-for="articulo in articulos" :key="articulo.slug" :article="articulo" />
+      <MiniArticleCard v-for="articulo in recentArticles" :key="articulo.slug" :article="articulo" />
     </div>
   </SectionWrapper>
 </PageLayout>

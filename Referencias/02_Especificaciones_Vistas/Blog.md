@@ -11,14 +11,14 @@ Esta vista actúa como la página principal del blog, mostrando un listado filtr
 
 ## 2. Fuente de Datos
 
-Actualmente, esta página utiliza **datos de prueba hardcodeados** para simular el comportamiento dinámico. La conexión a Supabase está planificada pero no implementada.
+La vista se conecta directamente a la tabla `articles` de Supabase para obtener todos los artículos publicados.
 
-- **Función Clave:** `loadMockData()`.
-- **Lógica:** Esta función asigna un array de objetos de artículos directamente a la variable reactiva `allArticles`. Para simular una carga de red, utiliza un `setTimeout` de 500ms, durante el cual se muestra un estado de carga.
-- **Manejo de Estados:** La interfaz gestiona los siguientes estados:
-    - `isLoading`: (Simulado) Muestra "Cargando artículos..." durante el `setTimeout`.
-    - `errorMessage`: Variable preparada, pero no se utiliza con datos hardcodeados.
-    - Estado Vacío: Muestra un mensaje si no hay artículos que coincidan con los filtros seleccionados.
+- **Función Clave:** `fetchArticles()`.
+- **Lógica:** Esta función asíncrona realiza una consulta a Supabase para seleccionar los campos necesarios (`slug`, `title`, `category`, `published_at`, `image_url`, `description`) de todos los artículos donde `is_published` sea `true`. Los resultados se ordenan por fecha de publicación descendente.
+- **Manejo de Estados:** La interfaz gestiona de forma robusta los siguientes estados:
+    - `isLoading`: Se activa (`true`) antes de iniciar la petición y se desactiva (`false`) cuando la petición termina (ya sea con éxito o con error).
+    - `errorMessage`: Almacena un mensaje de error si la petición a Supabase falla, que se muestra al usuario.
+    - Estado Vacío: Muestra un mensaje si no hay artículos que coincidan con los filtros de categoría seleccionados.
 
 ## 3. Estructura y Componentes
 
@@ -36,7 +36,7 @@ Actualmente, esta página utiliza **datos de prueba hardcodeados** para simular 
 
 ## 4. Lógica Reactiva
 
-- **`onMounted`:** Dispara la función `loadMockData` para cargar los datos de prueba tan pronto como el componente se monta en el DOM.
+- **`onMounted`:** Llama a la función `fetchArticles` para cargar los datos desde Supabase en cuanto el componente se monta en el DOM.
 - **`allCategories` (Computed):** Extrae una lista de categorías únicas del array `allArticles` para generar los botones de filtro, evitando duplicados.
 - **`filteredArticles` (Computed):** Devuelve la lista de artículos que coincide con las `selectedCategories`. Si no hay ninguna categoría seleccionada, devuelve todos los artículos.
 - **`toggleCategory(category)` (Método):** Añade o elimina una categoría del array `selectedCategories` cada vez que el usuario hace clic en un `FilterButton`.

@@ -45,3 +45,8 @@ Almacena todos los artículos del blog. **(Versión 1.1 - Sincronizada con el c�
 9.  `category`
     -   **Tipo:** `text`
     -   **Descripción:** La categoría principal del artículo (ej: `Productividad`, `IA`).
+
+10. `is_published`
+    -   **Tipo:** `boolean`
+    -   **Por defecto:** `false`
+    -   **Descripción:** Controla si un artículo es visible públicamente. Solo los artículos con este campo en `true` se mostrarán en el sitio web.

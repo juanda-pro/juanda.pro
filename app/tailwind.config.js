@@ -4,6 +4,7 @@ module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
+    "../Referencias/**/*.md" // Añadido para que Tailwind no purgue los estilos del contenido de los artículos
   ],
   theme: {
     extend: {

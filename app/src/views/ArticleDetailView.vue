@@ -1,16 +1,18 @@
 <script setup>
 import { ref, watch, computed } from 'vue';
-import { useRoute } from 'vue-router';
-// import { supabase } from '@/lib/supabase'; // Supabase is disabled
+import { useRoute, useRouter } from 'vue-router';
+// import { supabase } from '@/supabaseClient'; // Comentado para usar datos locales
+import { getArticleBySlug, getPublishedArticles } from '@/data/articlesData';
 import SectionWrapper from '@/components/SectionWrapper.vue';
 import ArticleCard from '@/components/ArticleCard.vue';
 import PageLayout from '@/components/PageLayout.vue';
 
 const route = useRoute();
+const router = useRouter();
 const article = ref(null);
-const isLoading = ref(false); // Set to false as we are not fetching
+const isLoading = ref(true);
 const errorMessage = ref('');
-const suggestedArticle = ref(null);
+const suggestedArticle = ref(null); // Se cargará automáticamente
 
 const formattedDate = computed(() => {
   if (!article.value || !article.value.published_at) return '';
@@ -18,80 +20,40 @@ const formattedDate = computed(() => {
   return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 });
 
-// Mock data for a single article view
-const mockArticles = {
-  'ia-generativa-futuro-contenido': {
-    slug: 'ia-generativa-futuro-contenido',
-    title: 'IA Generativa: El Futuro de la Creación de Contenido',
-    category: 'IA',
-    published_at: '2024-05-20 10:00:00+00',
+const fetchArticleBySlug = (slug) => {
+  isLoading.value = true;
+  errorMessage.value = '';
+  article.value = null;
 
-    image_url: 'https://images.unsplash.com/photo-1680783954745-3249be59e527?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    description: 'Exploramos cómo la IA generativa está cambiando el panorama del marketing, el arte y la programación.',
-    content: '<p>Contenido completo del artículo sobre IA Generativa...</p>'
-  },
-  'guia-vue-3-composition-api': {
-    slug: 'guia-vue-3-composition-api',
-    title: 'Guía Completa de Vue 3 y Composition API',
-    category: 'Desarrollo',
-    published_at: '2024-05-15 09:00:00+00',
+  try {
+    // Usar datos locales en lugar de Supabase
+    const foundArticle = getArticleBySlug(slug);
 
-    image_url: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2070&auto=format&fit=crop',
-    description: 'Una guía detallada para dominar la Composition API de Vue 3, con ejemplos prácticos y consejos.',
-    content: '<p>Contenido completo de la guía de Vue 3...</p>'
-  },
-  'minimalismo-digital-enfoque': {
-    slug: 'minimalismo-digital-enfoque',
-    title: 'Minimalismo Digital: Cómo Enfocarse en lo que Importa',
-    category: 'Productividad',
-    published_at: '2024-05-10 11:00:00+00',
+    if (foundArticle) {
+      article.value = foundArticle;
+      
+      // Cargar un artículo sugerido (el primero disponible que no sea el actual)
+      const allArticles = getPublishedArticles();
+      suggestedArticle.value = allArticles.find(a => a.slug !== slug) || null;
+    } else {
+      // Si no se encuentra el artículo, mostrar un mensaje
+      errorMessage.value = 'El artículo que buscas no existe o no está disponible.';
+    }
 
-    image_url: 'https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    description: 'Estrategias para reducir el ruido digital y aumentar la productividad y el bienestar en tu vida.',
-    content: '<p>Contenido completo sobre minimalismo digital...</p>'
-  },
-  'supabase-alternativa-firebase': {
-    slug: 'supabase-alternativa-firebase',
-    title: 'El Auge de Supabase como Alternativa a Firebase',
-    category: 'Tecnología',
-    published_at: '2024-05-05 14:00:00+00',
-
-    image_url: 'https://images.unsplash.com/photo-1655393001768-d946c97d6fd1?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    description: 'Analizamos las ventajas de Supabase, el backend open-source que está ganando terreno rápidamente.',
-    content: '<p>Contenido completo sobre Supabase...</p>'
-  },
-  'meditacion-y-codigo': {
-    slug: 'meditacion-y-codigo',
-    title: 'Meditación y Código: La Conexión Inesperada',
-    category: 'Bienestar',
-    published_at: '2024-05-01 08:00:00+00',
-
-    image_url: 'https://images.unsplash.com/photo-1680783954745-3249be59e527?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    description: 'Descubre cómo prácticas de mindfulness pueden mejorar tu concentración y calidad como desarrollador.',
-    content: '<p>Contenido completo sobre meditación y código...</p>'
+  } catch (error) {
+    console.error('Error fetching article:', error);
+    errorMessage.value = 'Ocurrió un error al cargar el artículo.';
+  } finally {
+    isLoading.value = false;
   }
 };
 
-const fetchMockArticle = (slug) => {
-  isLoading.value = true;
-  setTimeout(() => {
-    const foundArticle = mockArticles[slug];
-    if (foundArticle) {
-      article.value = foundArticle;
-      errorMessage.value = '';
-    } else {
-      article.value = null;
-      errorMessage.value = 'El artículo que buscas no fue encontrado.';
-    }
-    isLoading.value = false;
-  }, 500);
-};
-
+// Observar cambios en el slug de la URL y cargar el artículo correspondiente
 watch(
   () => route.params.slug,
   (newSlug) => {
-    if (newSlug) {
-      fetchMockArticle(newSlug);
+    if (typeof newSlug === 'string') {
+      fetchArticleBySlug(newSlug);
       window.scrollTo(0, 0);
     }
   },
@@ -119,57 +81,157 @@ watch(
     </div>
 
     <!-- Contenido del Artículo -->
-    <PageLayout v-else-if="article">
-      <!-- Cabecera del Artículo -->
-      <header class="pt-24 pb-12 sm:pt-32 sm:pb-16 text-center">
-        <SectionWrapper>
-          <p class="text-base font-semibold text-brand-accent mb-2">{{ article.category }}</p>
-          <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-primary-light dark:text-primary-dark">{{ article.title }}</h1>
-          <div class="mt-6 text-base text-secondary-light dark:text-secondary-dark flex items-center justify-center space-x-4">
-            <span>{{ formattedDate }}</span>
-
+    <div v-else-if="article" class="flex flex-col gap-12 sm:gap-16 md:gap-20">
+      <!-- Barra de navegación rápida -->
+      <div class="sticky top-0 z-10 bg-light/80 dark:bg-dark/80 backdrop-blur-md border-b border-surface-accent-light dark:border-surface-accent-dark/30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <router-link to="/blog" class="flex items-center text-sm font-medium text-secondary-light dark:text-secondary-dark hover:text-brand-accent transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Volver al Blog
+            </router-link>
+            <div class="flex items-center space-x-4">
+              <span class="text-xs font-medium text-brand-accent">{{ article.category }}</span>
+              <span class="text-xs text-secondary-light dark:text-secondary-dark">{{ formattedDate }}</span>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Cabecera del Artículo -->
+      <header class="pt-6 pb-4 sm:pt-8 sm:pb-6 text-center">
+        <SectionWrapper>
+          <p class="text-base font-semibold text-brand-accent mb-2 animate-fade-in">{{ article.category }}</p>
+          <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-primary-light dark:text-primary-dark animate-fade-in-up">
+            {{ article.title }}
+          </h1>
+          <p class="mt-6 text-lg text-secondary-light dark:text-secondary-dark max-w-2xl mx-auto animate-fade-in-up delay-100">
+            {{ article.description }}
+          </p>
         </SectionWrapper>
       </header>
 
-      <!-- Imagen Destacada -->
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <img :src="article.image_url" :alt="`Imagen para ${article.title}`" class="rounded-lg shadow-xl w-full h-auto object-cover aspect-video">
+      <!-- Imagen Destacada con efecto parallax suave -->
+      <div class="relative overflow-hidden max-h-[50vh] mb-6">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-light/90 dark:to-dark/90 z-10"></div>
+        <img 
+          :src="article.image_url" 
+          :alt="`Imagen para ${article.title}`" 
+          class="w-full h-auto object-cover animate-fade-in"
+          style="min-height: 30vh; max-height: 50vh; width: 100%;"
+        >
       </div>
 
       <!-- Contenido del Artículo -->
       <SectionWrapper>
-        <div class="max-w-3xl mx-auto">
-          <article class="article-content prose prose-lg dark:prose-invert max-w-none mt-12" v-html="article.content"></article>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-0">
+          <!-- Tiempo de lectura estimado -->
+          <div class="flex items-center justify-center mb-4 text-sm text-secondary-light dark:text-secondary-dark">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+            </svg>
+            <span>{{ Math.max(3, Math.ceil(article.content.length / 2000)) }} min de lectura</span>
+          </div>
+          
+          <!-- Contenido del artículo -->
+          <article class="article-content prose prose-lg dark:prose-invert max-w-none" v-html="article.content"></article>
         </div>
       </SectionWrapper>
 
-      <!-- Artículo Sugerido -->
-      <SectionWrapper v-if="suggestedArticle" class="bg-light dark:bg-surface-dark/50">
-        <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12">Otro artículo que podría interesarte</h2>
-        <div class="max-w-2xl mx-auto">
+      <!-- Separador decorativo -->
+      <div class="py-12 flex justify-center">
+        <div class="flex items-center space-x-4">
+          <div class="h-px w-12 bg-brand-accent/30"></div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+          <div class="h-px w-12 bg-brand-accent/30"></div>
+        </div>
+      </div>
+      
+      <!-- Artículo Sugerido con mejor presentación -->
+      <SectionWrapper v-if="suggestedArticle" class="bg-surface-light dark:bg-surface-dark/50 rounded-lg">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl sm:text-3xl font-bold mb-2">Continúa explorando</h2>
+          <p class="text-secondary-light dark:text-secondary-dark">Otro artículo que podría interesarte</p>
+        </div>
+        <div class="max-w-2xl mx-auto transform transition-transform hover:scale-[1.02] duration-300">
           <ArticleCard :article="suggestedArticle" />
         </div>
       </SectionWrapper>
-    </PageLayout>
+      
+      <!-- Botón para volver arriba -->
+      <div class="fixed bottom-8 right-8 z-50">
+        <button 
+          @click="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="p-3 bg-brand-accent/90 hover:bg-brand-accent text-brand-dark rounded-full shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent"
+          aria-label="Volver arriba"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
+/* Estilos mejorados para la vista de artículo */
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+/* Estilos de tipografía para el contenido */
 .prose :where(h2):not(:where([class~="not-prose"] *)) {
-    @apply text-2xl sm:text-3xl font-bold mt-12 mb-6 text-primary-light dark:text-primary-dark border-l-4 border-brand-accent pl-4;
+  @apply text-2xl sm:text-3xl font-bold mt-16 mb-6 text-primary-light dark:text-primary-dark border-l-4 border-brand-accent pl-4 py-2 bg-surface-accent-light/20 dark:bg-surface-accent-dark/20 rounded-r-lg;
 }
 
 .prose :where(h3):not(:where([class~="not-prose"] *)) {
-    @apply text-xl sm:text-2xl font-bold mt-8 mb-4 text-primary-light dark:text-primary-dark;
+  @apply text-xl sm:text-2xl font-bold mt-10 mb-4 text-primary-light dark:text-primary-dark border-b border-brand-accent/30 pb-2;
+}
+
+.prose :where(p):not(:where([class~="not-prose"] *)) {
+  @apply mb-6 leading-relaxed;
 }
 
 .prose :where(p.lead):not(:where([class~="not-prose"] *)) {
-  @apply text-xl text-secondary-light dark:text-secondary-dark font-serif;
+  @apply text-xl text-secondary-light dark:text-secondary-dark font-serif mb-8;
 }
 
 .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
-  @apply text-xl font-serif italic text-primary-light dark:text-primary-dark border-l-4 border-brand-accent bg-surface-accent-light dark:bg-surface-accent-dark/50 px-6 py-4 my-8;
+  @apply text-xl font-serif italic text-primary-light dark:text-primary-dark border-l-4 border-brand-accent bg-surface-accent-light/30 dark:bg-surface-accent-dark/30 px-6 py-4 my-8 rounded-r-lg;
+}
+
+/* Imágenes y figuras */
+.prose :where(figure):not(:where([class~="not-prose"] *)) {
+  @apply my-10;
+}
+
+.prose :where(figure img):not(:where([class~="not-prose"] *)) {
+  @apply rounded-lg shadow-lg transition-transform duration-300 hover:shadow-xl;
 }
 
 .prose :where(figure.inset-image):not(:where([class~="not-prose"] *)) {
@@ -180,10 +242,29 @@ watch(
   @apply w-full rounded-lg shadow-xl;
 }
 
-.prose :where(figure.inset-image figcaption):not(:where([class~="not-prose"] *)) {
-  @apply text-center text-sm text-secondary-light dark:text-secondary-dark mt-4;
+.prose :where(figure figcaption):not(:where([class~="not-prose"] *)) {
+  @apply text-center text-sm text-secondary-light dark:text-secondary-dark mt-3 italic;
 }
 
+/* Listas */
+.prose :where(ul):not(:where([class~="not-prose"] *)) {
+  @apply my-6 pl-6;
+}
+
+.prose :where(ul > li):not(:where([class~="not-prose"] *)) {
+  @apply mb-2;
+}
+
+.prose :where(ul > li):not(:where([class~="not-prose"] *))::before {
+  @apply bg-brand-accent;
+}
+
+/* Enlaces */
+.prose :where(a):not(:where([class~="not-prose"] *)) {
+  @apply text-brand-accent hover:text-brand-accent/80 transition-colors duration-200 font-medium;
+}
+
+/* Estilos de subrayado */
 .underline-yellow {
   text-decoration-line: underline;
   text-decoration-style: wavy;
@@ -195,28 +276,69 @@ watch(
 .underline-blue {
   text-decoration-line: underline;
   text-decoration-style: solid;
-    text-decoration-color: theme('colors.accent-info');
+  text-decoration-color: theme('colors.accent-info');
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
   text-decoration-skip-ink: none;
 }
 
 .underline-pink {
-    background-image: linear-gradient(to right, theme('colors.brand-accent'), theme('colors.brand-accent'));
+  background-image: linear-gradient(to right, theme('colors.brand-accent'), theme('colors.brand-accent'));
   background-repeat: no-repeat;
   background-position: 0 100%;
   background-size: 100% 3px;
 }
 
-.prose :where(ul > li):not(:where([class~="not-prose"] *))::before {
-    @apply bg-brand-accent;
-}
-
+/* Estilo general del contenido */
 .article-content {
   @apply font-serif text-secondary-light dark:text-secondary-dark;
 }
 
+/* Primera letra normal (dropcap eliminado) */
 .article-content > :first-child::first-letter {
-  @apply text-5xl sm:text-6xl font-bold text-brand-accent float-left pr-3 pt-1;
+  /* Eliminado el estilo dropcap */
+}
+
+/* Clases para imágenes flotantes */
+.article-content :deep(.image-float-left) {
+  @apply float-none w-full md:float-left md:w-1/3 md:mr-6 mb-4 md:mb-2 rounded-lg;
+  margin-top: 0.5rem;
+  clear: both;
+}
+
+.article-content :deep(.image-float-right) {
+  @apply float-none w-full md:float-right md:w-1/3 md:ml-6 mb-4 md:mb-2 rounded-lg;
+  margin-top: 0.5rem;
+  clear: both;
+}
+
+/* Asegurar que las listas no se solapen con imágenes flotantes */
+.article-content :deep(ul), .article-content :deep(ol) {
+  @apply overflow-hidden;
+  clear: both;
+}
+
+/* Asegurar que las imágenes respeten los márgenes */
+.article-content :deep(figure) {
+  @apply my-4;
+  max-width: 100%;
+  clear: both;
+}
+
+/* Tablas */
+.prose :where(table):not(:where([class~="not-prose"] *)) {
+  @apply w-full my-8 border-collapse;
+}
+
+.prose :where(thead):not(:where([class~="not-prose"] *)) {
+  @apply bg-surface-accent-light/20 dark:bg-surface-accent-dark/20;
+}
+
+.prose :where(th):not(:where([class~="not-prose"] *)) {
+  @apply py-3 px-4 text-left font-semibold text-primary-light dark:text-primary-dark border-b border-surface-accent-light dark:border-surface-accent-dark;
+}
+
+.prose :where(td):not(:where([class~="not-prose"] *)) {
+  @apply py-3 px-4 border-b border-surface-accent-light/30 dark:border-surface-accent-dark/30;
 }
 </style>

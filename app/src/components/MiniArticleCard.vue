@@ -18,7 +18,7 @@
       
       <!-- Estado Hover: Descripción -->
       <div class="[grid-area:1/1] flex items-center justify-start transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100">
-                <p class="text-base leading-relaxed text-secondary-light dark:text-secondary-dark text-left">
+                <p class="text-base leading-relaxed text-secondary-light dark:text-secondary-dark text-left dark:group-hover:text-primary-dark group-hover:text-primary-light">
           {{ article.description }}
         </p>
       </div>
