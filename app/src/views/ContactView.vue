@@ -47,13 +47,13 @@ const handleSubmit = async () => {
 
 <template>
   <PageLayout>
-    <SectionWrapper>
+    <SectionWrapper spacing="normal">
       <PageHeader subtitle="Me encantaría escucharte. Ya sea una idea, un proyecto o simplemente para saludar, este es el lugar.">
         ¿Tienes algo en mente?
       </PageHeader>
     </SectionWrapper>
 
-    <SectionWrapper>
+    <SectionWrapper spacing="normal">
       <div class="max-w-2xl mx-auto">
         <div class="bg-surface-light dark:bg-surface-dark p-8 sm:p-12 rounded-2xl border border-border-light dark:border-border-dark shadow-lg">
           <form @submit.prevent="handleSubmit">

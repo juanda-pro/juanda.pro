@@ -27,6 +27,12 @@ Este documento proporciona una visión general de todos los componentes de UI re
 - **`NoteCard.vue`**: Tarjeta para mostrar una nota o apunte.
 - **`ResourceCard.vue`**: Tarjeta para mostrar un recurso externo.
 - **`CtaCard.vue`**: Tarjeta de llamada a la acción.
+  - **Propósito:** Muestra un banner visualmente atractivo para dirigir al usuario a una acción específica.
+  - **API (Props):
+    - `title: String` (Requerido): Texto principal de la tarjeta.
+    - `description: String` (Requerido): Título grande y destacado.
+    - `buttonText: String` (Requerido): Texto del botón de acción.
+    - `buttonLink: String`: URL de destino del botón.
 - **`FeatureCard.vue`**: Tarjeta para destacar una característica.
 - **`WikiContent.vue`**: Contenedor para renderizar el contenido de una nota/wiki.
 

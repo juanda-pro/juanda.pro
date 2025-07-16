@@ -1,7 +1,7 @@
 <template>
-  <SectionWrapper>
+  <SectionWrapper spacing="normal">
     <div class="max-w-3xl mx-auto">
-      <PageHeader>Política de Privacidad</PageHeader>
+      <PageHeader subtitle="Tu confianza es importante. Aquí te explicamos cómo protegemos tu información.">Política de Privacidad</PageHeader>
       <div class="prose prose-lg dark:prose-invert max-w-none">
         <p class="text-sm text-secondary-light dark:text-secondary-dark">Última actualización: 1 de Julio de 2024</p>
         <p>En juanda.pro, tu privacidad es de suma importancia para nosotros. Esta Política de Privacidad describe los tipos de información personal que podemos recopilar y cómo la utilizamos.</p>

@@ -11,12 +11,12 @@ La página de inicio (`HomeView`) es la principal puerta de entrada al sitio. Su
 
 ## 2. Fuente de Datos
 
-Esta página es **completamente estática**. Todo el contenido, como los pilares y los artículos destacados, está **hardcodeado** (escrito directamente) en el bloque `<script setup>` del componente.
+La vista carga su contenido de forma mixta:
 
-- **No hay conexión a Supabase** en esta vista. Los datos no se obtienen de una base de datos externa, lo que garantiza una carga inicial muy rápida.
-- **Datos Estáticos:**
-    - `pilares`: Un array de objetos que define el icono, título, texto, color e imagen para cada uno de los tres pilares temáticos.
-    - `articulos`: Un array de objetos que contiene los datos de los tres artículos que se muestran en la sección "Contenido Destacado".
+- **Contenido Estático:** Los datos para la sección de "Pilares Temáticos" (`pilares`) están definidos directamente en el script como un array estático.
+- **Contenido Dinámico (Local):** Los artículos de la sección "Contenido Destacado" se cargan dinámicamente al montar el componente. Aunque la conexión a Supabase está actualmente desactivada, la lógica para obtener datos de una fuente externa está implementada.
+    - Se utiliza la función `getPublishedArticles` del módulo `@/data/articlesData.ts` como fuente de datos temporal.
+    - La función `fetchRecentArticles` se encarga de obtener los artículos, ordenarlos por fecha y seleccionar los 3 más recientes para mostrarlos.
 
 ## 3. Estructura y Componentes
 
@@ -45,8 +45,10 @@ La vista está construida como una secuencia de bloques, cada uno envuelto en un
 6.  **Sección de Contenido Destacado:**
     - **Propósito:** Mostrar una selección de artículos para enganchar al lector.
     - **Componente Clave:** `MiniArticleCard.vue`.
-    - **Lógica:** Itera sobre el array `articulos` para mostrar las tres tarjetas de artículos.
+    - **Lógica:** Itera sobre la referencia reactiva `recentArticles` para mostrar las tres tarjetas de artículos.
 
 ## 4. Lógica Reactiva
 
-- **Ninguna.** El componente no tiene lógica reactiva compleja. El bloque `<script setup>` se utiliza únicamente para importar componentes y definir los arrays de datos estáticos que se usarán en la plantilla.
+- **Carga de Artículos:** El componente utiliza la API de Composición de Vue para gestionar la carga de artículos:
+    - `ref`: Se usa `recentArticles = ref<Article[]>([])` para crear una referencia reactiva que almacenará los artículos.
+    - `onMounted`: Se utiliza para ejecutar la función `fetchRecentArticles()` una vez que el componente se ha montado en el DOM, poblando así la lista de artículos.

@@ -1,14 +1,14 @@
 <template>
   <PageLayout>
     <!-- Hero Section -->
-    <SectionWrapper>
+    <SectionWrapper spacing="normal">
       <PageHeader subtitle="Noticias, experimentos documentados y reflexiones sobre la intersección entre tecnología y desarrollo humano.">
           Blog
         </PageHeader>
     </SectionWrapper>
 
     <!-- Filtros y Grid de Artículos -->
-    <SectionWrapper>
+    <SectionWrapper spacing="normal">
       <!-- Controles de Filtro -->
       <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">
         <FilterButton

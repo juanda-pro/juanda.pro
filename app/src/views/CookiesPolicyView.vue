@@ -1,7 +1,7 @@
 <template>
-  <SectionWrapper>
+  <SectionWrapper spacing="normal">
     <div class="max-w-3xl mx-auto">
-      <PageHeader>Política de Cookies</PageHeader>
+      <PageHeader subtitle="Este sitio usa cookies para mejorar tu experiencia. Aquí puedes saber más y gestionar tus preferencias.">Política de Cookies</PageHeader>
       <div class="prose prose-lg dark:prose-invert max-w-none">
         <p class="text-sm text-secondary-light dark:text-secondary-dark">Última actualización: 1 de Julio de 2024</p>
         <p>Este sitio web, juanda.pro, utiliza cookies para mejorar tu experiencia mientras navegas. A continuación, explicamos qué son las cookies, cómo las usamos y cómo puedes gestionarlas.</p>

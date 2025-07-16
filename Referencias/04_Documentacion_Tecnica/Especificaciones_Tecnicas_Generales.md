@@ -23,8 +23,8 @@ Este proyecto se rige por una serie de documentos clave que actúan como la úni
   - `Ruta: /Referencias/Inicio.md`
   - `Ruta: /Referencias/Blog.md`
   - `Ruta: /Referencias/Artículo.md`
-  - `Ruta: /Referencias/Recursos.md`
-  - `Ruta: /Referencias/Notas.md`
+  - `Ruta: /Referencias/Recursos.md` (Planificada, no activa)
+  - `Ruta: /Referencias/Notas.md` (Planificada, no activa)
   - `...y resto de páginas`
 
 ---

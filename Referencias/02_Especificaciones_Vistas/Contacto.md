@@ -15,7 +15,7 @@ Actualmente, la lógica de envío a un backend **está simulada**, pero la estru
 
 - **Función Clave:** `handleSubmit()`.
 - **Simulación:** La función utiliza `setTimeout` para simular una llamada a la API. No envía datos reales, pero actualiza la UI para mostrar mensajes de éxito o error.
-- **Preparado para Supabase:** El código incluye una importación comentada de `lib/supabase.js`, indicando que la conexión al backend es el siguiente paso previsto.
+- **Preparado para Supabase:** La estructura del componente está lista para la integración con el cliente de Supabase del proyecto (ubicado en `@/supabaseClient.ts`), que sería el siguiente paso para habilitar el envío real de datos.
 
 ## 3. Estructura y Componentes
 

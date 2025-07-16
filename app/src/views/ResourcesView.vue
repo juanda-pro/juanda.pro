@@ -91,7 +91,7 @@ function isSelected(category) {
 
 <template>
   <div>
-    <SectionWrapper>
+    <SectionWrapper spacing="normal">
       <div class="relative z-10">
         <PageHeader subtitle="Herramientas que uso a diario, plantillas que me ahorran horas y automatizaciones que funcionan. Todo probado en las trincheras.">
           Recursos
@@ -99,7 +99,7 @@ function isSelected(category) {
       </div>
     </SectionWrapper>
 
-    <SectionWrapper>
+    <SectionWrapper spacing="normal">
       <!-- Controles de Filtro -->
       <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12">
         <FilterButton

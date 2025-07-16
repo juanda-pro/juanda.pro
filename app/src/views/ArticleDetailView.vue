@@ -102,7 +102,7 @@ watch(
 
       <!-- Cabecera del Artículo -->
       <header class="pt-6 pb-4 sm:pt-8 sm:pb-6 text-center">
-        <SectionWrapper>
+        <SectionWrapper spacing="tight">
           <p class="text-base font-semibold text-brand-accent mb-2 animate-fade-in">{{ article.category }}</p>
           <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-primary-light dark:text-primary-dark animate-fade-in-up">
             {{ article.title }}
@@ -125,7 +125,7 @@ watch(
       </div>
 
       <!-- Contenido del Artículo -->
-      <SectionWrapper>
+      <SectionWrapper spacing="normal">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-0">
           <!-- Tiempo de lectura estimado -->
           <div class="flex items-center justify-center mb-4 text-sm text-secondary-light dark:text-secondary-dark">
@@ -152,7 +152,7 @@ watch(
       </div>
       
       <!-- Artículo Sugerido con mejor presentación -->
-      <SectionWrapper v-if="suggestedArticle" class="bg-surface-light dark:bg-surface-dark/50 rounded-lg">
+      <SectionWrapper spacing="loose" v-if="suggestedArticle" class="bg-surface-light dark:bg-surface-dark/50 rounded-lg">
         <div class="text-center mb-8">
           <h2 class="text-2xl sm:text-3xl font-bold mb-2">Continúa explorando</h2>
           <p class="text-secondary-light dark:text-secondary-dark">Otro artículo que podría interesarte</p>

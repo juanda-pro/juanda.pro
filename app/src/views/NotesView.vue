@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import PageLayout from '@/components/PageLayout.vue';
-import PageHeader from '@/components/PageHeader.vue';
+
 import SectionWrapper from '@/components/SectionWrapper.vue';
 import WikiLayout from '@/components/WikiLayout.vue';
 import WikiSidebar from '@/components/WikiSidebar.vue';
@@ -125,13 +125,13 @@ function handleSelectFile(fileId) {
 <template>
   <PageLayout>
     <OnboardingHint />
-    <SectionWrapper>
+    <SectionWrapper spacing="normal">
       <PageHeader subtitle="Aquí encontrarás notas valiosas que uso en el desarrollo de mis proyectos, sistemas y procedimientos.">
         Notas de juanda.pro
       </PageHeader>
     </SectionWrapper>
 
-    <SectionWrapper>
+    <SectionWrapper spacing="normal">
       <WikiLayout @select-file="handleSelectFile">
         <template #sidebar>
           <WikiSidebar 

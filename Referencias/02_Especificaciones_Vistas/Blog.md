@@ -11,10 +11,11 @@ Esta vista actúa como la página principal del blog, mostrando un listado filtr
 
 ## 2. Fuente de Datos
 
-La vista se conecta directamente a la tabla `articles` de Supabase para obtener todos los artículos publicados.
+La vista carga los artículos desde el módulo de datos centralizado, asegurando la consistencia con el resto del sitio.
 
+- **Fuente Centralizada:** Utiliza la función `getPublishedArticles` del módulo `@/data/articlesData.ts`.
 - **Función Clave:** `fetchArticles()`.
-- **Lógica:** Esta función asíncrona realiza una consulta a Supabase para seleccionar los campos necesarios (`slug`, `title`, `category`, `published_at`, `image_url`, `description`) de todos los artículos donde `is_published` sea `true`. Los resultados se ordenan por fecha de publicación descendente.
+- **Lógica:** Esta función carga todos los artículos publicados, los ordena por fecha de publicación descendente y los almacena en la referencia reactiva `allArticles`.
 - **Manejo de Estados:** La interfaz gestiona de forma robusta los siguientes estados:
     - `isLoading`: Se activa (`true`) antes de iniciar la petición y se desactiva (`false`) cuando la petición termina (ya sea con éxito o con error).
     - `errorMessage`: Almacena un mensaje de error si la petición a Supabase falla, que se muestra al usuario.

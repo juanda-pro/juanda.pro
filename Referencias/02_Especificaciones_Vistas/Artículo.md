@@ -9,22 +9,26 @@
 
 Esta vista renderiza un artículo de blog completo a partir de un `slug` dinámico en la URL. Su objetivo es ofrecer una experiencia de lectura inmersiva con tipografía cuidada y una estructura clara.
 
-## 2. Fuente de Datos y Estado Actual
+## 2. Fuente de Datos y Lógica
 
-Actualmente, la vista funciona con un **objeto de artículos hardcodeado** (`mockArticles`) que reside dentro del propio componente.
+La vista obtiene los datos de forma dinámica desde un módulo de datos centralizado, lo que asegura la consistencia en toda la aplicación.
 
-- **Lógica de Carga:** Una función `fetchMockArticle(slug)` busca el artículo correspondiente al `slug` de la URL dentro del objeto `mockArticles`.
-- **Simulación de Red:** La carga se simula con un `setTimeout` para dar feedback visual al usuario (`isLoading`).
-- **Preparado para Supabase:** La importación de Supabase y la lógica de `watch` sobre la ruta están implementadas pero comentadas, lo que indica que el plan es conectar esta vista a una base de datos.
+- **Fuente Centralizada:** Utiliza el módulo `@/data/articlesData.ts` para acceder a los datos de los artículos. La función `getArticleBySlug(slug)` se importa y se usa para encontrar el artículo correspondiente.
+- **Lógica de Carga Reactiva:**
+    - La vista utiliza `useRoute` para acceder al `slug` del artículo desde la URL.
+    - Un `watch` observa los cambios en `route.params.slug`. Si el slug cambia, se dispara la función `fetchArticleBySlug` para cargar los datos del nuevo artículo.
+    - Esto permite una navegación fluida entre artículos (por ejemplo, desde la sección de "artículo sugerido") sin necesidad de recargar la página.
+- **Gestión de Estado:** Se utilizan referencias reactivas (`ref`) para `article`, `isLoading`, `errorMessage` y `suggestedArticle`.
+- **Lógica del Artículo Sugerido:**
+  - Después de cargar con éxito el artículo principal, la vista busca automáticamente un artículo para sugerir.
+  - El criterio de selección es tomar el primer artículo publicado que no sea el que se está visualizando en ese momento.
+  - Este artículo se muestra al final de la página para fomentar que el usuario continúe navegando por el blog.
 
-### ¡ADVERTENCIA DE INCONSISTENCIA!
+### Unificación de la Fuente de Datos
 
-Existe una inconsistencia crítica en la gestión de datos del blog:
+Anteriormente, existía una inconsistencia donde esta vista y `BlogView.vue` utilizaban fuentes de datos separadas. Este problema **ha sido resuelto**.
 
-- **`ArticleDetailView.vue`** usa su propio objeto estático `mockArticles`.
-- **`BlogView.vue`** (la lista de artículos) usa un array estático **diferente** en su función `loadMockData()`.
-
-**Consecuencia:** Las dos vistas no comparten la misma fuente de datos. Un artículo puede existir en la lista pero no en la vista de detalle (o viceversa), lo que rompe la navegación y la integridad del blog. Este problema debe ser resuelto unificando la fuente de datos antes de pasar a producción.
+- **Solución Implementada:** Ambas vistas ahora consumen datos del mismo módulo central (`@/data/articlesData.ts`), garantizando que la lista de artículos y las páginas de detalle siempre estén sincronizadas.
 
 ## 3. Estructura y Estilizado
 
