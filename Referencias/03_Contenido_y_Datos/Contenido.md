@@ -24,7 +24,9 @@ Este espacio es mi bitácora abierta, aquí documento parte de experimentos, com
 
 ### Texto Puente
 
-**Texto:** El cambio se acelera cada día. Pero tengo buenas noticias: adaptarse no requiere convertirse en máquina. Mi estrategia se basa en tres pilares prácticos que cualquiera puede implementar:
+**Texto:** Este proyecto surge de la idea de que la tecnología, bien entendida y usada, puede liberarnos tiempo para enfocarnos en lo que realmente importa: **Las relaciones, los proyectos personales...**
+
+Pero el cambio va rápido, y adaptarnos pronto es clave. Mi enfoque se basa en tres pilares prácticos muy simples que quiero compartir contigo.
 
 ### Sección de Pilares Temáticos
 
@@ -68,27 +70,36 @@ Este espacio es mi bitácora abierta, aquí documento parte de experimentos, com
 
 ### Cabecera Principal
 
-**Título:** Soy un explorador
+**Título:** Soy.
 
-**Subtítulo:** Y esta es la bitácora honesta de mi viaje.
+**Subtítulo:** Un apasionado de la tecnología que puede ayudarte a optimizar algunos de tus procesos.
 
-### Manifiesto / Texto Narrativo
+### Introducción Personal
 
-**Párrafo Principal (lead):** Como tú, navego el tsunami tecnológico de nuestro tiempo. He visto cómo la IA supera tareas que creíamos exclusivamente humanas, y sí, también sentí ese vértigo existencial: _¿Podré adaptarme a todos estos cambios?_
+**Texto:**
+Hola, soy Juan David Ocampo, aunque la mayoría me llama Juanda. Desde hace años, me apasiona explorar herramientas que simplifican procesos administrativos, como hojas de cálculo, scripts, bases de conocimiento o automatizaciones con iA.
 
-**Párrafo 2:** El momento que lo cambió todo llegó cuando vi a GPT-4 resolver en segundos problemas que me tomaban horas. Pude paralizarme o evolucionar. Elegí lo segundo: replantear radicalmente mis hábitos, cuestionar cada herramienta y rediseñar mi sistema operativo mental. **juanda.pro** nació de esa urgencia de reinvención para adaptarse a los tiempos que corren.
+En este espacio, comparto parte de mis aprendizajes con el objetivo de ofrecerte información útil y accionable, para que tú también empieces a aprovechar la tecnología convirtiéndola en tu mejor aliada.
 
+### Sección de Valores
 
-**Título h2:** Los valores de este proyecto:
+**Título:** Mi brújula
 
-- **Dignificación**  
-    La tecnología debe liberar tiempo para que podamos dedicarnos a lo que nos aporta sentido: conocimiento, arte, relaciones, salud... Ser competitivo no es hacer más, sino **mantenerse generando valor a largo plazo** sin sacrificar el equilibrio vital .
-- **Pensamiento crítico**  
-    Nadie posee la verdad absoluta. Construyo —y te invito a construir— modelos mentales propios, consultar diversas fuentes, preguntar, experimentar y equivocarse. Si, equivocarse también forma parte del proceso de aprendizaje.
-- **Humildad pragmática:** En esta web documento mi proceso de aprendizaje y conclusiones con transparencia radical: Lo que me ha funcionado, lo que no, los problemas que voy encontrando y como los voy resolviendo.
+**Texto:**
+En mi camino, priorizo el **pensamiento crítico** como base para todo: Hacerme todo tipo de preguntas, experimentar, probar herramientas, ajustar según los resultados...
 
+Creo que ese es el camino si quieres aprovechar las tecnologías actuales para tomar el control de tus procesos cotidianos. Es lo que hago y es lo que te invito a hacer.
 
-**Párrafo Final:** Gracias por llegar hasta aquí. Si algo resuena contigo, considera este espacio tu casa. El futuro lo construimos entre todos, un experimento a la vez.
+- **Principal motivación:** Creo que el conocimiento florece cuando lo pones en práctica y te retroalimentas con otros que recorren tu mismo camino.
+- **Honestidad práctica:** Comparto solo lo que he probado, incluyendo lo que funciona y lo que no. Equivocarse forma parte del proceso de aprendizaje.
+- **Mindset general:** Me enfoco en encontrar formas de sacar partido a la tecnología al mismo tiempo que aprendo a usarla con más consciencia y cuidado.
+
+Estos valores se reflejan en lo que comparto aquí y guían cómo ayudo a otros a navegar estos cambios de forma práctica.
+
+### Cierre / Invitación Final
+
+**Texto:**
+Gracias por tomarte el tiempo de conocerme un poco más. Te invito a explorar el resto del sitio. Hay artículos interesantes en "Blog" y herramientas gratuitas en "Recursos"
 
 ---
 

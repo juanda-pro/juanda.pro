@@ -21,8 +21,8 @@ La vista se construye en cuatro partes principales:
 - **Propósito:** Presentar al autor y su propósito de forma clara y directa.
 - **Layout:** Un bloque de texto centrado.
 - **Contenido:**
-  - **Título (`<h1>`):** "Hola, soy Juanda."
-  - **Subtítulo (`<p>`):** "Un explorador práctico de la tecnología que ayuda a personas como tú a automatizar procesos y ganar control en un mundo que cambia rápido."
+  - **Título (`<h1>`):** "Soy."
+  - **Subtítulo (`<p>`):** "Un apasionado de la tecnología que puede ayudarte a optimizar algunos de tus procesos."
 
 ### 2.2. Imagen Destacada
 
@@ -39,17 +39,20 @@ La vista se construye en cuatro partes principales:
 - **Propósito:** Presentar al autor de manera más personal y establecer su experiencia y enfoque.
 - **Layout:** Un bloque de texto centrado (`max-w-3xl`) que utiliza las clases de Tailwind `prose` para un formato legible.
 - **Contenido:**
-  - **Párrafo Principal:** Presentación personal con nombre completo y descripción de intereses profesionales.
-  - **Párrafo Secundario:** Explicación del propósito del sitio y el valor que ofrece a los visitantes.
+  - **Párrafo 1:** Presentación personal (Hola, soy Juan David Ocampo...).
+  - **Párrafo 2:** Propósito del sitio (En este espacio, comparto...).
+
 
 ### 2.4. Sección de Valores
 
 - **Componente:** `SectionWrapper`
 - **Propósito:** Comunicar los principios y valores que guían el trabajo del autor.
-- **Layout:** Un bloque de texto centrado (`max-w-3xl`) con formato de artículo legible.
+- **Layout:** Un párrafo introductorio seguido de una grilla de tres columnas (`md:grid-cols-3`). Cada columna contiene un icono, un título y un párrafo.
 - **Contenido Estructurado:**
-  - **Título (`<h2>`):** "Mi brújula"
-  - **Párrafo Introductorio:** Descripción del enfoque general y filosofía de trabajo.
-  - **Subtítulo:** "Lo que me mueve:"
-  - **Lista de Valores:** Una lista no ordenada (`<ul>`) que detalla tres valores clave: Honestidad práctica, Colaboración abierta y Equilibrio sostenido.
-  - **Cierre:** Un párrafo final que sirve como agradecimiento e invitación a explorar el sitio.
+  - **Párrafo Introductorio:** Describe la filosofía del pensamiento crítico.
+  - **Lista de Valores:** Una lista (`<ul>`) con tres elementos, cada uno con:
+    - Un icono decorativo (`<svg>`) dentro de un círculo.
+    - Un título (`<h4>`): "Principal motivación", "Honestidad práctica", "Mindset general".
+    - Un párrafo descriptivo.
+  - **Párrafo de Cierre (itálico):** Refuerza que estos valores guían el contenido.
+  - **Invitación Final:** Un bloque destacado con un párrafo final de agradecimiento e invitación a explorar el sitio.

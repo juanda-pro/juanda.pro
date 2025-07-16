@@ -195,12 +195,8 @@ const pilares = [
       <div class="absolute -top-16 -right-16 w-32 h-32 bg-brand-accent/5 rounded-full blur-xl"></div>
       <div class="absolute -bottom-16 -left-16 w-32 h-32 bg-accent-info-dark/5 rounded-full blur-xl"></div>
       
-      <p class="text-lg md:text-xl leading-relaxed text-secondary-light dark:text-secondary-dark">
-        Este proyecto surge de la idea de que la tecnología, cuando se entiende y se usa bien, puede liberarnos tiempo para enfocarnos en lo que realmente importa: 
-        <span class="font-bold text-primary-light dark:text-primary-dark px-1 relative inline-block">
-          ser más productivos sin perder el equilibrio.
-          <span class="absolute bottom-0 left-0 w-full h-1 bg-brand-accent/20 rounded-full"></span>
-        </span>
+      <p class="text-xl md:text-2xl text-secondary-light dark:text-secondary-dark leading-relaxed">
+        Este proyecto surge de la idea de que la tecnología, bien entendida y usada, puede liberarnos tiempo para enfocarnos en lo que realmente importa: <strong class="text-primary-light dark:text-primary-dark font-semibold underline decoration-brand-accent decoration-2 underline-offset-4">Las relaciones, los proyectos personales...</strong>
       </p>
       <p class="mt-6 text-lg leading-relaxed text-secondary-light dark:text-secondary-dark">
         Pero el cambio va rápido, y adaptarnos pronto es clave. Mi enfoque se basa en tres pilares prácticos muy simples que quiero compartir contigo.
