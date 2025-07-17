@@ -71,31 +71,21 @@ Pero la tecnología avanza cada vez más rápido, y adaptarnos pronto es clave. 
 
 ## PÁGINA: SOY (`SoyView.vue`)
 
-### Cabecera Principal
+### PÁGINA: SOY
 
-**Título:** Soy.
-
-**Subtítulo:** Un apasionado de la tecnología que puede ayudarte a optimizar algunos de tus procesos.
-
-### Introducción Personal
-
-**Texto:**
-Hola, soy Juan David Ocampo, aunque la mayoría me llama Juanda. Desde hace años, me apasiona explorar herramientas que simplifican procesos administrativos, como hojas de cálculo, scripts, bases de conocimiento o automatizaciones con iA.
-
-En este espacio, comparto parte de mis aprendizajes con el objetivo de ofrecerte información útil y accionable, para que tú también empieces a aprovechar la tecnología convirtiéndola en tu mejor aliada.
-
-### Sección de Valores
-
-**Título:** Mi brújula
-- **Principal motivación:** Creo que el conocimiento florece cuando lo pones en práctica y te retroalimentas con otros que recorren tu mismo camino.
-- **Honestidad práctica:** Comparto solo lo que he probado, incluyendo lo que funciona y lo que no. Equivocarse forma parte del proceso de aprendizaje.
-- **Mindset general:** Me enfoco en encontrar formas de sacar partido a la tecnología al mismo tiempo que aprendo a usarla con más consciencia y cuidado.
-Estos valores se reflejan en lo que comparto aquí y guían cómo ayudo a otros a navegar estos cambios de forma práctica.
-
-### Cierre / Invitación Final
-
-**Texto:**
-Gracias por tomarte el tiempo de conocerme un poco más. Te invito a explorar el resto del sitio. Hay artículos interesantes en "Blog" y herramientas gratuitas en "Recursos"
+-   **Título principal**: Soy.
+-   **Subtítulo**: Un apasionado de la tecnología que puede ayudarte a optimizar algunos de tus procesos.
+-   **Introducción**: Hola, soy Juan David Ocampo, aunque la mayoría me llama Juanda. Desde hace años, me apasiona explorar herramientas que simplifican procesos administrativos, como hojas de cálculo, scripts, bases de conocimiento o automatizaciones con iA. En este espacio, comparto parte de mis aprendizajes con el objetivo de ofrecerte información útil y accionable, para que tú también empieces a aprovechar la tecnología convirtiéndola en tu mejor aliada.
+-   **Título sección valores**: Lo que me mueve
+-   **Texto sección valores**: En mi camino, priorizo el **pensamiento crítico** como base para todo: Hacerme todo tipo de preguntas, experimentar, probar herramientas, ajustar según los resultados... Creo que ese es el camino si quieres aprovechar las tecnologías actuales para tomar el control de tus procesos cotidianos. Es lo que hago y es lo que te invito a hacer.
+-   **Valor 1 (Título)**: Principal motivación
+-   **Valor 1 (Texto)**: Creo que el conocimiento florece cuando lo pones en práctica y te retroalimentas con otros que recorren tu mismo camino.
+-   **Valor 2 (Título)**: Honestidad práctica
+-   **Valor 2 (Texto)**: Comparto solo lo que he probado, incluyendo lo que funciona y lo que no. Equivocarse forma parte del proceso de aprendizaje.
+-   **Valor 3 (Título)**: Mindset general
+-   **Valor 3 (Texto)**: Me enfoco en encontrar formas de sacar partido a la tecnología al mismo tiempo que aprendo a usarla con más consciencia y cuidado.
+-   **Cierre sección valores**: Estos valores se reflejan en lo que comparto aquí y guían cómo ayudo a otros a navegar estos cambios de forma práctica.
+-   **Invitación final**: Gracias por tomarte el tiempo de conocerme un poco más. Te invito a explorar el resto del sitio. Hay artículos interesantes en "Blog" y herramientas gratuitas en "Recursos"
 
 ---
 

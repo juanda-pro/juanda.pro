@@ -60,6 +60,8 @@ onMounted(() => {
           <div class="md:w-3/4 text-center md:text-left fade-in-element transform transition-all duration-700 opacity-0 translate-y-4">
             <p class="text-xl md:text-2xl text-secondary-light dark:text-secondary-dark leading-relaxed">
               Hola, soy Juan David Ocampo, aunque la mayoría me llama Juanda. Desde hace años, me apasiona explorar herramientas que simplifican procesos administrativos, como hojas de cálculo, scripts, bases de conocimiento o automatizaciones con iA.
+              <br><br>
+              En este espacio, comparto parte de mis aprendizajes con el objetivo de ofrecerte información útil y accionable, para que tú también empieces a aprovechar la tecnología convirtiéndola en tu mejor aliada.
             </p>
           </div>
         </div>
@@ -71,22 +73,12 @@ onMounted(() => {
       <!-- Elemento decorativo de conexión -->
       <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-16 bg-gradient-to-b from-transparent to-brand-accent/30 dark:to-brand-accent/20"></div>
       <div class="max-w-3xl mx-auto prose prose-lg lg:prose-xl dark:prose-invert text-secondary-light dark:text-secondary-dark fade-in-element transform transition-all duration-700 opacity-0 translate-y-4">
-        <!-- Second paragraph moved here -->
-        <p class="mb-10 relative pl-4 border-l-2 border-brand-accent/30 dark:border-brand-accent/20">
-          En este espacio, comparto parte de mis aprendizajes con el objetivo de ofrecerte información útil y accionable, para que tú también empieces a aprovechar la tecnología convirtiéndola en tu mejor aliada.
-        </p>
-        
-        <h2 class="text-2xl md:text-3xl font-bold font-heading text-primary-light dark:text-primary-dark mb-6 inline-flex items-center gap-3">
-          <span class="relative inline-block">
-            Mi brújula
-            <span class="absolute bottom-0 left-0 w-full h-1 bg-brand-accent/70 dark:bg-brand-accent/50 rounded-full transform -translate-y-1"></span>
-          </span>
+        <h2 class="text-4xl font-bold font-heading text-primary-light dark:text-primary-dark mb-8 relative inline-block">
+          Lo que me mueve
+          <span class="absolute -bottom-2 left-0 w-1/3 h-1 bg-brand-accent/50 rounded-full"></span>
         </h2>
-        
-
-        
-        <p class="text-center max-w-3xl mx-auto">
-          En mi camino, priorizo el <strong>pensamiento crítico</strong> como base para todo: Hacerme todo tipo de preguntas, experimentar, probar herramientas, ajustar según los resultados... 
+        <p>
+          En mi camino, priorizo el <strong>pensamiento crítico</strong> como base para todo: Hacerme todo tipo de preguntas, experimentar, probar herramientas, ajustar según los resultados...
           <br><br>
           Creo que ese es el camino si quieres aprovechar las tecnologías actuales para tomar el control de tus procesos cotidianos. Es lo que hago y es lo que te invito a hacer.
         </p>
@@ -99,9 +91,9 @@ onMounted(() => {
         <ul class="not-prose grid md:grid-cols-3 gap-12 text-center pl-0">
           <li class="fade-in-element opacity-0 transform translate-y-4">
             <div class="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-accent/10 dark:bg-brand-accent/5 border border-brand-accent/20">
-              <!-- Icono para Motivación (e.g., una semilla o planta) -->
+              <!-- Icono para Motivación (e.g., una bombilla o una semilla) -->
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
             </div>
             <h4 class="text-xl font-bold text-primary-light dark:text-primary-dark mb-2">Principal motivación</h4>
