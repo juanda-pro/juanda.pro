@@ -47,7 +47,7 @@ const router = createRouter({
     {
       path: '/contacto',
       name: 'contacto',
-      component: () => import('../views/ContactView.vue')
+      component: () => import('../views/ContactoView.vue')
     },
     {
       path: '/politica-de-privacidad',

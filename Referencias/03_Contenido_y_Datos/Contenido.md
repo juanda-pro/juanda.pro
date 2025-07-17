@@ -120,13 +120,36 @@ Pero la tecnología avanza cada vez más rápido, y adaptarnos pronto es clave. 
 
 ---
 
-## PÁGINA: CONTACTO (`ContactView.vue`)
+## PÁGINA: CONTACTO (`ContactoView.vue`)
 
-### Cabecera
+### Cabecera Principal
 
-**Título:** ¿Tienes algo en mente?
- 
+- **Título**: Contacto
+- **Subtítulo**: ¿Idea para automatizar un proceso? ¿Preguntas sobre iA? Escríbeme sin compromiso, estaré encantado de charlar.
 
-**Subtítulo:** Me encantaría escucharte. Ya sea una idea, un proyecto o simplemente para saludar, este es el lugar.
+### Introducción / Texto Principal
+
+- **Texto**: Hola, soy Juanda. Esta página es una invitación abierta a contactar conmigo. Me apasiona ayudar a personas a optimizar sus procesos, ya sea en el trabajo, en un emprendimiento o en la vida diaria. Si has explorado el sitio y algo te resuena —como una automatización que podrías necesitar o una reflexión sobre herramientas prácticas—, no dudes en escribirme.
+
+### Sección de Ideas
+
+- **Título**: ¿Aún no te animas? Aquí tienes algunas ideas
+- **Idea 1**: **Compartir ideas o feedback:** ¿Has probado alguna de mis recomendaciones? Cuéntame cómo te fue, o sugiere temas para el blog.
+- **Idea 2**: **Preguntas específicas:** Sobre scripts, iA o procesos administrativos que quieres mejorar.
+- **Idea 3**: **Colaboraciones o servicios:** Si necesitas ayuda personalizada, como diseñar una automatización a medida para tu equipo o empresa, escríbeme sin dudarlo. Siempre empiezo con un diagnóstico gratuito para ver si encajamos.
+- **Idea 4**: **Simplemente saludar:** Si compartes mi pasión por entender y aprender a usar bien la tecnología, será un placer charlar contigo.
+- **Cierre sección ideas**: Prometo leer cada mensaje con atención y responder de forma honesta. No soy un bot: soy yo, priorizando calidad sobre velocidad.
+
+### Sección de Expectativas
+
+- **Título**: A tener en cuenta
+- **Expectativa 1**: **Respuesta:** En 24-48 horas; si es complejo, te aviso.
+- **Expectativa 2**: **Privacidad:** Solo uso tus datos para responder.
+- **Expectativa 3**: **Alternativas:** Si prefieres, encuéntrame en LinkedIn (@juandapro) o instagram (@juandapro), el formulario de esta página o email directo a: hola@juanda.pro.
+- **Cierre sección expectativas**: Si prefieres redes, encuéntrame en LinkedIn (@juandapro) o instagram (@juandapro), pero el email o el formulario son lo mejor para conversaciones profundas.
+
+### Cierre / Invitación Final
+
+- **Texto**: Gracias por conectar. Cada conversación es una oportunidad de crear sinergias interesantes. ¡Espero tu mensaje!
 
 ---
