@@ -84,9 +84,7 @@ onUnmounted(() => {
             {{ feature.title }}
             <span class="absolute -bottom-2 left-0 w-1/3 h-1 bg-brand-accent/50 rounded-full"></span>
           </h3>
-          <p class="text-xl text-secondary-light dark:text-secondary-dark leading-loose">
-            {{ feature.text }}
-          </p>
+          <p class="text-xl text-secondary-light dark:text-secondary-dark leading-loose" v-html="feature.text"></p>
         </div>
       </div>
 
@@ -145,9 +143,7 @@ onUnmounted(() => {
           <span class="absolute -bottom-1 left-1/4 right-1/4 h-1 bg-brand-accent/30 rounded-full"></span>
         </h3>
         
-        <p class="text-lg text-secondary-light dark:text-secondary-dark leading-relaxed max-w-2xl mx-auto px-4 mb-4">
-          {{ feature.text }}
-        </p>
+        <p class="text-lg text-secondary-light dark:text-secondary-dark leading-relaxed max-w-2xl mx-auto px-4 mb-4" v-html="feature.text"></p>
       </div>
     </div>
   </div>

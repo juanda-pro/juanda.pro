@@ -50,7 +50,7 @@ const props = defineProps({
           <div class="flex flex-col items-center md:items-start text-center md:text-left">
             <h3 
               class="text-4xl md:text-5xl font-bold font-heading text-brand-dark group-hover:text-primary-dark mb-8 transition-colors duration-500 ease-out"
-              v-html="description.replace(' ', '<br>')"
+              v-html="title.replace(' ', '<br>')"
             ></h3>
             <a
               :href="buttonLink"
@@ -64,7 +64,7 @@ const props = defineProps({
           <!-- Columna Derecha: Descripción -->
           <div class="text-center md:text-left">
             <p class="text-xl md:text-2xl text-brand-dark group-hover:text-secondary-dark transition-colors duration-500 ease-out leading-relaxed">
-              {{ title }}
+              {{ description }}
             </p>
             
             <!-- Elemento decorativo -->

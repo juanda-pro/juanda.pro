@@ -83,17 +83,18 @@ onMounted(() => {
           </span>
         </h2>
         
-        <p class="mb-12">
-          En mi camino, priorizo el <strong>pensamiento crítico</strong> como base para todo: cuestionar lo establecido, probar herramientas en escenarios reales y ajustar según los resultados. Esto me ayuda a enfocar la tecnología en lo que realmente sirve: ponerla a nuestro favor para tomar el control de procesos cotidianos, automatizar lo repetitivo y evitar que nos domine el ritmo acelerado del cambio.
-        </p>
+
         
-        <div class="w-16 h-0.5 bg-brand-accent/40 dark:bg-brand-accent/30 rounded-full mx-auto mb-12"></div>
-        
-        <p class="text-center max-w-3xl mx-auto mb-12">
+        <p class="text-center max-w-3xl mx-auto">
           En mi camino, priorizo el <strong>pensamiento crítico</strong> como base para todo: Hacerme todo tipo de preguntas, experimentar, probar herramientas, ajustar según los resultados... 
           <br><br>
           Creo que ese es el camino si quieres aprovechar las tecnologías actuales para tomar el control de tus procesos cotidianos. Es lo que hago y es lo que te invito a hacer.
         </p>
+
+        <!-- Elemento decorativo de conexión -->
+        <div class="flex justify-center my-16">
+          <div class="w-1 h-16 bg-gradient-to-b from-transparent to-brand-accent/30 rounded-full"></div>
+        </div>
         
         <ul class="not-prose grid md:grid-cols-3 gap-12 text-center pl-0">
           <li class="fade-in-element opacity-0 transform translate-y-4">
@@ -131,11 +132,12 @@ onMounted(() => {
           </li>
         </ul>
         
-        <p class="text-base md:text-lg mt-12 text-center italic fade-in-element opacity-0 transform translate-y-4">
+        <p class="text-base md:text-lg text-center italic fade-in-element opacity-0 transform translate-y-4">
           Estos valores se reflejan en lo que comparto aquí y guían cómo ayudo a otros a navegar estos cambios de forma práctica.
         </p>
+        <div class="w-16 h-0.5 bg-brand-accent/40 dark:bg-brand-accent/30 rounded-full mx-auto mt-16"></div>
         
-        <div class="mt-16 p-8 border border-gray-200 dark:border-gray-700 rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm fade-in-element opacity-0 transform translate-y-4">
+        <div class="mt-12 p-8 border border-gray-200 dark:border-gray-700 rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm fade-in-element opacity-0 transform translate-y-4">
           <p class="text-lg relative pl-4 border-l-2 border-brand-accent/30 dark:border-brand-accent/20">
             Gracias por tomarte el tiempo de conocerme un poco más. Te invito a explorar el resto del sitio. Hay artículos interesantes en "Blog" y herramientas gratuitas en "Recursos"
           </p>

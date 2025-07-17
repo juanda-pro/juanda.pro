@@ -10,59 +10,62 @@
 
 **Título principal:** ¡Despierta, que te come la iA!
 
-**Subtítulo:** Vale, es broma... pero solo a medias. Las máquinas aprenden ridículamente rápido mientras nosotros seguimos haciendo scroll. ¿Y si empezamos a usar estas herramientas para _amplificar_ lo mejor de nosotros, en lugar de dejar que nos sustituyan?
+**Subtítulo:** Vale, es broma... pero solo a medias. Las maquinas inteligentes evolucionan rápido, y lo mejor es empezar a aprovechar su potencial en lugar de dejar que nos convierta en sus esclavos.
 
 ### Sección Quién Soy
 
 **Título:** ¡Hola! Soy Juanda.
 
-**Texto:** Para empezar te dire que no soy un "experto". Si soy un explorador que, como tú, sintió mucho vértigo al ver cómo la iA empezaba a redefinir muchas cosas.
+**Texto:**  
+Soy Juan David Ocampo, aunque la mayoría me llama **Juanda**. Desde hace años, me apasiona explorar herramientas que simplifican la vida moderna, como **hojas de cálculo, scripts, bases de conocimiento o automatizaciones con iA**. 
 
-Como resultado decidí replantear mis hábitos, herramientas y rediseñar mi forma de aprender. 
-
-Este espacio es mi bitácora abierta, aquí documento parte de experimentos, comparto mis errores, aciertos, aprendizajes y reflexiones.
+En este espacio, comparto parte de mis aprendizajes procurando que sea siempre *información útil y accionable* con el fin de **motivarte** a convertir a la tecnología en tu mejor aliada.
 
 ### Texto Puente
 
-**Texto:** Este proyecto surge de la idea de que la tecnología, bien entendida y usada, puede liberarnos tiempo para enfocarnos en lo que realmente importa: **Las relaciones, los proyectos personales...**
+**Texto:**  
+Este proyecto surge de la convicción de que la tecnología, bien entendida y usada, puede liberarnos tiempo para enfocarnos en lo que realmente importa: **Las relaciones, los proyectos personales, el autoconocimiento...**
 
-Pero el cambio va rápido, y adaptarnos pronto es clave. Mi enfoque se basa en tres pilares prácticos muy simples que quiero compartir contigo.
+Pero la tecnología avanza cada vez más rápido, y adaptarnos pronto es clave. Es lo que promuevo y mi enfoque se basa en tres pilares prácticos muy simples que quiero compartir contigo.
 
-### Sección de Pilares Temáticos
 
-**Título:** Una estrategia para navegar el presente
+### Sección de los tres pilares.
 
-**Pilar 1 - Título:** Conócete y gobiérnate
+**Título:** Tres pilares simples para empezar
 
-**Pilar 1 - Texto:** Obtén claridad sobre aquellas cosas en tu día a día en las que la tecnología te puede apoyar. Construye tu brújula interna por ti mismo y no dejes que los algoritmos de las redes sociales te creen necesidades ficticias. Un Simple diario o mejor aún, un sistema de notas bien estructurado, transforma el ruido en conocimiento y te ayuda a mantenerte en línea con tus objetivos. 
+**Texto:** Estos tres pasos están diseñados para ayudarte a dibujar tu propia ruta personalizada: empieza por donde estés y ajusta según avances en tu proceso de convertir a la tecnología en una aliada real.
 
-**Pilar 2 - Título:** Descubre el mapa
+#### Pilar 1
 
-**Pilar 2 - Texto:** Necesitas las herramientas adecuadas. Mantenerse informado es importante. Saber que tecnologías sirven para que cosas. Pero cuidado con el síndrome del objeto brillante, elegir con intención a que le dedicas tu tiempo es crucial. Identifica qué herramientas resuelven tus problemas, descarta lo que es solo ruido y va a distraerte de tus objetivos.
+**Título:** Dibuja tu mapa
 
-**Pilar 3 - Título:** Toma acción inteligente
+**Texto:** *Empieza por explorar el terreno:* conoce las herramientas disponibles que te pueden apoyar en tus tareas cotidianas. Por fortuna hay muchas personas compartiendo mucha información sobre el tema. Pero explora con foco para no distraerte con novedades llamativas y elige solo lo que encaja en tus procesos.
 
-**Pilar 3 - Texto:** El conocimiento sin ejecución es entretenimiento disfrazado. Este pilar transforma teoría en resultados: automatiza lo repetitivo, diseña flujos de trabajo te liberen tiempo, incrementen tus ingresos o liberen espacio mental. La iA no es tu competencia cuando la conviertes en tu herramienta.
 
-### Call to Action
+#### Pilar 2
 
-**Título (secundario):** Te ayudo a analizar tu situación actual y a crear una hoja de ruta personalizada y clara.
+**Título:** Localízate en él
 
-**Descripción (principal):** Auditoría Gratuita
+**Texto:** Una vez tengas tu primer boceto del mapa, **marca tu posición**: identifica tus tareas diarias, necesidades y objetivos. Necesitas claridad sobre tus procesos cotidianos, tomar apuntes te irá bien. *Identifica las tecnologías que realmente te sirven* y **descubre que tienes que hacer** para ponerlas a tu servicio.
 
-**Botón:** Comenzar ahora
 
-### Sección de Contenido Destacado
+#### Pilar 3
 
-**Título:** Un lugar al que volver
+**Título:** Emprende el viaje
+**Texto:** Ahora que tienes un mapa y tu ubicación clara, avanza: **empieza a automatizar tareas simples**, *experimenta con la iA para crear flujos aún más complejos*... No tengas miedo a equivocarte, es algo que tiene que ocurrir, forma parte natural del proceso de aprendizaje. Así que equivócate rápido y ajusta sobre la marcha.
 
-**Descripción:** Aprendizajes, herramientas y reflexiones honestas. Todo documentado para que experimentes por tu cuenta.
 
-**Artículo 1 - Título:** Construye tu Segundo Cerebro con Obsidian y Zettelkasten
+### Sección "Call To Action"
 
-**Artículo 2 - Título:** El Antídoto Definitivo al Síndrome del Objeto Brillante
+**Título:** Un regalo para ti
+**Texto:** Un informe personalizado que crearé en conjunto con uno de mis agentes iA. Allí tendrás Información útil y adaptada a tu perfil para que empieces a dibujar tu mapa con claridad.
+**Texto botón:** Comenzar
 
-**Artículo 3 - Título:** Automatiza tu Vida con Make y Notion: Guía de Inicio
+
+### Sección artículos destacados
+
+**Título:** Artículos destacados
+**Texto:** Aprendizajes, herramientas y reflexiones honestas. Todo documentado para que experimentes por tu cuenta y encuentres ideas accionables.
 
 ---
 
@@ -84,16 +87,9 @@ En este espacio, comparto parte de mis aprendizajes con el objetivo de ofrecerte
 ### Sección de Valores
 
 **Título:** Mi brújula
-
-**Texto:**
-En mi camino, priorizo el **pensamiento crítico** como base para todo: Hacerme todo tipo de preguntas, experimentar, probar herramientas, ajustar según los resultados...
-
-Creo que ese es el camino si quieres aprovechar las tecnologías actuales para tomar el control de tus procesos cotidianos. Es lo que hago y es lo que te invito a hacer.
-
 - **Principal motivación:** Creo que el conocimiento florece cuando lo pones en práctica y te retroalimentas con otros que recorren tu mismo camino.
 - **Honestidad práctica:** Comparto solo lo que he probado, incluyendo lo que funciona y lo que no. Equivocarse forma parte del proceso de aprendizaje.
 - **Mindset general:** Me enfoco en encontrar formas de sacar partido a la tecnología al mismo tiempo que aprendo a usarla con más consciencia y cuidado.
-
 Estos valores se reflejan en lo que comparto aquí y guían cómo ayudo a otros a navegar estos cambios de forma práctica.
 
 ### Cierre / Invitación Final
