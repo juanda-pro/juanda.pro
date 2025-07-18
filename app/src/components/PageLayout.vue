@@ -1,11 +1,24 @@
+<script setup lang="ts">
+import { computed } from 'vue';
+
+const props = defineProps({
+  removePaddingTop: {
+    type: Boolean,
+    default: false
+  }
+});
+
+const layoutClasses = computed(() => [
+  'flex-grow',
+  'flex',
+  'flex-col',
+  'gap-12 sm:gap-16 md:gap-20',
+  { 'pt-20': !props.removePaddingTop }
+]);
+</script>
+
 <template>
-  <main class="pt-12 sm:pt-16 flex flex-col gap-12 sm:gap-16 md:gap-20">
+  <main :class="layoutClasses">
     <slot></slot>
   </main>
 </template>
-
-<script setup>
-// Este componente orquesta el espaciado vertical entre las secciones principales de una página.
-// Utiliza flexbox y 'gap' para asegurar un ritmo vertical consistente y armónico sin
-// necesidad de gestionar márgenes manualmente en cada sección.
-</script>

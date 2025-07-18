@@ -12,8 +12,8 @@ import PageLayout from '@/components/PageLayout.vue';
 
 import { ScaleIcon, MapIcon, BoltIcon, SparklesIcon } from '@heroicons/vue/24/outline';
 
-// Importar la ilustración del Pac-Man IA
-import AiPacmanIllustration from '@/assets/ai-pacman-original.png';
+// Importar la nueva imagen de cabecera
+import HeaderBackground from '../assets/cabecera_inicio.jpeg';
 
 interface Article {
   slug: string;
@@ -75,58 +75,45 @@ const pilares = [
 </script>
 
 <template>
-  <PageLayout>
+  <PageLayout :remove-padding-top="true">
   <!-- Hero Section -->
-  <SectionWrapper spacing="tight" class="relative overflow-hidden">
-    <!-- Elemento decorativo de fondo -->
-    <div class="absolute -top-20 -right-20 w-64 h-64 bg-brand-accent/10 dark:bg-brand-accent/5 rounded-full blur-3xl"></div>
-    <div class="absolute -bottom-32 -left-20 w-80 h-80 bg-accent-info-dark/10 dark:bg-accent-info-dark/5 rounded-full blur-3xl"></div>
+  <SectionWrapper spacing="none" class="relative text-white overflow-hidden min-h-[80vh] flex flex-col justify-center pt-20 py-12 md:py-24">
+    <!-- Imagen de fondo -->
+    <div class="absolute inset-0 z-0">
+      <img :src="HeaderBackground" alt="Fondo abstracto de tecnología" class="w-full h-full object-cover object-center" />
+      <!-- Superposición para contraste -->
+      <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-gray-900/40 to-black/10 dark:from-black/80 dark:via-black/50"></div>
+    </div>
+
+    <!-- Contenido centrado -->
+    <div class="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-black/30 dark:bg-gray-900/40 backdrop-blur-md rounded-2xl p-6 md:p-10 shadow-2xl ring-1 ring-white/10">
+        <Transition
+          appear
+          enter-from-class="opacity-0 scale-95"
+          enter-active-class="transition-all duration-700 ease-out"
+        >
+          <h1 class="text-center text-4xl font-extrabold font-heading sm:text-5xl md:text-6xl leading-tight text-shadow-lg text-white">
+            ¡Despierta, que te come la <span class="text-brand-accent animate-pulse">iA</span>!
+          </h1>
+        </Transition>
+        <Transition
+          appear
+          enter-from-class="opacity-0 translate-y-5"
+          enter-active-class="transition-all duration-700 ease-out delay-200"
+        >
+          <p class="mt-6 text-center text-lg md:text-xl leading-relaxed text-gray-200/95 max-w-3xl mx-auto text-shadow-md">
+            Vale, es broma... pero solo a medias. Las máquinas inteligentes evolucionan rápido, y lo mejor es empezar a aprovechar su potencial en lugar de dejar que nos conviertan en sus esclavos.
+          </p>
+        </Transition>
+      </div>
+    </div>
     
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Contenedor principal con distribución flexible -->
-      <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-12">
-        <!-- Ilustración -->
-        <div class="md:w-1/4 flex justify-center">
-          <div class="relative w-64 h-64 rounded-full bg-white shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-105">
-            <img 
-              :src="AiPacmanIllustration" 
-              alt="Ilustración de IA como Pac-Man persiguiendo a una persona" 
-              class="absolute inset-0 w-full h-full object-contain p-3"
-            />
-          </div>
-        </div>
-        
-        <!-- Contenido de texto -->
-        <div class="md:w-3/4 text-center md:text-left">
-          <Transition
-            appear
-            enter-from-class="opacity-0 translate-y-6"
-            enter-active-class="transition-all duration-1200 ease-out"
-            enter-to-class="opacity-100 translate-y-0"
-          >
-            <h1 class="text-4xl font-extrabold font-heading text-primary-light dark:text-primary-dark sm:text-5xl lg:text-6xl tracking-tight">
-              ¡Despierta, que te come la <span class="text-brand-accent animate-pulse">iA</span>!
-            </h1>
-          </Transition>
-          <Transition
-            appear
-            enter-from-class="opacity-0 translate-y-6"
-            enter-active-class="transition-all duration-1000 ease-out delay-500"
-            enter-to-class="opacity-100 translate-y-0"
-          >
-            <p class="mt-4 text-lg text-secondary-light dark:text-secondary-dark max-w-2xl">
-              Vale, es broma... pero solo a medias. Las maquinas inteligentes evolucionan rápido, y lo mejor es empezar a aprovechar su potencial en lugar de dejar que nos convierta en sus esclavos.
-            </p>
-          </Transition>
-        </div>
-      </div>
-      
-      <!-- Elemento decorativo inferior -->
-      <div class="flex justify-center mt-8 opacity-70">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-brand-accent animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </div>
+    <!-- Flecha para indicar scroll -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 opacity-80">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white/70 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
     </div>
   </SectionWrapper>
 
