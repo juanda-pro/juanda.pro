@@ -77,13 +77,12 @@ onUnmounted(() => {
           class="feature-text-panel flex flex-col justify-center fade-in-element" 
           style="min-height: calc(100vh - 4rem);"
         >
-          <div class="relative inline-block mb-2">
-            <span :class="`inline-block w-8 h-8 rounded-full ${feature.colorClass || 'bg-brand-accent'} text-white font-bold flex items-center justify-center`">{{ index + 1 }}</span>
+          <div class="text-center">
+            <h3 class="text-4xl font-bold font-heading text-primary-light dark:text-primary-dark mb-8 relative inline-block">
+              {{ feature.title }}
+              <span class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></span>
+            </h3>
           </div>
-          <h3 class="text-4xl font-bold font-heading text-primary-light dark:text-primary-dark mb-8 relative inline-block">
-            {{ feature.title }}
-            <span class="absolute -bottom-2 left-0 w-1/3 h-1 bg-brand-accent/50 rounded-full"></span>
-          </h3>
           <p class="text-xl text-secondary-light dark:text-secondary-dark leading-loose" v-html="feature.text"></p>
         </div>
       </div>
@@ -124,11 +123,6 @@ onUnmounted(() => {
         <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-accent/5 rounded-full blur-xl"></div>
         <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-accent-info-dark/5 rounded-full blur-xl"></div>
         
-        <!-- Número de paso -->
-        <div class="absolute top-4 left-4 w-8 h-8 rounded-full bg-brand-accent text-white font-bold flex items-center justify-center shadow-md">
-          {{ index + 1 }}
-        </div>
-        
         <div class="mb-6 mt-4 transform transition-all duration-500 hover:scale-[1.02] relative">
           <img 
             :src="feature.image_url" 
@@ -140,7 +134,7 @@ onUnmounted(() => {
         
         <h3 class="text-3xl font-bold font-heading text-primary-light dark:text-primary-dark mb-4 px-4 relative inline-block">
           {{ feature.title }}
-          <span class="absolute -bottom-1 left-1/4 right-1/4 h-1 bg-brand-accent/30 rounded-full"></span>
+          <span class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></span>
         </h3>
         
         <p class="text-lg text-secondary-light dark:text-secondary-dark leading-relaxed max-w-2xl mx-auto px-4 mb-4" v-html="feature.text"></p>

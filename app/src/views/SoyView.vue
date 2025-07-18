@@ -24,7 +24,7 @@ onMounted(() => {
     <!-- Header -->
     <SectionWrapper spacing="normal">
       <IntroCard>
-        <PageHeader subtitle="Un apasionado de la tecnología que puede ayudarte a optimizar algunos de tus procesos.">
+        <PageHeader subtitle="Un apasionado de la tecnología que puede ayudarte a optimizar algunos procesos.">
           Soy.
         </PageHeader>
       </IntroCard>
@@ -62,9 +62,9 @@ onMounted(() => {
           <!-- Columna de texto (75% en desktop) -->
           <div class="md:w-3/4 text-center md:text-left fade-in-element transform transition-all duration-700 opacity-0 translate-y-4">
             <p class="text-xl md:text-2xl text-secondary-light dark:text-secondary-dark leading-relaxed">
-              Hola, soy Juan David Ocampo, aunque la mayoría me llama Juanda. Desde hace años, me apasiona explorar herramientas que simplifican procesos administrativos, como hojas de cálculo, scripts, bases de conocimiento o automatizaciones con iA.
+              Soy Juan David Ocampo, aunque la mayoría me llama <strong>Juanda</strong>. Desde hace años, me apasiona explorar herramientas que simplifican la vida moderna: <strong>hojas de cálculo, scripts, bases de conocimiento, automatizaciones con iA ...</strong>
               <br><br>
-              En este espacio, comparto parte de mis aprendizajes con el objetivo de ofrecerte información útil y accionable, para que tú también empieces a aprovechar la tecnología convirtiéndola en tu mejor aliada.
+              En este espacio, comparto algunos de mis aprendizajes procurando que sea siempre <em>información útil y accionable</em>. Todo para <strong>motivarte a convertir a la tecnología en tu mejor aliada.</strong>
             </p>
           </div>
         </div>
@@ -81,9 +81,9 @@ onMounted(() => {
           <span class="absolute -bottom-2 left-0 w-1/3 h-1 bg-brand-accent/50 rounded-full"></span>
         </h2>
         <p>
-          En mi camino, priorizo el <strong>pensamiento crítico</strong> como base para todo: Hacerme todo tipo de preguntas, experimentar, probar herramientas, ajustar según los resultados...
+          En mi camino, priorizo el <strong>pensamiento crítico</strong> como base para todo: Hacerme todo tipo de preguntas, <em>experimentar</em>, probar herramientas, <em>ajustar según los resultados</em>... 
           <br><br>
-          Creo que ese es el camino si quieres aprovechar las tecnologías actuales para tomar el control de tus procesos cotidianos. Es lo que hago y es lo que te invito a hacer.
+          <em>Creo que ese es el camino si quieres aprovechar las tecnologías</em> actuales para tomar el control de tus procesos cotidianos. Es lo que hago y <strong>es lo que te invito a hacer.</strong>
         </p>
 
         <!-- Elemento decorativo de conexión -->
@@ -127,7 +127,7 @@ onMounted(() => {
           </li>
         </ul>
         
-        <p class="text-base md:text-lg text-center italic fade-in-element opacity-0 transform translate-y-4">
+        <p class="text-base md:text-lg text-center fade-in-element opacity-0 transform translate-y-4">
           Estos valores se reflejan en lo que comparto aquí y guían cómo ayudo a otros a navegar estos cambios de forma práctica.
         </p>
         <div class="w-16 h-0.5 bg-brand-accent/40 dark:bg-brand-accent/30 rounded-full mx-auto mt-16"></div>

@@ -51,21 +51,21 @@ const pilares = [
   {
     icon: MapIcon,
     title: 'Dibuja tu mapa',
-    text: '<em>Empieza por explorar el terreno:</em> conoce las herramientas disponibles que te pueden apoyar en tus tareas cotidianas. Por fortuna hay muchas personas compartiendo mucha información sobre el tema. Pero explora con foco para no distraerte con novedades llamativas y elige solo lo que encaja en tus procesos.',
+    text: '<strong>Empieza por explorar el terreno:</strong> conoce las herramientas disponibles que te pueden apoyar en tus tareas cotidianas. Por fortuna <em>hay muchas personas compartiendo</em> su experiencia, tutoriales y más. <strong>Explora con foco para no distraerte</strong> con novedades llamativas y elige solo lo que encaja en tus procesos.',
     colorClass: 'text-accent-info-dark',
     image_url: 'https://placehold.co/600x600/a78bfa/ffffff?text=Pilar+1'
   },
   {
     icon: ScaleIcon,
     title: 'Localízate en él',
-    text: 'Una vez tengas tu primer boceto del mapa, <strong>marca tu posición</strong>: identifica tus tareas diarias, necesidades y objetivos. Necesitas claridad sobre tus procesos cotidianos, tomar apuntes te irá bien. <em>Identifica las tecnologías que realmente te sirven</em> y <strong>descubre que tienes que hacer</strong> para ponerlas a tu servicio.',
+    text: 'Una vez tengas tu primer boceto del mapa, <strong>marca tu posición</strong>: identifica tus tareas diarias, tus necesidades y objetivos. Necesitas claridad sobre tus procesos cotidianos, <strong>tomar apuntes te irá bien.</strong> <em>Identifica las tecnologías que realmente te sirven</em> y <strong>descubre que tienes que hacer</strong> para ponerlas a tu servicio.',
     colorClass: 'text-brand-accent',
     image_url: 'https://placehold.co/600x600/f6c90e/121214?text=Pilar+2'
   },
   {
     icon: BoltIcon,
     title: 'Emprende el viaje',
-    text: 'Ahora que tienes un mapa y tu ubicación clara, avanza: <strong>empieza a automatizar tareas simples</strong>, <em>experimenta con la iA para crear flujos aún más complejos</em>... No tengas miedo a equivocarte, es algo que tiene que ocurrir, forma parte natural del proceso de aprendizaje. Así que equivócate rápido y ajusta sobre la marcha.',
+    text: 'Ahora que tienes un mapa y tu ubicación aproximada, avanza: <strong>empieza a automatizar tareas simples</strong>, <em>experimenta con la iA</em> para crear flujos aún más complejos... <strong>No tengas miedo a equivocarte</strong>, es algo que tiene que ocurrir, forma parte natural del proceso de aprendizaje. Así que <em>equivócate rápido y ajusta sobre la marcha.</em>',
     colorClass: 'text-accent-error',
     image_url: 'https://placehold.co/600x600/dc2626/ffffff?text=Pilar+3'
   }
@@ -93,7 +93,7 @@ const pilares = [
           enter-from-class="opacity-0 scale-95"
           enter-active-class="transition-all duration-700 ease-out"
         >
-          <h1 class="text-center text-4xl font-extrabold font-heading sm:text-5xl md:text-6xl leading-tight text-shadow-lg text-white">
+          <h1 class="text-center text-4xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg">
             ¡Despierta, que te come la <span class="text-brand-accent animate-pulse">iA</span>!
           </h1>
         </Transition>
@@ -103,7 +103,7 @@ const pilares = [
           enter-active-class="transition-all duration-700 ease-out delay-200"
         >
           <p class="mt-6 text-center text-lg md:text-xl leading-relaxed text-gray-200/95 max-w-3xl mx-auto text-shadow-md">
-            Vale, es broma... pero solo a medias. Las máquinas inteligentes evolucionan rápido, y lo mejor es empezar a aprovechar su potencial en lugar de dejar que nos conviertan en sus esclavos.
+            Vale, es broma... <strong>pero solo a medias</strong>. Las maquinas inteligentes evolucionan rápido, y lo mejor es empezar a aprovechar su potencial en lugar de dejar que nos convierta en sus esclavos.
           </p>
         </Transition>
       </div>
@@ -146,9 +146,9 @@ const pilares = [
           <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-accent/40 to-transparent"></span>
         </h2>
         <p class="mt-4 text-lg text-secondary-light dark:text-secondary-dark leading-relaxed">
-          Soy Juan David Ocampo, aunque la mayoría me llama <strong>Juanda</strong>. Desde hace años, me apasiona explorar herramientas que simplifican la vida moderna, como <strong>hojas de cálculo, scripts, bases de conocimiento o automatizaciones con iA</strong>. 
+          Soy Juan David Ocampo, aunque la mayoría me llama <strong>Juanda</strong>. Desde hace años, me apasiona explorar herramientas que simplifican la vida moderna: <strong>hojas de cálculo, scripts, bases de conocimiento, automatizaciones con iA ...</strong>
           <br><br>
-          En este espacio, comparto parte de mis aprendizajes procurando que sea siempre <em>información útil y accionable</em> con el fin de <strong>motivarte</strong> a convertir a la tecnología en tu mejor aliada.
+          En este espacio, comparto algunos de mis aprendizajes procurando que sea siempre <em>información útil y accionable</em>. Todo para <strong>motivarte a convertir a la tecnología en tu mejor aliada.</strong>
         </p>
         
         <!-- Botón de acción secundario -->
@@ -181,9 +181,9 @@ const pilares = [
       <div class="absolute -bottom-16 -left-16 w-32 h-32 bg-accent-info-dark/5 rounded-full blur-xl"></div>
       
       <p class="text-center text-lg md:text-xl text-secondary-light dark:text-secondary-dark max-w-4xl mx-auto leading-relaxed">
-        Este proyecto surge de la convicción de que la tecnología, bien entendida y usada, puede liberarnos tiempo para enfocarnos en lo que realmente importa: <strong>Las relaciones, los proyectos personales, el autoconocimiento...</strong>
+        Este proyecto surge de la convicción de que la tecnología, <em>bien entendida y usada</em>, puede liberarnos tiempo para enfocarnos en lo que realmente importa: <strong>Las relaciones, los proyectos personales, el autoconocimiento...</strong>
         <br><br>
-        Pero la tecnología avanza cada vez más rápido, y adaptarnos pronto es clave. Es lo que promuevo y mi enfoque se basa en tres pilares prácticos muy simples que quiero compartir contigo.
+        Pero los avances ocurren cada vez más rápido, por eso <strong>adaptarnos pronto es clave.</strong> Es lo que promuevo aquí y mi enfoque se basa en <em>tres pilares prácticos</em> muy simples que quiero compartir contigo.
       </p>
       <!-- Elemento decorativo inferior -->
       <div class="mt-6 flex justify-center">
@@ -206,7 +206,7 @@ const pilares = [
         <span class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></span>
       </h2>
       <p class="mt-6 text-lg leading-relaxed text-secondary-light dark:text-secondary-dark max-w-3xl mx-auto">
-        Estos tres pasos están diseñados para ayudarte a dibujar tu propia ruta personalizada: empieza por donde estés y ajusta según avances en tu proceso de convertir a la tecnología en una aliada real.
+        Estos tres pasos están diseñados para <strong>ayudarte a dibujar tu propia ruta personalizada:</strong> empieza por donde estés y ajusta según avances en tu proceso de <em>convertir a la tecnología en una aliada real.</em>
       </p>
     </div>
     
@@ -256,7 +256,7 @@ const pilares = [
         Artículos destacados
         <span class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></span>
       </h2>
-      <p class="mt-6 text-lg leading-relaxed text-secondary-light dark:text-secondary-dark max-w-3xl mx-auto">
+      <p class="mt-4 text-lg text-secondary-light dark:text-secondary-dark text-center max-w-2xl mx-auto">
         Aprendizajes, herramientas y reflexiones honestas. Todo documentado para que experimentes por tu cuenta y encuentres ideas accionables.
       </p>
     </div>
