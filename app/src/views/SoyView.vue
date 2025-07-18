@@ -2,6 +2,7 @@
 import PageLayout from '@/components/PageLayout.vue';
 import PageHeader from '@/components/PageHeader.vue';
 import SectionWrapper from '@/components/SectionWrapper.vue';
+import IntroCard from '@/components/IntroCard.vue';
 import { onMounted } from 'vue';
 
 // Importar la misma imagen que se usa en la página de inicio
@@ -21,10 +22,12 @@ onMounted(() => {
 <template>
   <PageLayout>
     <!-- Header -->
-    <SectionWrapper spacing="tight">
-      <PageHeader subtitle="Un apasionado de la tecnología que puede ayudarte a optimizar algunos de tus procesos.">
-        Soy.
-      </PageHeader>
+    <SectionWrapper spacing="normal">
+      <IntroCard>
+        <PageHeader subtitle="Un apasionado de la tecnología que puede ayudarte a optimizar algunos de tus procesos.">
+          Soy.
+        </PageHeader>
+      </IntroCard>
     </SectionWrapper>
 
     <!-- Image and Introduction (Side by side on desktop) -->

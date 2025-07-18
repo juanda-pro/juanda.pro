@@ -57,9 +57,11 @@ Pero la tecnología avanza cada vez más rápido, y adaptarnos pronto es clave. 
 
 ### Sección "Call To Action"
 
-**Título:** Un regalo para ti
-**Texto:** Un informe personalizado que crearé en conjunto con uno de mis agentes iA. Allí tendrás Información útil y adaptada a tu perfil para que empieces a dibujar tu mapa con claridad.
-**Texto botón:** Comenzar
+**Título:** Crea tu mapa
+**Texto:** Responde 15 preguntas y obtén un informe personalizado. 
+
+Allí tendrás Información útil y adaptada a tu perfil para que empieces a dibujar tu mapa con claridad.
+**Texto botón:** Obtener
 
 
 ### Sección artículos destacados

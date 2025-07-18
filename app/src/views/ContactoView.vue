@@ -2,6 +2,7 @@
 import PageLayout from '@/components/PageLayout.vue';
 import PageHeader from '@/components/PageHeader.vue';
 import SectionWrapper from '@/components/SectionWrapper.vue';
+import IntroCard from '@/components/IntroCard.vue';
 import { ref, onMounted } from 'vue';
 
 const formData = ref({
@@ -27,16 +28,15 @@ onMounted(() => {
 
 <template>
   <PageLayout>
-    <!-- Header -->
-    <SectionWrapper spacing="tight">
-      <PageHeader subtitle="¿Idea para automatizar un proceso? ¿Preguntas sobre iA? Escríbeme sin compromiso, estaré encantado de charlar.">
-        Contacto
-      </PageHeader>
-    </SectionWrapper>
+    <!-- Header & Intro -->
+    <SectionWrapper spacing="normal">
+      <IntroCard>
+        <PageHeader subtitle="¿Idea para automatizar un proceso? ¿Preguntas sobre iA? Escríbeme sin compromiso, estaré encantado de charlar.">
+          Contacto
+        </PageHeader>
+      </IntroCard>
 
-    <!-- Introducción -->
-    <SectionWrapper spacing="loose">
-      <div class="max-w-3xl mx-auto text-center prose prose-lg lg:prose-xl dark:prose-invert text-secondary-light dark:text-secondary-dark fade-in-element">
+      <div class="max-w-3xl mx-auto text-center prose prose-lg lg:prose-xl dark:prose-invert text-secondary-light dark:text-secondary-dark mt-8">
         <p>
           Hola, soy Juanda. Esta página es una invitación abierta a contactar conmigo. Me apasiona ayudar a personas a optimizar sus procesos, ya sea en el trabajo, en un emprendimiento o en la vida diaria.
         </p>

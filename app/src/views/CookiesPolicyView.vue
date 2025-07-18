@@ -1,8 +1,12 @@
 <template>
-  <SectionWrapper spacing="normal">
-    <div class="max-w-3xl mx-auto">
-      <PageHeader subtitle="Este sitio usa cookies para mejorar tu experiencia. Aquí puedes saber más y gestionar tus preferencias.">Política de Cookies</PageHeader>
-      <div class="prose prose-lg dark:prose-invert max-w-none">
+  <PageLayout>
+    <SectionWrapper spacing="normal">
+      <IntroCard>
+        <PageHeader subtitle="Este sitio usa cookies para mejorar tu experiencia. Aquí puedes saber más y gestionar tus preferencias.">Política de Cookies</PageHeader>
+      </IntroCard>
+    </SectionWrapper>
+    <SectionWrapper spacing="normal">
+      <div class="max-w-3xl mx-auto prose prose-lg dark:prose-invert max-w-none">
         <p class="text-sm text-secondary-light dark:text-secondary-dark">Última actualización: 1 de Julio de 2024</p>
         <p>Este sitio web, juanda.pro, utiliza cookies para mejorar tu experiencia mientras navegas. A continuación, explicamos qué son las cookies, cómo las usamos y cómo puedes gestionarlas.</p>
         
@@ -21,12 +25,14 @@
         <p>Respetamos tu derecho a la privacidad. A continuación, puedes habilitar o deshabilitar los diferentes tipos de cookies. Ten en cuenta que bloquear algunos tipos de cookies puede afectar tu experiencia en el sitio.</p>
         <CookieManager />
       </div>
-    </div>
-  </SectionWrapper>
+    </SectionWrapper>
+  </PageLayout>
 </template>
 
 <script setup>
+import PageLayout from '@/components/PageLayout.vue';
 import SectionWrapper from '@/components/SectionWrapper.vue';
 import PageHeader from '@/components/PageHeader.vue';
 import CookieManager from '@/components/CookieManager.vue';
+import IntroCard from '@/components/IntroCard.vue';
 </script>

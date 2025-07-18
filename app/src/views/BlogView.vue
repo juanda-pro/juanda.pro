@@ -2,9 +2,11 @@
   <PageLayout>
     <!-- Hero Section -->
     <SectionWrapper spacing="normal">
-      <PageHeader subtitle="Noticias, experimentos documentados y reflexiones sobre la intersección entre tecnología y desarrollo humano.">
-          Blog
-        </PageHeader>
+      <IntroCard>
+        <PageHeader subtitle="Noticias, experimentos documentados y reflexiones sobre la intersección entre tecnología y desarrollo humano.">
+            Blog
+          </PageHeader>
+      </IntroCard>
     </SectionWrapper>
 
     <!-- Filtros y Grid de Artículos -->
@@ -57,6 +59,7 @@ import PageHeader from '@/components/PageHeader.vue';
 import ArticleCard from '@/components/ArticleCard.vue';
 import FilterButton from '@/components/FilterButton.vue';
 import PageLayout from '@/components/PageLayout.vue';
+import IntroCard from '@/components/IntroCard.vue';
 
 // --- State ---
 const allArticles = ref([]);

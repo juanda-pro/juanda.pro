@@ -25,7 +25,7 @@
       <div class="border-t border-border-light dark:border-border-dark pt-8">
         <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
           <p class="text-sm text-secondary-light dark:text-secondary-dark">
-            &copy; {{ new Date().getFullYear() }} juanda.pro. Diseñado y construido con curiosidad.
+            &copy; {{ new Date().getFullYear() }} juanda.pro. Solo vibe coding con Windsurf.
           </p>
           <div class="flex space-x-4">
             <router-link to="/politica-de-privacidad" class="text-sm text-secondary-light dark:text-secondary-dark hover:text-brand-accent dark:hover:text-brand-accent transition-colors">Política de Privacidad</router-link>

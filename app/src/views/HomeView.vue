@@ -236,9 +236,9 @@ const pilares = [
     
     <div class="relative z-10 transform transition-all duration-700 hover:scale-[1.02] fade-in-element">
       <CtaCard 
-        title="Un regalo para ti"
-        description="Un informe personalizado que crearé en conjunto con uno de mis agentes iA. Allí tendrás Información útil y adaptada a tu perfil para que empieces a dibujar tu mapa con claridad."
-        buttonText="Comenzar"
+        title="Crea tu mapa"
+        description="Responde 15 preguntas y obtén un mapa inicial personalizado.<br><br>Contiene Información útil y adaptada a tu perfil para que empieces a dibujar tu mapa con claridad."
+        buttonText="Obtener"
         buttonLink="#"
       />
     </div>
