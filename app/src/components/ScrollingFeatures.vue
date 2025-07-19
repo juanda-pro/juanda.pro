@@ -137,7 +137,7 @@ onUnmounted(() => {
           <span class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></span>
         </h3>
         
-        <p class="text-lg text-secondary-light dark:text-secondary-dark leading-relaxed max-w-2xl mx-auto px-4 mb-4" v-html="feature.text"></p>
+        <p class="text-xl text-secondary-light dark:text-secondary-dark leading-relaxed max-w-2xl mx-auto px-4 mb-4" v-html="feature.text"></p>
       </div>
     </div>
   </div>

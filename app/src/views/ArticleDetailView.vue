@@ -103,11 +103,11 @@ watch(
       <!-- Cabecera del Artículo -->
       <header class="pt-6 pb-4 sm:pt-8 sm:pb-6 text-center">
         <SectionWrapper spacing="tight">
-          <p class="text-base font-semibold text-brand-accent mb-2 animate-fade-in">{{ article.category }}</p>
+          <p class="text-lg font-semibold text-brand-accent mb-2 animate-fade-in">{{ article.category }}</p>
           <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-primary-light dark:text-primary-dark animate-fade-in-up">
             {{ article.title }}
           </h1>
-          <p class="mt-6 text-lg text-secondary-light dark:text-secondary-dark max-w-2xl mx-auto animate-fade-in-up delay-100">
+          <p class="mt-6 text-xl text-secondary-light dark:text-secondary-dark max-w-2xl mx-auto animate-fade-in-up delay-100">
             {{ article.description }}
           </p>
         </SectionWrapper>

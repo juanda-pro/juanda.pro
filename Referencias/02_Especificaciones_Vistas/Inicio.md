@@ -1,7 +1,8 @@
 # Especificaciones: Página de Inicio
 
-**Versión:** 1.2
+**Versión:** 2.0
 **Componente Asociado:** `app/src/views/HomeView.vue`
+**Última Actualización:** 19/07/2025
 
 ---
 
@@ -13,42 +14,72 @@ La página de inicio (`HomeView`) es la principal puerta de entrada al sitio. Su
 
 La vista carga su contenido de forma mixta:
 
-- **Contenido Estático:** Los datos para la sección de "Pilares Temáticos" (`pilares`) están definidos directamente en el script como un array estático.
-- **Contenido Dinámico (Local):** Los artículos de la sección "Contenido Destacado" se cargan dinámicamente al montar el componente. Aunque la conexión a Supabase está actualmente desactivada, la lógica para obtener datos de una fuente externa está implementada.
-    - Se utiliza la función `getPublishedArticles` del módulo `@/data/articlesData.ts` como fuente de datos temporal.
-    - La función `fetchRecentArticles` se encarga de obtener los artículos, ordenarlos por fecha y seleccionar los 3 más recientes para mostrarlos.
+- **Contenido Estático:** Los datos para la sección de "Pilares Temáticos" (`pilares`) están definidos directamente en el script como un array estático con 3 elementos que incluyen título, texto descriptivo, imagen y clase de color.
+- **Contenido Dinámico (Local):** Los artículos de la sección "Artículos Destacados" se cargan dinámicamente al montar el componente. La conexión a Supabase está desactivada y se usa datos locales.
+    - Se utiliza la función `getPublishedArticles` del módulo `@/data/articlesData.ts` como fuente de datos.
+    - La función `fetchRecentArticles` obtiene los artículos, los ordena por fecha de publicación (más reciente primero) y selecciona los 3 más recientes.
+- **Imagen de Cabecera:** Se importa una imagen estática (`HeaderBackground`) desde `../assets/cabecera_inicio.jpeg`.
 
 ## 3. Estructura y Componentes
 
-La vista está construida como una secuencia de bloques, cada uno envuelto en un componente `SectionWrapper` para mantener la consistencia en el espaciado y el ancho. El orden correcto de las secciones es el siguiente:
+La vista está construida como una secuencia de bloques, cada uno envuelto en un componente `SectionWrapper` para mantener la consistencia en el espaciado y el ancho. El orden de las secciones es:
 
 1.  **Hero Section:**
-    - **Propósito:** Captar la atención con un titular y subtítulo animados.
-    - **Contenido:** Título y subtítulo principal.
+    - **Propósito:** Captar la atención con un titular impactante y subtítulo explicativo.
+    - **Contenido:** 
+      - Título: "¡Despierta, que te come la iA!" (con "iA" animado con `animate-pulse`)
+      - Subtítulo: "Vale, es broma... pero solo a medias. Las maquinas inteligentes evolucionan rápido, y lo mejor es empezar a aprovechar su potencial en lugar de dejar que nos convierta en sus esclavos."
+    - **Características:** Imagen de fondo con overlay, contenido centrado en tarjeta con backdrop-blur, animaciones de entrada con Transition, flecha animada para indicar scroll.
+    - **Configuración:** `spacing="none"`, altura mínima 80vh, texto blanco.
 
 2.  **Sección "Quién Soy":**
     - **Propósito:** Introducción personal del autor para generar confianza.
-    - **Estructura:** Layout de dos columnas con una imagen a la izquierda y texto a la derecha.
+    - **Estructura:** Grid de 2 columnas (1 en móvil) con imagen a la izquierda y texto a la derecha.
+    - **Contenido:**
+      - Título: "¡Hola! Soy Juanda." (con subrayado gradiente)
+      - Texto: Presentación personal con negritas y cursivas específicas
+      - Enlace: "Conoce más sobre mí" que dirige a `/soy`
+    - **Imagen:** Placeholder con efectos hover, fondos decorativos rotativos y elementos adicionales.
+    - **Decoración:** Elementos de fondo blur, elemento decorativo inferior de conexión.
 
 3.  **Texto Puente:**
     - **Propósito:** Conectar la introducción con la estrategia de los tres pilares.
+    - **Contenido:** Texto explicativo sobre la convicción del proyecto y la importancia de adaptarse.
+    - **Diseño:** Tarjeta centrada con fondo semi-transparente, bordes suaves, decoraciones de fondo.
+    - **Configuración:** `spacing="loose"`, centrado, con elementos decorativos.
 
 4.  **Sección de Pilares Temáticos:**
     - **Propósito:** Explicar la estrategia central del proyecto.
-    - **Componente Clave:** `ScrollingFeatures.vue`.
-    - **Lógica:** Recibe el array `pilares` y renderiza una sección interactiva con texto que se desplaza y una imagen fija que cambia.
+    - **Título:** "Tres pilares simples para empezar" (con subrayado gradiente)
+    - **Descripción:** Texto explicativo sobre los tres pasos personalizados.
+    - **Componente Clave:** `ScrollingFeatures.vue` que recibe el array `pilares`.
+    - **Decoración:** Elementos de fondo blur, elemento decorativo inferior.
 
 5.  **Call to Action (CTA):**
-    - **Propósito:** Dirigir al usuario a una acción de alto valor.
-    - **Componente Clave:** `CtaCard.vue`.
+    - **Propósito:** Dirigir al usuario a crear su mapa personalizado.
+    - **Componente:** `CtaCard.vue` con:
+      - Título: "Crea tu mapa"
+      - Descripción: "Responde 15 preguntas y obtén un mapa inicial personalizado..." (con saltos de línea)
+      - Botón: "Obtener" (enlace a "#")
+    - **Efectos:** Hover scale, elementos decorativos de fondo, indicador visual superior.
 
-6.  **Sección de Contenido Destacado:**
+6.  **Sección de Artículos Destacados:**
     - **Propósito:** Mostrar una selección de artículos para enganchar al lector.
-    - **Componente Clave:** `MiniArticleCard.vue`.
-    - **Lógica:** Itera sobre la referencia reactiva `recentArticles` para mostrar las tres tarjetas de artículos.
+    - **Título:** "Artículos destacados" (con subrayado gradiente)
+    - **Descripción:** "Aprendizajes, herramientas y reflexiones honestas..."
+    - **Componente:** `MiniArticleCard.vue` en grid de 3 columnas (1 en móvil)
+    - **Enlace:** "Ver todos los artículos" que dirige a `/blog`
+    - **Fondo:** `bg-surface-light dark:bg-surface-dark` con decoraciones.
 
-## 4. Lógica Reactiva
+## 4. Lógica Reactiva y Técnica
 
-- **Carga de Artículos:** El componente utiliza la API de Composición de Vue para gestionar la carga de artículos:
-    - `ref`: Se usa `recentArticles = ref<Article[]>([])` para crear una referencia reactiva que almacenará los artículos.
-    - `onMounted`: Se utiliza para ejecutar la función `fetchRecentArticles()` una vez que el componente se ha montado en el DOM, poblando así la lista de artículos.
+- **Imports:** Vue Composition API (`ref`, `onMounted`), componentes, iconos de Heroicons, imagen de cabecera.
+- **Interface:** `Article` con propiedades slug, title, category, image_url, published_at, description opcional.
+- **Estado Reactivo:** `recentArticles = ref<Article[]>([])` para almacenar los artículos.
+- **Función de Carga:** `fetchRecentArticles()` que:
+  - Obtiene artículos de `getPublishedArticles()`
+  - Los ordena por fecha descendente
+  - Toma los primeros 3
+  - Maneja errores con console.error
+- **Ciclo de Vida:** `onMounted()` ejecuta `fetchRecentArticles()`
+- **Configuración de Layout:** `PageLayout` con `:remove-padding-top="true"`

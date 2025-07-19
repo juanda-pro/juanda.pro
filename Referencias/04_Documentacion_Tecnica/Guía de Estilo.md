@@ -59,7 +59,7 @@ La paleta es semántica y está preparada para los modos claro y oscuro.
 
 ---
 
-## 2. Tipografía
+## 2. Tipografía (v1.2 - Actualizada)
 
 La configuración de fuentes está centralizada en `tailwind.config.js` y se cargan desde Google Fonts en `index.html`.
 
@@ -68,3 +68,17 @@ La configuración de fuentes está centralizada en `tailwind.config.js` y se car
 - **Fuente Secundaria (Serif):** `Lora`. Usada para el cuerpo de textos largos, como artículos, para mejorar la legibilidad. Utilidad: `font-serif`.
 - **Fuente Monoespaciada:** `JetBrains Mono`. Para cualquier texto que represente código. Utilidad: `font-mono`.
 - **Escala y Pesos:** Se utiliza la escala de tamaño (`text-lg`, `text-xl`) y pesos (`font-semibold`, `font-bold`) por defecto de Tailwind.
+
+### Jerarquía de Tamaños de Texto (Actualizada v1.2)
+
+La jerarquía tipográfica ha sido optimizada para mejorar la legibilidad en todo el sitio:
+
+| Elemento | Tamaño Anterior | Tamaño Actual | Uso |
+|---|---|---|---|
+| **Párrafos principales** | `text-lg` | `text-xl` | Texto principal en secciones hero y contenido destacado |
+| **Párrafos normales** | `text-base` | `text-lg` | Texto de cuerpo estándar, descripciones, contenido general |
+| **Párrafos pequeños** | `text-sm` | `text-base` | Metadatos, fechas, enlaces de políticas |
+| **Párrafos destacados** | `text-lg md:text-xl` | `text-xl md:text-2xl` | Texto puente, introducciones importantes |
+| **Títulos** | Sin cambios | Sin cambios | Se mantienen los tamaños originales |
+
+**Nota:** Los títulos y encabezados mantienen sus tamaños originales para preservar la jerarquía visual establecida.

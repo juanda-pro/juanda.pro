@@ -20,7 +20,7 @@
         <component :is="icon" class="h-7 w-7" :class="colorClass" aria-hidden="true" />
       </div>
       <h3 class="text-xl font-bold text-primary-light dark:text-primary-dark">{{ title }}</h3>
-      <p class="mt-4 text-base text-primary-light dark:text-primary-dark flex-grow">
+      <p class="mt-4 text-lg text-primary-light dark:text-primary-dark flex-grow">
         <slot></slot>
       </p>
     </div>

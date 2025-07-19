@@ -1,43 +1,82 @@
 # Especificaciones: Página de Blog
 
-**Versión:** 1.2
-**Componente Asociado:** `app/src/views/BlogView.vue`
+**Versión:** 2.1
+**Componente Asociado:** `app/src/views/BlogView.vue` (Página principal activa)
+**Ruta:** `/blog`
+**Nota:** Versión V2 huérfana existe pero no está en uso
+**Última Actualización:** 19/07/2025 - Tipografía estandarizada
 
 ---
 
 ## 1. Propósito y Funcionalidad
 
-Esta vista actúa como la página principal del blog, mostrando un listado filtrable de todos los artículos publicados. Su objetivo es permitir a los usuarios descubrir y acceder fácilmente al contenido.
+Esta vista actúa como la página principal del blog, mostrando un listado filtrable de todos los artículos publicados. Su objetivo es permitir a los usuarios descubrir y acceder fácilmente al contenido mediante un sistema de filtros por categoría.
 
 ## 2. Fuente de Datos
 
-La vista carga los artículos desde el módulo de datos centralizado, asegurando la consistencia con el resto del sitio.
+La vista carga los artículos desde el módulo de datos centralizado, con conexión a Supabase desactivada:
 
 - **Fuente Centralizada:** Utiliza la función `getPublishedArticles` del módulo `@/data/articlesData.ts`.
-- **Función Clave:** `fetchArticles()`.
-- **Lógica:** Esta función carga todos los artículos publicados, los ordena por fecha de publicación descendente y los almacena en la referencia reactiva `allArticles`.
-- **Manejo de Estados:** La interfaz gestiona de forma robusta los siguientes estados:
-    - `isLoading`: Se activa (`true`) antes de iniciar la petición y se desactiva (`false`) cuando la petición termina (ya sea con éxito o con error).
-    - `errorMessage`: Almacena un mensaje de error si la petición a Supabase falla, que se muestra al usuario.
-    - Estado Vacío: Muestra un mensaje si no hay artículos que coincidan con los filtros de categoría seleccionados.
+- **Función Clave:** `fetchArticles()` que:
+  - Establece estado de carga (`isLoading = true`)
+  - Limpia mensajes de error previos
+  - Obtiene artículos de datos locales
+  - Ordena por fecha de publicación descendente (más reciente primero)
+  - Almacena en `allArticles.value`
+  - Maneja errores con try-catch
+  - Finaliza estado de carga en bloque `finally`
+- **Manejo de Estados Robusto:**
+    - `isLoading`: Inicializado en `true`, controla la visualización del estado de carga
+    - `errorMessage`: String que almacena mensajes de error específicos
+    - Estado Vacío: Mensaje personalizado cuando no hay artículos que coincidan con filtros
+    - Estado de Error: Mensaje de error amigable al usuario
 
 ## 3. Estructura y Componentes
 
 1.  **Cabecera:**
-    - **Componentes:** `SectionWrapper`, `PageHeader`.
-    - **Contenido:** Título de la página y un párrafo introductorio.
+    - **Componentes:** `SectionWrapper` con `IntroCard` y `PageHeader`
+    - **Contenido:** 
+      - Título: "Blog"
+      - Subtítulo: "Noticias, experimentos documentados y reflexiones sobre la intersección entre tecnología y desarrollo humano."
+    - **Configuración:** `spacing="normal"`
 
-2.  **Filtros de Categoría:**
-    - **Componentes:** `FilterButton`.
-    - **Lógica:** Los botones se generan dinámicamente a partir de las categorías únicas de los artículos cargados. Permiten al usuario seleccionar una o varias categorías para filtrar la lista.
+2.  **Sección de Filtros y Artículos:**
+    - **Componente:** `SectionWrapper` con `spacing="normal"`
+    - **Filtros de Categoría:**
+      - **Componentes:** `FilterButton` generados dinámicamente
+      - **Layout:** Flexbox centrado con gap responsive (`gap-3 sm:gap-4`)
+      - **Lógica:** Botones basados en `allCategories` computed property
+      - **Interacción:** Toggle de categorías con estado visual activo
+    - **Estados Condicionales:**
+      - **Loading:** Mensaje "Cargando artículos..." centrado
+      - **Error:** Mensaje de error en color `accent-error`
+      - **Sin Resultados:** Mensaje cuando no hay artículos que coincidan
+    - **Grid de Artículos:**
+      - **Componente:** `ArticleCard` en layout vertical
+      - **Contenedor:** `max-w-4xl mx-auto` con espaciado `space-y-12 md:space-y-16`
+      - **Renderizado:** Condicional basado en `filteredArticles.length`
 
-3.  **Grid de Artículos:**
-    - **Componentes:** `ArticleCard`.
-    - **Lógica:** Muestra la lista de artículos filtrados en un layout de una sola columna. Cada tarjeta es un enlace a la vista de detalle del artículo (aún por implementar).
+## 4. Lógica Reactiva y Técnica
 
-## 4. Lógica Reactiva
+### 4.1. Estado Reactivo
+- **`allArticles`:** `ref([])` - Array de todos los artículos cargados
+- **`selectedCategories`:** `ref([])` - Array de categorías seleccionadas para filtrar
+- **`isLoading`:** `ref(true)` - Estado de carga inicializado en true
+- **`errorMessage`:** `ref('')` - String para mensajes de error
 
-- **`onMounted`:** Llama a la función `fetchArticles` para cargar los datos desde Supabase en cuanto el componente se monta en el DOM.
-- **`allCategories` (Computed):** Extrae una lista de categorías únicas del array `allArticles` para generar los botones de filtro, evitando duplicados.
-- **`filteredArticles` (Computed):** Devuelve la lista de artículos que coincide con las `selectedCategories`. Si no hay ninguna categoría seleccionada, devuelve todos los artículos.
-- **`toggleCategory(category)` (Método):** Añade o elimina una categoría del array `selectedCategories` cada vez que el usuario hace clic en un `FilterButton`.
+### 4.2. Computed Properties
+- **`allCategories`:** Extrae categorías únicas de `allArticles` usando `Set` para evitar duplicados
+- **`filteredArticles`:** Filtra artículos basado en `selectedCategories`. Si no hay categorías seleccionadas, devuelve todos los artículos
+
+### 4.3. Métodos
+- **`fetchArticles()`:** Función principal de carga de datos con manejo completo de estados
+- **`toggleCategory(category)`:** Añade/elimina categorías del array `selectedCategories` usando `indexOf` y `splice`
+- **`isSelected(category)`:** Verifica si una categoría está seleccionada para el estado visual del botón
+
+### 4.4. Ciclo de Vida
+- **`onMounted`:** Ejecuta `fetchArticles()` al montar el componente
+
+### 4.5. Imports
+- **Vue:** `ref`, `computed`, `onMounted`
+- **Datos:** `getPublishedArticles` (Supabase comentado)
+- **Componentes:** `SectionWrapper`, `PageHeader`, `ArticleCard`, `FilterButton`, `PageLayout`, `IntroCard`

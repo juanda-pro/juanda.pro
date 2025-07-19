@@ -145,7 +145,7 @@ const pilares = [
           ¡Hola! Soy Juanda.
           <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-accent/40 to-transparent"></span>
         </h2>
-        <p class="mt-4 text-lg text-secondary-light dark:text-secondary-dark leading-relaxed">
+        <p class="mt-4 text-xl text-secondary-light dark:text-secondary-dark leading-relaxed">
           Soy Juan David Ocampo, aunque la mayoría me llama <strong>Juanda</strong>. Desde hace años, me apasiona explorar herramientas que simplifican la vida moderna: <strong>hojas de cálculo, scripts, bases de conocimiento, automatizaciones con iA ...</strong>
           <br><br>
           En este espacio, comparto algunos de mis aprendizajes procurando que sea siempre <em>información útil y accionable</em>. Todo para <strong>motivarte a convertir a la tecnología en tu mejor aliada.</strong>
@@ -180,7 +180,7 @@ const pilares = [
       <div class="absolute -top-16 -right-16 w-32 h-32 bg-brand-accent/5 rounded-full blur-xl"></div>
       <div class="absolute -bottom-16 -left-16 w-32 h-32 bg-accent-info-dark/5 rounded-full blur-xl"></div>
       
-      <p class="text-center text-lg md:text-xl text-secondary-light dark:text-secondary-dark max-w-4xl mx-auto leading-relaxed">
+      <p class="text-center text-xl md:text-2xl text-secondary-light dark:text-secondary-dark max-w-4xl mx-auto leading-relaxed">
         Este proyecto surge de la convicción de que la tecnología, <em>bien entendida y usada</em>, puede liberarnos tiempo para enfocarnos en lo que realmente importa: <strong>Las relaciones, los proyectos personales, el autoconocimiento...</strong>
         <br><br>
         Pero los avances ocurren cada vez más rápido, por eso <strong>adaptarnos pronto es clave.</strong> Es lo que promuevo aquí y mi enfoque se basa en <em>tres pilares prácticos</em> muy simples que quiero compartir contigo.
@@ -205,7 +205,7 @@ const pilares = [
         Tres pilares simples para empezar
         <span class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></span>
       </h2>
-      <p class="mt-6 text-lg leading-relaxed text-secondary-light dark:text-secondary-dark max-w-3xl mx-auto">
+      <p class="mt-6 text-xl leading-relaxed text-secondary-light dark:text-secondary-dark max-w-3xl mx-auto">
         Estos tres pasos están diseñados para <strong>ayudarte a dibujar tu propia ruta personalizada:</strong> empieza por donde estés y ajusta según avances en tu proceso de <em>convertir a la tecnología en una aliada real.</em>
       </p>
     </div>
@@ -256,7 +256,7 @@ const pilares = [
         Artículos destacados
         <span class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></span>
       </h2>
-      <p class="mt-4 text-lg text-secondary-light dark:text-secondary-dark text-center max-w-2xl mx-auto">
+      <p class="mt-4 text-xl text-secondary-light dark:text-secondary-dark text-center max-w-2xl mx-auto">
         Aprendizajes, herramientas y reflexiones honestas. Todo documentado para que experimentes por tu cuenta y encuentres ideas accionables.
       </p>
     </div>

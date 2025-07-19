@@ -6,7 +6,7 @@
         Hablemos.
       </h2>
       
-      <p class="max-w-xl mx-auto text-lg text-secondary-light dark:text-secondary-dark mb-8">
+      <p class="max-w-xl mx-auto text-xl text-secondary-light dark:text-secondary-dark mb-8">
         Siempre estoy abierto a nuevas ideas, proyectos y colaboraciones. Conectemos.
       </p>
 
@@ -24,12 +24,12 @@
 
       <div class="border-t border-border-light dark:border-border-dark pt-8">
         <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p class="text-sm text-secondary-light dark:text-secondary-dark">
+          <p class="text-base text-secondary-light dark:text-secondary-dark">
             &copy; {{ new Date().getFullYear() }} juanda.pro. Solo vibe coding con Windsurf.
           </p>
           <div class="flex space-x-4">
-            <router-link to="/politica-de-privacidad" class="text-sm text-secondary-light dark:text-secondary-dark hover:text-brand-accent dark:hover:text-brand-accent transition-colors">Política de Privacidad</router-link>
-            <router-link to="/politica-de-cookies" class="text-sm text-secondary-light dark:text-secondary-dark hover:text-brand-accent dark:hover:text-brand-accent transition-colors">Política de Cookies</router-link>
+            <router-link to="/politica-de-privacidad" class="text-base text-secondary-light dark:text-secondary-dark hover:text-brand-accent dark:hover:text-brand-accent transition-colors">Política de Privacidad</router-link>
+            <router-link to="/politica-de-cookies" class="text-base text-secondary-light dark:text-secondary-dark hover:text-brand-accent dark:hover:text-brand-accent transition-colors">Política de Cookies</router-link>
           </div>
         </div>
       </div>

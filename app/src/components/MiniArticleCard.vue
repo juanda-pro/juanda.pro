@@ -11,14 +11,14 @@
         <h3 class="font-heading text-xl font-bold text-primary-light dark:text-primary-dark leading-tight flex-grow">
           {{ article.title }}
         </h3>
-        <time class="mt-auto text-sm text-secondary-light dark:text-secondary-dark">
+        <time class="mt-auto text-base text-secondary-light dark:text-secondary-dark">
           {{ formattedDate }}
         </time>
       </div>
       
       <!-- Estado Hover: Descripción -->
       <div class="[grid-area:1/1] flex items-center justify-start transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100">
-                <p class="text-base leading-relaxed text-secondary-light dark:text-secondary-dark text-left dark:group-hover:text-primary-dark group-hover:text-primary-light">
+                <p class="text-lg leading-relaxed text-secondary-light dark:text-secondary-dark text-left dark:group-hover:text-primary-dark group-hover:text-primary-light">
           {{ article.description }}
         </p>
       </div>

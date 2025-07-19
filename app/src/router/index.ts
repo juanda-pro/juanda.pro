@@ -47,6 +47,11 @@ const router = createRouter({
     {
       path: '/contacto',
       name: 'contacto',
+      component: () => import('../views/ContactoViewV2.vue')
+    },
+    {
+      path: '/contacto-v1',
+      name: 'contacto-v1',
       component: () => import('../views/ContactoView.vue')
     },
     {

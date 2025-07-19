@@ -1,58 +1,64 @@
 # Especificaciones de Diseño y UX: Soy
 
-**Versión:** 2.0
-**Componente Asociado:** `app/src/views/SoyView.vue`
+**Versión:** 3.1
+**Componente Asociado:** `app/src/views/SoyView.vue` (Página principal activa)
+**Ruta:** `/soy`
+**Nota:** Versión V2 huérfana existe pero no está en uso
+**Última Actualización:** 19/07/2025 - Tipografía estandarizada
 
 ---
 
 ## 1. Visión General
 
-La página "Soy" es una presentación personal con un enfoque narrativo y visual. Su objetivo es transmitir la identidad y filosofía del autor de una manera directa y personal, combinando un titular claro, una imagen destacada y textos que comunican valores y propósito.
+La página "Soy" es una presentación personal con un enfoque narrativo y visual. Su objetivo es transmitir la identidad y filosofía del autor de una manera directa y personal, utilizando el componente `IntroCard` para mantener consistencia visual con el resto del sitio.
 
 ---
 
 ## 2. Estructura de la Página (`SoyView.vue`)
 
-La vista se construye en cuatro partes principales:
+La vista se construye en tres partes principales:
 
 ### 2.1. Cabecera Principal
 
-- **Componente:** `SectionWrapper`
+- **Componente:** `SectionWrapper` con `IntroCard` y `PageHeader`
 - **Propósito:** Presentar al autor y su propósito de forma clara y directa.
-- **Layout:** Un bloque de texto centrado.
+- **Layout:** Tarjeta de introducción con estilo unificado del sitio.
 - **Contenido:**
-  - **Título (`<h1>`):** "Soy."
-  - **Subtítulo (`<p>`):** "Un apasionado de la tecnología que puede ayudarte a optimizar algunos de tus procesos."
+  - **Título:** "Soy."
+  - **Subtítulo:** "Un apasionado de la tecnología que puede ayudarte a optimizar algunos procesos."
+- **Configuración:** `spacing="normal"`
 
-### 2.2. Imagen Destacada
+### 2.2. Imagen e Introducción Personal (Layout Combinado)
 
-- **Componente:** `SectionWrapper` con un `div` interno.
-- **Propósito:** Crear un impacto visual que refuerce la identidad del autor.
-- **Layout:** Una imagen ancha (`max-w-4xl`) centrada, superpuesta sobre un elemento de fondo decorativo.
-- **Efectos Visuales:**
-  - **Fondo Decorativo:** Un `div` con un color de acento y una ligera rotación (`-rotate-2`) que crea un marco dinámico detrás de la imagen principal.
-  - **Imagen Principal:** Una imagen con esquinas redondeadas y una sombra pronunciada (`shadow-2xl`).
+- **Componente:** `SectionWrapper` con layout flexible
+- **Propósito:** Combinar impacto visual con presentación personal.
+- **Layout:** Flexbox que se adapta de columnas (desktop) a filas (móvil)
+- **Estructura:**
+  - **Columna de Imagen (25% en desktop):**
+    - Imagen placeholder con efectos hover
+    - Fondos decorativos con rotación y efectos de transición
+    - Elemento decorativo adicional (círculo con borde)
+    - Efectos de grupo para animaciones coordinadas
+  - **Columna de Texto (75% en desktop):**
+    - Presentación personal con formato HTML (negritas y cursivas)
+    - Texto actualizado: "Soy Juan David Ocampo, aunque la mayoría me llama **Juanda**..."
+- **Decoración:** Elementos de fondo blur, espaciado responsive
+- **Configuración:** `spacing="loose"`, `class="relative overflow-hidden"`
 
-### 2.3. Introducción Personal
+### 2.3. Sección de Valores
 
-- **Componente:** `SectionWrapper`
-- **Propósito:** Presentar al autor de manera más personal y establecer su experiencia y enfoque.
-- **Layout:** Un bloque de texto centrado (`max-w-3xl`) que utiliza las clases de Tailwind `prose` para un formato legible.
-- **Contenido:**
-  - **Párrafo 1:** Presentación personal (Hola, soy Juan David Ocampo...).
-  - **Párrafo 2:** Propósito del sitio (En este espacio, comparto...).
-
-
-### 2.4. Sección de Valores
-
-- **Componente:** `SectionWrapper`
+- **Componente:** `SectionWrapper` con elemento decorativo de conexión
 - **Propósito:** Comunicar los principios y valores que guían el trabajo del autor.
-- **Layout:** Un párrafo introductorio seguido de una grilla de tres columnas (`md:grid-cols-3`). Cada columna contiene un icono, un título y un párrafo.
+- **Título:** "Lo que me mueve" (con subrayado decorativo)
+- **Layout:** Párrafo introductorio + grid de 3 columnas + párrafo de cierre + invitación final
 - **Contenido Estructurado:**
-  - **Párrafo Introductorio:** Describe la filosofía del pensamiento crítico.
-  - **Lista de Valores:** Una lista (`<ul>`) con tres elementos, cada uno con:
-    - Un icono decorativo (`<svg>`) dentro de un círculo.
-    - Un título (`<h4>`): "Principal motivación", "Honestidad práctica", "Mindset general".
-    - Un párrafo descriptivo.
-  - **Párrafo de Cierre (itálico):** Refuerza que estos valores guían el contenido.
-  - **Invitación Final:** Un bloque destacado con un párrafo final de agradecimiento e invitación a explorar el sitio.
+  - **Párrafo Introductorio:** Filosofía del pensamiento crítico con formato HTML
+  - **Grid de Valores (`md:grid-cols-3`):** Tres elementos con:
+    - Iconos SVG de Heroicons en círculos decorativos
+    - Títulos: "Principal motivación", "Honestidad práctica", "Mindset general"
+    - Párrafos descriptivos específicos
+    - Animaciones escalonadas con delays
+  - **Párrafo de Cierre:** "Estos valores se reflejan en lo que comparto aquí..."
+  - **Elemento Decorativo:** Línea horizontal centrada
+  - **Invitación Final:** Tarjeta destacada con borde y fondo, texto de agradecimiento
+- **Configuración:** `spacing="loose"`, `class="relative"`

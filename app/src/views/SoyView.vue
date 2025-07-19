@@ -127,13 +127,13 @@ onMounted(() => {
           </li>
         </ul>
         
-        <p class="text-base md:text-lg text-center fade-in-element opacity-0 transform translate-y-4">
+        <p class="text-lg md:text-xl text-center fade-in-element opacity-0 transform translate-y-4">
           Estos valores se reflejan en lo que comparto aquí y guían cómo ayudo a otros a navegar estos cambios de forma práctica.
         </p>
         <div class="w-16 h-0.5 bg-brand-accent/40 dark:bg-brand-accent/30 rounded-full mx-auto mt-16"></div>
         
         <div class="mt-12 p-8 border border-gray-200 dark:border-gray-700 rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm fade-in-element opacity-0 transform translate-y-4">
-          <p class="text-lg relative pl-4 border-l-2 border-brand-accent/30 dark:border-brand-accent/20">
+          <p class="text-xl relative pl-4 border-l-2 border-brand-accent/30 dark:border-brand-accent/20">
             Gracias por tomarte el tiempo de conocerme un poco más. Te invito a explorar el resto del sitio. Hay artículos interesantes en "Blog" y herramientas gratuitas en "Recursos"
           </p>
         </div>

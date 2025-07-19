@@ -60,7 +60,7 @@ const categoryStyles = computed<CategoryStyle>(() => {
         </span>
       </div>
       <h3 class="text-lg font-semibold text-primary-light dark:text-primary-dark mb-2">{{ resource.title }}</h3>
-      <p class="text-base text-secondary-light dark:text-secondary-dark">{{ resource.description }}</p>
+      <p class="text-lg text-secondary-light dark:text-secondary-dark">{{ resource.description }}</p>
     </div>
   </div>
 </template>

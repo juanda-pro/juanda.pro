@@ -15,10 +15,10 @@
       <h3 class="text-xl lg:text-2xl font-bold text-primary-light dark:text-primary-dark group-hover:text-brand-accent transition-colors duration-200">
         {{ article.title }}
       </h3>
-      <p class="text-base text-secondary-light dark:text-secondary-dark mt-2">
+      <p class="text-lg text-secondary-light dark:text-secondary-dark mt-2">
         {{ article.description }}
       </p>
-      <p class="text-sm text-secondary-light dark:text-secondary-dark mt-4">{{ formattedDate }}</p>
+      <p class="text-base text-secondary-light dark:text-secondary-dark mt-4">{{ formattedDate }}</p>
     </div>
     </article>
   </router-link>

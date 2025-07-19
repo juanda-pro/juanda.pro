@@ -10,30 +10,30 @@
 
 **Título principal:** ¡Despierta, que te come la iA!
 
-**Subtítulo:** Vale, es broma... pero solo a medias. Las maquinas inteligentes evolucionan rápido, y lo mejor es empezar a aprovechar su potencial en lugar de dejar que nos convierta en sus esclavos.
+**Subtítulo:** Vale, es broma... **pero solo a medias**. Las maquinas inteligentes evolucionan rápido, y lo mejor es empezar a aprovechar su potencial en lugar de dejar que nos convierta en sus esclavos.
 
 ### Sección Quién Soy
 
 **Título:** ¡Hola! Soy Juanda.
 
 **Texto:**  
-Soy Juan David Ocampo, aunque la mayoría me llama **Juanda**. Desde hace años, me apasiona explorar herramientas que simplifican la vida moderna, como **hojas de cálculo, scripts, bases de conocimiento o automatizaciones con iA**. 
+Soy Juan David Ocampo, aunque la mayoría me llama **Juanda**. Desde hace años, me apasiona explorar herramientas que simplifican la vida moderna: **hojas de cálculo, scripts, bases de conocimiento, automatizaciones con iA ...**
 
-En este espacio, comparto parte de mis aprendizajes procurando que sea siempre *información útil y accionable* con el fin de **motivarte** a convertir a la tecnología en tu mejor aliada.
+En este espacio, comparto algunos de mis aprendizajes procurando que sea siempre *información útil y accionable*. Todo para **motivarte a convertir a la tecnología en tu mejor aliada.**
 
 ### Texto Puente
 
 **Texto:**  
-Este proyecto surge de la convicción de que la tecnología, bien entendida y usada, puede liberarnos tiempo para enfocarnos en lo que realmente importa: **Las relaciones, los proyectos personales, el autoconocimiento...**
+Este proyecto surge de la convicción de que la tecnología, *bien entendida y usada*, puede liberarnos tiempo para enfocarnos en lo que realmente importa: **Las relaciones, los proyectos personales, el autoconocimiento...**
 
-Pero la tecnología avanza cada vez más rápido, y adaptarnos pronto es clave. Es lo que promuevo y mi enfoque se basa en tres pilares prácticos muy simples que quiero compartir contigo.
+Pero los avances ocurren cada vez más rápido, por eso **adaptarnos pronto es clave.** Es lo que promuevo aquí y mi enfoque se basa en *tres pilares prácticos* muy simples que quiero compartir contigo.
 
 
 ### Sección de los tres pilares.
 
 **Título:** Tres pilares simples para empezar
 
-**Texto:** Estos tres pasos están diseñados para ayudarte a dibujar tu propia ruta personalizada: empieza por donde estés y ajusta según avances en tu proceso de convertir a la tecnología en una aliada real.
+**Texto:** Estos tres pasos están diseñados para **ayudarte a dibujar tu propia ruta personalizada:** empieza por donde estés y ajusta según avances en tu proceso de *convertir a la tecnología en una aliada real.*
 
 #### Pilar 1
 

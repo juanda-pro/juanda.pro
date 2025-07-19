@@ -25,12 +25,12 @@
 
       <!-- Loading State -->
       <div v-if="isLoading" class="text-center py-16">
-        <p class="text-lg text-secondary-light dark:text-secondary-dark">Cargando artículos...</p>
+        <p class="text-xl text-secondary-light dark:text-secondary-dark">Cargando artículos...</p>
       </div>
 
       <!-- Error State -->
       <div v-else-if="errorMessage" class="text-center py-16">
-        <p class="text-lg text-accent-error">{{ errorMessage }}</p>
+        <p class="text-xl text-accent-error">{{ errorMessage }}</p>
       </div>
 
       <!-- Lista de Artículos -->
@@ -44,7 +44,7 @@
 
       <!-- No Articles State -->
       <div v-else class="text-center py-16">
-        <p class="text-lg text-secondary-light dark:text-secondary-dark">No hay artículos que coincidan con tu búsqueda o aún no se han publicado.</p>
+        <p class="text-xl text-secondary-light dark:text-secondary-dark">No hay artículos que coincidan con tu búsqueda o aún no se han publicado.</p>
       </div>
     </SectionWrapper>
   </PageLayout>

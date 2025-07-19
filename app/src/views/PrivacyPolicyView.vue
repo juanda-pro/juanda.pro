@@ -7,7 +7,7 @@
     </SectionWrapper>
     <SectionWrapper spacing="normal">
       <div class="max-w-3xl mx-auto prose prose-lg dark:prose-invert max-w-none">
-        <p class="text-sm text-secondary-light dark:text-secondary-dark">Última actualización: 1 de Julio de 2024</p>
+        <p class="text-base text-secondary-light dark:text-secondary-dark">Última actualización: 1 de Julio de 2024</p>
         <p>En juanda.pro, tu privacidad es de suma importancia para nosotros. Esta Política de Privacidad describe los tipos de información personal que podemos recopilar y cómo la utilizamos.</p>
         
         <h2>Información que recopilamos</h2>
