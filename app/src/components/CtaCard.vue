@@ -40,8 +40,7 @@ const props = defineProps({
       ></div>
       
       <!-- Elementos decorativos sutiles -->
-      <div class="absolute -top-20 -right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-      <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+
 
       <!-- Contenido -->
       <div class="relative z-10">

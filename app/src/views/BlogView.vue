@@ -52,7 +52,7 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-// import { supabase } from '@/supabaseClient'; // Comentado para usar datos locales
+
 import { getPublishedArticles } from '@/data/articlesData';
 import SectionWrapper from '@/components/SectionWrapper.vue';
 import PageHeader from '@/components/PageHeader.vue';
@@ -82,7 +82,7 @@ const fetchArticles = () => {
     
     allArticles.value = articles;
   } catch (error) {
-    console.error('Error fetching articles:', error);
+    // Error handling could be implemented here with user feedback
     errorMessage.value = 'No se pudieron cargar los artículos. Por favor, inténtalo de nuevo más tarde.';
   } finally {
     isLoading.value = false; // Finalizar el estado de carga

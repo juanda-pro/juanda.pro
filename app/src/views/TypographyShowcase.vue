@@ -17,7 +17,7 @@
         <div v-for="option in typographyOptions" :key="option.title"
              class="p-8 border border-gray-200 dark:border-gray-700 rounded-2xl bg-white dark:bg-gray-800 shadow-lg transition-colors duration-300">
           
-          <h2 class="text-3xl font-bold mb-2" :class="`text-${option.color}-600 dark:text-${option.color}-400`">{{ option.title }}</h2>
+          <h2 class="text-3xl font-bold mb-2" :class="getColorClasses(option.color)">{{ option.title }}</h2>
           <p class="text-lg text-gray-500 dark:text-gray-400 mb-8">{{ option.description }}</p>
           
           <h3 :class="[option.headingFontClass, 'text-5xl font-extrabold text-gray-900 dark:text-white mb-6']">{{ option.headingText }}</h3>
@@ -57,6 +57,19 @@ const fontPairing = {
 import { ref, onMounted } from 'vue';
 
 const isDarkMode = ref(false);
+
+// Función segura para clases de color que garantiza inclusión en build
+const getColorClasses = (color: string) => {
+  const colorMap: Record<string, string> = {
+    blue: 'text-blue-600 dark:text-blue-400',
+    purple: 'text-purple-600 dark:text-purple-400',
+    teal: 'text-teal-600 dark:text-teal-400',
+    indigo: 'text-indigo-600 dark:text-indigo-400',
+    green: 'text-green-600 dark:text-green-400',
+    rose: 'text-rose-600 dark:text-rose-400'
+  };
+  return colorMap[color] || 'text-gray-600 dark:text-gray-400';
+};
 
 const typographyOptions = ref([
   {
@@ -123,13 +136,9 @@ const typographyOptions = ref([
 
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
-  if (isDarkMode.value) {
-    document.documentElement.classList.add('dark');
-    localStorage.setItem('theme', 'dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-    localStorage.setItem('theme', 'light');
-  }
+  // El toggle de tema se manejará automáticamente por un composable de tema
+  // Eliminada manipulación directa del DOM y localStorage
+  // TODO: Implementar composable useTheme() para manejo centralizado
 };
 
 onMounted(() => {

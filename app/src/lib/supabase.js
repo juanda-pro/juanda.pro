@@ -1,4 +1,4 @@
-// import { createClient } from '@supabase/supabase-js'
+
 
 // // Obtiene las credenciales de las variables de entorno
 // const supabaseUrl = import.meta.env.VITE_SUPABASE_URL

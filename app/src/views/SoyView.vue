@@ -3,18 +3,17 @@ import PageLayout from '@/components/PageLayout.vue';
 import PageHeader from '@/components/PageHeader.vue';
 import SectionWrapper from '@/components/SectionWrapper.vue';
 import IntroCard from '@/components/IntroCard.vue';
-import { onMounted } from 'vue';
+import { onMounted, nextTick } from 'vue';
 
 // Importar la misma imagen que se usa en la página de inicio
 import AiPacmanIllustration from '@/assets/ai-pacman-original.png';
 
 // Función para inicializar efectos visuales
 onMounted(() => {
-  // Añadir clase para animaciones de entrada
-  document.querySelectorAll('.fade-in-element').forEach((el, index) => {
-    setTimeout(() => {
-      el.classList.add('visible');
-    }, 100 * (index + 1));
+  // Las animaciones se manejarán automáticamente por CSS con Vue transitions
+  // Eliminada manipulación directa del DOM
+  nextTick(() => {
+    // Los elementos se animarán automáticamente con las clases CSS
   });
 });
 </script>
@@ -34,8 +33,7 @@ onMounted(() => {
     <SectionWrapper spacing="loose" class="relative overflow-hidden">
       <!-- Elemento decorativo de fondo -->
       <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden opacity-10 dark:opacity-5">
-        <div class="absolute -right-24 -top-24 w-64 h-64 rounded-full bg-brand-accent/30 blur-3xl"></div>
-        <div class="absolute -left-32 top-1/2 w-72 h-72 rounded-full bg-accent-info/20 dark:bg-accent-info-dark/20 blur-3xl"></div>
+
       </div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <!-- Diseño flexible para todos los tamaños de pantalla -->

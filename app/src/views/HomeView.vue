@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-// import { supabase } from '@/supabaseClient'; // Comentado para usar datos locales
+
 import { getPublishedArticles } from '@/data/articlesData';
 import SectionWrapper from '@/components/SectionWrapper.vue';
 
@@ -39,7 +39,7 @@ const fetchRecentArticles = () => {
     // Limitar a 3 artículos
     recentArticles.value = articles.slice(0, 3);
   } catch (error) {
-    console.error('Error fetching recent articles:', error);
+    // Error handling could be implemented here with user feedback
   }
 };
 
@@ -120,8 +120,7 @@ const pilares = [
   <!-- Sección Quién Soy -->
   <SectionWrapper spacing="normal" class="overflow-hidden relative">
     <!-- Elementos decorativos de fondo -->
-    <div class="absolute top-1/2 -right-24 w-48 h-48 bg-accent-info-dark/5 dark:bg-accent-info-dark/10 rounded-full blur-2xl"></div>
-    <div class="absolute top-1/4 -left-16 w-32 h-32 bg-brand-accent/5 dark:bg-brand-accent/10 rounded-full blur-xl"></div>
+
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
       <div class="relative flex justify-center items-center h-80 group">
@@ -177,8 +176,7 @@ const pilares = [
     <div class="max-w-3xl mx-auto bg-surface-light/30 dark:bg-surface-dark/30 rounded-xl p-8 border border-border-light/10 dark:border-border-dark/10 shadow-sm relative overflow-hidden">
       <!-- Decoración de fondo -->
       <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-accent/30 to-transparent"></div>
-      <div class="absolute -top-16 -right-16 w-32 h-32 bg-brand-accent/5 rounded-full blur-xl"></div>
-      <div class="absolute -bottom-16 -left-16 w-32 h-32 bg-accent-info-dark/5 rounded-full blur-xl"></div>
+
       
       <p class="text-center text-xl md:text-2xl text-secondary-light dark:text-secondary-dark max-w-4xl mx-auto leading-relaxed">
         Este proyecto surge de la convicción de que la tecnología, <em>bien entendida y usada</em>, puede liberarnos tiempo para enfocarnos en lo que realmente importa: <strong>Las relaciones, los proyectos personales, el autoconocimiento...</strong>
@@ -197,8 +195,7 @@ const pilares = [
   <!-- Sección de Pilares Temáticos -->
   <SectionWrapper spacing="loose">
     <!-- Elementos decorativos de fondo -->
-    <div class="absolute -top-10 right-0 w-64 h-64 bg-accent-info-dark/5 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-10 left-0 w-48 h-48 bg-brand-accent/5 rounded-full blur-2xl"></div>
+
     
     <div class="text-center relative z-10">
       <h2 class="text-3xl font-extrabold font-heading text-primary-light dark:text-primary-dark sm:text-4xl inline-block relative">
@@ -224,8 +221,7 @@ const pilares = [
   <!-- Call to Action -->
   <SectionWrapper spacing="normal" class="relative overflow-hidden">
     <!-- Elementos decorativos de fondo -->
-    <div class="absolute -top-20 -left-20 w-64 h-64 bg-brand-accent/5 rounded-full blur-3xl"></div>
-    <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-accent-info-dark/5 rounded-full blur-3xl"></div>
+
     
     <!-- Indicador visual para dirigir la atención -->
     <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -248,8 +244,7 @@ const pilares = [
   <SectionWrapper spacing="loose" class="bg-surface-light dark:bg-surface-dark relative overflow-hidden">
     <!-- Elementos decorativos de fondo -->
     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-accent/20 to-transparent"></div>
-    <div class="absolute -top-32 -right-32 w-64 h-64 bg-brand-accent/5 rounded-full blur-3xl"></div>
-    <div class="absolute -bottom-32 -left-32 w-64 h-64 bg-accent-info-dark/5 rounded-full blur-3xl"></div>
+
     
     <div class="text-center relative z-10">
       <h2 class="text-3xl font-extrabold font-heading text-primary-light dark:text-primary-dark sm:text-4xl inline-block relative">

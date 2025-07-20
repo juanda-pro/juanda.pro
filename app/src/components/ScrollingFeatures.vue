@@ -93,8 +93,7 @@ onUnmounted(() => {
           <div class="flex h-full items-center justify-center">
             <div class="relative w-full max-w-md aspect-square flex items-center justify-center bg-gradient-to-br from-surface-light/80 to-surface-light dark:from-surface-dark/80 dark:to-surface-dark rounded-2xl shadow-xl border border-border-light/20 dark:border-border-dark/20 p-8 overflow-hidden group">
               <!-- Elementos decorativos de fondo -->
-              <div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-accent/5 dark:bg-brand-accent/10 rounded-full blur-xl transition-all duration-700 group-hover:scale-150"></div>
-              <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-accent-info-dark/5 dark:bg-accent-info-dark/10 rounded-full blur-xl transition-all duration-700 group-hover:scale-150"></div>
+
               
               <img
                 v-for="(feature) in features"
@@ -120,8 +119,7 @@ onUnmounted(() => {
         class="text-center fade-in-element bg-surface-light/30 dark:bg-surface-dark/30 rounded-xl p-6 shadow-sm border border-border-light/10 dark:border-border-dark/10 relative overflow-hidden"
       >
         <!-- Elementos decorativos de fondo -->
-        <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-accent/5 rounded-full blur-xl"></div>
-        <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-accent-info-dark/5 rounded-full blur-xl"></div>
+
         
         <div class="mb-6 mt-4 transform transition-all duration-500 hover:scale-[1.02] relative">
           <img 

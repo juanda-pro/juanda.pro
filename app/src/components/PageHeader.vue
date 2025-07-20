@@ -7,7 +7,7 @@
   >
     <div class="text-center mb-12 sm:mb-16 relative">
       <!-- Elementos decorativos de fondo -->
-      <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-brand-accent/5 rounded-full blur-2xl opacity-70"></div>
+
       
       <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-primary-light dark:text-primary-dark relative inline-block">
         <slot></slot>

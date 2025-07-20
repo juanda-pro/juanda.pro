@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-// import { supabase } from '@/supabaseClient'; // Comentado para usar datos locales
+
 import { getArticleBySlug, getPublishedArticles } from '@/data/articlesData';
 import SectionWrapper from '@/components/SectionWrapper.vue';
 import ArticleCard from '@/components/ArticleCard.vue';
@@ -41,7 +41,7 @@ const fetchArticleBySlug = (slug) => {
     }
 
   } catch (error) {
-    console.error('Error fetching article:', error);
+    // Error handling could be implemented here with user feedback
     errorMessage.value = 'Ocurrió un error al cargar el artículo.';
   } finally {
     isLoading.value = false;
@@ -54,7 +54,7 @@ watch(
   (newSlug) => {
     if (typeof newSlug === 'string') {
       fetchArticleBySlug(newSlug);
-      window.scrollTo(0, 0);
+      // El scroll se manejará automáticamente por Vue Router con scrollBehavior
     }
   },
   { immediate: true }
@@ -206,11 +206,48 @@ watch(
 
 /* Estilos de tipografía para el contenido */
 .prose :where(h2):not(:where([class~="not-prose"] *)) {
-  @apply text-2xl sm:text-3xl font-bold mt-16 mb-6 text-primary-light dark:text-primary-dark border-l-4 border-brand-accent pl-4 py-2 bg-surface-accent-light/20 dark:bg-surface-accent-dark/20 rounded-r-lg;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary-light);
+  border-left: 4px solid var(--color-brand-accent);
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: rgba(var(--color-surface-accent-light), 0.2);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+@media (min-width: 640px) {
+  .prose :where(h2):not(:where([class~="not-prose"] *)) {
+    font-size: 1.875rem;
+  }
+}
+
+.dark .prose :where(h2):not(:where([class~="not-prose"] *)) {
+  color: var(--color-primary-dark);
+  background-color: rgba(var(--color-surface-accent-dark), 0.2);
 }
 
 .prose :where(h3):not(:where([class~="not-prose"] *)) {
-  @apply text-xl sm:text-2xl font-bold mt-10 mb-4 text-primary-light dark:text-primary-dark border-b border-brand-accent/30 pb-2;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary-light);
+  border-bottom: 1px solid rgba(var(--color-brand-accent), 0.3);
+  padding-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .prose :where(h3):not(:where([class~="not-prose"] *)) {
+    font-size: 1.5rem;
+  }
+}
+
+.dark .prose :where(h3):not(:where([class~="not-prose"] *)) {
+  color: var(--color-primary-dark);
 }
 
 .prose :where(p):not(:where([class~="not-prose"] *)) {
@@ -222,7 +259,20 @@ watch(
 }
 
 .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
-  @apply text-xl font-serif italic text-primary-light dark:text-primary-dark border-l-4 border-brand-accent bg-surface-accent-light/30 dark:bg-surface-accent-dark/30 px-6 py-4 my-8 rounded-r-lg;
+  font-size: 1.25rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--color-primary-light);
+  border-left: 4px solid var(--color-brand-accent);
+  background-color: rgba(var(--color-surface-accent-light), 0.3);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.dark .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+  color: var(--color-primary-dark);
+  background-color: rgba(var(--color-surface-accent-dark), 0.3);
 }
 
 /* Imágenes y figuras */
@@ -292,11 +342,6 @@ watch(
 /* Estilo general del contenido */
 .article-content {
   @apply font-serif text-secondary-light dark:text-secondary-dark;
-}
-
-/* Primera letra normal (dropcap eliminado) */
-.article-content > :first-child::first-letter {
-  /* Eliminado el estilo dropcap */
 }
 
 /* Clases para imágenes flotantes */

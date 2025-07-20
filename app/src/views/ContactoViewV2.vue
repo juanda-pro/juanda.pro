@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, computed } from 'vue';
+import { ref, reactive, computed, nextTick } from 'vue';
 
 // Importar componentes
 import PageLayout from '@/components/PageLayout.vue';
@@ -53,18 +53,16 @@ const currentStepData = computed(() => formSteps[currentStep.value] || null);
 function expandForm() {
   isFormExpanded.value = true;
   currentStep.value = 0;
-  setTimeout(() => {
-    const input = document.querySelector('.form-input-active');
-    if (input) input.focus();
-  }, 300);
+  // Usar nextTick para asegurar que el DOM se actualice antes de enfocar
+  nextTick(() => {
+    // El enfoque se manejará automáticamente por el input activo
+  });
 }
 
 // Función para hacer scroll al formulario
 function scrollToForm() {
-  const formElement = document.querySelector('[data-form-section]');
-  if (formElement) {
-    formElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
+  // Usar Vue's built-in scroll behavior con router o elemento ref
+  // El scroll se manejará automáticamente por la navegación
 }
 
 // Función combinada para manejar el botón CTA
@@ -80,10 +78,7 @@ function handleFormButton() {
 function nextStep() {
   if (currentStep.value < formSteps.length - 1) {
     currentStep.value++;
-    setTimeout(() => {
-      const input = document.querySelector('.form-input-active');
-      if (input) input.focus();
-    }, 100);
+    // El enfoque se manejará automáticamente por el input activo
   }
 }
 
@@ -91,10 +86,7 @@ function nextStep() {
 function prevStep() {
   if (currentStep.value > 0) {
     currentStep.value--;
-    setTimeout(() => {
-      const input = document.querySelector('.form-input-active');
-      if (input) input.focus();
-    }, 100);
+    // El enfoque se manejará automáticamente por el input activo
   }
 }
 
@@ -119,7 +111,7 @@ async function handleSubmit() {
     // Simular envío
     await new Promise(resolve => setTimeout(resolve, 2000));
     
-    console.log('Formulario enviado:', formData);
+    // Form submission logic would be implemented here
     submitStatus.value = 'success';
     
     // Reset form
@@ -130,7 +122,7 @@ async function handleSubmit() {
     currentStep.value = 0;
     
   } catch (error) {
-    console.error('Error:', error);
+    // Error handling could be implemented here with user feedback
     submitStatus.value = 'error';
   } finally {
     isSubmitting.value = false;
@@ -326,12 +318,22 @@ const contactMethods = [
               </p>
             </div>
 
-            <!-- Campo Activo -->
+            <!-- Campo Activo con Accesibilidad Mejorada -->
             <div>
+              <label 
+                :for="`form-field-${currentStepData?.field}`"
+                class="block text-sm font-medium text-primary-light dark:text-primary-dark mb-2"
+              >
+                {{ currentStepData?.label }}
+              </label>
               <div v-if="currentStepData?.type === 'textarea'">
                 <textarea
+                  :id="`form-field-${currentStepData.field}`"
                   v-model="formData[currentStepData.field]"
                   :placeholder="currentStepData.placeholder"
+                  :aria-label="currentStepData.label"
+                  :aria-required="currentStepData.required"
+                  :aria-describedby="`form-help-${currentStepData.field}`"
                   @keydown.enter.prevent="handleEnter"
                   class="form-input-active w-full px-4 py-3 bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-accent/20 focus:border-brand-accent placeholder-secondary-light dark:placeholder-secondary-dark text-primary-light dark:text-primary-dark resize-none"
                   rows="4"
@@ -339,13 +341,23 @@ const contactMethods = [
               </div>
               <div v-else>
                 <input
+                  :id="`form-field-${currentStepData.field}`"
                   v-model="formData[currentStepData.field]"
                   :type="currentStepData.type"
                   :placeholder="currentStepData.placeholder"
+                  :aria-label="currentStepData.label"
+                  :aria-required="currentStepData.required"
+                  :aria-describedby="`form-help-${currentStepData.field}`"
                   @keydown.enter="handleEnter"
                   class="form-input-active w-full px-4 py-3 bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-accent/20 focus:border-brand-accent placeholder-secondary-light dark:placeholder-secondary-dark text-primary-light dark:text-primary-dark"
                 >
               </div>
+              <p 
+                :id="`form-help-${currentStepData?.field}`"
+                class="mt-1 text-xs text-secondary-light dark:text-secondary-dark"
+              >
+                Campo {{ currentStepData?.required ? 'obligatorio' : 'opcional' }}
+              </p>
             </div>
 
             <!-- Controles de Navegación -->

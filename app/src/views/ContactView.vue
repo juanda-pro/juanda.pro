@@ -24,7 +24,7 @@ const handleSubmit = async () => {
   isSuccess.value = false;
 
   // Lógica de Supabase comentada para desarrollo sin backend
-  console.log('Formulario enviado (simulación):', form.value);
+  // Form submission logic would be implemented here
   
   // Simular una respuesta exitosa
   setTimeout(() => {
