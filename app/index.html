@@ -1,16 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vite App</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Juan David - Desarrollador Full Stack | Blog Personal y Proyectos</title>
+    <meta name="description" content="Blog personal de Juan David, desarrollador full stack especializado en Vue.js, Node.js y tecnologías web modernas. Artículos sobre programación, tutoriales y proyectos.">
+    <meta name="keywords" content="Juan David, desarrollador, full stack, Vue.js, JavaScript, Node.js, programación, blog, tutoriales">
+    <meta name="author" content="Juan David">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://juanda.pro">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://juanda.pro">
+    <meta property="og:title" content="Juan David - Desarrollador Full Stack | Blog Personal">
+    <meta property="og:description" content="Blog personal de Juan David, desarrollador full stack. Artículos sobre programación, tutoriales y proyectos web.">
+    <meta property="og:image" content="https://juanda.pro/img/og-image.jpg">
+    <meta property="og:site_name" content="juanda.pro">
+    <meta property="og:locale" content="es_ES">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://juanda.pro">
+    <meta name="twitter:title" content="Juan David - Desarrollador Full Stack">
+    <meta name="twitter:description" content="Blog personal de Juan David, desarrollador full stack. Artículos sobre programación y tecnologías web.">
+    <meta name="twitter:image" content="https://juanda.pro/img/og-image.jpg">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Juan David",
+      "url": "https://juanda.pro",
+      "sameAs": [
+        "https://github.com/juandavid",
+        "https://linkedin.com/in/juandavid"
+      ],
+      "jobTitle": "Desarrollador Full Stack",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "knowsAbout": ["JavaScript", "Vue.js", "Node.js", "Desarrollo Web", "Programación"]
+    }
+    </script>
+    
+    <!-- Performance optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&family=JetBrains+Mono&family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#1a73e8">
+    <meta name="msapplication-TileColor" content="#1a73e8">
   </head>
   <body>
-    <div id="app"></div>
+    <!-- Skip navigation link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-50">Saltar al contenido principal</a>
+    
+    <div id="app" role="application" aria-label="Aplicación web de Juan David"></div>
+    
+    <!-- Preload critical resources -->
     <script type="module" src="/src/main.ts"></script>
+    
+    <!-- Accessibility: No-script fallback -->
+    <noscript>
+      <div style="padding: 2rem; text-align: center; font-family: system-ui, sans-serif;">
+        <h1>Juan David - Desarrollador Full Stack</h1>
+        <p>Esta aplicación requiere JavaScript para funcionar correctamente.</p>
+        <p>Por favor, habilita JavaScript en tu navegador para acceder al contenido completo.</p>
+      </div>
+    </noscript>
   </body>
 </html>

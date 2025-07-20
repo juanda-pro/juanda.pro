@@ -1,0 +1,16 @@
+# robots.txt para juanda.pro
+# Permitir acceso completo a todos los bots para indexación
+
+User-agent: *
+Allow: /
+
+# Sitemap (se agregará cuando esté disponible)
+# Sitemap: https://juanda.pro/sitemap.xml
+
+# Permitir acceso a todos los recursos importantes
+Allow: /css/
+Allow: /js/
+Allow: /img/
+Allow: /assets/
+
+# Sin restricciones - acceso completo para indexación
