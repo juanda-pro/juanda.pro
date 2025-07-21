@@ -50,11 +50,6 @@ const router = createRouter({
       component: () => import('../views/ContactoViewV2.vue')
     },
     {
-      path: '/contacto-v1',
-      name: 'contacto-v1',
-      component: () => import('../views/ContactoView.vue')
-    },
-    {
       path: '/politica-de-privacidad',
       name: 'privacy-policy',
       component: () => import('../views/PrivacyPolicyView.vue')
