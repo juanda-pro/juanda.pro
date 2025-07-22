@@ -1,4 +1,9 @@
-# Guía de Estilo y Sistema de Diseño (v1.1)
+# Guía de Estilo
+
+> **ADVERTENCIA: Documento Desactualizado**
+> Esta guía no ha sido actualizada para reflejar los últimos cambios en componentes y decisiones de diseño. Se requiere una revisión y actualización manual completa para sincronizarla con la versión de producción.
+
+--- y Sistema de Diseño (v1.1)
 
 Este documento es la fuente de la verdad para el sistema de diseño visual, sincronizado con `tailwind.config.js`.
 

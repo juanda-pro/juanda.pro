@@ -1,5 +1,10 @@
 # Catálogo de Componentes Reutilizables
 
+> **ADVERTENCIA: Documento Desactualizado**
+> Este catálogo no ha sido actualizado para reflejar los últimos cambios en el código fuente (ej. creación de `DecorativeLine.vue`, refactorización de `CtaCard.vue`, etc.). Se requiere una revisión y actualización manual completa para sincronizarlo con la versión de producción.
+
+---
+
 Este documento proporciona una visión general de todos los componentes de UI reutilizables del proyecto, su propósito y su ubicación.
 
 ---

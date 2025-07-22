@@ -5,12 +5,13 @@
 @tailwind utilities;
 
 .dotted-background {
-  background-image: radial-gradient(theme('colors.dot-light') 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.18) 1px, transparent 1px);
   background-size: 30px 30px;
 }
 
 .dark .dotted-background {
-  background-image: radial-gradient(theme('colors.dot-dark') 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.11) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
 /* Animaciones y efectos visuales */

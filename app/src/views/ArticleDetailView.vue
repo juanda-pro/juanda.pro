@@ -6,6 +6,7 @@ import { getArticleBySlug, getPublishedArticles } from '@/data/articlesData';
 import SectionWrapper from '@/components/SectionWrapper.vue';
 import ArticleCard from '@/components/ArticleCard.vue';
 import PageLayout from '@/components/PageLayout.vue';
+import HeroSection from '@/components/HeroSection.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -62,7 +63,7 @@ watch(
 </script>
 
 <template>
-  <div class="bg-light dark:bg-dark text-primary-light dark:text-primary-dark min-h-screen">
+  <PageLayout :remove-padding-top="true">
     <!-- Estado de Carga -->
     <div v-if="isLoading" class="flex justify-center items-center py-48">
       <p class="text-lg text-secondary-light dark:text-secondary-dark">Cargando artículo...</p>
@@ -81,48 +82,12 @@ watch(
     </div>
 
     <!-- Contenido del Artículo -->
-    <div v-else-if="article" class="flex flex-col gap-12 sm:gap-16 md:gap-20">
-      <!-- Barra de navegación rápida -->
-      <div class="sticky top-0 z-10 bg-light/80 dark:bg-dark/80 backdrop-blur-md border-b border-surface-accent-light dark:border-surface-accent-dark/30 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex items-center justify-between h-16">
-            <router-link to="/blog" class="flex items-center text-sm font-medium text-secondary-light dark:text-secondary-dark hover:text-brand-accent transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-              </svg>
-              Volver al Blog
-            </router-link>
-            <div class="flex items-center space-x-4">
-              <span class="text-xs font-medium text-brand-accent">{{ article.category }}</span>
-              <span class="text-xs text-secondary-light dark:text-secondary-dark">{{ formattedDate }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cabecera del Artículo -->
-      <header class="pt-6 pb-4 sm:pt-8 sm:pb-6 text-center">
-        <SectionWrapper spacing="tight">
-          <p class="text-lg font-semibold text-brand-accent mb-2 animate-fade-in">{{ article.category }}</p>
-          <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-primary-light dark:text-primary-dark animate-fade-in-up">
-            {{ article.title }}
-          </h1>
-          <p class="mt-6 text-xl text-secondary-light dark:text-secondary-dark max-w-2xl mx-auto animate-fade-in-up delay-100">
-            {{ article.description }}
-          </p>
-        </SectionWrapper>
-      </header>
-
-      <!-- Imagen Destacada con efecto parallax suave -->
-      <div class="relative overflow-hidden max-h-[50vh] mb-6">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-light/90 dark:to-dark/90 z-10"></div>
-        <img 
-          :src="article.image_url" 
-          :alt="`Imagen para ${article.title}`" 
-          class="w-full h-auto object-cover animate-fade-in"
-          style="min-height: 30vh; max-height: 50vh; width: 100%;"
-        >
-      </div>
+    <template v-else-if="article">
+      <HeroSection :title="article.title" :background-image="article.image_url">
+        <template #subtitle>
+          {{ article.description }}
+        </template>
+      </HeroSection>
 
       <!-- Contenido del Artículo -->
       <SectionWrapper spacing="normal">
@@ -174,8 +139,8 @@ watch(
           </svg>
         </button>
       </div>
-    </div>
-  </div>
+    </template>
+  </PageLayout>
 </template>
 
 <style scoped>

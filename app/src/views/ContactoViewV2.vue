@@ -4,8 +4,10 @@ import { ref, reactive, computed, nextTick } from 'vue';
 // Importar componentes
 import PageLayout from '@/components/PageLayout.vue';
 import SectionWrapper from '@/components/SectionWrapper.vue';
-import IntroCard from '@/components/IntroCard.vue';
-import PageHeader from '@/components/PageHeader.vue';
+import HeroSection from '@/components/HeroSection.vue';
+
+// Importar imagen de fondo
+import HeaderBackground from '../assets/cabecera_inicio.jpeg';
 
 
 // Estado del formulario desplegable
@@ -61,15 +63,26 @@ function expandForm() {
 
 // Función para hacer scroll al formulario
 function scrollToForm() {
-  // Usar Vue's built-in scroll behavior con router o elemento ref
-  // El scroll se manejará automáticamente por la navegación
+  const formElement = document.querySelector('[data-form-section]');
+  if (formElement) {
+    formElement.scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'start',
+      inline: 'nearest'
+    });
+  }
 }
 
 // Función combinada para manejar el botón CTA
 function handleFormButton() {
   if (!isFormExpanded.value) {
+    // Expandir formulario y hacer scroll automático
     expandForm();
+    nextTick(() => {
+      scrollToForm();
+    });
   } else {
+    // Si ya está expandido, solo hacer scroll
     scrollToForm();
   }
 }
@@ -175,87 +188,26 @@ const contactMethods = [
 </script>
 
 <template>
-  <PageLayout>
+  <PageLayout :remove-padding-top="true">
     <!-- Hero Section -->
-    <SectionWrapper spacing="normal">
-      <IntroCard>
-        <PageHeader subtitle="¿Idea para automatizar un proceso? ¿Preguntas sobre iA? Escríbeme sin compromiso.">
-          Contacto
-        </PageHeader>
-      </IntroCard>
-    </SectionWrapper>
+    <HeroSection
+      title="Contacto"
+      :background-image="HeaderBackground"
+    >
+      <template v-slot:subtitle>
+        ¿Tienes una idea para automatizar un proceso? ¿Necesitas ayuda con alguna herramienta? Escríbeme sin compromiso.
+      </template>
+    </HeroSection>
     
-    <!-- Introducción -->
+    <!-- H2 Semántico e Introducción -->
     <SectionWrapper spacing="normal">
-      <div class="max-w-4xl mx-auto text-center space-y-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary-light dark:text-primary-dark mb-6">
+          ¡Hablemos!
+        </h2>
         <p class="text-xl md:text-2xl text-secondary-light dark:text-secondary-dark leading-relaxed">
-          Esta página es una invitación abierta a que contactes conmigo. Me apasiona ayudar a personas a optimizar sus procesos, ya sea en el trabajo, en un emprendimiento o en la vida diaria.
+          Esta página es una invitación abierta para que contactes conmigo. Me apasiona ayudar a personas a optimizar sus procesos, ya sea en el trabajo, en un emprendimiento o en la vida diaria.
         </p>
-        
-        <p class="text-xl text-secondary-light dark:text-secondary-dark leading-relaxed">
-          Si has explorado el sitio y algo te ronda la cabeza <em>como una automatización</em> que quieras implementar o si tienes curiosidad sobre herramientas prácticas, no dudes en escribirme.
-        </p>
-      </div>
-    </SectionWrapper>
-
-    <!-- Sección de Ideas -->
-    <SectionWrapper spacing="normal">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-8">
-          <h3 class="text-2xl font-bold text-primary-light dark:text-primary-dark mb-4">
-            ¿Aún no te animas? Aquí tienes algunas ideas
-          </h3>
-        </div>
-        
-        <div class="space-y-6">
-          <div class="flex items-start">
-            <span class="text-brand-accent mr-4 mt-1 text-xl">→</span>
-            <div>
-              <strong class="text-lg text-primary-light dark:text-primary-dark">Compartir ideas o feedback:</strong>
-              <p class="text-lg text-secondary-light dark:text-secondary-dark mt-1">
-                ¿Has probado alguna de mis recomendaciones? Cuéntame cómo te fue, o sugiere temas para el blog.
-              </p>
-            </div>
-          </div>
-          
-          <div class="flex items-start">
-            <span class="text-brand-accent mr-4 mt-1 text-xl">→</span>
-            <div>
-              <strong class="text-lg text-primary-light dark:text-primary-dark">Preguntas específicas:</strong>
-              <p class="text-lg text-secondary-light dark:text-secondary-dark mt-1">
-                Sobre scripts, iA o procesos administrativos que quieres mejorar.
-              </p>
-            </div>
-          </div>
-          
-          <div class="flex items-start">
-            <span class="text-brand-accent mr-4 mt-1 text-xl">→</span>
-            <div>
-              <strong class="text-lg text-primary-light dark:text-primary-dark">Colaboraciones o servicios:</strong>
-              <p class="text-lg text-secondary-light dark:text-secondary-dark mt-1">
-                Si necesitas ayuda personalizada, como diseñar una automatización a medida para tu equipo o empresa, 
-                escríbeme sin dudarlo. Siempre empiezo con un diagnóstico gratuito para ver si encajamos.
-              </p>
-            </div>
-          </div>
-          
-          <div class="flex items-start">
-            <span class="text-brand-accent mr-4 mt-1 text-xl">→</span>
-            <div>
-              <strong class="text-lg text-primary-light dark:text-primary-dark">Simplemente saludar:</strong>
-              <p class="text-lg text-secondary-light dark:text-secondary-dark mt-1">
-                Si compartes mi pasión por entender y aprender a usar bien la tecnología, será un placer charlar contigo.
-              </p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="mt-8 p-6 bg-surface-light/50 dark:bg-surface-dark/50 rounded-lg">
-          <p class="text-lg italic text-secondary-light dark:text-secondary-dark text-center">
-            Prometo leer cada mensaje con atención y responder de forma honesta. 
-            No soy un bot: soy yo, priorizando calidad sobre velocidad.
-          </p>
-        </div>
       </div>
     </SectionWrapper>
 
@@ -283,19 +235,27 @@ const contactMethods = [
         </div>
 
         <!-- Formulario Principal -->
-        <div class="bg-surface-light dark:bg-surface-dark p-8 rounded-lg shadow-md">
+        <div class="enhanced-form-container bg-gradient-to-br from-surface-light to-brand-accent/5 dark:from-surface-dark dark:to-brand-accent/10 p-8 rounded-2xl shadow-xl border-2 border-brand-accent/20 hover:border-brand-accent/40 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
           <!-- Placeholder Inicial -->
           <div v-if="!isFormExpanded" class="text-center">
+            <div class="mb-4">
+              <svg class="h-12 w-12 text-brand-accent mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              <h4 class="text-xl font-bold text-primary-light dark:text-primary-dark mb-2">
+                ¡Escríbeme directamente!
+              </h4>
+              <p class="text-secondary-light dark:text-secondary-dark mb-4">
+                Haz clic aquí para abrir el formulario inteligente
+              </p>
+            </div>
             <input
               type="text"
-              placeholder="Escríbeme desde aquí"
+              placeholder="Haz clic para empezar a escribir tu mensaje..."
               readonly
               @click="expandForm"
-              class="w-full px-4 py-4 text-lg bg-surface-light dark:bg-surface-dark border-2 border-border-light dark:border-border-dark rounded-lg text-center cursor-pointer transition-all duration-300 hover:border-brand-accent focus:outline-none focus:ring-2 focus:ring-brand-accent/20 focus:border-brand-accent text-primary-light dark:text-primary-dark placeholder:text-secondary-light dark:placeholder:text-secondary-dark"
-            >
-            <p class="text-sm text-secondary-light dark:text-secondary-dark mt-2">
-              Haz clic para empezar a escribir tu mensaje
-            </p>
+              class="w-full p-4 text-lg border-2 border-brand-accent/30 bg-white/50 dark:bg-gray-800/50 text-primary-light dark:text-primary-dark placeholder-secondary-light dark:placeholder-secondary-dark cursor-pointer hover:border-brand-accent hover:bg-white/70 dark:hover:bg-gray-800/70 transition-all duration-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-brand-accent/20 backdrop-blur-sm"
+            />
           </div>
 
           <!-- Formulario Expandido -->
@@ -403,6 +363,73 @@ const contactMethods = [
       </div>
     </SectionWrapper>
 
+    <!-- Sección de Ideas -->
+    <SectionWrapper spacing="normal">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-bold text-primary-light dark:text-primary-dark mb-4">
+            ¿No sabes por dónde empezar? Aquí tienes algunas ideas
+          </h3>
+        </div>
+        
+        <div class="space-y-8">
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center mb-4">
+              <span class="text-brand-accent text-2xl mr-2">→</span>
+              <strong class="text-lg text-primary-light dark:text-primary-dark">Compartir feedback o ideas</strong>
+            </div>
+            <p class="text-lg text-secondary-light dark:text-secondary-dark">
+              ¿Has probado alguna de mis recomendaciones? Cuéntame cómo te fue, o sugiere temas para el blog.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center mb-4">
+              <span class="text-brand-accent text-2xl mr-2">→</span>
+              <strong class="text-lg text-primary-light dark:text-primary-dark">Preguntas específicas</strong>
+            </div>
+            <p class="text-lg text-secondary-light dark:text-secondary-dark">
+              Sobre herramientas, IA, o procesos que quieras mejorar.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center mb-4">
+              <span class="text-brand-accent text-2xl mr-2">→</span>
+              <strong class="text-lg text-primary-light dark:text-primary-dark">Colaboraciones o servicios</strong>
+            </div>
+            <p class="text-lg text-secondary-light dark:text-secondary-dark">
+              Si necesitas ayuda personalizada, como diseñar una automatización a medida para tu equipo o empresa, 
+              escríbeme sin dudarlo. Siempre empiezo con un diagnóstico gratuito para ver si encajamos.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center mb-4">
+              <span class="text-brand-accent text-2xl mr-2">→</span>
+              <strong class="text-lg text-primary-light dark:text-primary-dark">Simplemente saludar</strong>
+            </div>
+            <p class="text-lg text-secondary-light dark:text-secondary-dark">
+              Si compartes mi pasión por entender y aprender a usar bien la tecnología, será un placer charlar contigo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </SectionWrapper>
+
+    <!-- Quote Final Separada -->
+    <SectionWrapper spacing="normal">
+      <div class="max-w-4xl mx-auto">
+        <blockquote class="border-l-4 border-brand-accent pl-6 bg-surface-light/30 dark:bg-surface-dark/30 p-6 rounded-r-lg">
+          <p class="text-xl italic text-secondary-light dark:text-secondary-dark leading-relaxed">
+            "Prometo leer cada mensaje con atención y responder de forma honesta. 
+            No soy un bot: soy yo, priorizando calidad sobre velocidad."
+          </p>
+        </blockquote>
+      </div>
+    </SectionWrapper>
+
+
     <!-- Sección de Expectativas -->
     <SectionWrapper spacing="normal">
       <div class="max-w-4xl mx-auto text-center">
@@ -438,11 +465,11 @@ const contactMethods = [
       <div class="text-center">
         <div class="max-w-2xl mx-auto space-y-6">
           <h3 class="text-2xl font-bold text-primary-light dark:text-primary-dark">
-            ¿Listo para empezar?
+            Gracias
           </h3>
           
           <p class="text-xl text-secondary-light dark:text-secondary-dark">
-            Gracias por conectar. Cada conversación es una oportunidad de crear sinergias interesantes. ¡Espero tu mensaje!
+            Cada conversación es una oportunidad de crear sinergias interesantes. ¡Espero tu mensaje!
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
@@ -450,14 +477,14 @@ const contactMethods = [
               @click="handleFormButton()"
               class="inline-flex items-center px-6 py-3 bg-brand-accent hover:bg-brand-accent/90 text-gray-900 rounded-lg transition-all duration-200 font-medium"
             >
-              Escribir mensaje ahora
+              Escribir ahora
             </button>
             <span class="text-secondary-light dark:text-secondary-dark">o</span>
             <a 
               href="/blog" 
               class="inline-flex items-center px-6 py-3 bg-surface-light dark:bg-surface-dark hover:bg-surface-light/80 dark:hover:bg-surface-dark/80 text-primary-light dark:text-primary-dark border border-border-light dark:border-border-dark rounded-lg transition-all duration-200 font-medium"
             >
-              Lee mi blog primero
+              Aprender más
             </a>
           </div>
         </div>
@@ -494,6 +521,36 @@ const contactMethods = [
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Estilos para el formulario mejorado */
+.enhanced-form-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.enhanced-form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(246, 201, 14, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.enhanced-form-container:hover::before {
+  left: 100%;
+}
+
+@keyframes formGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(246, 201, 14, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(246, 201, 14, 0.2); }
+}
+
+.enhanced-form-container:focus-within {
+  animation: formGlow 2s infinite;
 }
 
 /* Animación para las cajas de expectativas */

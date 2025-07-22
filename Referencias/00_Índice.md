@@ -1,5 +1,73 @@
 # Índice de la Documentación del Proyecto
 
+Este documento es el punto de entrada central para toda la documentación del proyecto.
+
+---
+
+## 1. Auditorías y Planes
+
+*   **Descripción:** Contiene todos los planes de trabajo, auditorías de código, y hojas de ruta.
+*   **Ubicación:** `[01_Auditorias_y_Planes](./01_Auditorias_y_Planes/)`
+
+---
+
+## 2. Especificaciones de Vistas
+
+*   **Descripción:** Documentación detallada para cada una de las vistas (páginas) de la aplicación. Describe su propósito, estructura, componentes y lógica.
+*   **Ubicación:** `[02_Especificaciones_Vistas](./02_Especificaciones_Vistas/)`
+
+### Vistas Documentadas:
+*   [Inicio](./02_Especificaciones_Vistas/Inicio.md)
+*   [Contacto](./02_Especificaciones_Vistas/Contacto.md)
+*   [Soy](./02_Especificaciones_Vistas/Soy.md)
+*   [Detalle de Artículo](./02_Especificaciones_Vistas/Artículo.md)
+*   [Política de Privacidad](./02_Especificaciones_Vistas/Politica_de_Privacidad.md)
+*   [Política de Cookies](./02_Especificaciones_Vistas/Politica_de_Cookies.md)
+*   [Muestrario Tipográfico (Dev)](./02_Especificaciones_Vistas/Muestrario_Tipografico.md)
+*   [Blog](./02_Especificaciones_Vistas/Blog.md) - *Nota: Pendiente de auditoría y validación.*
+
+---
+
+## 3. Contenido y Datos
+
+*   **Descripción:** Guías de contenido, esquemas de datos y otra información relacionada con los datos que maneja la aplicación.
+*   **Ubicación:** `[03_Contenido_y_Datos](./03_Contenido_y_Datos/)`
+
+---
+
+## 4. Componentes Reutilizables
+
+*   **Descripción:** Documentación específica para los componentes de Vue que se reutilizan en múltiples vistas.
+*   **Ubicación:** `[04_Componentes_Reutilizables](./04_Componentes_Reutilizables/)`
+
+---
+
+## 5. Documentación Técnica
+
+*   **Descripción:** Documentos que describen la arquitectura, el stack tecnológico, la configuración del entorno y las guías de estilo de código.
+*   **Ubicación:** `[05_Documentacion_Tecnica](./05_Documentacion_Tecnica/)`
+
+---
+
+## 6. Metadocumentación
+
+*   **Descripción:** Información sobre cómo se gestiona y mantiene la propia documentación.
+*   **Ubicación:** `[06_Metadocumentacion](./06_Metadocumentacion/)`
+
+---
+
+## 7. Auditoría de Calidad (Q3 2025)
+
+*   **Descripción:** Hallazgos y planes de acción específicos de la auditoría de calidad realizada en el tercer trimestre de 2025.
+*   **Ubicación:** `[07_Auditoria_Calidad_Q3_2025](./07_Auditoria_Calidad_Q3_2025/)`
+
+---
+
+## Documentos Clave en la Raíz
+
+*   **[Hallazgos de Auditoría de Calidad de Código](./Hallazgos_Auditoria_Calidad_Codigo.md):** Registro de los problemas y mejoras identificadas durante las auditorías.
+*   **[Plan Maestro del Sprint 1 (2025-07-21)](./Sprint_1_2025-07-21_Plan_Maestro.md):** Documento principal que guió el primer sprint de refactorización.
+
 Este documento sirve como un mapa central para toda la documentación del proyecto, organizada por categorías para facilitar el acceso y la consulta.
 
 ---

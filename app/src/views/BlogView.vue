@@ -1,13 +1,14 @@
 <template>
-  <PageLayout>
+  <PageLayout :remove-padding-top="true">
     <!-- Hero Section -->
-    <SectionWrapper spacing="normal">
-      <IntroCard>
-        <PageHeader subtitle="Noticias, experimentos documentados y reflexiones sobre la intersección entre tecnología y desarrollo humano.">
-            Blog
-          </PageHeader>
-      </IntroCard>
-    </SectionWrapper>
+    <HeroSection
+      title="Blog"
+      :background-image="HeaderBackground"
+    >
+      <template v-slot:subtitle>
+        Aprendizajes, herramientas y reflexiones honestas. Todo documentado para que experimentes por tu cuenta y encuentres ideas accionables.
+      </template>
+    </HeroSection>
 
     <!-- Filtros y Grid de Artículos -->
     <SectionWrapper spacing="normal">
@@ -55,11 +56,13 @@ import { ref, computed, onMounted } from 'vue';
 
 import { getPublishedArticles } from '@/data/articlesData';
 import SectionWrapper from '@/components/SectionWrapper.vue';
-import PageHeader from '@/components/PageHeader.vue';
 import ArticleCard from '@/components/ArticleCard.vue';
 import FilterButton from '@/components/FilterButton.vue';
 import PageLayout from '@/components/PageLayout.vue';
-import IntroCard from '@/components/IntroCard.vue';
+import HeroSection from '@/components/HeroSection.vue';
+
+// Importar imagen de fondo
+import HeaderBackground from '../assets/cabecera_inicio.jpeg';
 
 // --- State ---
 const allArticles = ref([]);

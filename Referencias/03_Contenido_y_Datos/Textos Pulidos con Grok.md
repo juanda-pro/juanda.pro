@@ -99,7 +99,7 @@ En mi camino, priorizo el **pensamiento crítico** como base para todo: Hacerme 
 *Creo que ese es el camino si quieres aprovechar las tecnologías* actuales para tomar el control de tus procesos cotidianos. Es lo que hago y **es lo que te invito a hacer.**
 
 
-- **Principal motivación:** Apalancarme del aprendizaje colectivo. Si compartes tus conocimientos y aprendes de otros, surgen nuevas ideas y oportunidades.
+- **Principal motivación:** Aprendizaje colectivo. Si compartes tus conocimientos y aprendes de otros, surgen nuevas ideas, relaciones y oportunidades.
 - **Honestidad práctica:** Comparto solo lo que he probado, tanto lo que me funcionó y como lo que no. Equivocarse forma parte del proceso de aprendizaje.
 - **Mindset general:** Me enfoco en encontrar formas de sacar partido a la tecnología al mismo tiempo que aprendo a usarla con más consciencia y cuidado.
 

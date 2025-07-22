@@ -1,5 +1,8 @@
 # Especificaciones Generales y Técnicas: juanda.pro
 
+> **ADVERTENCIA: Documento Parcialmente Desactualizado**
+> La descripción general del stack tecnológico (Vue, Vite, Tailwind, Supabase) sigue siendo correcta. Sin embargo, algunos detalles específicos pueden no reflejar el estado actual del código tras las últimas refactorizaciones. Se recomienda una revisión.
+
 **Versión:** 1.2 (Fase de Auditoría y Refactorización)
 **Última actualización:** Junio 2025
 

@@ -1,12 +1,12 @@
 <script setup>
 import PageLayout from '@/components/PageLayout.vue';
-import PageHeader from '@/components/PageHeader.vue';
 import SectionWrapper from '@/components/SectionWrapper.vue';
-import IntroCard from '@/components/IntroCard.vue';
+import HeroSection from '@/components/HeroSection.vue';
 import { onMounted, nextTick } from 'vue';
 
-// Importar la misma imagen que se usa en la página de inicio
+// Importar imágenes
 import AiPacmanIllustration from '@/assets/ai-pacman-original.png';
+import HeaderBackground from '../assets/cabecera_inicio.jpeg';
 
 // Función para inicializar efectos visuales
 onMounted(() => {
@@ -19,15 +19,16 @@ onMounted(() => {
 </script>
 
 <template>
-  <PageLayout>
-    <!-- Header -->
-    <SectionWrapper spacing="normal">
-      <IntroCard>
-        <PageHeader subtitle="Un apasionado de la tecnología que puede ayudarte a optimizar algunos procesos.">
-          Soy.
-        </PageHeader>
-      </IntroCard>
-    </SectionWrapper>
+  <PageLayout :remove-padding-top="true">
+    <!-- Hero Section -->
+    <HeroSection
+      title="Soy."
+      :background-image="HeaderBackground"
+    >
+      <template v-slot:subtitle>
+        Un apasionado de la tecnología que puede ayudarte a optimizar algunos procesos.
+      </template>
+    </HeroSection>
 
     <!-- Image and Introduction (Side by side on desktop) -->
     <SectionWrapper spacing="loose" class="relative overflow-hidden">
@@ -79,7 +80,7 @@ onMounted(() => {
           <span class="absolute -bottom-2 left-0 w-1/3 h-1 bg-brand-accent/50 rounded-full"></span>
         </h2>
         <p>
-          En mi camino, priorizo el <strong>pensamiento crítico</strong> como base para todo: Hacerme todo tipo de preguntas, <em>experimentar</em>, probar herramientas, <em>ajustar según los resultados</em>... 
+          En mi camino, priorizo el <strong>pensamiento crítico</strong> como base para todo: Hacerme todo tipo de preguntas, investigar, <em>experimentar</em>, probar herramientas, <em>ajustar según los resultados</em>... 
           <br><br>
           <em>Creo que ese es el camino si quieres aprovechar las tecnologías</em> actuales para tomar el control de tus procesos cotidianos. Es lo que hago y <strong>es lo que te invito a hacer.</strong>
         </p>
@@ -98,7 +99,7 @@ onMounted(() => {
               </svg>
             </div>
             <h4 class="text-xl font-bold text-primary-light dark:text-primary-dark mb-2">Principal motivación</h4>
-            <p class="text-secondary-light dark:text-secondary-dark">Creo que el conocimiento florece cuando lo pones en práctica y te retroalimentas con otros que recorren tu mismo camino.</p>
+            <p class="text-secondary-light dark:text-secondary-dark">Aprendizaje colectivo. Si compartes tus conocimientos y aprendes de otros, surgen nuevas ideas, relaciones y oportunidades.</p>
           </li>
           
           <li class="fade-in-element opacity-0 transform translate-y-4 delay-100">
@@ -109,7 +110,7 @@ onMounted(() => {
               </svg>
             </div>
             <h4 class="text-xl font-bold text-primary-light dark:text-primary-dark mb-2">Honestidad práctica</h4>
-            <p class="text-secondary-light dark:text-secondary-dark">Comparto solo lo que he probado, incluyendo lo que funciona y lo que no. Equivocarse forma parte del proceso de aprendizaje.</p>
+            <p class="text-secondary-light dark:text-secondary-dark">Comparto solo lo que he probado, tanto lo que me funcionó y como lo que no. Equivocarse forma parte del proceso de aprendizaje.</p>
           </li>
           
           <li class="fade-in-element opacity-0 transform translate-y-4 delay-200">
@@ -121,7 +122,7 @@ onMounted(() => {
               </svg>
             </div>
             <h4 class="text-xl font-bold text-primary-light dark:text-primary-dark mb-2">Mindset general</h4>
-            <p class="text-secondary-light dark:text-secondary-dark">Me enfoco en encontrar formas de sacar partido a la tecnología al mismo tiempo que aprendo a usarla con más consciencia y cuidado.</p>
+            <p class="text-secondary-light dark:text-secondary-dark">Me enfoco en encontrar formas de sacar partido a la tecnología, al mismo tiempo que aprendo a usarla con más consciencia y cuidado.</p>
           </li>
         </ul>
         
@@ -132,7 +133,7 @@ onMounted(() => {
         
         <div class="mt-12 p-8 border border-gray-200 dark:border-gray-700 rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm fade-in-element opacity-0 transform translate-y-4">
           <p class="text-xl relative pl-4 border-l-2 border-brand-accent/30 dark:border-brand-accent/20">
-            Gracias por tomarte el tiempo de conocerme un poco más. Te invito a explorar el resto del sitio. Hay artículos interesantes en "Blog" y herramientas gratuitas en "Recursos"
+            Gracias por tomarte el tiempo de conocerme un poco más. Te invito a explorar el resto del sitio.
           </p>
         </div>
       </div>

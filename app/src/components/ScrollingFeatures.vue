@@ -77,13 +77,12 @@ onUnmounted(() => {
           class="feature-text-panel flex flex-col justify-center fade-in-element" 
           style="min-height: calc(100vh - 4rem);"
         >
-          <div class="text-center">
-            <h3 class="text-4xl font-bold font-heading text-primary-light dark:text-primary-dark mb-8 relative inline-block">
+          <div class="text-left">
+            <h3 class="text-4xl font-bold font-heading text-primary-light dark:text-primary-dark mb-8">
               {{ feature.title }}
-              <span class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></span>
             </h3>
           </div>
-          <p class="text-xl text-secondary-light dark:text-secondary-dark leading-loose" v-html="feature.text"></p>
+          <p class="text-xl text-secondary-light dark:text-secondary-dark leading-loose text-left" v-html="feature.text"></p>
         </div>
       </div>
 

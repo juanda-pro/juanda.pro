@@ -1,4 +1,108 @@
-# Especificaciones: Página de Contacto
+# Especificación de la Vista: Contacto (`ContactoViewV2.vue`)
+
+**Versión:** 2.0 (Post-Sprint 1)
+**Ruta:** `/contacto`
+**Estado:** Activa y Refactorizada
+
+---
+
+## 1. Propósito y Funcionalidad
+
+Esta vista proporciona a los usuarios un medio directo para ponerse en contacto con Juan David. Incluye una introducción, un formulario de contacto interactivo y una sección final de llamada a la acción.
+
+La funcionalidad clave es el formulario de contacto, que utiliza Supabase para el envío de datos y presenta una UX cuidada con estados de carga, éxito y error.
+
+---
+
+## 2. Estructura de Componentes
+
+La vista está construida sobre `PageLayout` y se compone de las siguientes secciones principales, encapsuladas en `SectionWrapper` para mantener la consistencia del layout:
+
+1.  **Hero Section (`IntroCard`):**
+    *   **Componente:** `IntroCard`.
+    *   **Contenido:** Un título principal (`H1`) "Hablemos" y un párrafo introductorio que invita al diálogo.
+
+2.  **Introducción y H2 Semántico:**
+    *   **Componente:** `SectionWrapper`.
+    *   **Contenido:** Un título secundario (`H2`) "¡Hablemos!" seguido de un texto que explica los motivos para iniciar una conversación.
+
+3.  **Formulario de Contacto (`ContactForm`):
+    *   **Componente:** `ContactForm.vue`.
+    *   **Lógica Clave:**
+        *   El formulario está inicialmente oculto tras un botón "Escribir ahora".
+        *   Al hacer clic, el formulario se expande con una animación y la página hace **scroll automático** (`nextTick`) para enfocarlo.
+        *   Gestiona los estados de envío: `idle`, `loading`, `success`, `error`.
+        *   Realiza la validación de campos antes del envío.
+        *   Muestra notificaciones (`toast`) al usuario para confirmar el resultado de la operación.
+
+4.  **Quote Final:**
+    *   **Componente:** `SectionWrapper`.
+    *   **Contenido:** Una cita inspiradora o de cierre, visualmente separada del resto del contenido con un fondo y estilo distintivos.
+
+---
+
+## 3. Comportamiento y Lógica de UI
+
+*   **Scroll Automático:** La función `handleFormButton` en `ContactoViewV2.vue` asegura que cuando el usuario decide escribir un mensaje, la vista se desplaza suavemente hasta el formulario, mejorando la usabilidad.
+*   **Gestión de Estado:** El componente `ContactForm` es completamente autocontenido y maneja su propio estado reactivo (`ref`) para los campos del formulario, el estado de envío y los mensajes de error.
+*   **Diseño Responsivo:** Todos los componentes y contenedores utilizan clases de TailwindCSS para garantizar una visualización óptima en todos los dispositivos, desde móviles hasta ordenadores de escritorio.
+
+---
+
+## 4. Dependencias Externas
+
+*   **`@supabase/supabase-js`:** Para la comunicación con el backend y el envío de los datos del formulario.
+*   **`vue-sonner`:** Para mostrar notificaciones no intrusivas (toasts) al usuario.
+
+**Versión:** 3.1
+**Componente Asociado:** `app/src/views/ContactoViewV2.vue`
+**Ruta:** `/contacto`
+**Última Actualización:** 22/07/2025
+## Descripción General
+
+La página de contacto es el punto principal para que los usuarios inicien una conversación. Está diseñada para ser atractiva y funcional, guiando al usuario a través de un formulario interactivo para recopilar la información necesaria de manera progresiva.
+
+## Estructura y Componentes
+
+La vista se compone de las siguientes secciones principales, envueltas en un `PageLayout`:
+
+1.  **`HeroSection`**: Una sección de cabecera que presenta el título de la página ("Contacto") y un subtítulo que invita a la acción.
+
+2.  **H2 Semántico**: Un encabezado `<h2>` ("¡Hablemos!") que introduce la sección principal de contacto, mejorando la estructura semántica de la página.
+
+3.  **Texto Introductorio**: Un párrafo que contextualiza el propósito del contacto.
+
+4.  **Formulario Interactivo (`enhanced-form-container`)**: Es el corazón de la vista. 
+    *   **Estado Inicial:** Se presenta como un bloque colapsado con un botón "Escribir ahora".
+    *   **Estado Expandido:** Al hacer clic, el contenedor se expande para revelar un formulario de varios pasos con una barra de progreso.
+    *   Utiliza `SectionWrapper` para mantener la consistencia del layout.
+
+5.  **Sección "A tener en cuenta"**: Una sección con tarjetas que ofrecen información adicional o consejos sobre el contacto (ej. tiempos de respuesta, tipos de consulta).
+
+6.  **Sección "Otras formas de contactar"**: Presenta métodos de contacto alternativos (Email, LinkedIn, Twitter) con sus respectivos enlaces.
+
+7.  **Sección de Cita Final**: Un bloque destacado con una cita inspiracional o relacionada con la temática del sitio.
+
+---
+
+## Lógica y Datos (Formulario Interactivo)
+
+La lógica principal del componente se centra en la gestión del formulario de contacto.
+
+*   **Script:** **Está implementado con `<script setup>` (JavaScript)**, no sigue el estándar de TypeScript del proyecto.
+*   **Estado del Formulario:**
+    *   `isFormExpanded: ref(false)`: Controla si el formulario está colapsado o expandido.
+    *   `currentStep: ref(0)`: Rastrea el paso actual del formulario (nombre, email, mensaje).
+    *   `formData: reactive({...})`: Almacena los datos introducidos por el usuario.
+*   **Pasos del Formulario (`formSteps`)**: Un array de objetos que define la configuración de cada paso (etiqueta, placeholder, tipo, etc.).
+*   **Funciones Clave:**
+    *   `handleFormButton()`: Función principal que expande el formulario y hace scroll hacia él si está colapsado, o solo hace scroll si ya está abierto.
+    *   `nextStep()` / `prevStep()`: Permiten la navegación entre los pasos del formulario.
+    *   `handleSubmit()`: Gestiona la lógica de envío del formulario (actualmente simulado con un `setTimeout`).
+    *   `isFormValid`: Propiedad computada que verifica si todos los campos requeridos están completos.
+*   **Interactividad:**
+    *   El progreso se visualiza en una barra (`formProgress`).
+    *   La navegación se puede realizar con botones de "Siguiente/Anterior" o pulsando la tecla "Enter".
 
 **Versión:** 3.0
 **Componente Asociado:** `app/src/views/ContactoViewV2.vue` (Página principal activa)

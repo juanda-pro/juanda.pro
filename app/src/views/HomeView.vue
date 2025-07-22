@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 
 import { getPublishedArticles } from '@/data/articlesData';
 import SectionWrapper from '@/components/SectionWrapper.vue';
+import HeroSection from '@/components/HeroSection.vue';
 
 import ScrollingFeatures from '@/components/ScrollingFeatures.vue';
 import MiniArticleCard from '@/components/MiniArticleCard.vue';
@@ -51,7 +52,7 @@ const pilares = [
   {
     icon: MapIcon,
     title: 'Dibuja tu mapa',
-    text: '<strong>Empieza por explorar el terreno:</strong> conoce las herramientas disponibles que te pueden apoyar en tus tareas cotidianas. Por fortuna <em>hay muchas personas compartiendo</em> su experiencia, tutoriales y más. <strong>Explora con foco para no distraerte</strong> con novedades llamativas y elige solo lo que encaja en tus procesos.',
+    text: '<strong>Empieza por explorar el terreno:</strong> conoce las herramientas disponibles y céntrate en aquellas que te pueden apoyar en tu día a día. Por fortuna <em>hay muchas personas compartiendo</em> sus experiencias, tutoriales y más. <strong>Explora con foco para no distraerte</strong> con novedades llamativas y elige solo lo que encaje contigo.',
     colorClass: 'text-accent-info-dark',
     image_url: 'https://placehold.co/600x600/a78bfa/ffffff?text=Pilar+1'
   },
@@ -77,45 +78,15 @@ const pilares = [
 <template>
   <PageLayout :remove-padding-top="true">
   <!-- Hero Section -->
-  <SectionWrapper spacing="none" class="relative text-white overflow-hidden min-h-[80vh] flex flex-col justify-center pt-20 py-12 md:py-24">
-    <!-- Imagen de fondo -->
-    <div class="absolute inset-0 z-0">
-      <img :src="HeaderBackground" alt="Fondo abstracto de tecnología" class="w-full h-full object-cover object-center" />
-      <!-- Superposición para contraste -->
-      <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-gray-900/40 to-black/10 dark:from-black/80 dark:via-black/50"></div>
-    </div>
-
-    <!-- Contenido centrado -->
-    <div class="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-black/30 dark:bg-gray-900/40 backdrop-blur-md rounded-2xl p-6 md:p-10 shadow-2xl ring-1 ring-white/10">
-        <Transition
-          appear
-          enter-from-class="opacity-0 scale-95"
-          enter-active-class="transition-all duration-700 ease-out"
-        >
-          <h1 class="text-center text-4xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg">
-            ¡Despierta, que te come la <span class="text-brand-accent animate-pulse">iA</span>!
-          </h1>
-        </Transition>
-        <Transition
-          appear
-          enter-from-class="opacity-0 translate-y-5"
-          enter-active-class="transition-all duration-700 ease-out delay-200"
-        >
-          <p class="mt-6 text-center text-lg md:text-xl leading-relaxed text-gray-200/95 max-w-3xl mx-auto text-shadow-md">
-            Vale, es broma... <strong>pero solo a medias</strong>. Las maquinas inteligentes evolucionan rápido, y lo mejor es empezar a aprovechar su potencial en lugar de dejar que nos convierta en sus esclavos.
-          </p>
-        </Transition>
-      </div>
-    </div>
-    
-    <!-- Flecha para indicar scroll -->
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 opacity-80">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white/70 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-      </svg>
-    </div>
-  </SectionWrapper>
+  <HeroSection
+    title="¡Despierta, que te come la iA!"
+    :background-image="HeaderBackground"
+    animated-text="iA"
+  >
+    <template v-slot:subtitle>
+      Vale, es broma... <strong>pero solo a medias</strong>. Las máquinas inteligentes evolucionan rápido. Lo mejor es empezar a aprovechar su potencial en lugar de dejar que nos convierta en sus esclavos.
+    </template>
+  </HeroSection>
 
   <!-- Sección Quién Soy -->
   <SectionWrapper spacing="normal" class="overflow-hidden relative">
@@ -162,10 +133,7 @@ const pilares = [
       </div>
     </div>
     
-    <!-- Elemento decorativo inferior que conecta con la siguiente sección -->
-    <div class="flex justify-center mt-12">
-      <div class="w-1 h-16 bg-gradient-to-b from-transparent to-brand-accent/20 rounded-full"></div>
-    </div>
+
   </SectionWrapper>
 
   <!-- Texto Puente -->
@@ -174,19 +142,16 @@ const pilares = [
     <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-brand-accent/20 to-transparent rounded-full"></div>
     
     <div class="max-w-3xl mx-auto bg-surface-light/30 dark:bg-surface-dark/30 rounded-xl p-8 border border-border-light/10 dark:border-border-dark/10 shadow-sm relative overflow-hidden">
-      <!-- Decoración de fondo -->
-      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-accent/30 to-transparent"></div>
-
       
       <p class="text-center text-xl md:text-2xl text-secondary-light dark:text-secondary-dark max-w-4xl mx-auto leading-relaxed">
-        Este proyecto surge de la convicción de que la tecnología, <em>bien entendida y usada</em>, puede liberarnos tiempo para enfocarnos en lo que realmente importa: <strong>Las relaciones, los proyectos personales, el autoconocimiento...</strong>
+        Este proyecto surge de la convicción de que la tecnología, <em>bien entendida y usada</em>, puede liberarnos tiempo para enfocarnos en lo que realmente importa: <strong>El autoconocimiento, las relaciones, los proyectos personales...</strong>
         <br><br>
         Pero los avances ocurren cada vez más rápido, por eso <strong>adaptarnos pronto es clave.</strong> Es lo que promuevo aquí y mi enfoque se basa en <em>tres pilares prácticos</em> muy simples que quiero compartir contigo.
       </p>
       <!-- Elemento decorativo inferior -->
       <div class="mt-6 flex justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-accent/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
       </div>
     </div>
@@ -203,7 +168,7 @@ const pilares = [
         <span class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></span>
       </h2>
       <p class="mt-6 text-xl leading-relaxed text-secondary-light dark:text-secondary-dark max-w-3xl mx-auto">
-        Estos tres pasos están diseñados para <strong>ayudarte a dibujar tu propia ruta personalizada:</strong> empieza por donde estés y ajusta según avances en tu proceso de <em>convertir a la tecnología en una aliada real.</em>
+        Estos tres pasos te ayudarán <strong>a dibujar tu propia ruta personalizada:</strong> empieza por donde estés y ajusta según avances en tu proceso de <em>convertir a la tecnología en una aliada real.</em>
       </p>
     </div>
     
@@ -212,10 +177,7 @@ const pilares = [
       <ScrollingFeatures :features="pilares" class="md:mt-12" />
     </div>
     
-    <!-- Elemento decorativo inferior -->
-    <div class="flex justify-center mt-16">
-      <div class="w-16 h-1 bg-gradient-to-r from-transparent via-brand-accent/30 to-transparent rounded-full"></div>
-    </div>
+
   </SectionWrapper>
 
   <!-- Call to Action -->
@@ -233,7 +195,7 @@ const pilares = [
     <div class="relative z-10 transform transition-all duration-700 hover:scale-[1.02] fade-in-element">
       <CtaCard 
         title="Crea tu mapa"
-        description="Responde 15 preguntas y obtén un mapa inicial personalizado.<br><br>Contiene Información útil y adaptada a tu perfil para que empieces a dibujar tu mapa con claridad."
+        description="Responde 15 preguntas y obtén un mapa inicial personalizado.<br>Contiene recomendaciones utiles y adaptadas a tu perfil para que empieces a dibujar tu mapa con claridad."
         buttonText="Obtener"
         buttonLink="#"
       />
