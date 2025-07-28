@@ -141,7 +141,7 @@ Si has explorado el sitio y algo te ronda la cabeza *como una automatización* q
 - **Colaboraciones o servicios:** Si necesitas ayuda personalizada, como diseñar una automatización a medida para tu equipo o empresa, escríbeme sin dudarlo. Siempre empiezo con un diagnóstico gratuito para ver si encajamos.
 - **Simplemente saludar:** Si compartes mi pasión por entender y aprender a usar bien la tecnología, será un placer charlar contigo.
 
-Prometo leer cada mensaje con atención y responder de forma honesta. No soy un bot: soy yo, priorizando calidad sobre velocidad.
+Prometo leer cada mensaje con atención y responder de forma honesta.
 
 
 ### Sección de Expectativas

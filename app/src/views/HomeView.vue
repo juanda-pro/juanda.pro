@@ -8,6 +8,8 @@ import HeroSection from '@/components/HeroSection.vue';
 import ScrollingFeatures from '@/components/ScrollingFeatures.vue';
 import MiniArticleCard from '@/components/MiniArticleCard.vue';
 import CtaCard from '@/components/CtaCard.vue';
+import DecorativeUnderline from '@/components/DecorativeUnderline.vue';
+import DecorativeIcon from '@/components/DecorativeIcon.vue';
 
 import PageLayout from '@/components/PageLayout.vue';
 
@@ -89,7 +91,8 @@ const pilares = [
   </HeroSection>
 
   <!-- Sección Quién Soy -->
-  <SectionWrapper spacing="normal" class="overflow-hidden relative">
+  <section aria-labelledby="quien-soy-heading">
+    <SectionWrapper spacing="normal" class="overflow-hidden relative">
     <!-- Elementos decorativos de fondo -->
 
     
@@ -111,9 +114,9 @@ const pilares = [
       </div>
       
       <div class="text-center md:text-left fade-in-element">
-        <h2 class="text-3xl font-extrabold font-heading text-primary-light dark:text-primary-dark sm:text-4xl relative inline-block">
+        <h2 id="quien-soy-heading" class="text-3xl font-extrabold font-heading text-primary-light dark:text-primary-dark sm:text-4xl relative inline-block">
           ¡Hola! Soy Juanda.
-          <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-accent/40 to-transparent"></span>
+          <DecorativeUnderline width="full" opacity="medium" />
         </h2>
         <p class="mt-4 text-xl text-secondary-light dark:text-secondary-dark leading-relaxed">
           Soy Juan David Ocampo, aunque la mayoría me llama <strong>Juanda</strong>. Desde hace años, me apasiona explorar herramientas que simplifican la vida moderna: <strong>hojas de cálculo, scripts, bases de conocimiento, automatizaciones con iA ...</strong>
@@ -125,19 +128,19 @@ const pilares = [
         <div class="mt-6">
           <a href="/soy" class="inline-flex items-center text-brand-accent hover:text-brand-accent-dark transition-colors duration-300">
             Conoce más sobre mí
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-            </svg>
+            <DecorativeIcon type="arrow-right" size="sm" color="text-current ml-1" />
           </a>
         </div>
       </div>
     </div>
     
 
-  </SectionWrapper>
+    </SectionWrapper>
+  </section>
 
   <!-- Texto Puente -->
-  <SectionWrapper spacing="loose" class="text-center relative">
+  <section aria-label="Filosofía del proyecto">
+    <SectionWrapper spacing="loose" class="text-center relative">
     <!-- Elementos decorativos de fondo -->
     <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-brand-accent/20 to-transparent rounded-full"></div>
     
@@ -150,22 +153,22 @@ const pilares = [
       </p>
       <!-- Elemento decorativo inferior -->
       <div class="mt-6 flex justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-accent/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
+        <DecorativeIcon type="arrow-down" size="md" />
       </div>
     </div>
-  </SectionWrapper>
+    </SectionWrapper>
+  </section>
 
   <!-- Sección de Pilares Temáticos -->
-  <SectionWrapper spacing="loose">
+  <section aria-labelledby="pilares-heading">
+    <SectionWrapper spacing="loose">
     <!-- Elementos decorativos de fondo -->
 
     
     <div class="text-center relative z-10">
-      <h2 class="text-3xl font-extrabold font-heading text-primary-light dark:text-primary-dark sm:text-4xl inline-block relative">
+      <h2 id="pilares-heading" class="text-3xl font-extrabold font-heading text-primary-light dark:text-primary-dark sm:text-4xl inline-block relative">
         Tres pilares simples para empezar
-        <span class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></span>
+        <DecorativeUnderline width="half" opacity="high" />
       </h2>
       <p class="mt-6 text-xl leading-relaxed text-secondary-light dark:text-secondary-dark max-w-3xl mx-auto">
         Estos tres pasos te ayudarán <strong>a dibujar tu propia ruta personalizada:</strong> empieza por donde estés y ajusta según avances en tu proceso de <em>convertir a la tecnología en una aliada real.</em>
@@ -178,18 +181,18 @@ const pilares = [
     </div>
     
 
-  </SectionWrapper>
+    </SectionWrapper>
+  </section>
 
   <!-- Call to Action -->
-  <SectionWrapper spacing="normal" class="relative overflow-hidden">
+  <section aria-labelledby="cta-heading">
+    <SectionWrapper spacing="normal" class="relative overflow-hidden">
     <!-- Elementos decorativos de fondo -->
 
     
     <!-- Indicador visual para dirigir la atención -->
     <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-brand-accent/30" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-      </svg>
+      <DecorativeIcon type="chevron-down" size="lg" color="text-brand-accent/30" />
     </div>
     
     <div class="relative z-10 transform transition-all duration-700 hover:scale-[1.02] fade-in-element">
@@ -200,18 +203,20 @@ const pilares = [
         buttonLink="#"
       />
     </div>
-  </SectionWrapper>
+    </SectionWrapper>
+  </section>
 
   <!-- Sección de Contenido Destacado -->
-  <SectionWrapper spacing="loose" class="bg-surface-light dark:bg-surface-dark relative overflow-hidden">
+  <section aria-labelledby="articulos-heading">
+    <SectionWrapper spacing="loose" class="bg-surface-light dark:bg-surface-dark relative overflow-hidden">
     <!-- Elementos decorativos de fondo -->
     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-accent/20 to-transparent"></div>
 
     
     <div class="text-center relative z-10">
-      <h2 class="text-3xl font-extrabold font-heading text-primary-light dark:text-primary-dark sm:text-4xl inline-block relative">
+      <h2 id="articulos-heading" class="text-3xl font-extrabold font-heading text-primary-light dark:text-primary-dark sm:text-4xl inline-block relative">
         Artículos destacados
-        <span class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></span>
+        <DecorativeUnderline width="half" opacity="high" />
       </h2>
       <p class="mt-4 text-xl text-secondary-light dark:text-secondary-dark text-center max-w-2xl mx-auto">
         Aprendizajes, herramientas y reflexiones honestas. Todo documentado para que experimentes por tu cuenta y encuentres ideas accionables.
@@ -231,11 +236,10 @@ const pilares = [
     <div class="flex justify-center mt-16">
       <a href="/blog" class="inline-flex items-center text-brand-accent hover:text-brand-accent-dark transition-colors duration-300 group">
         Ver todos los artículos
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1 transform transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-        </svg>
+        <DecorativeIcon type="arrow-right" size="sm" color="text-current ml-1 transform transition-transform duration-300 group-hover:translate-x-1" />
       </a>
     </div>
-  </SectionWrapper>
+    </SectionWrapper>
+  </section>
 </PageLayout>
 </template>
