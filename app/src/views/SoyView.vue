@@ -2,6 +2,7 @@
 import PageLayout from '@/components/PageLayout.vue';
 import SectionWrapper from '@/components/SectionWrapper.vue';
 import HeroSection from '@/components/HeroSection.vue';
+import DecorativeBackground from '@/components/DecorativeBackground.vue';
 import { onMounted, nextTick } from 'vue';
 
 // Importar imágenes
@@ -41,21 +42,11 @@ onMounted(() => {
         <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-12">
           <!-- Columna de imagen (25% en desktop) con marco amarillo rectangular -->
           <div class="md:w-1/4 flex justify-center">
-            <div class="relative flex justify-center items-center h-64 group">
-              <!-- Fondo decorativo con múltiples capas - Exactamente igual que en inicio -->
-              <div class="absolute w-full h-full bg-gradient-to-br from-brand-accent/80 to-brand-accent rounded-lg transform -rotate-3 transition-all duration-500 ease-out group-hover:rotate-0 group-hover:scale-105 shadow-lg"></div>
-              <div class="absolute w-full h-full bg-brand-accent/30 rounded-lg transform rotate-3 transition-all duration-500 ease-out group-hover:rotate-0 group-hover:scale-95 blur-sm"></div>
-              
-              <!-- Imagen con efectos mejorados -->
-              <img 
-                src="https://placehold.co/400x400/1F2937/FFFFFF?text=Juanda" 
-                alt="Foto de Juanda" 
-                class="relative w-3/4 h-3/4 object-cover rounded-lg shadow-lg z-10 transition-all duration-500 ease-out group-hover:shadow-xl group-hover:scale-105 fade-in-element"
-              >
-              
-              <!-- Elemento decorativo adicional -->
-              <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-surface-light dark:bg-surface-dark rounded-full border-4 border-brand-accent/30 z-0 transition-all duration-500 group-hover:scale-110 opacity-80"></div>
-            </div>
+            <DecorativeBackground
+              image-url="https://placehold.co/400x400/1F2937/FFFFFF?text=Juanda"
+              image-alt="Foto de Juanda"
+              height="h-64"
+            />
           </div>
           
           <!-- Columna de texto (75% en desktop) -->

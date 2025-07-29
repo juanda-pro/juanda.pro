@@ -125,3 +125,18 @@ export function getArticleBySlug(slug: string): Article | undefined {
 export function getPublishedArticles(): Article[] {
   return articles.filter(article => article.is_published);
 }
+
+// Función para obtener artículos adyacentes (anterior y siguiente)
+export function getAdjacentArticles(currentSlug: string): { previous: Article | null; next: Article | null } {
+  const publishedArticles = getPublishedArticles();
+  const currentIndex = publishedArticles.findIndex(article => article.slug === currentSlug);
+  
+  if (currentIndex === -1) {
+    return { previous: null, next: null };
+  }
+  
+  return {
+    previous: currentIndex > 0 ? publishedArticles[currentIndex - 1] : null,
+    next: currentIndex < publishedArticles.length - 1 ? publishedArticles[currentIndex + 1] : null
+  };
+}

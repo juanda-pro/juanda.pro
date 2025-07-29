@@ -59,10 +59,22 @@
     <meta name="msapplication-TileColor" content="#1a73e8">
   </head>
   <body>
-    <!-- Skip navigation link for accessibility -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-50">Saltar al contenido principal</a>
-    
+    <!-- El enlace de accesibilidad se agregará dinámicamente después de la carga -->
     <div id="app" role="application" aria-label="Aplicación web de Juan David"></div>
+    
+    <!-- Script para agregar el enlace de accesibilidad después de la carga -->
+    <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        // Crear el enlace de accesibilidad
+        var skipLink = document.createElement('a');
+        skipLink.href = '#main-content';
+        skipLink.className = 'sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-50';
+        skipLink.textContent = 'Saltar al contenido principal';
+        
+        // Insertar el enlace al principio del body
+        document.body.insertBefore(skipLink, document.body.firstChild);
+      });
+    </script>
     
     <!-- Preload critical resources -->
     <script type="module" src="/src/main.ts"></script>

@@ -1,7 +1,6 @@
+@import "./css/components/article-card.css";
 @tailwind base;
 @tailwind components;
-
-@import "./css/components/article-card.css";
 @tailwind utilities;
 
 .dotted-background {

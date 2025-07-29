@@ -15,7 +15,6 @@
     "@supabase/supabase-js": "^2.50.3",
     "@vueuse/core": "^13.4.0",
     "gsap": "^3.13.0",
-    "marked": "^16.0.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },

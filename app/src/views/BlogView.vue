@@ -12,41 +12,26 @@
 
     <!-- Filtros y Grid de Artículos -->
     <SectionWrapper spacing="normal">
-      <!-- Controles de Filtro -->
-      <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">
-        <FilterButton
-          v-for="category in allCategories"
-          :key="category"
-          @click="toggleCategory(category)"
-          :active="isSelected(category)"
-        >
-          {{ category }}
-        </FilterButton>
-      </div>
-
-      <!-- Loading State -->
-      <div v-if="isLoading" class="text-center py-16">
-        <p class="text-xl text-secondary-light dark:text-secondary-dark">Cargando artículos...</p>
-      </div>
-
-      <!-- Error State -->
-      <div v-else-if="errorMessage" class="text-center py-16">
-        <p class="text-xl text-accent-error">{{ errorMessage }}</p>
-      </div>
-
-      <!-- Lista de Artículos -->
-      <div v-if="filteredArticles.length" class="max-w-4xl mx-auto space-y-12 md:space-y-16">
-        <ArticleCard
-          v-for="article in filteredArticles"
-          :key="article.slug"
-          :article="article"
+      <!-- Filtros -->
+      <div class="mb-12">
+        <BlogFilters
+          :categories="allCategories"
+          :selected-categories="selectedCategories"
+          :is-loading="isLoading"
+          @toggle-category="toggleCategory"
+          @clear-filters="clearAllFilters"
         />
       </div>
 
-      <!-- No Articles State -->
-      <div v-else class="text-center py-16">
-        <p class="text-xl text-secondary-light dark:text-secondary-dark">No hay artículos que coincidan con tu búsqueda o aún no se han publicado.</p>
-      </div>
+      <!-- Contenido -->
+      <BlogContent
+        :articles="filteredArticles"
+        :is-loading="isLoading"
+        :error-message="errorMessage"
+        :selected-categories="selectedCategories"
+        @retry="fetchArticles"
+        @clear-filters="clearAllFilters"
+      />
     </SectionWrapper>
   </PageLayout>
 </template>
@@ -56,8 +41,8 @@ import { ref, computed, onMounted } from 'vue';
 
 import { getPublishedArticles } from '@/data/articlesData';
 import SectionWrapper from '@/components/SectionWrapper.vue';
-import ArticleCard from '@/components/ArticleCard.vue';
-import FilterButton from '@/components/FilterButton.vue';
+import BlogFilters from '@/components/BlogFilters.vue';
+import BlogContent from '@/components/BlogContent.vue';
 import PageLayout from '@/components/PageLayout.vue';
 import HeroSection from '@/components/HeroSection.vue';
 
@@ -124,8 +109,8 @@ const toggleCategory = (category) => {
   }
 };
 
-const isSelected = (category) => {
-  return selectedCategories.value.includes(category);
+const clearAllFilters = () => {
+  selectedCategories.value = [];
 };
 </script>
 
