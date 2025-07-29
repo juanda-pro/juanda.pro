@@ -47,9 +47,9 @@ function handleFormExpand() {
 
 // Función para manejar el envío del formulario
 function handleFormSubmit(formData) {
-  console.log('Datos del formulario:', formData);
-  // Aquí se implementaría la lógica de envío real
+  // TODO: Implementar lógica de envío real
   // Por ejemplo: await submitContactForm(formData);
+  // Datos disponibles en formData: name, email, message
 }
 </script>
 
@@ -61,7 +61,7 @@ function handleFormSubmit(formData) {
       :background-image="HeaderBackground"
     >
       <template v-slot:subtitle>
-        ¿Tienes una idea para automatizar un proceso? ¿Necesitas ayuda con alguna herramienta? Escríbeme sin compromiso.
+        ¿Idea para automatizar un proceso? ¿Preguntas sobre iA?
       </template>
     </HeroSection>
     
@@ -72,7 +72,7 @@ function handleFormSubmit(formData) {
           ¡Hablemos!
         </h2>
         <p class="text-xl md:text-2xl text-secondary-light dark:text-secondary-dark leading-relaxed">
-          Esta página es una invitación abierta para que contactes conmigo. Me apasiona ayudar a personas a optimizar sus procesos, ya sea en el trabajo, en un emprendimiento o en la vida diaria.
+          Esta página es <strong>una invitación abierta a que contactes conmigo</strong>. Me apasiona ayudar a personas <em>a optimizar sus procesos</em>, ya sea en el trabajo, en un emprendimiento o en la vida diaria.
         </p>
       </div>
     </SectionWrapper>

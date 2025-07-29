@@ -2,50 +2,43 @@
 // Información de contacto alternativa
 const contactMethods = [
   {
-    icon: '📧',
     title: 'Email directo',
     description: 'Para consultas rápidas',
     value: 'hola@juanda.pro',
     href: 'mailto:hola@juanda.pro',
-    color: 'bg-blue-500/10 text-blue-600 dark:text-blue-400'
+    type: 'email'
   },
   {
-    icon: '💼',
     title: 'LinkedIn',
     description: 'Conectemos profesionalmente',
     value: '/in/juandavidpro',
     href: 'https://linkedin.com/in/juandavidpro',
-    color: 'bg-blue-700/10 text-blue-700 dark:text-blue-300'
+    type: 'linkedin'
   },
   {
-    icon: '🐦',
     title: 'Twitter',
     description: 'Sígueme para contenido diario',
     value: '@juandavidpro',
     href: 'https://twitter.com/juandavidpro',
-    color: 'bg-sky-500/10 text-sky-600 dark:text-sky-400'
+    type: 'twitter'
   }
 ];
 
 // Ideas para el contacto
 const contactIdeas = [
   {
-    icon: '→',
     title: 'Compartir feedback o ideas',
     description: '¿Has probado alguna de mis recomendaciones? Cuéntame cómo te fue, o sugiere temas para el blog.'
   },
   {
-    icon: '→',
     title: 'Preguntas específicas',
     description: 'Sobre herramientas, IA, o procesos que quieras mejorar.'
   },
   {
-    icon: '→',
     title: 'Colaboraciones o servicios',
     description: 'Si necesitas ayuda personalizada, como diseñar una automatización a medida para tu equipo o empresa, escríbeme sin dudarlo. Siempre empiezo con un diagnóstico gratuito para ver si encajamos.'
   },
   {
-    icon: '→',
     title: 'Simplemente saludar',
     description: 'Si compartes mi pasión por entender y aprender a usar bien la tecnología, será un placer charlar contigo.'
   }
@@ -74,39 +67,36 @@ const expectations = [
 <template>
   <div class="contact-info">
     <!-- Sección de Ideas -->
-    <section class="contact-ideas mb-16">
-      <div class="text-center mb-8">
-        <h3 class="text-2xl font-bold text-primary-light dark:text-primary-dark mb-4">
-          ¿No sabes por dónde empezar? Aquí tienes algunas ideas
+    <section class="contact-ideas mb-20">
+      <div class="text-center mb-12">
+        <h3 class="text-2xl md:text-3xl font-bold text-primary-light dark:text-primary-dark mb-4">
+          ¿Aún no te animas? Aquí tienes algunas ideas
         </h3>
       </div>
       
-      <div class="space-y-8">
-        <div 
-          v-for="(idea, index) in contactIdeas" 
-          :key="index"
-          class="text-center"
-        >
-          <div class="inline-flex items-center justify-center mb-4">
-            <span class="text-brand-accent text-2xl mr-2">{{ idea.icon }}</span>
-            <strong class="text-lg text-primary-light dark:text-primary-dark">{{ idea.title }}</strong>
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+          <div 
+            v-for="(idea, index) in contactIdeas" 
+            :key="index"
+            class="group relative"
+          >
+            <div class="flex flex-col h-full">
+              <h4 class="text-xl font-semibold text-primary-light dark:text-primary-dark mb-3 group-hover:text-brand-accent transition-colors duration-300">
+                {{ idea.title }}
+              </h4>
+              <p class="text-lg text-secondary-light dark:text-secondary-dark leading-relaxed">
+                {{ idea.description }}
+              </p>
+            </div>
+            <!-- Línea decorativa -->
+            <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-brand-accent/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
-          <p class="text-lg text-secondary-light dark:text-secondary-dark">
-            {{ idea.description }}
-          </p>
         </div>
       </div>
     </section>
 
-    <!-- Quote Inspiracional -->
-    <section class="contact-quote mb-16">
-      <blockquote class="border-l-4 border-brand-accent pl-6 bg-surface-light/30 dark:bg-surface-dark/30 p-6 rounded-r-lg">
-        <p class="text-xl italic text-secondary-light dark:text-secondary-dark leading-relaxed">
-          "Prometo leer cada mensaje con atención y responder de forma honesta. 
-          No soy un bot: soy yo, priorizando calidad sobre velocidad."
-        </p>
-      </blockquote>
-    </section>
+
 
     <!-- Sección de Expectativas -->
     <section class="contact-expectations mb-16">
@@ -141,34 +131,50 @@ const expectations = [
 
     <!-- Métodos de Contacto Alternativos -->
     <section class="contact-methods" v-if="contactMethods.length > 0">
-      <div class="text-center mb-8">
-        <h3 class="text-2xl font-bold text-primary-light dark:text-primary-dark">
+      <div class="text-center mb-12">
+        <h3 class="text-2xl md:text-3xl font-bold text-primary-light dark:text-primary-dark">
           Otras formas de contacto
         </h3>
+        <p class="text-lg text-secondary-light dark:text-secondary-dark mt-4 max-w-2xl mx-auto">
+          Elige el canal que más te convenga para iniciar nuestra conversación
+        </p>
       </div>
       
-      <div class="grid md:grid-cols-3 gap-6">
-        <a 
-          v-for="(method, index) in contactMethods" 
-          :key="index"
-          :href="method.href"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group block p-6 bg-surface-light dark:bg-surface-dark rounded-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-        >
-          <div class="text-center">
-            <div class="text-3xl mb-3 contact-icon">{{ method.icon }}</div>
-            <h4 class="font-bold text-lg mb-2 text-primary-light dark:text-primary-dark">
-              {{ method.title }}
-            </h4>
-            <p class="text-sm text-secondary-light dark:text-secondary-dark mb-2">
-              {{ method.description }}
-            </p>
-            <p class="text-brand-accent font-medium">
-              {{ method.value }}
-            </p>
-          </div>
-        </a>
+      <div class="max-w-4xl mx-auto">
+        <div class="space-y-6">
+          <a 
+            v-for="(method, index) in contactMethods" 
+            :key="index"
+            :href="method.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center p-6 bg-gradient-to-r from-surface-light/50 to-surface-light/30 dark:from-surface-dark/50 dark:to-surface-dark/30 backdrop-blur-sm border border-border-light/30 dark:border-border-dark/30 rounded-xl hover:shadow-xl hover:border-brand-accent/30 transition-all duration-300 hover:scale-[1.02]"
+          >
+            <div class="flex-shrink-0 mr-6">
+              <div class="w-12 h-12 bg-brand-accent/10 rounded-lg flex items-center justify-center group-hover:bg-brand-accent/20 transition-colors duration-300">
+                <div class="w-6 h-6 bg-brand-accent rounded-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+            </div>
+            <div class="flex-grow">
+              <h4 class="font-bold text-xl mb-1 text-primary-light dark:text-primary-dark group-hover:text-brand-accent transition-colors duration-300">
+                {{ method.title }}
+              </h4>
+              <p class="text-secondary-light dark:text-secondary-dark mb-2">
+                {{ method.description }}
+              </p>
+              <p class="text-brand-accent font-medium text-lg">
+                {{ method.value }}
+              </p>
+            </div>
+            <div class="flex-shrink-0 ml-4">
+              <div class="w-8 h-8 text-secondary-light dark:text-secondary-dark group-hover:text-brand-accent group-hover:translate-x-1 transition-all duration-300">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
   </div>
@@ -192,13 +198,9 @@ const expectations = [
   opacity: 0;
 }
 
-/* Animaciones de los iconos de contacto */
-.contact-icon {
-  transition: transform 0.3s ease;
-}
-
-.group:hover .contact-icon {
-  transform: scale(1.1) rotate(5deg);
+/* Animaciones suaves para elementos interactivos */
+.group {
+  transition: all 0.3s ease;
 }
 
 /* Mejoras para móviles */

@@ -1,16 +1,3 @@
----
-filename: 
-aliases: 
-abstract: Resumen del documento - Generado por IA
-format:
-  - Wiki
-project: Website 1.0
-tags: 
-created: 2025-07-14
-author: Juan David Ocampo
-filepath: 01 PROYECTOS/01 JUANDA PRO/03 WEBSITE 1.0/WIKI
-archived:
----
 ## Inicio
 
 ### Hero Section
@@ -52,7 +39,7 @@ Pero los avances ocurren cada vez más rápido, por eso **adaptarnos pronto es c
 
 **Título:** Localízate en él
 
-**Texto:** Una vez tengas tu primer boceto del mapa, **marca tu posición**: identifica tus tareas diarias, tus necesidades y objetivos. Necesitas claridad sobre tus procesos cotidianos, **tomar apuntes te irá bien.** *Identifica las tecnologías que realmente te sirven* y **descubre que tienes que hacer** para ponerlas a tu servicio.
+**Texto:** Una vez tengas tu primer boceto del mapa, **marca tu posición:** identifica tus tareas diarias, tus necesidades y objetivos. Necesitas claridad sobre tus procesos cotidianos, **tomar apuntes te irá bien.** *Identifica las tecnologías que realmente te sirven* y **descubre que tienes que hacer** para ponerlas a tu servicio.
 
 
 #### Pilar 3
@@ -94,13 +81,13 @@ En este espacio, comparto algunos de mis aprendizajes procurando que sea siempre
 **Título:** Lo que me mueve
 
 **Texto:**  
-En mi camino, priorizo el **pensamiento crítico** como base para todo: Hacerme todo tipo de preguntas, investigar, *experimentar*, probar herramientas, *ajustar según los resultados*... 
+Descubrir, aprender y compartir: Hacerme todo tipo de preguntas, investigar, *experimentar*, probar herramientas, *ajustar según los resultados*... 
 
 *Creo que ese es el camino si quieres aprovechar las tecnologías* actuales para tomar el control de tus procesos cotidianos. Es lo que hago y **es lo que te invito a hacer.**
 
 
-- **Principal motivación:** Aprendizaje colectivo. Si compartes tus conocimientos y aprendes de otros, surgen nuevas ideas, relaciones y oportunidades.
-- **Honestidad práctica:** Comparto solo lo que he probado, tanto lo que me funcionó y como lo que no. Equivocarse forma parte del proceso de aprendizaje.
+- **Principal motivación:** Apalancarme del aprendizaje colectivo. Si compartes tus conocimientos y aprendes de otros, surgen nuevas ideas y oportunidades.
+- **Honestidad práctica:** Comparto solo lo que he probado, tanto lo que me funcionó, como lo que no. Equivocarse forma parte del proceso de aprendizaje.
 - **Mindset general:** Me enfoco en encontrar formas de sacar partido a la tecnología al mismo tiempo que aprendo a usarla con más consciencia y cuidado.
 
 
@@ -125,7 +112,6 @@ Gracias por tomarte el tiempo de conocerme un poco más. Te invito a explorar el
 **Texto:**  
 Esta página es **una invitación abierta a que contactes conmigo**. Me apasiona ayudar a personas *a optimizar sus procesos*, ya sea en el trabajo, en un emprendimiento o en la vida diaria. 
 
-Si has explorado el sitio y algo te ronda la cabeza *como una automatización* que quieras implementar o si tienes curiosidad sobre herramientas prácticas, no dudes en escribirme.
 
 ### Formulario de Contacto
 
@@ -138,11 +124,7 @@ Si has explorado el sitio y algo te ronda la cabeza *como una automatización* q
 
 - **Compartir ideas o feedback:** ¿Has probado alguna de mis recomendaciones? Cuéntame cómo te fue o sugiere temas para el blog.
 - **Preguntas específicas:** Sobre scripts, iA o procesos administrativos que quieres mejorar.
-- **Colaboraciones o servicios:** Si necesitas ayuda personalizada, como diseñar una automatización a medida para tu equipo o empresa, escríbeme sin dudarlo. Siempre empiezo con un diagnóstico gratuito para ver si encajamos.
 - **Simplemente saludar:** Si compartes mi pasión por entender y aprender a usar bien la tecnología, será un placer charlar contigo.
-
-Prometo leer cada mensaje con atención y responder de forma honesta.
-
 
 ### Sección de Expectativas
 

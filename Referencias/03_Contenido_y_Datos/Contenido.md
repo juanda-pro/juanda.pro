@@ -94,13 +94,13 @@ En este espacio, comparto algunos de mis aprendizajes procurando que sea siempre
 **Título:** Lo que me mueve
 
 **Texto:**  
-En mi camino, priorizo el **pensamiento crítico** como base para todo: Hacerme todo tipo de preguntas, investigar, *experimentar*, probar herramientas, *ajustar según los resultados*... 
+Descubrir, aprender y compartir: Hacerme todo tipo de preguntas, investigar, *experimentar*, probar herramientas, *ajustar según los resultados*... 
 
 *Creo que ese es el camino si quieres aprovechar las tecnologías* actuales para tomar el control de tus procesos cotidianos. Es lo que hago y **es lo que te invito a hacer.**
 
 
 - **Principal motivación:** Apalancarme del aprendizaje colectivo. Si compartes tus conocimientos y aprendes de otros, surgen nuevas ideas y oportunidades.
-- **Honestidad práctica:** Comparto solo lo que he probado, tanto lo que me funcionó y como lo que no. Equivocarse forma parte del proceso de aprendizaje.
+- **Honestidad práctica:** Comparto solo lo que he probado, tanto lo que me funcionó, como lo que no. Equivocarse forma parte del proceso de aprendizaje.
 - **Mindset general:** Me enfoco en encontrar formas de sacar partido a la tecnología al mismo tiempo que aprendo a usarla con más consciencia y cuidado.
 
 
@@ -118,7 +118,7 @@ Gracias por tomarte el tiempo de conocerme un poco más. Te invito a explorar el
 
 **Título:** ¡Hablemos!
 
-**Subtítulo:** ¿Idea para automatizar un proceso? ¿Preguntas sobre iA?
+**Subtítulo:** Idea para automatizar un proceso? ¿Preguntas sobre iA?
 
 ### Introducción / Texto Principal
 
@@ -140,8 +140,6 @@ Si has explorado el sitio y algo te ronda la cabeza *como una automatización* q
 - **Preguntas específicas:** Sobre scripts, iA o procesos administrativos que quieres mejorar.
 - **Colaboraciones o servicios:** Si necesitas ayuda personalizada, como diseñar una automatización a medida para tu equipo o empresa, escríbeme sin dudarlo. Siempre empiezo con un diagnóstico gratuito para ver si encajamos.
 - **Simplemente saludar:** Si compartes mi pasión por entender y aprender a usar bien la tecnología, será un placer charlar contigo.
-
-Prometo leer cada mensaje con atención y responder de forma honesta. No soy un bot: soy yo, priorizando calidad sobre velocidad.
 
 
 ### Sección de Expectativas
