@@ -48,17 +48,35 @@ module.exports = {
         'accent-info': '#4338CA', // Indigo for light mode
         'accent-info-dark': '#A78BFA', // Lighter purple for dark mode contrast
         'accent-success': '#059669', // Darker green
+        'accent-success-dark': '#34D399', // Lighter green for dark mode
+        'accent-warning': '#D97706', // Darker amber
+        'accent-warning-dark': '#FBBF24', // Lighter amber for dark mode
         'accent-error': '#DC2626', // Darker red
-
-        'text-on-accent': '#FFFFFF', // Para texto sobre 'brand-accent'
-
-        'dot-light': 'rgba(0, 0, 0, 0.18)',
-        'dot-dark': 'rgba(255, 255, 255, 0.11)',
+        'accent-error-dark': '#F87171' // Lighter red for dark mode
       },
-
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-in-out',
+        'slide-up': 'slideUp 0.5s ease-out',
+        'bounce-gentle': 'bounceGentle 2s infinite'
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' }
+        },
+        bounceGentle: {
+          '0%, 20%, 50%, 80%, 100%': { transform: 'translateY(0)' },
+          '40%': { transform: 'translateY(-10px)' },
+          '60%': { transform: 'translateY(-5px)' }
+        }
+      }
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),
+    require('@tailwindcss/typography')
   ],
 }
