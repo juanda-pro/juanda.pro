@@ -183,6 +183,6 @@ Este proyecto es de uso personal. El código está disponible para referencia y 
 
 ---
 
-**Desarrollado con ❤️ por Juan David Rodríguez**
+**Desarrollado con ❤️ por Juan David Ocampo**
 
 *Última actualización: Agosto 2025*
