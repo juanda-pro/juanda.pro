@@ -49,43 +49,47 @@
     }
     </script>
     
-    <!-- Performance optimizations -->
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&family=JetBrains+Mono&family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
     
-    <!-- Theme color for mobile browsers -->
-    <meta name="theme-color" content="#1a73e8">
-    <meta name="msapplication-TileColor" content="#1a73e8">
-  </head>
-  <body>
-    <!-- El enlace de accesibilidad se agregará dinámicamente después de la carga -->
-    <div id="app" role="application" aria-label="Aplicación web de Juan David"></div>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     
-    <!-- Script para agregar el enlace de accesibilidad después de la carga -->
+    <!-- Theme Detection Script -->
     <script>
-      window.addEventListener('DOMContentLoaded', function() {
-        // Crear el enlace de accesibilidad
-        var skipLink = document.createElement('a');
-        skipLink.href = '#main-content';
-        skipLink.className = 'sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-50';
-        skipLink.textContent = 'Saltar al contenido principal';
+      // Detectar tema preferido del usuario antes de que se cargue la página
+      (function() {
+        const theme = localStorage.getItem('theme') || 
+                     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         
-        // Insertar el enlace al principio del body
-        document.body.insertBefore(skipLink, document.body.firstChild);
-      });
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      })();
     </script>
     
-    <!-- Preload critical resources -->
-    <script type="module" src="/src/main.ts"></script>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f6c90e">
+    <meta name="msapplication-TileColor" content="#f6c90e">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121214" media="(prefers-color-scheme: dark)">
     
-    <!-- Accessibility: No-script fallback -->
-    <noscript>
-      <div style="padding: 2rem; text-align: center; font-family: system-ui, sans-serif;">
-        <h1>Juan David - Desarrollador Full Stack</h1>
-        <p>Esta aplicación requiere JavaScript para funcionar correctamente.</p>
-        <p>Por favor, habilita JavaScript en tu navegador para acceder al contenido completo.</p>
-      </div>
-    </noscript>
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    
+    <!-- Performance Hints -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  </head>
+  <body class="font-sans antialiased bg-bg-light dark:bg-bg-dark text-primary-light dark:text-primary-dark transition-colors duration-300">
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
