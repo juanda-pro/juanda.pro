@@ -7,7 +7,7 @@
       </div>
 
       <div class="flex justify-center mb-16">
-        <button @click="toggleTheme" class="px-6 py-3 rounded-full font-bold text-sm text-white dark:text-gray-900 bg-gray-800 dark:bg-yellow-400 hover:bg-black dark:hover:bg-yellow-500 transition-all duration-300 shadow-lg">
+        <button @click="() => toggleTheme()" class="px-6 py-3 rounded-full font-bold text-sm text-white dark:text-gray-900 bg-gray-800 dark:bg-yellow-400 hover:bg-black dark:hover:bg-yellow-500 transition-all duration-300 shadow-lg">
           <span v-if="isDarkMode">☀️ Activar Modo Claro</span>
           <span v-else>🌙 Activar Modo Oscuro</span>
         </button>
@@ -25,14 +25,10 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
-import { useTheme } from '@/composables/useTheme';
+import { useDark, useToggle } from '@vueuse/core';
 import { typographyOptions } from '@/data/typographyOptions';
 import TypographyOption from '@/components/typography/TypographyOption.vue';
 
-const { isDarkMode, toggleTheme, initializeTheme } = useTheme();
-
-onMounted(() => {
-  initializeTheme();
-});
+const isDarkMode = useDark();
+const toggleTheme = useToggle(isDarkMode);
 </script>

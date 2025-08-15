@@ -2,12 +2,12 @@
   <button
     :disabled="disabled"
     :class="[
-      'px-3 py-1 text-sm font-medium rounded-md transition-colors duration-200 ring-1 ring-inset focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent',
+      'px-3 py-1 text-sm font-medium rounded-md transition-all duration-200 ring-1 ring-inset focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#206372] dark:focus-visible:ring-[#F5DF4D] hover:scale-105',
       disabled
         ? 'opacity-50 cursor-not-allowed'
         : '',
       active
-        ? 'bg-brand-accent text-brand-dark ring-brand-accent dark:bg-brand-accent dark:text-brand-dark dark:ring-brand-accent'
+        ? 'bg-[#206372] dark:bg-[#F5DF4D] text-white dark:text-[#262626] ring-[#206372] dark:ring-[#F5DF4D]'
         : 'bg-surface-light dark:bg-surface-dark text-secondary-light dark:text-secondary-dark ring-border-light dark:ring-border-dark hover:bg-surface-accent-light dark:hover:bg-surface-accent-dark'
     ]"
   >

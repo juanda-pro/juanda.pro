@@ -92,7 +92,7 @@ const readingTime = computed(() => {
 }
 
 .prose :where(p.lead):not(:where([class~="not-prose"] *)) {
-  @apply text-xl text-secondary-light dark:text-secondary-dark font-serif mb-8;
+  @apply text-xl text-text-secondary-light dark:text-text-secondary-dark font-serif mb-8;
 }
 
 .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
@@ -130,7 +130,7 @@ const readingTime = computed(() => {
 }
 
 .prose :where(figure figcaption):not(:where([class~="not-prose"] *)) {
-  @apply text-center text-sm text-secondary-light dark:text-secondary-dark mt-3 italic;
+  @apply text-center text-sm text-text-secondary-light dark:text-text-secondary-dark mt-3 italic;
 }
 
 /* Listas */
@@ -143,19 +143,19 @@ const readingTime = computed(() => {
 }
 
 .prose :where(ul > li):not(:where([class~="not-prose"] *))::before {
-  @apply bg-brand-accent;
+  @apply bg-accent-primary-light dark:bg-accent-primary-dark;
 }
 
 /* Enlaces */
 .prose :where(a):not(:where([class~="not-prose"] *)) {
-  @apply text-brand-accent hover:text-brand-accent/80 transition-colors duration-200 font-medium;
+  @apply text-[#206372] dark:text-[#F5DF4D] hover:text-[#206372]/80 dark:hover:text-[#F5DF4D]/80 transition-colors duration-200 font-medium;
 }
 
 /* Estilos de subrayado */
 .underline-yellow {
   text-decoration-line: underline;
   text-decoration-style: wavy;
-  text-decoration-color: theme('colors.brand-accent');
+  text-decoration-color: theme('colors.accent-primary-light');
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
 }
@@ -163,14 +163,14 @@ const readingTime = computed(() => {
 .underline-blue {
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-color: theme('colors.accent-info');
+  text-decoration-color: theme('colors.info-light');
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
   text-decoration-skip-ink: none;
 }
 
 .underline-pink {
-  background-image: linear-gradient(to right, theme('colors.brand-accent'), theme('colors.brand-accent'));
+  background-image: linear-gradient(to right, theme('colors.accent-primary-light'), theme('colors.accent-primary-light'));
   background-repeat: no-repeat;
   background-position: 0 100%;
   background-size: 100% 3px;
@@ -178,7 +178,7 @@ const readingTime = computed(() => {
 
 /* Estilo general del contenido */
 .article-content {
-  @apply font-serif text-secondary-light dark:text-secondary-dark;
+  @apply font-serif text-text-secondary-light dark:text-text-secondary-dark;
 }
 
 /* Clases para imágenes flotantes */
@@ -213,14 +213,14 @@ const readingTime = computed(() => {
 }
 
 .prose :where(thead):not(:where([class~="not-prose"] *)) {
-  @apply bg-surface-accent-light/20 dark:bg-surface-accent-dark/20;
+  @apply bg-surface-light/20 dark:bg-surface-dark/20;
 }
 
 .prose :where(th):not(:where([class~="not-prose"] *)) {
-  @apply py-3 px-4 text-left font-semibold text-primary-light dark:text-primary-dark border-b border-surface-accent-light dark:border-surface-accent-dark;
+  @apply py-3 px-4 text-left font-semibold text-text-primary-light dark:text-text-primary-dark border-b border-border-primary-light dark:border-border-primary-dark;
 }
 
 .prose :where(td):not(:where([class~="not-prose"] *)) {
-  @apply py-3 px-4 border-b border-surface-accent-light/30 dark:border-surface-accent-dark/30;
+  @apply py-3 px-4 border-b border-border-primary-light/30 dark:border-border-primary-dark/30;
 }
 </style>

@@ -7,7 +7,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   size: 'md',
-  color: 'text-brand-accent/50'
+  color: 'text-[#206372]/50 dark:text-[#F5DF4D]/50'
 });
 
 const getSizeClass = () => {

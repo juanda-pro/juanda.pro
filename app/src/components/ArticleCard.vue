@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'article-detail', params: { slug: article.slug } }" class="block rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent focus-visible:ring-offset-light dark:focus-visible:ring-offset-dark">
+  <router-link :to="{ name: 'article-detail', params: { slug: article.slug } }" class="block rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-primary-light dark:focus-visible:ring-accent-primary-dark focus-visible:ring-offset-card-light dark:focus-visible:ring-offset-card-dark">
     <article class="group grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
     <!-- Imagen -->
     <div class="md:col-span-1 overflow-hidden rounded-lg aspect-video">
@@ -12,7 +12,7 @@
 
     <!-- Contenido de Texto -->
     <div class="md:col-span-2">
-      <h3 class="text-xl lg:text-2xl font-bold text-primary-light dark:text-primary-dark group-hover:text-brand-accent transition-colors duration-200">
+      <h3 class="text-xl lg:text-2xl font-bold text-primary-light dark:text-primary-dark group-hover:text-accent-primary-light dark:group-hover:text-accent-primary-dark transition-colors duration-200">
         {{ article.title }}
       </h3>
       <p class="text-lg text-secondary-light dark:text-secondary-dark mt-2">

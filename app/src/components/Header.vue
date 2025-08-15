@@ -1,14 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import {
-  Dialog,
-  DialogPanel,
-  TransitionChild,
-  TransitionRoot,
-} from '@headlessui/vue'
-import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
-import ThemeToggle from './ThemeToggle.vue'
+import HeaderDesktopNav from './HeaderDesktopNav.vue'
+import HeaderMobileNav from './HeaderMobileNav.vue'
+import HeaderMobileButton from './HeaderMobileButton.vue'
 
 const navLinks = [
   { name: 'Inicio', path: '/' },
@@ -17,87 +12,44 @@ const navLinks = [
   { name: 'Contacto', path: '/contacto' },
 ]
 
+const documentationLinks = [
+  { name: 'Catálogo de Componentes', path: '/documentacion/catalogo-componentes' },
+  { name: 'Paleta de Colores', path: '/documentacion/paleta-colores' },
+]
+
 const mobileMenuOpen = ref(false)
+
+const openMobileMenu = () => {
+  mobileMenuOpen.value = true
+}
+
+const closeMobileMenu = () => {
+  mobileMenuOpen.value = false
+}
 </script>
 
 <template>
-  <header class="bg-surface-light dark:bg-surface-deeper-dark sticky top-0 z-40 border-b border-border-light dark:border-border-dark transition-colors duration-300">
+  <header class="sticky top-0 z-40 backdrop-blur-sm bg-card-light dark:bg-card-dark transition-colors duration-300">
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between h-16">
-        <RouterLink to="/" class="font-heading text-2xl font-bold text-primary-light dark:text-primary-dark rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent focus-visible:ring-offset-surface-light dark:focus-visible:ring-offset-surface-deeper-dark">
+        <RouterLink to="/" class="font-heading text-2xl font-bold text-primary-light dark:text-primary-dark hover:text-accent-primary-light dark:hover:text-accent-primary-dark transition-colors duration-300 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-primary-light dark:focus-visible:ring-accent-primary-dark focus-visible:ring-offset-card-light dark:focus-visible:ring-offset-card-dark">
           juanda.pro
         </RouterLink>
         
-        <!-- Desktop Nav -->
-        <nav class="hidden md:flex items-center space-x-8">
-          <RouterLink
-            v-for="link in navLinks"
-            :key="link.name"
-            :to="link.path"
-            class="text-secondary-light dark:text-secondary-dark hover:text-brand-accent dark:hover:text-brand-accent font-medium transition-colors rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent [&.router-link-exact-active]:text-brand-accent"
-          >
-            {{ link.name }}
-          </RouterLink>
-          <ThemeToggle />
-        </nav>
+        <HeaderDesktopNav 
+          :nav-links="navLinks" 
+          :documentation-links="documentationLinks" 
+        />
 
-        <!-- Mobile Nav Button -->
-        <div class="flex items-center md:hidden">
-          <ThemeToggle />
-          <button
-            type="button"
-            class="-m-2.5 ml-4 inline-flex items-center justify-center rounded-md p-2.5 text-secondary-light dark:text-secondary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
-            @click="mobileMenuOpen = true"
-          >
-            <span class="sr-only">Abrir menú principal</span>
-            <Bars3Icon class="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
+        <HeaderMobileButton @open-menu="openMobileMenu" />
       </div>
     </div>
 
-    <!-- Mobile Nav Panel -->
-    <TransitionRoot as="template" :show="mobileMenuOpen">
-      <Dialog as="div" class="md:hidden" @close="mobileMenuOpen = false">
-        <TransitionChild as="template" enter="transition-opacity ease-linear duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="transition-opacity ease-linear duration-300" leave-from="opacity-100" leave-to="opacity-0">
-          <div class="fixed inset-0 bg-brand-dark/25 dark:bg-brand-dark/50" />
-        </TransitionChild>
-
-        <div class="fixed inset-0 z-40 flex justify-end">
-          <TransitionChild as="template" enter="transition ease-in-out duration-300 transform" enter-from="translate-x-full" enter-to="translate-x-0" leave="transition ease-in-out duration-300 transform" leave-from="translate-x-0" leave-to="translate-x-full">
-            <DialogPanel class="relative ml-auto h-full w-full max-w-xs overflow-y-auto bg-surface-light dark:bg-surface-deeper-dark py-6 px-6 shadow-xl">
-              <div class="flex items-center justify-between">
-                <RouterLink to="/" class="font-heading text-2xl font-bold text-primary-light dark:text-primary-dark rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent focus-visible:ring-offset-surface-light dark:focus-visible:ring-offset-surface-deeper-dark" @click="mobileMenuOpen = false">
-                  juanda.pro
-                </RouterLink>
-                <button
-                  type="button"
-                  class="-m-2.5 rounded-md p-2.5 text-secondary-light dark:text-secondary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
-                  @click="mobileMenuOpen = false"
-                >
-                  <span class="sr-only">Cerrar menú</span>
-                  <XMarkIcon class="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
-              <div class="mt-6 flow-root">
-                <div class="-my-6 divide-y divide-border-light dark:divide-border-dark">
-                  <div class="space-y-2 py-6">
-                    <RouterLink
-                      v-for="link in navLinks"
-                      :key="link.name"
-                      :to="link.path"
-                      @click="mobileMenuOpen = false"
-                      class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-primary-light dark:text-primary-dark hover:bg-surface-accent-light dark:hover:bg-surface-accent-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent [&.router-link-exact-active]:bg-surface-accent-light dark:[&.router-link-exact-active]:bg-surface-accent-dark [&.router-link-exact-active]:text-brand-accent"
-                    >
-                      {{ link.name }}
-                    </RouterLink>
-                  </div>
-                </div>
-              </div>
-            </DialogPanel>
-          </TransitionChild>
-        </div>
-      </Dialog>
-    </TransitionRoot>
+    <HeaderMobileNav 
+      :nav-links="navLinks" 
+      :documentation-links="documentationLinks" 
+      :is-open="mobileMenuOpen" 
+      @close="closeMobileMenu" 
+    />
   </header>
 </template>

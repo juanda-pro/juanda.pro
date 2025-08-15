@@ -90,7 +90,7 @@ onUnmounted(() => {
       <div class="w-1/2">
         <div class="sticky top-[4rem] h-[calc(100vh-4rem)]">
           <div class="flex h-full items-center justify-center">
-            <div class="relative w-full max-w-md aspect-square flex items-center justify-center bg-gradient-to-br from-surface-light/80 to-surface-light dark:from-surface-dark/80 dark:to-surface-dark rounded-2xl shadow-xl border border-border-light/20 dark:border-border-dark/20 p-8 overflow-hidden group">
+            <div class="relative w-full max-w-md aspect-square flex items-center justify-center bg-gradient-to-br from-surface-light/80 to-surface-light dark:from-surface-dark/80 dark:to-surface-dark rounded-2xl shadow-xl p-8 overflow-hidden group">
               <!-- Elementos decorativos de fondo -->
 
               
@@ -115,7 +115,7 @@ onUnmounted(() => {
       <div 
         v-for="(feature, index) in features" 
         :key="feature.title + '-mobile'" 
-        class="text-center fade-in-element bg-surface-light/30 dark:bg-surface-dark/30 rounded-xl p-6 shadow-sm border border-border-light/10 dark:border-border-dark/10 relative overflow-hidden"
+        class="text-center fade-in-element bg-surface-light/30 dark:bg-surface-dark/30 rounded-xl p-6 shadow-sm border border-[#206372]/30 dark:border-[#F5DF4D]/30 relative overflow-hidden"
       >
         <!-- Elementos decorativos de fondo -->
 
@@ -131,7 +131,7 @@ onUnmounted(() => {
         
         <h3 class="text-3xl font-bold font-heading text-primary-light dark:text-primary-dark mb-4 px-4 relative inline-block">
           {{ feature.title }}
-          <span class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></span>
+          <span class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-[#206372] dark:via-[#F5DF4D] to-transparent"></span>
         </h3>
         
         <p class="text-xl text-secondary-light dark:text-secondary-dark leading-relaxed max-w-2xl mx-auto px-4 mb-4" v-html="feature.text"></p>

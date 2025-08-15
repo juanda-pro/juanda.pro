@@ -11,7 +11,7 @@
       
       <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-primary-light dark:text-primary-dark relative inline-block">
         <slot></slot>
-        <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-accent/40 to-transparent rounded-full"></span>
+        <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#206372]/40 dark:via-[#F5DF4D]/40 to-transparent rounded-full"></span>
       </h1>
       
       <Transition
