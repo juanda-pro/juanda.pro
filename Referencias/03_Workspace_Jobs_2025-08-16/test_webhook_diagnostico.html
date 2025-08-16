@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Webhook - Juanda.pro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .button {
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+            font-size: 16px;
+        }
+        .button:hover {
+            background: #0056b3;
+        }
+        .console {
+            background: #1e1e1e;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        .success { color: #4CAF50; }
+        .error { color: #f44336; }
+        .warning { color: #ff9800; }
+        .info { color: #2196F3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Diagnóstico del Webhook - Juanda.pro</h1>
+        
+        <p>Esta herramienta te ayudará a diagnosticar problemas con el formulario de contacto.</p>
+        
+        <div>
+            <button class="button" onclick="ejecutarDiagnostico()">🔍 Ejecutar Diagnóstico Completo</button>
+            <button class="button" onclick="probarWebhook()">📤 Probar Solo Webhook</button>
+            <button class="button" onclick="verificarVariables()">📋 Verificar Variables</button>
+            <button class="button" onclick="limpiarConsola()">🧹 Limpiar Consola</button>
+        </div>
+        
+        <div id="console" class="console">
+            <div class="info">💡 Haz clic en "Ejecutar Diagnóstico Completo" para comenzar...</div>
+        </div>
+    </div>
+
+    <script>
+        // Configuración del webhook
+        const WEBHOOK_CONFIG = {
+            url: 'https://n8n-n8n.fps4so.easypanel.host/webhook/7468f722-5d90-4d8a-aa74-79bdd480b1de',
+            token: 'jJkKI()/55dÑLdk55'
+        };
+
+        // Función para mostrar logs en la interfaz
+        function log(message, type = 'info') {
+            const console = document.getElementById('console');
+            const div = document.createElement('div');
+            div.className = type;
+            div.innerHTML = message;
+            console.appendChild(div);
+            console.scrollTop = console.scrollHeight;
+        }
+
+        function limpiarConsola() {
+            document.getElementById('console').innerHTML = '';
+        }
+
+        // Función principal de diagnóstico
+        async function ejecutarDiagnostico() {
+            limpiarConsola();
+            log('🔍 DIAGNÓSTICO WEBHOOK: ==================== INICIO ====================', 'info');
+            
+            // 1. Detectar entorno
+            const esProduccion = window.location.hostname !== 'localhost';
+            const entorno = esProduccion ? 'PRODUCCIÓN' : 'DESARROLLO';
+            
+            log(`🌍 ENTORNO: ${entorno}`, 'info');
+            log(`🌍 URL actual: ${window.location.href}`, 'info');
+            log(`🌍 Hostname: ${window.location.hostname}`, 'info');
+            
+            // 2. Verificar variables de entorno (simuladas para este test)
+            log('\n📋 VARIABLES DE ENTORNO:', 'info');
+            const webhookUrl = WEBHOOK_CONFIG.url;
+            const webhookToken = WEBHOOK_CONFIG.token;
+            
+            log(`  - WEBHOOK_URL: ${webhookUrl}`, webhookUrl ? 'success' : 'error');
+            log(`  - WEBHOOK_TOKEN: ${webhookToken ? '✅ DEFINIDO' : '❌ NO DEFINIDO'}`, webhookToken ? 'success' : 'error');
+            
+            if (!webhookUrl) {
+                log('❌ PROBLEMA CRÍTICO: WEBHOOK_URL no está definida', 'error');
+                return { error: 'Variable WEBHOOK_URL no definida' };
+            }
+            
+            // 3. Validar URL del webhook
+            log('\n🔗 VALIDACIÓN DE URL:', 'info');
+            try {
+                const url = new URL(webhookUrl);
+                log('✅ URL válida', 'success');
+                log(`  - Protocolo: ${url.protocol}`, 'info');
+                log(`  - Host: ${url.host}`, 'info');
+                log(`  - Pathname: ${url.pathname}`, 'info');
+            } catch (error) {
+                log(`❌ URL inválida: ${error.message}`, 'error');
+                return { error: 'URL del webhook inválida' };
+            }
+            
+            // 4. Probar conectividad básica
+            log('\n🌐 PRUEBA DE CONECTIVIDAD:', 'info');
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'HEAD',
+                    mode: 'cors'
+                });
+                log('✅ Conectividad básica OK', 'success');
+                log(`  - Status: ${response.status}`, 'info');
+                log(`  - Headers disponibles: ${[...response.headers.keys()].join(', ')}`, 'info');
+            } catch (error) {
+                log(`❌ Error de conectividad: ${error.message}`, 'error');
+                log(`  - Tipo de error: ${error.name}`, 'warning');
+                
+                if (error.name === 'TypeError' && error.message.includes('CORS')) {
+                    log('🚨 PROBLEMA CORS DETECTADO', 'error');
+                }
+            }
+            
+            // 5. Probar envío real del webhook
+            await probarWebhook();
+        }
+
+        async function probarWebhook() {
+            log('\n📤 PRUEBA DE ENVÍO REAL:', 'info');
+            const datosTest = {
+                timestamp: new Date().toISOString(),
+                name: `Test Diagnóstico`,
+                email: 'test@diagnostico.com',
+                message: `Mensaje de prueba - ${new Date().toLocaleString()}`
+            };
+            
+            try {
+                const params = new URLSearchParams(datosTest);
+                const urlCompleta = `${WEBHOOK_CONFIG.url}?${params.toString()}`;
+                
+                log('📝 Datos de prueba:', 'info');
+                log(`  - Nombre: ${datosTest.name}`, 'info');
+                log(`  - Email: ${datosTest.email}`, 'info');
+                log(`  - Mensaje: ${datosTest.message}`, 'info');
+                log(`📝 URL completa: ${urlCompleta}`, 'info');
+                
+                const response = await fetch(urlCompleta, {
+                    method: 'GET',
+                    headers: {
+                        'contact_form': WEBHOOK_CONFIG.token
+                    },
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    credentials: 'omit'
+                });
+                
+                log('📥 Respuesta del webhook:', 'info');
+                log(`  - Status: ${response.status}`, response.ok ? 'success' : 'error');
+                log(`  - OK: ${response.ok}`, response.ok ? 'success' : 'error');
+                log(`  - StatusText: ${response.statusText}`, 'info');
+                
+                const responseText = await response.text();
+                log(`  - Body: ${responseText}`, 'info');
+                
+                if (response.ok) {
+                    log('✅ WEBHOOK FUNCIONANDO CORRECTAMENTE', 'success');
+                    return { success: true, response: responseText };
+                } else {
+                    log('❌ WEBHOOK FALLÓ', 'error');
+                    return { error: `HTTP ${response.status}: ${response.statusText}` };
+                }
+                
+            } catch (error) {
+                log(`❌ Error enviando al webhook: ${error.message}`, 'error');
+                log(`  - Tipo de error: ${error.name}`, 'warning');
+                return { error: error.message };
+            }
+        }
+
+        function verificarVariables() {
+            limpiarConsola();
+            log('📋 VERIFICACIÓN DE VARIABLES:', 'info');
+            log(`  - WEBHOOK_URL: ${WEBHOOK_CONFIG.url}`, 'success');
+            log(`  - WEBHOOK_TOKEN: ${WEBHOOK_CONFIG.token ? '✅ DEFINIDO' : '❌ NO DEFINIDO'}`, 'success');
+            log('\n💡 Estas son las variables hardcodeadas para el test.', 'warning');
+            log('💡 En la aplicación real, vienen de import.meta.env.VITE_*', 'warning');
+        }
+
+        // Ejecutar diagnóstico automáticamente al cargar
+        window.addEventListener('load', () => {
+            log('🚀 Herramienta de diagnóstico cargada', 'success');
+            log('💡 Haz clic en "Ejecutar Diagnóstico Completo" para comenzar', 'info');
+        });
+    </script>
+</body>
+</html>
