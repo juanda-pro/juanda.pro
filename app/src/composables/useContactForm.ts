@@ -98,147 +98,80 @@ export function useContactForm() {
   }
   
   function sanitizeText(text: string): string {
-    return text.replace(/<script[^>]*>.*?<\/script>/gi, '')
-      .replace(/<[^>]*>/g, '')
+    return text
       .trim()
+      .replace(/[<>"'&]/g, '') // Remover caracteres peligrosos
+      .substring(0, 1000) // Limitar longitud
   }
   
   function checkRateLimit(): boolean {
     const now = Date.now()
-    if (now - lastSubmitTime.value < RATE_LIMIT_MS) {
-      const remainingTime = Math.ceil((RATE_LIMIT_MS - (now - lastSubmitTime.value)) / 1000)
-      validationErrors.value.submit = `Espera ${remainingTime} segundos antes de enviar otro mensaje`
+    const timeSinceLastSubmit = now - lastSubmitTime.value
+    
+    if (timeSinceLastSubmit < RATE_LIMIT_MS) {
+      const remainingTime = Math.ceil((RATE_LIMIT_MS - timeSinceLastSubmit) / 1000)
+      validationErrors.value.submit = `Por favor espera ${remainingTime} segundos antes de enviar otro mensaje`
       return false
     }
+    
     return true
   }
   
   // Validación de campos
-  function validateField(field: keyof FormData, value: string) {
+  function validateField(field: keyof FormData): boolean {
+    const value = formData[field]?.trim()
     const step = formSteps.find(s => s.field === field)
-    if (!step) return
     
-    console.log('🔍 DEBUG validateField:', {
-      field,
-      value,
-      trimmedValue: value.trim(),
-      step: step?.field,
-      required: step?.required,
-      beforeDelete: validationErrors.value[field]
-    })
+    if (!step) return true
     
-    // CRÍTICO: Limpiar errores previos SIEMPRE
     delete validationErrors.value[field]
     
-    const trimmedValue = value.trim()
-    
-    if (step.required && !trimmedValue) {
-      validationErrors.value[field] = 'Este campo es obligatorio'
-      console.log('❌ Required field empty:', field)
-      return
+    if (step.required && !value) {
+      validationErrors.value[field] = `${step.label} es requerido`
+      return false
     }
     
-    if (field === 'email' && trimmedValue && !isValidEmail(trimmedValue)) {
-      validationErrors.value[field] = 'Introduce un email válido'
-      console.log('❌ Email validation failed:', trimmedValue)
-      return
+    if (value && value.length > step.maxLength) {
+      validationErrors.value[field] = `${step.label} no puede exceder ${step.maxLength} caracteres`
+      return false
     }
     
-    if (trimmedValue.length > step.maxLength) {
-      validationErrors.value[field] = `Máximo ${step.maxLength} caracteres`
-      console.log('❌ Max length exceeded:', field, trimmedValue.length, step.maxLength)
-      return
+    if (field === 'email' && value && !isValidEmail(value)) {
+      validationErrors.value[field] = 'Por favor ingresa un email válido'
+      return false
     }
     
-    console.log('✅ Field validation passed:', field)
-    
-    // CRÍTICO: Forzar reactividad después de limpiar errores
-    validationErrors.value = { ...validationErrors.value }
+    return true
   }
   
-  // Validación como computed property para reactividad correcta
   const isCurrentStepValid = computed(() => {
-    const step = currentStepData.value
-    if (!step) {
-      console.log('❌ No step data available')
-      return false
-    }
+    const currentField = currentStepData.value.field
+    const value = formData[currentField]?.trim()
     
-    const value = formData[step.field]
+    if (currentStepData.value.required && !value) return false
+    if (currentField === 'email' && value && !isValidEmail(value)) return false
     
-    console.log('🔍 DEBUG isCurrentStepValid computed:', {
-      stepField: step.field,
-      value: value,
-      required: step.required,
-      hasValue: !!value && value.trim() !== '',
-      isEmail: step.field === 'email',
-      emailValid: step.field === 'email' ? isValidEmail(value || '') : 'N/A',
-      hasValidationError: !!validationErrors.value[step.field],
-      validationError: validationErrors.value[step.field],
-      currentErrors: Object.keys(validationErrors.value)
-    })
-    
-    // CRÍTICO: Verificar campo requerido
-    if (step.required && (!value || value.trim() === '')) {
-      console.log('❌ Required field empty in isCurrentStepValid:', step.field)
-      return false
-    }
-    
-    // CRÍTICO: Verificar email específicamente
-    if (step.field === 'email' && value) {
-      const emailIsValid = isValidEmail(value)
-      console.log('🔍 Email validation check:', { value, emailIsValid })
-      if (!emailIsValid) {
-        console.log('❌ Email invalid in isCurrentStepValid:', value)
-        return false
-      }
-      // PARCHE: Si el email es válido, limpiar cualquier error residual
-      if (emailIsValid && validationErrors.value[step.field]) {
-        console.log('🔧 PARCHE: Limpiando error residual para email válido')
-        delete validationErrors.value[step.field]
-        validationErrors.value = { ...validationErrors.value }
-      }
-    }
-    
-    // CRÍTICO: Verificar errores de validación
-    const hasError = validationErrors.value[step.field]
-    if (hasError) {
-      console.log('❌ Validation error exists in isCurrentStepValid:', hasError)
-      return false
-    }
-    
-    console.log('✅ isCurrentStepValid: true for', step.field)
     return true
   })
   
-  // Navegación
+  // Navegación del formulario
   function expandForm() {
     isFormExpanded.value = true
     nextTick(() => {
-      const firstInput = document.getElementById(`form-field-${currentStepData.value.field}`)
+      const firstInput = document.querySelector('.contact-form input, .contact-form textarea') as HTMLElement
       firstInput?.focus()
     })
   }
   
   function nextStep() {
-    console.log('🔍 DEBUG nextStep called')
-    const isValid = isCurrentStepValid.value
-    console.log('🔍 DEBUG nextStep - isCurrentStepValid.value:', isValid)
-    
-    if (!isValid) {
-      console.log('❌ nextStep blocked - step not valid')
-      return
-    }
+    if (!isCurrentStepValid.value) return
     
     if (currentStep.value < formSteps.length - 1) {
-      console.log('✅ nextStep - advancing from step', currentStep.value, 'to', currentStep.value + 1)
       currentStep.value++
       nextTick(() => {
-        const nextInput = document.getElementById(`form-field-${currentStepData.value.field}`)
+        const nextInput = document.querySelector('.contact-form input:not([readonly]), .contact-form textarea:not([readonly])') as HTMLElement
         nextInput?.focus()
       })
-    } else {
-      console.log('🔍 nextStep - already at last step')
     }
   }
   
@@ -246,7 +179,7 @@ export function useContactForm() {
     if (currentStep.value > 0) {
       currentStep.value--
       nextTick(() => {
-        const prevInput = document.getElementById(`form-field-${currentStepData.value.field}`)
+        const prevInput = document.querySelector('.contact-form input:not([readonly]), .contact-form textarea:not([readonly])') as HTMLElement
         prevInput?.focus()
       })
     }
@@ -362,9 +295,9 @@ export function useContactForm() {
       
       // Obtener todos los headers de respuesta
       console.log('📥 WEBHOOK DEBUG: Headers de respuesta:')
-      response.headers.forEach((value, key) => {
+      for (const [key, value] of response.headers.entries()) {
         console.log(`  - ${key}: ${value}`)
-      })
+      }
       
       let responseText = ''
       try {
