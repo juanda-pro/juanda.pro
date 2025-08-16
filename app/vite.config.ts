@@ -12,5 +12,16 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  server: {
+    watch: {
+      // Excluir directorios de documentación para evitar recargas innecesarias
+      ignored: [
+        '**/Referencias/**',
+        '**/.trae/**',
+        '**/node_modules/**',
+        '**/.git/**'
+      ]
+    }
   }
 })

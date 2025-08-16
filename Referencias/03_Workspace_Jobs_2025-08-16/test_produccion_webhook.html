@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Webhook Producción - juanda.pro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .button:hover {
+            background: #0056b3;
+        }
+        .error {
+            color: #dc3545;
+            background: #f8d7da;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .success {
+            color: #155724;
+            background: #d4edda;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .info {
+            color: #0c5460;
+            background: #d1ecf1;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .log {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Diagnóstico Webhook Producción</h1>
+        <p><strong>Sitio:</strong> https://juanda.pro</p>
+        
+        <div class="info">
+            <strong>⚠️ Importante:</strong> Este test debe ejecutarse desde el sitio en producción (https://juanda.pro) para tener acceso a las variables de entorno de Vercel.
+        </div>
+
+        <div style="margin: 20px 0;">
+            <button class="button" onclick="testVariablesEntorno()">1. Verificar Variables de Entorno</button>
+            <button class="button" onclick="testWebhookConnectivity()">2. Test Conectividad Webhook</button>
+            <button class="button" onclick="testWebhookCompleto()">3. Test Webhook Completo</button>
+            <button class="button" onclick="testFormularioReal()">4. Test Formulario Real</button>
+            <button class="button" onclick="clearLog()">🗑️ Limpiar Log</button>
+        </div>
+
+        <div id="results"></div>
+        <div id="log" class="log"></div>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logElement = document.getElementById('log');
+            const prefix = type === 'error' ? '❌' : type === 'success' ? '✅' : 'ℹ️';
+            logElement.textContent += `[${timestamp}] ${prefix} ${message}\n`;
+            logElement.scrollTop = logElement.scrollHeight;
+        }
+
+        function showResult(message, type = 'info') {
+            const resultsElement = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = type;
+            div.textContent = message;
+            resultsElement.appendChild(div);
+        }
+
+        function clearLog() {
+            document.getElementById('log').textContent = '';
+            document.getElementById('results').innerHTML = '';
+        }
+
+        async function testVariablesEntorno() {
+            log('🔍 Verificando variables de entorno...');
+            
+            try {
+                // Simular acceso a variables de entorno como lo haría la aplicación
+                const variables = {
+                    VITE_WEBHOOK_URL: import.meta.env?.VITE_WEBHOOK_URL || 'NO DEFINIDA',
+                    VITE_WEBHOOK_TOKEN: import.meta.env?.VITE_WEBHOOK_TOKEN || 'NO DEFINIDA',
+                    VITE_SUPABASE_URL: import.meta.env?.VITE_SUPABASE_URL || 'NO DEFINIDA',
+                    VITE_SUPABASE_ANON_KEY: import.meta.env?.VITE_SUPABASE_ANON_KEY || 'NO DEFINIDA'
+                };
+
+                log('Variables encontradas:');
+                Object.entries(variables).forEach(([key, value]) => {
+                    const status = value !== 'NO DEFINIDA' ? '✅' : '❌';
+                    const displayValue = key.includes('TOKEN') || key.includes('KEY') ? 
+                        (value !== 'NO DEFINIDA' ? '[DEFINIDA]' : '[NO DEFINIDA]') : value;
+                    log(`  ${status} ${key}: ${displayValue}`);
+                });
+
+                const missingVars = Object.entries(variables)
+                    .filter(([key, value]) => value === 'NO DEFINIDA')
+                    .map(([key]) => key);
+
+                if (missingVars.length > 0) {
+                    showResult(`❌ Variables faltantes: ${missingVars.join(', ')}`, 'error');
+                    log('❌ PROBLEMA IDENTIFICADO: Variables de entorno faltantes en Vercel', 'error');
+                } else {
+                    showResult('✅ Todas las variables de entorno están configuradas', 'success');
+                    log('✅ Variables de entorno OK', 'success');
+                }
+
+            } catch (error) {
+                log(`❌ Error verificando variables: ${error.message}`, 'error');
+                showResult('❌ Error accediendo a variables de entorno', 'error');
+            }
+        }
+
+        async function testWebhookConnectivity() {
+            log('🌐 Probando conectividad del webhook...');
+            
+            try {
+                const webhookUrl = import.meta.env?.VITE_WEBHOOK_URL;
+                
+                if (!webhookUrl) {
+                    log('❌ VITE_WEBHOOK_URL no está definida', 'error');
+                    showResult('❌ No se puede probar: VITE_WEBHOOK_URL faltante', 'error');
+                    return;
+                }
+
+                log(`🔗 URL del webhook: ${webhookUrl}`);
+                
+                // Test básico de conectividad
+                const response = await fetch(webhookUrl, {
+                    method: 'HEAD',
+                    mode: 'no-cors'
+                });
+                
+                log('✅ Conectividad básica OK', 'success');
+                showResult('✅ El webhook es accesible', 'success');
+                
+            } catch (error) {
+                log(`❌ Error de conectividad: ${error.message}`, 'error');
+                showResult('❌ Problema de conectividad con el webhook', 'error');
+            }
+        }
+
+        async function testWebhookCompleto() {
+            log('🚀 Ejecutando test completo del webhook...');
+            
+            try {
+                const webhookUrl = import.meta.env?.VITE_WEBHOOK_URL;
+                const webhookToken = import.meta.env?.VITE_WEBHOOK_TOKEN;
+                
+                if (!webhookUrl || !webhookToken) {
+                    log('❌ Variables del webhook faltantes', 'error');
+                    showResult('❌ No se puede probar: Variables del webhook faltantes', 'error');
+                    return;
+                }
+
+                // Datos de prueba
+                const testData = {
+                    timestamp: Date.now(),
+                    name: 'Test Producción',
+                    email: 'test@produccion.com',
+                    message: 'Mensaje de prueba desde producción'
+                };
+
+                log('📤 Enviando datos de prueba...');
+                log(`Datos: ${JSON.stringify(testData, null, 2)}`);
+
+                // Construir URL con parámetros
+                const url = new URL(webhookUrl);
+                Object.entries(testData).forEach(([key, value]) => {
+                    url.searchParams.append(key, value.toString());
+                });
+
+                log(`🔗 URL final: ${url.toString()}`);
+
+                // Realizar petición
+                const startTime = Date.now();
+                const response = await fetch(url.toString(), {
+                    method: 'GET',
+                    headers: {
+                        'contact_form': webhookToken,
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const endTime = Date.now();
+
+                log(`⏱️ Tiempo de respuesta: ${endTime - startTime}ms`);
+                log(`📊 Status: ${response.status} ${response.statusText}`);
+
+                if (response.ok) {
+                    log('✅ Webhook respondió correctamente', 'success');
+                    showResult('✅ Test del webhook exitoso', 'success');
+                } else {
+                    log(`❌ Webhook falló: ${response.status} ${response.statusText}`, 'error');
+                    showResult(`❌ Webhook falló: ${response.status}`, 'error');
+                }
+
+            } catch (error) {
+                log(`❌ Error en test del webhook: ${error.message}`, 'error');
+                showResult('❌ Error ejecutando test del webhook', 'error');
+            }
+        }
+
+        async function testFormularioReal() {
+            log('📝 Probando formulario real de la página...');
+            
+            try {
+                // Buscar el formulario en la página
+                const form = document.querySelector('form[data-contact-form]') || 
+                           document.querySelector('form');
+                
+                if (!form) {
+                    log('❌ No se encontró formulario en la página', 'error');
+                    showResult('❌ Formulario no encontrado', 'error');
+                    return;
+                }
+
+                log('✅ Formulario encontrado en la página');
+                
+                // Verificar campos del formulario
+                const nameField = form.querySelector('input[name="name"], input[id*="name"]');
+                const emailField = form.querySelector('input[name="email"], input[id*="email"]');
+                const messageField = form.querySelector('textarea[name="message"], textarea[id*="message"]');
+                
+                log(`📋 Campos encontrados:`);
+                log(`  - Nombre: ${nameField ? '✅' : '❌'}`);
+                log(`  - Email: ${emailField ? '✅' : '❌'}`);
+                log(`  - Mensaje: ${messageField ? '✅' : '❌'}`);
+                
+                if (nameField && emailField && messageField) {
+                    showResult('✅ Estructura del formulario correcta', 'success');
+                    log('💡 Sugerencia: Prueba enviar el formulario manualmente para verificar funcionamiento', 'info');
+                } else {
+                    showResult('❌ Estructura del formulario incompleta', 'error');
+                }
+                
+            } catch (error) {
+                log(`❌ Error analizando formulario: ${error.message}`, 'error');
+                showResult('❌ Error analizando formulario', 'error');
+            }
+        }
+
+        // Ejecutar verificación inicial al cargar
+        window.addEventListener('load', () => {
+            log('🚀 Herramienta de diagnóstico cargada');
+            log('📍 Ejecutándose desde: ' + window.location.href);
+            
+            if (!window.location.href.includes('juanda.pro')) {
+                showResult('⚠️ ADVERTENCIA: Esta herramienta debe ejecutarse desde https://juanda.pro para acceder a las variables de entorno de Vercel', 'error');
+            }
+        });
+    </script>
+</body>
+</html>
