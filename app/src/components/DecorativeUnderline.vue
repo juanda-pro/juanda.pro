@@ -22,10 +22,10 @@ const getWidthClass = () => {
 
 const getOpacityClass = () => {
   switch (props.opacity) {
-    case 'low': return 'via-brand-accent/20';
-    case 'medium': return 'via-brand-accent/40';
-    case 'high': return 'via-brand-accent';
-    default: return 'via-brand-accent';
+    case 'low': return 'via-[#206372]/20 dark:via-[#F5DF4D]/20';
+    case 'medium': return 'via-[#206372]/40 dark:via-[#F5DF4D]/40';
+    case 'high': return 'via-[#206372] dark:via-[#F5DF4D]';
+    default: return 'via-[#206372] dark:via-[#F5DF4D]';
   }
 };
 </script>

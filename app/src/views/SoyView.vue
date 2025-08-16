@@ -23,7 +23,7 @@ onMounted(() => {
   <PageLayout :remove-padding-top="true">
     <!-- Hero Section -->
     <HeroSection
-      title="Soy."
+      title="Soy"
       :background-image="HeaderBackground"
     >
       <template v-slot:subtitle>
@@ -61,132 +61,72 @@ onMounted(() => {
       </div>
     </SectionWrapper>
 
-    <!-- Lo que me mueve - Sección Principal -->
-    <SectionWrapper spacing="loose" class="relative overflow-hidden">
-      <!-- Fondo decorativo sutil -->
-      <div class="absolute inset-0 bg-gradient-to-br from-brand-accent/5 via-transparent to-surface-light/30 dark:to-surface-dark/30 pointer-events-none"></div>
-      
-      <div class="max-w-6xl mx-auto relative z-10">
-        <!-- Título principal con diseño moderno -->
-        <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-bold font-heading text-primary-light dark:text-primary-dark mb-6 relative inline-block">
-            Lo que me mueve
-            <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent rounded-full"></div>
-          </h2>
-          <div class="max-w-4xl mx-auto">
-            <p class="text-xl md:text-2xl text-secondary-light dark:text-secondary-dark leading-relaxed">
-              Descubrir, aprender y compartir: Hacerme todo tipo de preguntas, investigar, <em>experimentar</em>, probar herramientas, <em>ajustar según los resultados</em>...
-            </p>
-            <p class="text-xl md:text-2xl text-secondary-light dark:text-secondary-dark leading-relaxed mt-6">
-              <em>Creo que ese es el camino si quieres aprovechar las tecnologías</em> actuales para tomar el control de tus procesos cotidianos. Es lo que hago y <strong>es lo que te invito a hacer.</strong>
-            </p>
-          </div>
-        </div>
+    <!-- Content -->
+    <SectionWrapper spacing="loose" class="relative">
+      <!-- Elemento decorativo de conexión -->
+      <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-16 bg-gradient-to-b from-transparent to-accent-primary-light/30 dark:to-accent-primary-dark/20"></div>
+      <div class="max-w-3xl mx-auto prose prose-lg lg:prose-xl dark:prose-invert text-secondary-light dark:text-secondary-dark fade-in-element transform transition-all duration-700 opacity-0 translate-y-4 text-center">
+        <h2 class="text-4xl font-bold font-heading text-primary-light dark:text-primary-dark mb-8 relative inline-block text-center">
+          Lo que me mueve
+          <span class="absolute -bottom-2 h-1 bg-gradient-to-r from-transparent to-transparent left-0 right-0 via-accent-primary-light/40 dark:via-accent-primary-dark/40"></span>
+        </h2>
+        <p>
+          Descubrir, aprender y compartir: Hacerme todo tipo de preguntas, investigar, <em>experimentar</em>, probar herramientas, <em>ajustar según los resultados</em>... 
+          <br><br>
+          <em>Creo que ese es el camino si quieres aprovechar las tecnologías</em> actuales para tomar el control de tus procesos cotidianos. Es lo que hago y <strong>es lo que te invito a hacer.</strong>
+        </p>
 
-        <!-- Valores principales con diseño de cards modernas -->
-        <div class="grid md:grid-cols-3 gap-8 mb-20">
-          <div class="group relative">
-            <div class="h-full p-8 bg-gradient-to-br from-surface-light/80 to-surface-light/40 dark:from-surface-dark/80 dark:to-surface-dark/40 backdrop-blur-sm border border-border-light/30 dark:border-border-dark/30 rounded-2xl hover:shadow-xl hover:border-brand-accent/30 transition-all duration-300 hover:scale-[1.02]">
-              <!-- Icono con fondo decorativo -->
-              <div class="relative mb-6">
-                <div class="w-16 h-16 bg-gradient-to-br from-brand-accent/20 to-brand-accent/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                </div>
-                <!-- Elemento decorativo -->
-                <div class="absolute -top-2 -right-2 w-6 h-6 bg-brand-accent/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <h3 class="text-2xl font-bold text-primary-light dark:text-primary-dark mb-4 group-hover:text-brand-accent transition-colors duration-300">
-                Principal motivación
-              </h3>
-              <p class="text-lg text-secondary-light dark:text-secondary-dark leading-relaxed">
-                Aprendizaje colectivo. Si compartes tus conocimientos y aprendes de otros, surgen nuevas ideas, relaciones y oportunidades.
-              </p>
-            </div>
-          </div>
-
-          <div class="group relative">
-            <div class="h-full p-8 bg-gradient-to-br from-surface-light/80 to-surface-light/40 dark:from-surface-dark/80 dark:to-surface-dark/40 backdrop-blur-sm border border-border-light/30 dark:border-border-dark/30 rounded-2xl hover:shadow-xl hover:border-brand-accent/30 transition-all duration-300 hover:scale-[1.02]">
-              <div class="relative mb-6">
-                <div class="w-16 h-16 bg-gradient-to-br from-brand-accent/20 to-brand-accent/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div class="absolute -top-2 -right-2 w-6 h-6 bg-brand-accent/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <h3 class="text-2xl font-bold text-primary-light dark:text-primary-dark mb-4 group-hover:text-brand-accent transition-colors duration-300">
-                Honestidad práctica
-              </h3>
-              <p class="text-lg text-secondary-light dark:text-secondary-dark leading-relaxed">
-                Comparto solo lo que he probado, tanto lo que me funcionó, como lo que no. Equivocarse forma parte del proceso de aprendizaje.
-              </p>
-            </div>
-          </div>
-
-          <div class="group relative">
-            <div class="h-full p-8 bg-gradient-to-br from-surface-light/80 to-surface-light/40 dark:from-surface-dark/80 dark:to-surface-dark/40 backdrop-blur-sm border border-border-light/30 dark:border-border-dark/30 rounded-2xl hover:shadow-xl hover:border-brand-accent/30 transition-all duration-300 hover:scale-[1.02]">
-              <div class="relative mb-6">
-                <div class="w-16 h-16 bg-gradient-to-br from-brand-accent/20 to-brand-accent/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div class="absolute -top-2 -right-2 w-6 h-6 bg-brand-accent/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <h3 class="text-2xl font-bold text-primary-light dark:text-primary-dark mb-4 group-hover:text-brand-accent transition-colors duration-300">
-                Mindset general
-              </h3>
-              <p class="text-lg text-secondary-light dark:text-secondary-dark leading-relaxed">
-                Me enfoco en encontrar formas de sacar partido a la tecnología, al mismo tiempo que aprendo a usarla con más consciencia y cuidado.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </SectionWrapper>
-
-    <!-- Sección de reflexión final -->
-    <SectionWrapper spacing="normal" class="relative">
-      <div class="max-w-4xl mx-auto">
-        <!-- Línea decorativa de conexión -->
-        <div class="flex justify-center mb-12">
-          <div class="w-1 h-20 bg-gradient-to-b from-brand-accent/30 via-brand-accent/60 to-brand-accent/30 rounded-full"></div>
+        <!-- Elemento decorativo de conexión -->
+        <div class="flex justify-center my-16">
+          <div class="w-1 h-16 bg-gradient-to-b from-transparent to-accent-primary-light/30 dark:to-accent-primary-dark/30 rounded-full"></div>
         </div>
         
-        <!-- Texto de reflexión con diseño destacado -->
-        <div class="text-center mb-12">
-          <p class="text-2xl md:text-3xl font-medium text-primary-light dark:text-primary-dark leading-relaxed">
-            Estos valores se reflejan en lo que comparto aquí y guían cómo ayudo a otros a navegar estos cambios de forma práctica.
+        <ul class="not-prose grid md:grid-cols-3 gap-12 text-center pl-0">
+          <li class="fade-in-element opacity-0 transform translate-y-4">
+            <div class="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent-primary-light/10 dark:bg-accent-primary-dark/5 border border-accent-primary-light/20 dark:border-accent-primary-dark/20">
+              <!-- Icono para Motivación (e.g., una bombilla o una semilla) -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent-primary-light dark:text-accent-primary-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h4 class="text-xl font-bold text-primary-light dark:text-primary-dark mb-2">Principal motivación</h4>
+            <p class="text-secondary-light dark:text-secondary-dark">Aprendizaje colectivo. Si compartes tus conocimientos y aprendes de otros, surgen nuevas ideas, relaciones y oportunidades.</p>
+          </li>
+          
+          <li class="fade-in-element opacity-0 transform translate-y-4 delay-100">
+            <div class="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent-primary-light/10 dark:bg-accent-primary-dark/5 border border-accent-primary-light/20 dark:border-accent-primary-dark/20">
+              <!-- Icono para Honestidad (e.g., una balanza) -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent-primary-light dark:text-accent-primary-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h4 class="text-xl font-bold text-primary-light dark:text-primary-dark mb-2">Honestidad práctica</h4>
+            <p class="text-secondary-light dark:text-secondary-dark">Comparto solo lo que he probado, tanto lo que me funcionó, como lo que no. Equivocarse forma parte del proceso de aprendizaje.</p>
+          </li>
+          
+          <li class="fade-in-element opacity-0 transform translate-y-4 delay-200">
+            <div class="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent-primary-light/10 dark:bg-accent-primary-dark/5 border border-accent-primary-light/20 dark:border-accent-primary-dark/20">
+              <!-- Icono para Mindset (e.g., un cerebro o una brújula) -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent-primary-light dark:text-accent-primary-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h4 class="text-xl font-bold text-primary-light dark:text-primary-dark mb-2">Mindset general</h4>
+            <p class="text-secondary-light dark:text-secondary-dark">Me enfoco en encontrar formas de sacar partido a la tecnología, al mismo tiempo que aprendo a usarla con más consciencia y cuidado.</p>
+          </li>
+        </ul>
+        
+        <p class="text-lg md:text-xl text-center fade-in-element opacity-0 transform translate-y-4">
+          Estos valores se reflejan en lo que comparto aquí y guían cómo ayudo a otros a navegar estos cambios de forma práctica.
+        </p>
+        <div class="w-16 h-0.5 bg-[#206372]/40 dark:bg-[#F5DF4D]/30 rounded-full mx-auto mt-16"></div>
+        
+        <blockquote class="border-l-4 border-[#206372] dark:border-[#F5DF4D] pl-6 bg-surface-light/30 dark:bg-surface-dark/30 p-6 rounded-r-lg fade-in-element opacity-0 transform translate-y-4">
+          <p class="text-xl italic text-secondary-light dark:text-secondary-dark leading-relaxed text-left">
+            Gracias por tomarte el tiempo de conocerme un poco más. Te invito a explorar el resto del sitio.
           </p>
-        </div>
-
-        <!-- Card de cierre con diseño elegante -->
-        <div class="relative">
-          <!-- Fondo decorativo -->
-          <div class="absolute inset-0 bg-gradient-to-r from-brand-accent/10 via-brand-accent/5 to-brand-accent/10 rounded-2xl"></div>
-          <div class="relative p-8 md:p-12 bg-gradient-to-br from-surface-light/90 to-surface-light/70 dark:from-surface-dark/90 dark:to-surface-dark/70 backdrop-blur-sm border border-border-light/40 dark:border-border-dark/40 rounded-2xl shadow-lg">
-            <!-- Elemento decorativo superior -->
-            <div class="flex justify-center mb-6">
-              <div class="w-12 h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent rounded-full"></div>
-            </div>
-            
-            <blockquote class="text-center">
-              <p class="text-xl md:text-2xl text-primary-light dark:text-primary-dark font-medium leading-relaxed mb-6">
-                Gracias por tomarte el tiempo de conocerme un poco más. Te invito a explorar el resto del sitio.
-              </p>
-            </blockquote>
-            
-            <!-- Elemento decorativo inferior -->
-            <div class="flex justify-center mt-6">
-              <div class="w-8 h-8 border-2 border-brand-accent/30 rounded-full flex items-center justify-center">
-                <div class="w-3 h-3 bg-brand-accent/60 rounded-full"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </blockquote>
       </div>
     </SectionWrapper>
     

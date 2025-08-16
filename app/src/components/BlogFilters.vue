@@ -34,15 +34,7 @@ const isSelected = (category) => {
 
 <template>
   <div class="space-y-6">
-    <!-- Encabezado de filtros -->
-    <div class="text-center">
-      <h2 class="text-lg font-semibold text-primary-light dark:text-primary-dark mb-2">
-        Filtrar por categoría
-      </h2>
-      <p class="text-sm text-secondary-light dark:text-secondary-dark">
-        Selecciona una o más categorías para filtrar los artículos
-      </p>
-    </div>
+
 
     <!-- Controles de filtro -->
     <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
@@ -71,12 +63,12 @@ const isSelected = (category) => {
     <div v-if="selectedCategories.length > 0" class="text-center">
       <p class="text-sm text-secondary-light dark:text-secondary-dark">
         Mostrando artículos de: 
-        <span class="font-medium text-brand-accent">
+        <span class="font-medium text-[#206372] dark:text-[#F5DF4D]">
           {{ selectedCategories.join(', ') }}
         </span>
         <button 
           @click="clearAllFilters"
-          class="ml-2 text-xs text-brand-accent hover:text-brand-accent-dark underline transition-colors"
+          class="ml-2 text-xs text-[#206372] dark:text-[#F5DF4D] hover:text-[#206372]/80 dark:hover:text-[#F5DF4D]/80 underline transition-colors"
         >
           Limpiar filtros
         </button>

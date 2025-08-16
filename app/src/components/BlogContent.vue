@@ -35,7 +35,7 @@ const getEmptyStateMessage = () => {
     <div v-if="isLoading" class="text-center py-16">
       <div class="inline-flex items-center space-x-2">
         <!-- Spinner de carga -->
-        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-accent"></div>
+        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[#206372] dark:border-[#F5DF4D]"></div>
         <p class="text-xl text-secondary-light dark:text-secondary-dark">
           Cargando artículos...
         </p>
@@ -57,7 +57,7 @@ const getEmptyStateMessage = () => {
         <p class="text-accent-error mb-4">{{ errorMessage }}</p>
         <button 
           @click="$emit('retry')"
-          class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-brand-accent hover:bg-brand-accent-dark transition-colors"
+          class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#206372] dark:bg-[#F5DF4D] hover:bg-[#206372]/80 dark:hover:bg-[#F5DF4D]/80 transition-colors"
         >
           Intentar de nuevo
         </button>
@@ -102,7 +102,7 @@ const getEmptyStateMessage = () => {
         <div v-if="selectedCategories.length > 0" class="mt-4">
           <button 
             @click="$emit('clear-filters')"
-            class="text-brand-accent hover:text-brand-accent-dark underline transition-colors"
+            class="text-[#206372] dark:text-[#F5DF4D] hover:text-[#206372]/80 dark:hover:text-[#F5DF4D]/80 underline transition-colors"
           >
             Ver todos los artículos
           </button>

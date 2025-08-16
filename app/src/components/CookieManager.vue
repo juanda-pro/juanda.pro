@@ -26,11 +26,11 @@
     </div>
 
     <div class="mt-6">
-      <button @click="savePreferences" class="w-full bg-brand-accent text-white font-bold py-2 px-4 rounded-md hover:bg-opacity-90 transition-colors">
+      <button @click="savePreferences" class="w-full bg-accent-primary-light dark:bg-accent-primary-dark text-text-on-accent-light dark:text-text-on-accent-dark font-bold py-2 px-4 rounded-md hover:bg-opacity-90 transition-colors">
         Guardar mis preferencias
       </button>
     </div>
-    <p v-if="showConfirmation" class="text-center text-sm text-green-600 dark:text-green-400 mt-4">¡Tus preferencias han sido guardadas!</p>
+    <p v-if="showConfirmation" class="text-center text-sm text-success-light dark:text-success-dark mt-4">¡Tus preferencias han sido guardadas!</p>
   </div>
 </template>
 
@@ -59,9 +59,9 @@ const savePreferences = () => {
 <style scoped>
 .toggle-checkbox:checked {
   @apply right-0;
-  border-color: theme('colors.accent-success');
+  border-color: theme('colors.success-light');
 }
 .toggle-checkbox:checked + .toggle-label {
-  background-color: theme('colors.accent-success');
+  background-color: theme('colors.success-light');
 }
 </style>

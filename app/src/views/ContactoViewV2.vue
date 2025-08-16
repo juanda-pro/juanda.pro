@@ -5,8 +5,9 @@ import { ref, nextTick } from 'vue';
 import PageLayout from '@/components/PageLayout.vue';
 import SectionWrapper from '@/components/SectionWrapper.vue';
 import HeroSection from '@/components/HeroSection.vue';
-import ContactForm from '@/components/ContactForm.vue';
+import ContactFormImproved from '@/components/ContactFormImproved.vue';
 import ContactInfo from '@/components/ContactInfo.vue';
+import SimpleCallToAction from '@/components/SimpleCallToAction.vue';
 
 // Importar imagen de fondo
 import HeaderBackground from '../assets/cabecera_inicio.jpeg';
@@ -86,7 +87,7 @@ function handleFormSubmit(formData) {
           </h3>
         </div>
         
-        <ContactForm 
+        <ContactFormImproved 
           ref="contactFormRef"
           @submit="handleFormSubmit"
           @expand="handleFormExpand"
@@ -103,33 +104,13 @@ function handleFormSubmit(formData) {
 
     <!-- Cierre con CTA -->
     <SectionWrapper spacing="normal">
-      <div class="text-center">
-        <div class="max-w-2xl mx-auto space-y-6">
-          <h3 class="text-2xl font-bold text-primary-light dark:text-primary-dark">
-            Gracias
-          </h3>
-          
-          <p class="text-xl text-secondary-light dark:text-secondary-dark">
-            Cada conversación es una oportunidad de crear sinergias interesantes. ¡Espero tu mensaje!
-          </p>
-
-          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <button 
-              @click="handleFormButton()"
-              class="inline-flex items-center px-6 py-3 bg-brand-accent hover:bg-brand-accent/90 text-gray-900 rounded-lg transition-all duration-200 font-medium hover:transform hover:-translate-y-1 hover:shadow-lg"
-            >
-              Escribir ahora
-            </button>
-            <span class="text-secondary-light dark:text-secondary-dark">o</span>
-            <a 
-              href="/blog" 
-              class="inline-flex items-center px-6 py-3 bg-surface-light dark:bg-surface-dark hover:bg-surface-light/80 dark:hover:bg-surface-dark/80 text-primary-light dark:text-primary-dark border border-border-light dark:border-border-dark rounded-lg transition-all duration-200 font-medium hover:transform hover:-translate-y-1 hover:shadow-lg"
-            >
-              Aprender más
-            </a>
-          </div>
-        </div>
-      </div>
+      <SimpleCallToAction
+        title="Gracias"
+        description="Cada conversación es una oportunidad de crear sinergias interesantes. ¡Espero tu mensaje!"
+        :primary-button="{ text: 'Escribir ahora' }"
+        :secondary-button="{ text: 'Aprender más', href: '/blog' }"
+        @primary-action="handleFormButton"
+      />
     </SectionWrapper>
   </PageLayout>
 </template>

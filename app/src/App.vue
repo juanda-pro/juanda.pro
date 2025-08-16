@@ -5,7 +5,7 @@ import Footer from './components/Footer.vue'
 </script>
 
 <template>
-  <div class="font-sans flex flex-col min-h-screen bg-light dark:bg-brand-dark text-primary-light dark:text-primary-dark transition-colors duration-300">
+  <div class="font-sans flex flex-col min-h-screen bg-[#F5F5F5] dark:bg-[#1D1E23] text-primary-light dark:text-primary-dark transition-colors duration-300">
     <Header />
     <main id="main-content" class="flex-grow dotted-background">
       <RouterView v-slot="{ Component, route }">

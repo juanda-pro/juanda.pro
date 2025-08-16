@@ -13,7 +13,7 @@ interface Props {
 const slots = useSlots();
 
 const props = withDefaults(defineProps<Props>(), {
-  animatedTextClass: 'text-brand-accent animate-pulse'
+  animatedTextClass: 'text-white animate-color-cycle'
 });
 
 // Computed para procesar título con texto animado
@@ -89,5 +89,15 @@ const processedTitle = computed(() => {
 <style scoped>
 .text-shadow-md {
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes color-cycle {
+  0% { color: white; }
+  50% { color: #F5DF4D; }
+  100% { color: white; }
+}
+
+.animate-color-cycle {
+  animation: color-cycle 2.5s ease-in-out infinite;
 }
 </style>
